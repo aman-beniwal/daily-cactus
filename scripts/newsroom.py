@@ -153,8 +153,8 @@ def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
         LOG.parent.mkdir(parents=True, exist_ok=True)
         with open(LOG, "a", encoding="utf-8") as f:
             f.write(json.dumps(row) + "\n")
-        print(f"  {stage}: {row['input_tokens']} in (+{row['cache_read_tokens']} cached) / "
-              f"{row['output_tokens']} out, {dur}s, turns={row['turns']}")
+        tin = sum((row.get(k) or 0) for k in ("input_tokens", "cache_write_tokens", "cache_read_tokens"))
+        print(f"  {stage}: {tin:,} tokens in / {row['output_tokens']:,} out, {dur}s, turns={row['turns']}")
         if meta.get("is_error"):
             last_err = str(meta.get("result"))[:400]
             if re.search(r"auth|token|401|403|expired|invalid.*key|login", last_err, re.I):
