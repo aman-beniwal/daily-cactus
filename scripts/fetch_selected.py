@@ -69,6 +69,49 @@ except Exception:                                             # noqa: BLE001
     def resolve_gnews_url(url):
         return url
 
+# --- v7: recovery chain for sites that block the direct fetch --------------
+# Audit 24 Aug-23 Sep 2026: of 1,205 selected stories, 293 (24%) reached the
+# writer with no real body text — Reuters 40/40, Bloomberg 49/49, YourStory
+# 38/38 (~150-char stub), NDTV 10/10, Indian Express 9/9 — i.e. precisely the
+# highest-value outlets (see memory: fix extraction, never drop the source).
+# When the direct fetch fails or returns a paywall/bot-wall stub:
+#   1. a public reader proxy (r.jina.ai) — verified 23 Sep 2026 to return the
+#      body for Bloomberg (lede + first paragraphs), YourStory, NDTV and
+#      Firstpost. Only the PUBLIC article URL is sent; no keys, no user data.
+#   2. SIBLING COVERAGE — the same story as reported by another outlet, found
+#      with a Google News search on the headline. Reuters is blocked for both
+#      the direct fetch and the reader, but its wire copy is republished and
+#      re-reported widely. The card still links to the original outlet; the
+#      text is clearly marked as coming from the other outlet.
+#   3. the digest snippet (unchanged fallback).
+READER_PREFIX = "https://r.jina.ai/"
+READER_TIMEOUT = 25
+MIN_BODY_CHARS = 600            # below this an "extract" is a stub, not an article
+RECOVERY_TIME_BUDGET = 300      # seconds on top of TOTAL_TIME_BUDGET
+# Borrowed text must come from a real newsroom — an open Google News search
+# also returns content-scraper sites (verified 23 Sep 2026: a restaurant
+# domain republishing a Reuters story). Allowlist, matched on the domain.
+SIBLING_OK = (
+    "thehindu.com", "thehindubusinessline.com", "indianexpress.com", "hindustantimes.com",
+    "livemint.com", "economictimes.indiatimes.com", "timesofindia.indiatimes.com",
+    "business-standard.com", "moneycontrol.com", "ndtv.com", "ndtvprofit.com",
+    "indiatoday.in", "businesstoday.in", "theprint.in", "scroll.in", "firstpost.com",
+    "news18.com", "deccanherald.com", "financialexpress.com", "tribuneindia.com",
+    "telegraphindia.com", "thewire.in", "inc42.com", "yourstory.com", "entrackr.com",
+    "medianama.com", "moneylife.in", "outlookbusiness.com", "usnews.com",
+    "investing.com", "marketscreener.com", "finance.yahoo.com", "cnbc.com", "bbc.com",
+    "bbc.co.uk", "theguardian.com", "aljazeera.com", "apnews.com", "cnn.com",
+    "washingtonpost.com", "scmp.com", "straitstimes.com", "japantimes.co.jp",
+    "dw.com", "france24.com", "arabnews.com", "thenationalnews.com", "fortune.com",
+    "techcrunch.com", "theverge.com", "arstechnica.com", "wired.com", "semafor.com",
+    "axios.com", "politico.com", "politico.eu", "businessinsider.com", "qz.com",
+    "statnews.com", "fiercebiotech.com", "spacenews.com", "theregister.com",
+    "inkl.com", "tradingview.com", "nikkei.com", "asia.nikkei.com", "channelnewsasia.com",
+    "euronews.com", "independent.co.uk", "npr.org", "latimes.com", "time.com",
+    "forbes.com", "forbesindia.com", "thediplomat.com", "carbonbrief.org",
+    "pv-tech.org", "mercomindia.com", "energy-storage.news")
+BLOCKED_DOMAINS = ("reuters.com", "bloomberg.com", "wsj.com", "ft.com",
+                   "economist.com", "nytimes.com", "the-ken.com")
 FULLTEXT_CHARS = 12_000        # generous: whole news articles, only truncates
                                 # pathological longform (per the brief).
 TOTAL_TIME_BUDGET = 480        # seconds, CI-friendly ceiling for the whole pass
@@ -157,6 +200,111 @@ def collect_ids(sel: dict) -> tuple:
     return out, lite
 
 
+import re as _re
+import urllib.parse as _up
+import urllib.request as _ur
+from enrich_shortlist import _SSL_CTX, BROWSER_UA
+try:
+    from editorial import JUNK_TEXT_RX, sig_tokens, same_story
+except Exception:                                              # noqa: BLE001
+    JUNK_TEXT_RX = _re.compile(r"$^")
+    sig_tokens = lambda t: set((t or "").lower().split())      # noqa: E731
+    same_story = lambda a, b: 0.0                              # noqa: E731
+
+
+def _usable(text: str) -> bool:
+    t = (text or "").strip()
+    return len(t) >= MIN_BODY_CHARS and not JUNK_TEXT_RX.search(t[:800])
+
+
+def _via_reader(url: str) -> str:
+    """Body text via the r.jina.ai reader, or ''. Never raises."""
+    try:
+        req = _ur.Request(READER_PREFIX + url, headers={
+            "User-Agent": BROWSER_UA, "Accept": "text/plain", "X-Return-Format": "text"})
+        with _ur.urlopen(req, timeout=READER_TIMEOUT, context=_SSL_CTX) as r:
+            body = r.read().decode("utf-8", errors="replace")
+    except Exception:                                          # noqa: BLE001
+        return ""
+    i = body.find("Markdown Content:")
+    body = body[i + len("Markdown Content:"):] if i >= 0 else body
+    # keep prose paragraphs; drop nav/link soup the reader passes through
+    boiler = _re.compile(r"terms of service|cookie|by accepting|subscribe|sign in|"
+                         r"newsletter|privacy policy|all rights reserved", _re.I)
+    paras = [p.strip() for p in body.split("\n")
+             if len(p.split()) >= 12 and p.count("](") < 2 and not boiler.search(p)
+             and p.strip()[-1:] in '.”"?!)’']
+    text = "\n".join(paras)
+    if JUNK_TEXT_RX.search(text[:800]):
+        return ""
+    return text[:FULLTEXT_CHARS]
+
+
+def _gnews_search(headline: str):
+    """(title, source, url) candidates for the same story from Google News."""
+    q = _up.quote_plus(_re.sub(r"\s+[-|]\s+[^-|]+$", "", headline)[:140])
+    feed = f"https://news.google.com/rss/search?q={q}&hl=en-IN&gl=IN&ceid=IN:en"
+    try:
+        req = _ur.Request(feed, headers={"User-Agent": BROWSER_UA})
+        with _ur.urlopen(req, timeout=15, context=_SSL_CTX) as r:
+            xml = r.read().decode("utf-8", errors="replace")
+    except Exception:                                          # noqa: BLE001
+        return []
+    out = []
+    for item in _re.findall(r"<item>(.*?)</item>", xml, _re.S)[:12]:
+        t = _re.search(r"<title>(.*?)</title>", item, _re.S)
+        l = _re.search(r"<link>(.*?)</link>", item, _re.S)
+        src = _re.search(r"<source[^>]*>(.*?)</source>", item, _re.S)
+        if t and l:
+            import html as _h
+            out.append((_h.unescape(t.group(1)), _h.unescape(src.group(1)) if src else "",
+                        l.group(1).strip()))
+    return out
+
+
+def _via_sibling(headline: str, own_url: str):
+    """(text, outlet) of the same story from another, fetchable outlet."""
+    own_dom = _up.urlparse(own_url).netloc.replace("www.", "")
+    want = sig_tokens(headline)
+    for title, src, link in _gnews_search(headline):
+        if same_story(want, sig_tokens(title)) < 0.35:
+            continue
+        real = resolve_gnews_url(link)
+        dom = _up.urlparse(real).netloc.replace("www.", "")
+        if not dom or dom == own_dom or "news.google" in dom or \
+                any(b in dom for b in BLOCKED_DOMAINS) or \
+                not any(dom == ok or dom.endswith("." + ok) for ok in SIBLING_OK):
+            continue
+        try:
+            text = fetch_extract(real, max_chars=FULLTEXT_CHARS) or ""
+        except Exception:                                      # noqa: BLE001
+            text = ""
+        if _usable(text):
+            return text, (src or dom)
+    return "", ""
+
+
+def recover_text(headline: str, url: str, deadline: float):
+    """v7 recovery chain. Returns (text, via) or ('', '')."""
+    if not url or time.time() > deadline:
+        return "", ""
+    dom = _up.urlparse(url).netloc
+    lede = ""
+    if "reuters.com" not in dom:              # reuters is blocked at the reader too
+        t = _via_reader(url)
+        if _usable(t):
+            return t, "reader"
+        lede = t if len(t) >= 250 else ""      # paywalled: lede paragraphs only
+    if time.time() > deadline:
+        return (lede, "reader-lede") if lede else ("", "")
+    t, outlet = _via_sibling(headline, url)
+    if t:
+        note = (f"[Text below is {outlet}'s report of the same story — the original "
+                f"outlet blocks automated reading. The link still points to the original.]\n")
+        return note + (lede + "\n" if lede else "") + t, f"sibling:{outlet}"
+    return (lede, "reader-lede") if lede else ("", "")
+
+
 def fetch_one(sid: str, refs: dict, fallbacks: dict, start: float, lite: bool = False) -> dict:
     """Never raises. Tries full article text; on failure degrades to the
     digest snippet (2500-char extract / RSS summary) rather than empty, so a
@@ -189,7 +337,17 @@ def fetch_one(sid: str, refs: dict, fallbacks: dict, start: float, lite: bool = 
             fulltext = fetch_extract(url, max_chars=FULLTEXT_CHARS) or ""
         except Exception:                                      # noqa: BLE001
             fulltext = ""
-    if fulltext:
+    via = ""
+    if fulltext and not _usable(fulltext):
+        fulltext = ""                          # paywall/bot-wall stub, not an article
+    if not fulltext:
+        fulltext, via = recover_text(ref.get("title", ""), url,
+                                     start + TOTAL_TIME_BUDGET + RECOVERY_TIME_BUDGET)
+    if fulltext and via == "reader-lede":
+        source_kind = "digest-extract"         # honest: the writer must treat it as partial
+    elif fulltext:
+        # "full" keeps the pasted writer prompt's contract; `text_via` records
+        # how it was obtained (the sibling note is also inside the text itself).
         source_kind = "full"
     else:
         snippet = (fallbacks.get(sid) or "").strip()
@@ -204,6 +362,7 @@ def fetch_one(sid: str, refs: dict, fallbacks: dict, start: float, lite: bool = 
         "image": ref.get("image"),
         "fulltext": fulltext,
         "text_source": source_kind,
+        **({"text_via": via} if via else {}),
     }
 
 

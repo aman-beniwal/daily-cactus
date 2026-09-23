@@ -30,6 +30,11 @@ second routine then writes the actual paper from that full text. **You only
 supply story IDs and structure — no headlines, no summaries, no prose.**
 
 ## Editorial charter (same bar as the full edition — you're picking, not writing)
+- **Follow the "Editorial contract" in CLAUDE.md** (loaded automatically): the
+  scoring dimensions, the 24-card reading budget, and how to treat the digest's
+  `seen` (already ran — re-pick only for a new fact), `flags` (press release /
+  roundup / opinion / weak section fit — guilty until proven) and `buzz`
+  (number of independent outlets) fields. The file's `how_to_read` repeats this.
 - **Signal over noise.** Cutting a weak story is good editing — but a section
   that had real news must NOT be starved. Select every story that genuinely
   clears the bar, up to the digest's caps; "fewer" is for thin days, not a target.
@@ -81,7 +86,7 @@ supply story IDs and structure — no headlines, no summaries, no prose.**
 
 **HARD CAP: never select more than 45 ids in total** (lead + frontpage +
 every section's `stories` and `also` + opportunities + longform, counted
-together). Aim for 30-40 on a normal day. This is a real budget, not a
+together). Aim for 24-32 on a normal day (at most 24 become full cards; the rest are `also` one-liners). This is a real budget, not a
 guideline: a later step fetches the FULL article for every id you pick, and the
 writing routine re-reads all of it, so over-selecting directly inflates cost.
 If more than 45 clear the bar, keep the strongest — that IS the editing job.

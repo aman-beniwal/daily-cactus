@@ -12,7 +12,11 @@ name: Fetch RSS Feeds
 on:
   schedule:
     # 23:30 UTC == 05:00 AM IST. Routine is assumed ~06:00 AM IST.
-    - cron: '30 23 * * *'
+    # v7: 21:17 UTC = 02:47 IST. GitHub runs scheduled jobs late at busy times
+    # (the old 23:30 UTC slot started 1.5-2h late every day from late Aug), and
+    # an odd minute dodges the top-of-hour queue. Everything is ready well
+    # before a 06:00 IST routine even with a 2h delay.
+    - cron: '17 21 * * *'
   workflow_dispatch:   # lets you click "Run workflow" to test on demand
 
 permissions:
@@ -71,7 +75,7 @@ jobs:
         run: |
           git config user.name  "Daily Cactus Bot"
           git config user.email "bot@dailycactus.local"
-          git add feeds/latest.json feeds/digest.json feeds/digest_lean.json feeds/refs.json feeds/refs/ feeds/markets.json feeds/feed_stats.jsonl feeds/opportunities.json
+          git add feeds/latest.json feeds/digest.json feeds/digest_lean.json feeds/refs.json feeds/refs/ feeds/markets.json feeds/feed_stats.jsonl feeds/opportunities.json feeds/shortlist_log.jsonl
           # Only commit if something actually changed
           git diff --staged --quiet || git commit -m "Fetch feeds $(date -u +%Y-%m-%dT%H:%MZ)"
           git push
@@ -85,6 +89,10 @@ jobs:
           if [ "${{ steps.digest.outcome }}" = "failure" ] || grep -q "DIGEST_EMPTY" digest_output.log; then
             echo "DIGEST_BROKEN=1" >> "$GITHUB_ENV"
           fi
+          if grep -q "DEDUP_BROKEN" digest_output.log; then
+            echo "DIGEST_BROKEN=1" >> "$GITHUB_ENV"
+            echo "DEDUP_BROKEN=1" >> "$GITHUB_ENV"
+          fi
 
       - name: Open a health issue
         if: always() && (steps.fetch.outcome == 'failure' || env.DIGEST_BROKEN == '1')
@@ -96,6 +104,7 @@ jobs:
               `fetch step outcome: ${{ toJSON(steps.fetch.outcome) }}`,
               `digest step outcome: ${{ toJSON(steps.digest.outcome) }}`,
               `digest empty/broken flag: ${process.env.DIGEST_BROKEN || '0'}`,
+              `repeat filter broken (no past editions loaded): ${process.env.DEDUP_BROKEN || '0'}`,
               '',
               'See the Actions run log for details. The paper may be thin or missing today.',
             ].join('\n');

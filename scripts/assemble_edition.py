@@ -162,7 +162,7 @@ _NUMNOUN = re.compile(
 _CONSEQ = re.compile(
     r"\b(?:could|will|would|expects? to|plans? to|aims? to|set to|means|"
     r"risks?|threatens? to|projected to|forecast to)\b"
-    r"(?:[ -][\w'’%$₹.-]+){1,7}", re.I)
+    r"(?:[ -][\w'’%$₹.-]+(?:,\d{3})*){1,7}", re.I)
 
 _STOP_EDGE = {"and", "the", "in", "on", "to", "for", "its", "by", "as", "at",
               "that", "a", "an", "with", "after", "ahead", "even", "amid",
@@ -204,7 +204,10 @@ def highlight_phrase(text: str):
         if re.fullmatch(r"(?:19|20)\d\d", p):
             return None
         has_word = any(re.search(r"[a-zA-Z]", w) and
-                       not re.fullmatch(r"[\d,.$₹€£%/-]+", w) for w in p.split())
+                       not re.fullmatch(r"[\d,.$₹€£%/-]+", w) and
+                       not re.fullmatch(r"[$₹€£]?[\d,.]+(?:tn|bn|b|m|k|mn|cr|crore|lakh|"
+                                        r"trillion|billion|million|%)?[,.;:]?", w, re.I)
+                       for w in p.split())
         has_num = bool(re.search(r"\d", p))
         if has_word and has_num:
             return p
@@ -246,6 +249,27 @@ MAX_POINTS = 5
 DERIVED = {"count": 0, "total": 0}
 
 
+# v7: the old splitter broke on every initial or title — "Andhra Pradesh CM
+# N." / "Chandrababu Naidu has approved…", "Capt." / "Tim Hawkins said…",
+# "Lindsey O." / "Graham Sanctioning Russia…" (13 broken hooks in 12 audited
+# editions). Re-join any split whose left side ends in an abbreviation.
+_ABBREV_END = re.compile(
+    r"(?:\b[A-Z]|\b(?:Mr|Mrs|Ms|Dr|Prof|Capt|Col|Gen|Lt|Maj|Sgt|Adm|Gov|Sen|Rep|"
+    r"St|Jr|Sr|Inc|Ltd|Co|Corp|No|vs|Rs|Mt|Ft|approx|est|Jan|Feb|Mar|Apr|Jun|Jul|"
+    r"Aug|Sep|Sept|Oct|Nov|Dec|U\.S|U\.K|U\.N|E\.U|a\.m|p\.m|i\.e|e\.g|Bros|Hon|Smt|Shri))\.$")
+
+
+def split_sentences(text: str):
+    parts = [p.strip() for p in _SENT_SPLIT.split(text or "") if p.strip()]
+    out = []
+    for p in parts:
+        if out and _ABBREV_END.search(out[-1]):
+            out[-1] = f"{out[-1]} {p}"
+        else:
+            out.append(p)
+    return out
+
+
 def split_summary(summary: str):
     """(hook, points) from a single-paragraph summary, or (None, []) if it is
     too short or too thin to be worth splitting."""
@@ -254,7 +278,7 @@ def split_summary(summary: str):
         # Provenance-flagged summaries ("source unreachable — headline only")
         # are one honest sentence by design. Never bullet them.
         return None, []
-    parts = [p.strip() for p in _SENT_SPLIT.split(text) if p.strip()]
+    parts = split_sentences(text)
     if len(parts) < MIN_POINTS + 1:
         return None, []
     hook, rest = parts[0], parts[1:]
@@ -291,6 +315,66 @@ def apply_emphasis(story):
             story["points"] = [_wrap_first(p, up, "__", "__") if up in p else p
                                for p in story["points"]]
     return story
+
+
+# --- v7 copy-desk guardrails --------------------------------------------------
+# Deterministic, run on every draft whatever prompt the routine is on. Each one
+# is a measured failure from the 24 Aug-23 Sep audit (12 editions, ~450 cards).
+HOOK_MAX_WORDS = 38
+POINT_MAX_WORDS = 50
+# "worth watching/tracking" closed 40+ signal bullets in 12 editions — the
+# single strongest machine-written tell. A bullet that is ONLY that goes; a
+# bullet that says WHAT to watch keeps its content and loses the filler.
+_FILLER_ONLY = re.compile(
+    r"^\s*(?:(?:this is |it'?s |a story |one )?(?:worth|one worth) (?:watching|tracking|"
+    r"following|remembering|a follow-up|keeping an eye on)|useful context,? not "
+    r"(?:personally )?actionable|not (?:personally )?actionable|the (?:real )?signal "
+    r"is (?:clear|here)|watch this space)[.!]?\s*$", re.I)
+_FILLER_TAIL = re.compile(
+    r"\s*[—–-]+\s*(?:worth (?:watching|tracking|following|remembering))[.!]?\s*$|"
+    r"[;,]\s*(?:worth (?:watching|tracking|following))[.!]?\s*$", re.I)
+_FILLER_LEAD = re.compile(r"^\s*(?:worth (?:watching|tracking)(?: is)?|the thing to watch "
+                          r"is|the number to (?:remember|watch)(?: is)?)\s*[:—–-]?\s*", re.I)
+QUALITY = {"hooks_split": 0, "points_split": 0, "signal_filler": 0,
+           "editors_read_stripped": 0, "headline_only_commentary": 0}
+
+
+def _words(t):
+    return len((t or "").split())
+
+
+def tidy_hook_points(hook, points):
+    """Split an overstuffed hook / bullet at its first semicolon clause."""
+    if hook and _words(hook) > HOOK_MAX_WORDS and "; " in hook:
+        head, tail = hook.split("; ", 1)
+        if _words(head) >= 8 and _words(tail) >= 6:
+            hook = head.rstrip(" ,") + "."
+            points = [tail[:1].upper() + tail[1:]] + list(points or [])
+            QUALITY["hooks_split"] += 1
+    out = []
+    for p in points or []:
+        if _words(p) > POINT_MAX_WORDS and "; " in p:
+            a, b = p.split("; ", 1)
+            if _words(a) >= 8 and _words(b) >= 6:
+                out += [a.rstrip(" ,") + ".", b[:1].upper() + b[1:]]
+                QUALITY["points_split"] += 1
+                continue
+        out.append(p)
+    return hook, out[:MAX_POINTS + 1]
+
+
+def clean_signal(signal):
+    out = []
+    for b in signal or []:
+        if _FILLER_ONLY.match(b):
+            QUALITY["signal_filler"] += 1
+            continue
+        nb = _FILLER_LEAD.sub("", _FILLER_TAIL.sub(".", b)).strip()
+        if nb != b.strip():
+            QUALITY["signal_filler"] += 1
+        if nb and _words(nb) >= 4:
+            out.append(nb[:1].upper() + nb[1:])
+    return out
 
 
 def coerce_signal(v):
@@ -345,8 +429,9 @@ def load_refs_for_date(date_str: str) -> dict:
     return merged
 
 
-def build_story(item, refs, warnings):
+def build_story(item, refs, warnings, allow_read=True, text_source=None):
     """Merge model prose with the verbatim url/image/source from refs[id]."""
+    text_source = text_source or {}
     sid = item.get("id")
     ref = refs.get(sid)
     if ref is None:
@@ -403,10 +488,12 @@ def build_story(item, refs, warnings):
             points = derived_points
             story["summary"] = ""      # the bullets now carry it; don't double up
             DERIVED["count"] += 1
+    hook, points = tidy_hook_points(hook, points)
     if hook:
         story["hook"] = hook
     if points:
         story["points"] = points
+    story["signal"] = clean_signal(story["signal"])
 
     # Emphasis (yellow claim + black consequence) — must not depend on a
     # hand-pasted prompt, so it runs here after hook/points are settled, and
@@ -417,7 +504,19 @@ def build_story(item, refs, warnings):
     if item.get("key_stat"):
         story["key_stat"] = str(item["key_stat"]).strip()
     if item.get("editors_read"):
-        story["editors_read"] = str(item["editors_read"]).strip()
+        if allow_read:
+            story["editors_read"] = str(item["editors_read"]).strip()
+        else:
+            QUALITY["editors_read_stripped"] += 1
+    # Headline-only card: the writer had NOTHING but a headline, so any
+    # "so what" or analysis is invented (10 of 17 such cards carried one).
+    flagged = _SRC_FLAG_RE.search(" ".join([story.get("summary", ""), story.get("hook", "")] +
+                                           story.get("points", [])))
+    if flagged or text_source.get(sid) == "none":
+        if story.get("signal") or story.get("editors_read"):
+            QUALITY["headline_only_commentary"] += 1
+        story["signal"] = []
+        story.pop("editors_read", None)
     rail = build_also_rail(item.get("also"), refs, warnings)
     if rail:
         story["also"] = rail
@@ -480,19 +579,27 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
     DERIVED["count"] = 0    # per-edition: main() processes multiple drafts in
                              # one run, and this must not accumulate across them
 
+    for k in QUALITY:
+        QUALITY[k] = 0
+    sel = load_json(ROOT / "feeds" / "selected" / f"{date}.json", default={}) or {}
+    ts = {k: (v or {}).get("text_source") for k, v in (sel.get("stories") or {}).items()}
+
     lead = None
     if draft.get("lead"):
-        lead = build_story(draft["lead"], refs, warnings)
+        lead = build_story(draft["lead"], refs, warnings, True, ts)
 
+    # editors_read: lead + the top two front-page stories only (violated on
+    # every audited day).
     frontpage = [s for s in (
-        build_story(x, refs, warnings) for x in draft.get("frontpage", []) or []
+        build_story(x, refs, warnings, i < 2, ts)
+        for i, x in enumerate(draft.get("frontpage", []) or [])
     ) if s]
 
     sections = []
     for sec in draft.get("sections", []) or []:
         slug = sec.get("slug", "")
         stories = [s for s in (
-            build_story(x, refs, warnings) for x in sec.get("stories", []) or []
+            build_story(x, refs, warnings, False, ts) for x in sec.get("stories", []) or []
         ) if s]
         if not stories:
             continue
@@ -553,6 +660,15 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
         print(f"    !! That means Routine B is running a STALE PROMPT. Re-paste "
               f"ROUTINE_PROMPT_B.md into the WRITE routine to get model-written "
               f"bullets and highlights instead of derived ones.")
+    print("    copy desk: " + ", ".join(f"{k}={v}" for k, v in QUALITY.items()))
+    if DERIVED["count"] and n_stories and DERIVED["count"] >= max(3, n_stories // 4):
+        # v7: the stale-prompt line used to go only to a log nobody reads —
+        # it fired every single day for a month. publish.yml now turns this
+        # file into a GitHub issue (-> email).
+        (ROOT / "publish_health.txt").write_text(
+            f"{date}: {DERIVED['count']} of {n_stories} cards arrived as paragraphs "
+            f"(no hook/points). The WRITE routine's pasted prompt is out of date — "
+            f"re-paste ROUTINE_PROMPT_B.md.\n")
     for w in warnings:
         print(f"    warn: {w}")
     if warnings_out is not None:

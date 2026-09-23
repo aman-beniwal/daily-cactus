@@ -34,6 +34,7 @@ const SECTION_COLOR = {
   "other-interests": "violet",
   "beyond-your-beat": "violet",
   "opportunities": "sea",
+  "work-careers": "sea",
 };
 const COLOR_FALLBACK_ORDER = ["clay", "slate", "leaf", "rose", "olive", "marigold",
   "teal", "steel", "saffron", "horizon", "violet", "sea"];
@@ -553,7 +554,7 @@ function briefHTML(brief, urlAnchors) {
 // the end in their original order; Opportunities always renders last, separately.
 const SECTION_ORDER = ["ai", "indian-startups", "deep-tech", "india-deep-tech",
   "climate-energy", "agritech", "health-tech", "global-economics", "india",
-  "world", "other-interests", "beyond-your-beat"];
+  "world", "work-careers", "other-interests", "beyond-your-beat"];
 
 // ---------- main render ----------
 function renderEdition(ed) {
@@ -789,7 +790,7 @@ async function init() {
   if (eds.length) {
     const sel = $("#datepick");
     sel.innerHTML = eds.map((e) =>
-      `<option value="${esc(e.date)}">${esc(e.date)}${e.lead ? " — " + esc(e.lead.slice(0, 60)) : ""}</option>`
+      `<option value="${esc(e.date)}">${esc(e.date)}${e.lead ? " — " + esc(e.lead.replace(/==|__/g, "").slice(0, 60)) : ""}</option>`
     ).join("");
     sel.addEventListener("change", () => loadEdition(sel.value, true));
     $("#datebar").style.visibility = "visible";

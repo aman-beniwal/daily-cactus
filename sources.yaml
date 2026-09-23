@@ -28,13 +28,17 @@ sections:
       # with this project's own UA), which is the fix for MIT TR contributing
       # only ~1.6 items/day while the Google News query supplied ~10.
       - https://www.technologyreview.com/topic/artificial-intelligence/feed   # [VERIFIED] Jul 2026
-      - https://www.technologyreview.com/topic/artificial-intelligence/feed?paged=2  # [VERIFIED] Jul 2026 — distinct set
+      # ?paged=2 dropped 23 Sep 2026: 0 items fetched in 7 days (feed_stats).
       - https://www.technologyreview.com/feed/                                # [VERIFIED] Jul 2026 — main feed, highest velocity (~2.5/day)
       - https://www.theguardian.com/technology/artificialintelligenceai/rss   # [VERIFIED] Jul 2026 — 20 items, straight at the reader's main domain
       - https://techcrunch.com/category/artificial-intelligence/feed/          # [VERIFIED]
       # analyticsindiamag.com/feed dropped (Jul 2026 B7 audit): parse failure,
       # confirmed dead — no valid entries returned.
-      - https://importai.substack.com/feed                                     # [VERIFIED] Jul 2026 — works now, despite HANDOFF's old "flaky" note
+      # importai.substack.com dropped 23 Sep 2026 (0 items in 7 days) — Jack Clark's own mirror below.
+      - https://jack-clark.net/feed/                     # [VERIFIED 23 Sep 2026] Import AI, weekly
+      - https://simonwillison.net/atom/everything/       # [VERIFIED 23 Sep 2026] practitioner signal on models/tools, ~5/day
+      - https://www.theverge.com/rss/ai-artificial-intelligence/index.xml  # [VERIFIED 23 Sep 2026]
+      - https://www.medianama.com/feed/                  # [VERIFIED 23 Sep 2026] India tech & AI POLICY — the missing beat
       - https://news.google.com/rss/search?q=(%22artificial+intelligence%22+OR+AI+OR+%22machine+learning%22+OR+OpenAI+OR+Anthropic+OR+DeepMind)+(India+OR+research+OR+breakthrough+OR+launch+OR+policy+OR+funding+OR+regulation+OR+acquisition)+when:3d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Deep Tech"
@@ -49,6 +53,9 @@ sections:
       - https://www.quantamagazine.org/feed/              # [OK]
       - https://www.theguardian.com/technology/rss        # [VERIFIED]
       - https://www.scmp.com/rss/36/feed                  # [VERIFIED] Asia tech
+      - https://spacenews.com/feed/                      # [VERIFIED 23 Sep 2026] space industry of record
+      - https://www.eetimes.com/feed/                    # [VERIFIED 23 Sep 2026] semiconductors, trade press of record
+      - https://breakingdefense.com/feed/                # [VERIFIED 23 Sep 2026] defence tech & procurement
       - https://news.google.com/rss/search?q=(semiconductor+OR+robotics+OR+drones+OR+UAV+OR+%22defence+tech%22+OR+%22advanced+materials%22+OR+quantum+OR+spacetech+OR+ISRO+OR+%22humanoid+robot%22+OR+fusion+OR+photonics)+when:3d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] strategic + frontier
 
   - name: "Climate & Energy"
@@ -60,6 +67,8 @@ sections:
       - https://www.carbonbrief.org/feed/                 # [OK]
       - https://www.canarymedia.com/rss                   # [OK]
       - https://www.theguardian.com/environment/rss       # [VERIFIED]
+      - https://www.mercomindia.com/feed                 # [VERIFIED 23 Sep 2026] India renewables — tenders, capacity, policy, with numbers
+      - https://heatmap.news/feeds/feed.rss              # [VERIFIED 23 Sep 2026] climate business/politics, analytical
       - https://news.google.com/rss/search?q=(solar+OR+EV+OR+%22green+hydrogen%22+OR+%22renewable+energy%22+OR+%22energy+storage%22+OR+%22carbon+market%22+OR+%22climate+adaptation%22+OR+%22water+scarcity%22+OR+biodiversity+OR+IPCC+OR+%22extreme+weather%22)+(India+OR+study+OR+report)+when:3d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Health Tech"
@@ -70,6 +79,7 @@ sections:
     feeds:
       - https://www.statnews.com/feed/                    # [OK]
       - https://www.fiercebiotech.com/rss/xml             # [OK]
+      - https://health.economictimes.indiatimes.com/rss/topstories  # [VERIFIED 23 Sep 2026] India health industry
       - https://news.google.com/rss/search?q=(%22health+tech%22+OR+%22digital+health%22+OR+telemedicine+OR+medtech+OR+pharma+OR+%22drug+discovery%22+OR+%22clinical+trial%22+OR+CRISPR+OR+mRNA+OR+immunotherapy)+(India+OR+research)+when:4d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Agritech"
@@ -79,7 +89,8 @@ sections:
     angle: "India-first farm tech, food security, alt-proteins, regenerative & precision agriculture. Deployment over demos."
     feeds:
       - https://agfundernews.com/feed                     # [OK]
-      - https://news.mongabay.com/feed/                   # [VERIFIED] nature/agri
+      # news.mongabay.com moved out 23 Sep 2026: it filled 82 Agritech shortlist slots in a
+      # month with wildlife/forest stories (16% ever picked). Still fetched under Other Interests.
       # downtoearth.org.in/rss/agriculture dropped (Jul 2026 B7 audit): DTE
       # retired per-category feeds (301s to the HTML category page now, no
       # RSS discovery link on the page either; their only surviving feed is
@@ -108,7 +119,9 @@ sections:
       # is not in the HTML, so unlike New Scientist enrichment cannot recover
       # it. Contributed 0 cards across the 5 editions audited. If it ever
       # comes back it can only ever be a headline with no summary.
-      - https://www.theguardian.com/world/india/rss        # [VERIFIED] Jul 2026 — 20 items, direct India lens
+      # Guardian India moved to the India section 23 Sep 2026: general news, 28 slots / 0 picks here.
+      - https://entrackr.com/rss                          # [VERIFIED 23 Sep 2026] (feed moved from /feed) funding & M&A with numbers
+      - https://economictimes.indiatimes.com/tech/startups/rssfeeds/78570550.cms  # [VERIFIED 23 Sep 2026] ET Startups
       - https://restofworld.org/feed/latest/               # [VERIFIED] Jul 2026 — B7 replacement, global emerging-market tech/venture angle
       - https://news.google.com/rss/search?q=(startup+OR+unicorn+OR+founder+OR+%22venture+capital%22+OR+%22seed+funding%22+OR+D2C+OR+%22quick+commerce%22)+(funding+OR+raises+OR+acquires+OR+IPO+OR+shuts+OR+%22lays+off%22+OR+%22Series+A%22+OR+SEBI+OR+RBI+OR+MeitY+OR+DPIIT)+India+when:2d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
@@ -118,30 +131,26 @@ sections:
     window_hours: 96
     angle: "NEW (Jul 2026). Indian deep-tech startups & ecosystem — space, defence, drones, semiconductors, robotics, quantum, climate hardware, biomanufacturing. Funding, iDEX/IN-SPACe/DRDO-ISRO tie-ups, production milestones, policy. The owner wants to WORK in this ecosystem: who's building, who's hiring, who just got funded matters. Deployment and hardware reality over press releases."
     feeds:
-      - https://inc42.com/industry/deep-tech/feed/        # [VERIFIED] Jul 2026 — fixed slug
-                                                            # (was "deeptech", now hyphenated
-                                                            # "deep-tech"; old URL 301-redirected
-                                                            # to the HTML category page, not the
-                                                            # feed, so feedparser saw invalid XML)
+      # inc42 deep-tech feed dropped 23 Sep 2026: stale since 17 Aug (inc42.com/feed covers it).
+      - https://theprint.in/category/defence/feed/       # [VERIFIED 23 Sep 2026] India defence reporting
+      - https://www.livefistdefence.com/feed/            # [VERIFIED 23 Sep 2026] India defence/aerospace specialist
       - https://news.google.com/rss/search?q=(%22deep+tech%22+OR+deeptech+OR+spacetech+OR+%22defence+startup%22+OR+%22space+startup%22+OR+semiconductor+OR+robotics+OR+drone+OR+quantum)+(startup+OR+raises+OR+funding+OR+iDEX+OR+%22IN-SPACe%22+OR+ISRO+OR+DRDO)+India+when:4d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] India deep-tech startups
-      - https://news.google.com/rss/search?q=(Agnikul+OR+Skyroot+OR+Pixxel+OR+%22ideaForge%22+OR+Tonbo+OR+%22Bellatrix%22+OR+Sarvam+OR+%22Mindgrove%22+OR+InCore+OR+QNu+OR+Digantara+OR+GalaxEye)+when:7d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] named Indian deep-tech companies (edit this roster freely)
+      - https://news.google.com/rss/search?q=(Agnikul+OR+Skyroot+OR+Pixxel+OR+%22ideaForge%22+OR+Tonbo+OR+%22Bellatrix%22+OR+Sarvam+OR+%22Mindgrove%22+OR+InCore+OR+QNu+OR+Digantara+OR+GalaxEye+OR+%22Vikram-1%22+OR+%22Dhruva+Space%22+OR+%22Sarvam+AI%22+OR+%22Garuda+Aerospace%22+OR+NewSpace+OR+%22Ather%22)+when:7d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] named Indian deep-tech companies (edit this roster freely)
 
-  - name: "Global Economics"
+  - name: "Economy & Markets"
     slug: global-economics
     max_stories: 6        # +1 (Jul 2026 breadth raise)
     window_hours: 48
-    angle: "Macro, trade, markets, central banks, geopolitics, supply chains. What it means for India and tech."
+    angle: "Macro, trade, central banks AND India markets & big-company moves (IPOs, results, banking, SEBI/RBI actions, conglomerates). Renamed from Global Economics 23 Sep 2026: Indian business/markets news had no home and leaked into Beyond Your Beat (NSE IPO, Jio IPO, UPI fees)."
     feeds:
       - https://feeds.bloomberg.com/economics/news.rss    # [OK]
       - https://www.economist.com/finance-and-economics/rss.xml  # [OK]
       - https://www.theguardian.com/business/rss          # [VERIFIED]
-      - https://feeds.hbr.org/harvardbusiness             # [FLAKY] strategy lens — Jul 2026 B7 audit:
-                                                            # SSL EOF on every attempt (2/2) during this
-                                                            # audit; feedparser correctly reports 0
-                                                            # entries rather than crashing. Owner call:
-                                                            # keep (may be transient on HBR's CDN) —
-                                                            # revisit if the monthly feed_stats audit
-                                                            # shows a sustained 0% hit rate.
+      # feeds.hbr.org dropped 23 Sep 2026: 0 items since July (the audit's own revisit rule).
+      - https://feeds.bloomberg.com/markets/news.rss     # [VERIFIED 23 Sep 2026]
+      - https://www.livemint.com/rss/markets             # [VERIFIED 23 Sep 2026] India markets
+      - https://www.livemint.com/rss/companies           # [VERIFIED 23 Sep 2026] India companies
+      - https://www.thehindubusinessline.com/feeder/default.rss  # [VERIFIED 23 Sep 2026] India business, numbers-heavy
       - https://news.google.com/rss/search?q=(Fed+OR+RBI+OR+tariff+OR+%22trade+war%22+OR+recession+OR+%22interest+rate%22+OR+%22central+bank%22+OR+geopolitics+OR+%22supply+chain%22)+when:2d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "India"
@@ -150,17 +159,21 @@ sections:
     angle: "Top national news + digital public infrastructure (UPI/ONDC/Aadhaar). Policy and economy over politics-as-soap-opera."
     feeds:
       - https://www.thehindu.com/news/national/feeder/default.rss  # [OK]
-      - https://indianexpress.com/section/india/feed/     # [OK]
+      - https://indianexpress.com/section/india/feed      # [VERIFIED 23 Sep 2026] (trailing-slash URL returned 0 items for 7+ days)
+      - https://www.theguardian.com/world/india/rss       # [VERIFIED 23 Sep 2026] moved here from Indian Startups
       - https://news.google.com/rss/search?q=India+(economy+OR+policy+OR+infrastructure+OR+trade+OR+diplomacy+OR+UPI+OR+ONDC+OR+Aadhaar+OR+%22digital+public+infrastructure%22)+when:1d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
-  - name: "World"
+  - name: "World & Geopolitics"
     slug: world
     max_stories: 5
-    angle: "Top global headlines only. The handful of things a well-informed person should know today."
+    angle: "The handful of global things a well-informed person should know today, with a geopolitics & security lens: great-power moves, wars, India's neighbourhood, trade blocs. Geopolitics was the largest single slice (22%) of a month of top stories."
     feeds:
       - https://feeds.bbci.co.uk/news/world/rss.xml       # [OK]
       - https://www.theguardian.com/world/rss             # [VERIFIED]
       - https://www.scmp.com/rss/5/feed                   # [VERIFIED] Asia angle
+      - https://thediplomat.com/feed/                    # [VERIFIED 23 Sep 2026] Asia-Pacific & South Asia geopolitics
+      - https://www.aljazeera.com/xml/rss/all.xml        # [VERIFIED 23 Sep 2026] Middle East / Global South
+      - https://www.semafor.com/rss.xml                  # [VERIFIED 23 Sep 2026] fact vs view separated
       - https://news.google.com/rss/search?q=world+news+when:1d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Other Interests"
@@ -170,7 +183,8 @@ sections:
                         # and the reader checks the paper only a few days a week.
     angle: "Music (all kinds), live events, neuroscience, the natural world, books, big ideas. One genuinely interesting thing beats three mediocre ones."
     feeds:
-      - https://www.quantamagazine.org/tag/neuroscience/feed/  # [OK] neuroscience
+      # quanta neuroscience tag feed dropped 23 Sep 2026 (0 items in 7 days); main Quanta feed is in Deep Tech.
+      - https://www.science.org/rss/news_current.xml     # [VERIFIED 23 Sep 2026] Science magazine news
       # New Scientist 406s on a full-browser User-Agent but is fine with this
       # project's bot UA — do NOT "fix" fetch_feeds.py to spoof Chrome or this
       # feed goes silently dead. Paywalled items ship no content:encoded, but
@@ -200,6 +214,15 @@ sections:
       - https://news.google.com/rss/search?q=(%22India+tour%22+OR+%22India+concert%22+OR+%22performs+in+India%22+OR+%22coming+to+India%22+OR+%22Delhi+concert%22+OR+%22Mumbai+concert%22+OR+%22Jaipur+festival%22)+when:14d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] India tours
       # Science & ideas (psychology dropped — pop-psych noise).
       - https://news.google.com/rss/search?q=(neuroscience+OR+astronomy+OR+archaeology+OR+%22particle+physics%22+OR+cosmology+OR+ecology+OR+%22evolutionary+biology%22+OR+paleontology)+when:4d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] science
+
+  - name: "Work & Careers"
+    slug: work-careers
+    max_stories: 3
+    window_hours: 96
+    angle: "NEW 23 Sep 2026. The reader is between roles (targeting AI-generalist / Chief of Staff / founder's office in India, weighing a US MBA). Hiring and layoffs at tech firms & GCCs, visas/H-1B, how AI is changing white-collar work, the CoS/founder's-office craft, top-MBA admissions. Only stories that change a decision; never generic career advice or listicles."
+    feeds:
+      - https://poetsandquants.com/feed/                 # [VERIFIED 23 Sep 2026] top-MBA admissions, the M7 beat
+      - https://news.google.com/rss/search?q=(layoffs+OR+hiring+OR+%22H-1B%22+OR+%22work+visa%22+OR+%22future+of+work%22+OR+%22chief+of+staff%22+OR+%22founder%27s+office%22+OR+GCC+OR+%22global+capability+centre%22+OR+%22AI+jobs%22+OR+%22white-collar%22)+(India+OR+Indian)+when:4d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Opportunities & Events"
     slug: opportunities

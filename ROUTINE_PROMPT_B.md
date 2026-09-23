@@ -46,6 +46,8 @@ url, image, source, colophon, edition number, and markets bar automatically.
 **You only supply story IDs and the words.**
 
 ## Editorial charter
+- **Follow the "Editorial contract" in CLAUDE.md** (loaded automatically) — it
+  sets the hook/points limits, the banned signal filler, and the rules below.
 - **Signal over noise.** Cutting a weak story is good editing — but a section
   that had real news must NOT be starved. Include every story that genuinely
   clears the bar; "fewer" is for thin days, not a target.
@@ -81,9 +83,8 @@ url, image, source, colophon, edition number, and markets bar automatically.
   can now check this against the full article text, not just a headline).
 
 ## What to produce
-- **brief** — 8-12 one-liner strings covering the whole edition, each with its
-  key number and the id of the story it points to: `{ "id": "ai-...", "line":
-  "OpenAI raises $40B at $300B valuation" }`. As concise as possible.
+- **brief** — SKIP IT. The page no longer shows the 2-minute brief (removed at
+  the owner's request, Aug 2026); writing it only costs tokens.
 - **lead** — the id from `feeds/selected/<today>.json`'s `lead` field (or, on
   the GUARD fallback path, the biggest story by magnitude × India angle ×
   relevance to the reader's pivot × buzz). Give the lead (and ONLY the lead) an
@@ -127,8 +128,8 @@ url, image, source, colophon, edition number, and markets bar automatically.
 For every story write, plain text (no markdown inside fields — the ONE
 exception is the `==highlight==` marker described below):
 - **headline** — plain language, not the outlet's clickbait.
-- **hook** — ONE sentence, the single most important fact, leading with its
-  number. This is what the reader takes away if they read nothing else. Never
+- **hook** — ONE sentence, at most 30 words, the single most important fact,
+  leading with its number. This is what the reader takes away if they read nothing else. Never
   a restatement of the headline; never scene-setting.
 - **points** — 3-5 bullets carrying the rest of the readout: figures, names,
   context, the key insight. Scale the count to the article — 3 for a thin
@@ -159,11 +160,11 @@ exception is the `==highlight==` marker described below):
   none. Never in `headline`, `hook`, `signal`, or `editors_read`.
   NOTE: blue pencil rules on the page already mean "this is a link". Black
   means "this matters". Never mark a phrase just to decorate it.
-- **signal** — 2-4 short bullets (rendered under "The Signal"): the thing to
-  remember PLUS the "so what" for THIS reader. Write at least 2 — a lone
-  bullet is almost always a sign the second one was worth finding. If the
-  honest read is "useful context, not personally actionable," say that —
-  never pad.
+- **signal** — 1-3 short bullets (rendered under "The Signal"), each a SPECIFIC
+  implication for this reader. Never "worth watching/tracking", "not personally
+  actionable" or "the real signal" (these closed 40+ bullets in a 12-edition
+  audit and are stripped at publish). One sharp bullet beats two padded ones.
+  Omit `signal` entirely on a headline-only (`text_source: "none"`) card.
 - **key_stat** — one short string for a stat chip, e.g. "$234M · new unicorn".
   Write one whenever a single number captures the story, which is most days:
   it is currently set on only 12% of cards, and this reader's whole brief is

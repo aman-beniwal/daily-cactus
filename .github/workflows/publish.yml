@@ -75,6 +75,29 @@ jobs:
             python scripts/assemble_edition.py
           fi
 
+      # v7: the stale-prompt warning used to print to this log and nowhere
+      # else — it fired every day for a month unseen. Now it opens ONE issue
+      # (GitHub emails the owner) and never duplicates an open one.
+      - name: Flag a stale writer prompt
+        if: hashFiles('publish_health.txt') != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('publish_health.txt', 'utf8');
+            const title = 'Daily Cactus: the WRITE routine is on an out-of-date prompt';
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo, state: 'open', labels: 'health'});
+            const existing = open.data.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({owner: context.repo.owner,
+                repo: context.repo.repo, issue_number: existing.number, body});
+            } else {
+              await github.rest.issues.create({owner: context.repo.owner,
+                repo: context.repo.repo, title, labels: ['health'],
+                body: body + '\nFix: open the WRITE routine on claude.ai and paste the whole of ROUTINE_PROMPT_B.md. Close this issue after the next edition publishes cleanly.'});
+            }
+
       - name: Deploy site/ to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -122,7 +145,8 @@ jobs:
               try:
                   data = json.load(open(f"editions/{d}.json"))
                   entry["edition"] = data.get("edition")
-                  entry["lead"] = (data.get("lead") or {}).get("headline", "")
+                  entry["lead"] = ((data.get("lead") or {}).get("headline", "")
+                                   .replace("==", "").replace("__", ""))
               except Exception:
                   pass
               out.append(entry)

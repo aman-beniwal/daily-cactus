@@ -97,9 +97,9 @@ def test_buzz_bonus_capped():
     buzzy = {"title": "x", "summary": "", "published": now.isoformat(), "_buzz": 20}
     check("higher buzz scores at least as high as no buzz",
           bd.score(buzzy, now) >= bd.score(base, now))
-    # capped at min(buzz-1, 4) * 0.8 == 3.2 max bonus
+    # v7: capped at min(outlets-1, 4) * 0.9 == 3.6 max bonus
     check("buzz bonus is capped (huge buzz != unbounded score)",
-          bd.score(buzzy, now) - bd.score(base, now) <= 3.21)
+          bd.score(buzzy, now) - bd.score(base, now) <= 3.61)
 
 
 # --- P1: cross-day dedup via published editions -----------------------------
@@ -108,9 +108,13 @@ def test_load_published_urls_graceful_on_network_failure():
     old_url = bd.EDITIONS_BASE_URL
     bd.EDITIONS_BASE_URL = "https://this-domain-should-not-resolve.invalid/editions"
     try:
-        urls, keys = bd.load_published_urls(_dt.datetime.now(_dt.timezone.utc))
+        old_dir = bd.EDITIONS_DIR
+        bd.EDITIONS_DIR = ""
+        urls, keys, memory, ok = bd.load_published_urls(_dt.datetime.now(_dt.timezone.utc))
+        bd.EDITIONS_DIR = old_dir
         check("load_published_urls degrades to empty sets on network failure "
-              "(never raises)", urls == set() and keys == set())
+              "(never raises)", urls == set() and keys == set() and len(memory) == 0)
+        check("...and reports the failure (-> DEDUP_BROKEN health issue)", ok is False)
     finally:
         bd.EDITIONS_BASE_URL = old_url
 
@@ -327,6 +331,36 @@ def test_old_format_draft_still_yields_bullets_and_marks():
     check("the headline carries a claim highlight around the raise",
           "==" in story["headline"] and "$75M" in story["headline"]
           and story["headline"].index("==") < story["headline"].index("$75M"))
+
+
+# --- v7: editorial layer + copy desk ----------------------------------------
+def test_v7_editorial():
+    import editorial as edl
+    check("abbreviation-safe split keeps 'CM N. Chandrababu' together",
+          ae.split_summary("Andhra Pradesh CM N. Chandrababu Naidu approved it. "
+                           "It cost Rs 5 crore. More next year.")[0].endswith("approved it."))
+    check("foreign startup in India Deep Tech is penalised",
+          edl.section_fit("india-deep-tech", {"title": "Zipline raises $1B for drones",
+                                              "source": "Bloomberg"}) < 0)
+    check("Indian startup in India Deep Tech is not penalised",
+          edl.section_fit("india-deep-tech", {"title": "Skyroot's Vikram-1 reaches orbit",
+                                              "source": "Bloomberg"}) == 0)
+    check("sponsored URL is detected", edl.is_sponsored(
+        {"title": "x", "link": "https://economictimes.com/brand-connect/some-story"}))
+    check("'ai' no longer matches inside 'said'", edl.interest_score("He said again") == 0)
+    today = datetime.date(2026, 9, 23)
+    check("past opportunity is dropped", edl.score_opportunity(
+        {"title": "AI hackathon Delhi", "deadline": "2026-09-01"}, today) == float("-inf"))
+    check("Jaipur AI fellowship outranks a foreign film festival",
+          edl.score_opportunity({"title": "AI policy fellowship Jaipur", "deadline": "2026-10-10"}, today)
+          > edl.score_opportunity({"title": "Latino film festival Houston", "event_date": "2026-10-10"}, today))
+    check("filler-only signal bullet is removed",
+          ae.clean_signal(["Worth watching.", "RBI's move lowers loan rates for MSMEs by 50bp."])
+          == ["RBI's move lowers loan rates for MSMEs by 50bp."])
+    mem = edl.RecentMemory()
+    mem.add("2026-09-19", "US sanctions law threatens 100% tariffs on India over Russian oil", None)
+    check("same story via a new headline is remembered",
+          mem.match("Trump signs sanctions law opening door to 100% tariffs on India over Russian oil") is not None)
 
 
 def main():

@@ -1,4 +1,4 @@
-# The Daily Cactus 🌵 — operational guide (v6)
+# The Daily Cactus 🌵 — operational guide (v7)
 
 A self-updating personal morning newspaper for one reader (Aman, Jaipur). A daily
 Claude Code Routine curates pre-fetched RSS news into a JSON draft; GitHub Actions
@@ -79,6 +79,8 @@ GitHub Pages renderer (site/index.html + app.js + style.css, committed in repo) 
 | `sources.yaml` | Feed registry (15 sections incl. weekend Longform + Remainder). Edit by hand. |
 | `scripts/fetch_feeds.py` | Fetch all feeds → `feeds/latest.json` (Actions only). |
 | `scripts/build_digest.py` | Dedup/rank/shortlist/enrich → digest + refs snapshot + feed_stats (Actions only). |
+| `scripts/editorial.py` | v7 news judgment: repeat memory, section fit, PR/format flags, outlet corroboration, opportunity scoring, learned source yield. |
+| `.github/workflows/watchdog.yml` | 14:13 IST: opens a health issue if today's edition is missing. |
 | `scripts/enrich_shortlist.py` | Full-text extraction for shortlisted stories (trafilatura/readability). |
 | `scripts/fetch_markets.py` | Markets snapshot → `feeds/markets.json` (Actions only). |
 | `scripts/assemble_edition.py` | Draft + refs snapshot → full edition JSON, immutable-by-default (Actions only). |
@@ -93,7 +95,45 @@ GitHub Pages renderer (site/index.html + app.js + style.css, committed in repo) 
 | `site/{index.html,app.js,style.css}` | The JS renderer. MUST stay committed; routine never touches it. |
 | `.github/workflows/{fetch,publish,taste,audit}.yml` | The pipeline (a gh-pages-triggered manifest workflow can't run, so the manifest rebuild is folded into publish.yml). |
 
-## Editorial intent (full version in ROUTINE_PROMPT.md)
+## Editorial contract (v7, 24 Sep 2026) — BOTH routines follow this
+Applies whatever prompt is pasted in the routine; where a pasted prompt differs,
+this wins. Evidence behind every rule: `EDITORIAL_STANDARDS.md` (not loaded).
+
+**SELECT (Routine A)**
+- Score each candidate on: impact (people/₹/$ affected), fit with the reader
+  (AI > Indian startups > India deep tech > the rest), novelty (changes what an
+  informed reader believes), consequence (changes a decision), substance
+  (numbers, named independent sources), India lens. LEAD = the biggest
+  impact × fit × novelty today, not the loudest.
+- `seen` = already ran: re-pick ONLY for a genuinely new fact (verdict, number,
+  reversal). Never the same lead two days running. One storyline = at most one
+  front-page slot a day.
+- `flags` = guilty until proven: skip press releases, company channels, stock
+  tips, roundups/"weekly trackers", opinion — unless the release IS the event
+  (round closed with amount, audited results, launch with price, regulator's
+  order). Always skip MoUs, awards, "aims to/plans to", conference quotes.
+- India sections need an Indian company or actor, not an Indian city name.
+- READING BUDGET: at most 24 full cards (lead + front + section cards, each
+  story counted once). Breadth goes into `also` one-liners: 2-4 per section.
+- Opportunities: concrete date >= 2 days away; Jaipur/Delhi-NCR/online first;
+  fellowships, AI/startup/policy events. No student college fests, NGO grants,
+  foreign local festivals, exhibitions.
+
+**WRITE (Routine B)**
+- Every card: `hook` + `points`, never one `summary` paragraph (a pasted schema
+  showing only `summary` is outdated). hook: ONE fact, <= 30 words, lead with the
+  number. points: 2-4 bullets, <= 30 words, one fact each.
+- Don't write a section card for a lead/front story (the page cross-links it).
+- signal: 1-3 specific implications. Banned: "worth watching/tracking", "not
+  personally actionable", "the real signal". Omit rather than pad; tie to the
+  reader's career only when concrete.
+- editors_read: lead + top two front stories only. key_stat whenever one number
+  carries the story. Label vendor claims as claims ("the company says").
+- text_source "none": one headline sentence + the flag, no signal. Text that
+  opens "[Text below is X's report…]" is another outlet's coverage: use it.
+- Skip `brief` (the page no longer shows it). Plain punctuation, few em-dashes.
+
+## Editorial intent
 Signal over noise; numbers-first summaries; "why it matters" > "what happened";
 India lens; no hype; honest about thin days (render fewer, never pad, never
 web-search to fill, never a past-dated event, never a repeat of the last 7 days).

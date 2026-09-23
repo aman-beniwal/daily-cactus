@@ -48,6 +48,9 @@ import pathlib
 import sys
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import editorial as ed                                      # v7 editorial layer
+
 try:
     from resolve_gnews import resolve as resolve_gnews_url   # Fix 1
 except Exception:                                             # noqa: BLE001
@@ -89,7 +92,19 @@ DEFAULT_MAX_AGE_HOURS = 96   # A5: fallback hard cutoff when a section doesn't
 # the last CROSS_DAY_WINDOW_DAYS of them over plain HTTP instead. This is
 # additive: load_recent_used() (drafts/*.json) still runs too, for local runs
 # where drafts exist in the working tree.
-EDITIONS_BASE_URL = "https://amanbeni.github.io/daily-cactus/editions"
+# v7: derived from the repo, never hard-coded. The hard-coded
+# "amanbeni.github.io" URL started returning 404 when the GitHub account was
+# renamed (first failing run: 27 Aug 2026) and dedup silently switched itself
+# off for a month — 156 repeated stories. fetch.yml now also checks out the
+# gh-pages branch and points EDITIONS_DIR at it, so dedup reads the editions
+# straight from git and does not depend on Pages DNS at all; HTTP is the
+# fallback, and a total failure prints DEDUP_BROKEN (-> a health issue).
+_REPO = os.environ.get("GITHUB_REPOSITORY", "aman-beniwal/daily-cactus")
+_OWNER, _NAME = (_REPO.split("/", 1) + ["daily-cactus"])[:2]
+EDITIONS_BASE_URL = f"https://{_OWNER.lower()}.github.io/{_NAME}/editions"
+EDITIONS_DIR = os.environ.get("EDITIONS_DIR", "")   # local gh-pages checkout, preferred
+SHORTLIST_LOG = ROOT / "feeds" / "shortlist_log.jsonl"   # v7: per-source shortlist counts
+SELECTED_DIR = ROOT / "feeds" / "selected"
 EDITIONS_FETCH_TIMEOUT = 8   # seconds — never let a slow/dead Pages host stall CI
 
 # P2(d): domains verified to re-date their RSS feed — i.e. report a fresh
@@ -307,74 +322,72 @@ def _http_get_json(url, timeout=EDITIONS_FETCH_TIMEOUT):
         return None
 
 
-def load_published_urls(now, days=CROSS_DAY_WINDOW_DAYS):
-    """P1: the REAL fix for dead cross-day dedup. Reads the last `days` of
-    PUBLISHED EDITIONS straight from GitHub Pages over HTTP — editions are the
-    one record that's always current (drafts/*.json live only on claude/*
-    branches and never reach main; see ISSUES_BACKLOG.md P1). Collects every
-    story's `url` (lead/frontpage/sections[].stories/also/opportunities) plus
-    a normalized title-key, so a same-story-different-URL repeat is also
-    caught. Fully graceful: a network failure, missing index, or malformed
-    JSON anywhere in this path logs a warning and returns empty sets — dedup
-    is skipped for this run, never a crash."""
-    used_urls, used_keys = set(), set()
-
-    index = _http_get_json(f"{EDITIONS_BASE_URL}/index.json")
-    if not isinstance(index, dict):
-        print("cross-day dedup: warning — editions index unavailable/malformed, "
-              "skipping remote (published-editions) dedup this run")
-        return used_urls, used_keys
-    entries = index.get("editions")
-    if not isinstance(entries, list):
-        print("cross-day dedup: warning — editions index has no 'editions' list, skipping")
-        return used_urls, used_keys
-
+def _unused_window(now, days):
     cutoff = now.date() - datetime.timedelta(days=days)
-    dates = []
-    for e in entries:
-        if not isinstance(e, dict):
-            continue
-        try:
-            d = datetime.date.fromisoformat(e.get("date", ""))
-        except (ValueError, TypeError):
-            continue
-        if d >= cutoff:
-            dates.append(e["date"])
+    return cutoff
 
-    fetched = 0
-    for date_str in dates:
-        edition = _http_get_json(f"{EDITIONS_BASE_URL}/{date_str}.json")
-        if not isinstance(edition, dict):
-            continue
-        fetched += 1
-        items = []
-        if isinstance(edition.get("lead"), dict):
-            items.append(edition["lead"])
-        items += [x for x in (edition.get("frontpage") or []) if isinstance(x, dict)]
-        for sec in edition.get("sections", []) or []:
-            if not isinstance(sec, dict):
+
+def load_published_urls(now, days=CROSS_DAY_WINDOW_DAYS):
+    """P1 + v7. The last `days` of PUBLISHED editions -> (used_urls, used_keys,
+    memory, ok). Prefers a local gh-pages checkout (EDITIONS_DIR, set by
+    fetch.yml), falls back to HTTP against the repo-derived Pages URL. `ok`
+    is False when NOTHING could be loaded although editions should exist —
+    the caller prints DEDUP_BROKEN so the workflow opens a health issue
+    instead of silently publishing a month of repeats again."""
+    used_urls, used_keys = set(), set()
+    memory = ed.RecentMemory()
+    cutoff = now.date() - datetime.timedelta(days=days)
+    editions = []          # (date_str, edition dict)
+
+    local = pathlib.Path(EDITIONS_DIR) if EDITIONS_DIR else None
+    if local and local.is_dir():
+        for f in sorted(local.glob("*.json")):
+            try:
+                d = datetime.date.fromisoformat(f.stem)
+            except ValueError:
                 continue
-            for st in sec.get("stories", []) or []:
-                if not isinstance(st, dict):
-                    continue
-                items.append(st)
-                items += [a for a in (st.get("also") or []) if isinstance(a, dict)]
-        items += [x for x in (edition.get("opportunities") or []) if isinstance(x, dict)]
+            if cutoff <= d < now.date() + datetime.timedelta(days=1):
+                e = load_json_safe(f, default=None)
+                if isinstance(e, dict):
+                    editions.append((f.stem, e))
+        src = f"local {local}"
+    else:
+        index = _http_get_json(f"{EDITIONS_BASE_URL}/index.json")
+        entries = index.get("editions") if isinstance(index, dict) else None
+        for e in entries or []:
+            try:
+                d = datetime.date.fromisoformat((e or {}).get("date", ""))
+            except (ValueError, TypeError, AttributeError):
+                continue
+            if d >= cutoff:
+                got = _http_get_json(f"{EDITIONS_BASE_URL}/{e['date']}.json")
+                if isinstance(got, dict):
+                    editions.append((e["date"], got))
+        src = EDITIONS_BASE_URL
 
-        for it in items:
-            url = it.get("url")
+    # url -> the ORIGINAL source title, so a same-story match can use the
+    # outlet's headline as well as the editor's rewrite.
+    url_title = {}
+    if REFS_DIR.exists():
+        for f in sorted(REFS_DIR.glob("*.json")):
+            for ref in (load_json_safe(f, default={}) or {}).values():
+                if isinstance(ref, dict) and ref.get("url"):
+                    url_title[ref["url"]] = ref.get("title", "")
+
+    for date_str, edition in editions:
+        for headline, url in ed.edition_items(edition):
             if url:
                 used_urls.add(url)
-            title = it.get("headline") or it.get("name") or it.get("line")
-            if title:
-                k = title_key(title)
+            if headline:
+                k = title_key(headline)
                 if k:
                     used_keys.add(k)
+            memory.add(date_str, headline, url, url_title.get(url, ""))
 
-    print(f"cross-day dedup: fetched {fetched}/{len(dates)} published edition(s) "
-          f"from gh-pages ({days}-day window) -> {len(used_urls)} urls, "
-          f"{len(used_keys)} title-keys to exclude")
-    return used_urls, used_keys
+    ok = bool(editions)
+    print(f"cross-day dedup: {len(editions)} published edition(s) from {src} "
+          f"({days}-day window) -> {len(used_urls)} urls, {len(memory)} remembered stories")
+    return used_urls, used_keys, memory, ok
 
 
 def load_recent_used(now, days=CROSS_DAY_WINDOW_DAYS):
@@ -469,10 +482,12 @@ def pr_penalty(entry) -> float:
     return 0.0
 
 
-def score(entry, now, max_age_hours=None) -> float:
-    """Rank a candidate for the per-section shortlist. NOT used to pick the
-    lead — only to order/cap the shortlist; the AI editor does the real
-    selection."""
+
+def score(entry, now, max_age_hours=None):
+    """Rank a candidate for the per-section shortlist (v7). Reads the
+    annotations shortlist_section() puts on the entry first (_pr, _fit, _fmt,
+    _seen, _yield, _outlets). NOT the editorial decision — a recall-oriented
+    ordering the selector then judges."""
     dt = parse_dt(entry.get("published"))
     if max_age_hours is not None and dt:
         age_h = (now - dt).total_seconds() / 3600.0
@@ -484,19 +499,18 @@ def score(entry, now, max_age_hours=None) -> float:
         age_h = max(0.0, (now - dt).total_seconds() / 3600.0)
         s += 10.0 * max(0.0, 1.0 - age_h / RECENCY_HORIZON_H)
     else:
-        s += 1.5                              # A5: undated penalized more than
-                                               # before (was 3.0) — real feeds
-                                               # rarely omit a date; treat with
-                                               # suspicion, don't bury entirely.
-    hay = (entry.get("title", "") + " " + entry.get("summary", "")).lower()
-    hits = sum(1 for term in INTEREST_TERMS if term in hay)
-    s += min(hits, 5) * 1.2
+        s += 1.5
+    s += ed.interest_score(entry.get("title", "") + " " + entry.get("summary", ""))
     s += source_weight(entry.get("source", ""))
-    s += pr_penalty(entry)
-    buzz = entry.get("_buzz", 1)
-    s += min(buzz - 1, 4) * 0.8                # B2: capped buzz bonus
+    s += ed.pr_penalty(entry.get("_pr") or [])
+    s += ed.format_penalty(entry.get("_fmt") or [])
+    s += entry.get("_fit", 0.0)
+    s += entry.get("_yield", 0.0)
+    outlets = entry.get("_outlets", entry.get("_buzz", 1)) or 1
+    s += min(outlets - 1, 4) * 0.9            # corroborated by independent outlets
+    if entry.get("_seen"):
+        s -= 4.0                               # ran in the last 7 days
     return s
-
 
 def event_signature(title: str) -> str:
     """P2(e): a lightweight signature to catch same-event flooding that plain
@@ -585,18 +599,14 @@ def apply_article_date_corrections(digest_sections, refs_today, section_max_age,
 
 
 def compute_buzz(sections):
-    """B2: count near-dup cluster size across ALL sections BEFORE dedup, so
-    the same story picked up by several outlets/queries scores as corroborated
-    rather than being silently thinned by later dedup."""
-    from collections import Counter
-    counts = Counter()
-    for section in sections:
-        for e in section.get("entries", []) or []:
-            counts[title_key(e.get("title", ""))] += 1
-    for section in sections:
-        for e in section.get("entries", []) or []:
-            e["_buzz"] = counts[title_key(e.get("title", ""))]
-
+    """B2 -> v7: corroboration = number of DISTINCT outlets carrying the same
+    story under any headline (editorial.corroboration), computed over every
+    section BEFORE dedup. The old version only counted identical 8-word title
+    prefixes, i.e. syndicated copies of one article."""
+    everything = [e for s in sections for e in (s.get("entries") or [])]
+    ed.corroboration(everything)
+    for e in everything:
+        e["_buzz"] = e.get("_outlets", 1)
 
 def _opportunity_is_past(e, ref_year, today):
     """P7: prefer REAL structured dates (event_date/deadline, ISO strings) —
@@ -622,14 +632,19 @@ def _opportunity_is_past(e, ref_year, today):
     return bool(ed and ed < today)
 
 
-def shortlist_section(section, now, used_urls, used_keys, ref_year):
-    """Dedup (within-day + cross-day) + rank + diversity-cap one section.
-    Returns (lean, refs, dropped_count, cross_day_dropped_count, feed_stats)."""
+def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None, yield_prior=None):
+    """Dedup (within-day + cross-day) + annotate + rank + diversity-cap one
+    section. Returns (lean, refs, dropped_count, cross_day_dropped_count,
+    feed_stats). v7: sponsored copy is dropped; repeats of the last 7 days are
+    dropped on exact URL/title and DEMOTED + labelled on a same-story match;
+    PR, format and section-fit problems are scored AND shown to the selector."""
     raw = section.get("entries", []) or []
     max_stories = section.get("max_stories") or 4
     keep = min(max_stories * BUFFER_MULT, SECTION_HARD_CAP)
     max_age_hours = section.get("window_hours") or DEFAULT_MAX_AGE_HOURS
-    is_opportunities = (section.get("slug") == "opportunities")
+    slug = section.get("slug") or "x"
+    is_opportunities = (slug == "opportunities")
+    today = now.date()
 
     seen_urls, seen_keys, pool = set(), set(), []
     cross_day_dropped = 0
@@ -643,60 +658,97 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year):
         if url in used_urls or (k and k in used_keys):     # A4/P1 cross-day dedup
             cross_day_dropped += 1
             continue
-        if is_opportunities and _opportunity_is_past(e, ref_year, now.date()):  # A5/P7
-            continue                                        # hard-drop past events
+        if ed.is_sponsored(e):                             # v7: paid copy is never news
+            continue
+        if ed.JUNK_TEXT_RX.search(e.get("summary") or ""):
+            e["summary"] = ""                              # bot-wall text is not a teaser
+        if is_opportunities and _opportunity_is_past(e, ref_year, today):  # A5/P7
+            continue
         seen_urls.add(url)
         if k:
             seen_keys.add(k)
+        # v7 annotations (read by score() and surfaced in the digest)
+        e["_pr"] = ed.pr_cues(e)
+        e["_fmt"] = ed.format_flags(e)
+        e["_fit"] = ed.section_fit(slug, e)
+        e["_yield"] = yield_prior.bonus(e.get("source", "")) if yield_prior else 0.0
+        m = memory.match(e.get("title", "")) if memory is not None else None
+        if m:
+            e["_seen"] = f"{m[0]}: {m[1][:110]}"
         pool.append(e)
 
-    pool = [e for e in pool if score(e, now, None if is_opportunities else max_age_hours) > float("-inf")]
-    pool.sort(key=lambda e: score(e, now, None if is_opportunities else max_age_hours), reverse=True)
+    if is_opportunities:
+        def opp_score(e):
+            td = extract_event_date((e.get("title", "") or "") + " " + (e.get("summary", "") or ""), ref_year)
+            s = ed.score_opportunity(e, today, text_date=td)
+            if s == float("-inf"):
+                return s
+            s += e["_yield"] + ed.pr_penalty([c for c in e["_pr"] if not c.startswith("PR/stock-tip")])
+            return s - (5.0 if e.get("_seen") else 0.0)
+        scored = [(opp_score(e), e) for e in pool]
+    else:
+        scored = [(score(e, now, max_age_hours), e) for e in pool]
+    scored = [(s, e) for s, e in scored if s > float("-inf")]
+    scored.sort(key=lambda x: x[0], reverse=True)
+    pool = [e for _, e in scored]
 
+    # Two passes: the first honours the per-source cap; the second lets
+    # over-cap items fill slots that would otherwise stay EMPTY. (A hard cap
+    # with nothing behind it was cutting e.g. the 4th Guardian AI story — the
+    # Pentagon/Anthropic ruling — on four straight days while slots went to
+    # weaker items.)
     chosen, chosen_tokens, per_source, event_counts = [], [], {}, {}
-    for e in pool:
-        if len(chosen) >= keep:
-            break
+    chosen_sig = []
+
+    def try_add(e, enforce_source_cap):
         toks = title_tokens(e.get("title", ""))
         if any(jaccard(toks, ct) >= NEAR_DUP_JACCARD for ct in chosen_tokens):
-            continue
+            return False
+        # v7: same event, different outlet/headline -> one candidate (its
+        # `buzz` already records how many outlets carried it).
+        stoks = ed.sig_tokens(e.get("title", ""))
+        if any(ed.same_story(stoks, c) >= 0.55 for c in chosen_sig):
+            return False
         src = (e.get("source") or "").strip().lower()
-        if src and per_source.get(src, 0) >= MAX_PER_SOURCE:
-            continue
+        if enforce_source_cap and src and per_source.get(src, 0) >= MAX_PER_SOURCE:
+            return False
         sig = event_signature(e.get("title", ""))            # P2(e) flooding cap
         if sig and event_counts.get(sig, 0) >= EVENT_CAP_PER_SECTION:
-            continue
+            return False
         chosen.append(e)
         chosen_tokens.append(toks)
+        chosen_sig.append(stoks)
         per_source[src] = per_source.get(src, 0) + 1
         if sig:
             event_counts[sig] = event_counts.get(sig, 0) + 1
+        return True
+
+    for e in pool:
+        if len(chosen) >= keep:
+            break
+        try_add(e, True)
+    if len(chosen) < keep:
+        for e in pool:
+            if len(chosen) >= keep:
+                break
+            if e not in chosen and not e.get("_seen"):
+                try_add(e, False)
 
     dropped = len(raw) - len(chosen)
 
-    # B8: per-feed audit stats (fetched -> shortlisted), keyed by originating
-    # feed URL so a monthly job can flag dead-weight feeds on evidence.
     from collections import Counter
     fetched_by_feed = Counter(e.get("feed_url") for e in raw if e.get("feed_url"))
     shortlisted_by_feed = Counter(e.get("feed_url") for e in chosen if e.get("feed_url"))
     feed_stats = [
-        {"feed_url": url, "section": section.get("slug"), "fetched": n,
+        {"feed_url": url, "section": slug, "fetched": n,
          "shortlisted": shortlisted_by_feed.get(url, 0)}
         for url, n in fetched_by_feed.items()
     ]
 
-    slug = section.get("slug") or "x"
     lean, refs = [], {}
     for e in chosen:
         url = e.get("link") or e.get("url")
-        # Fix 1: resolve Google News redirect links to the real publisher URL
-        # HERE — only for the final shortlisted survivors (bounded, ≤ SECTION_
-        # HARD_CAP per section), not the raw ~500 candidates. This fixes BOTH
-        # full-text enrichment (which fetches this same url next) and the
-        # reader's "Read original" link. Hashing the RESOLVED url also makes
-        # the id stable across days for the same real article even though
-        # Google mints a fresh opaque redirect token per query/day.
-        if url and "news.google.com/rss/articles" in url:
+        if url and "news.google.com/rss/articles" in url and not os.environ.get("DC_OFFLINE"):
             url = resolve_gnews_url(url)
         sid = make_id(slug, url)
         summary = (e.get("summary") or "")[:SUMMARY_CHARS]
@@ -708,8 +760,20 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year):
             "summary": summary,
             "img": bool(e.get("image_url")),
         }
-        if e.get("_buzz", 1) > 1:
-            entry["buzz"] = e["_buzz"]
+        outlets = e.get("_outlets", e.get("_buzz", 1)) or 1
+        if outlets > 1:
+            entry["buzz"] = outlets
+        if is_opportunities:
+            when = e.get("deadline") or e.get("event_date")
+            if when and str(when) not in ("None", "null"):
+                entry["when"] = f"{'apply by' if e.get('deadline') else 'on'} {str(when)[:10]}"
+        if e.get("_seen"):
+            entry["seen"] = e["_seen"]
+        flags = (e.get("_pr") or []) + (e.get("_fmt") or [])
+        if e.get("_fit", 0) < 0:
+            flags.append(f"no clear fit with '{section.get('name', slug)}'")
+        if flags:
+            entry["flags"] = flags[:3]
         lean.append(entry)
         refs[sid] = {
             "url": url,
@@ -793,6 +857,82 @@ def trim_digest_to_budget(digest_sections):
     return digest_sections, size_chars()
 
 
+
+def shortlist_all(sections_raw, now, ref_year, used_urls, used_keys, memory, yield_prior):
+    """Everything between the raw fetch and enrichment, as one pure-ish step
+    (no network when DC_OFFLINE is set) so scripts/replay_month.py can re-run
+    past days through it."""
+    # v7: Beyond Your Beat is a generic top-stories feed; big India business
+    # and careers stories it catches belong in a real section.
+    by_slug = {s.get("slug"): s for s in sections_raw}
+    byb = by_slug.get("beyond-your-beat")
+    if byb:
+        stay = []
+        for e in byb.get("entries") or []:
+            target = ed.reroute_slug(e)
+            if target and target in by_slug:
+                by_slug[target].setdefault("entries", []).append(e)
+            else:
+                stay.append(e)
+        byb["entries"] = stay
+
+    compute_buzz(sections_raw)                      # B2/v7, before any dedup
+
+    digest_sections, refs_today, drop_log, all_feed_stats = [], {}, [], []
+    total_candidates = total_cross_day_dropped = 0
+    for section in sections_raw:
+        lean, refs, dropped, cross_day_dropped, feed_stats = shortlist_section(
+            section, now, used_urls, used_keys, ref_year, memory, yield_prior)
+        refs_today.update(refs)
+        total_candidates += len(lean)
+        total_cross_day_dropped += cross_day_dropped
+        drop_log.append((section.get("name"), len(lean), dropped, cross_day_dropped))
+        all_feed_stats.extend(feed_stats)
+        if not lean:
+            continue
+        digest_sections.append({
+            "name": section.get("name"),
+            "slug": section.get("slug"),
+            "beta": section.get("beta", False),
+            "stories": lean,
+        })
+    return (digest_sections, refs_today, total_candidates, drop_log,
+            all_feed_stats, total_cross_day_dropped)
+
+
+def annotate_after_enrichment(digest_sections, refs_today):
+    """v7: with the article body in hand, PR cues become far more reliable
+    ('today announced', 'About X', company-only quotes). A bot-wall/paywall
+    stub is not an extract — drop it so nobody writes from it."""
+    for sec in digest_sections:
+        for st in sec.get("stories", []):
+            body = st.get("extract") or ""
+            if body and ed.JUNK_TEXT_RX.search(body[:600]) and len(body) < 1500:
+                st.pop("extract", None)
+                body = ""
+            if not body:
+                continue
+            ref = refs_today.get(st.get("id"), {}) or {}
+            cues = ed.pr_cues({"title": st.get("title", ""), "source": st.get("source", ""),
+                               "url": ref.get("url", "")}, body=body)
+            cues += ed.format_flags({"title": st.get("title", ""), "url": ref.get("url", ""),
+                                     "summary": body[:400]})
+            flags = list(dict.fromkeys((st.get("flags") or []) + cues))
+            if flags:
+                st["flags"] = flags[:3]
+
+
+DIGEST_NOTES = (
+    "Fields beyond id/title/source: `buzz` = how many DISTINCT outlets carry the "
+    "same story (corroboration). `seen` = the paper already ran this story on that "
+    "date: pick it again ONLY if there is a genuinely new fact (a verdict, number, "
+    "reversal), never for continued interest. `flags` = why a desk editor would be "
+    "wary (press-release wording, company's own channel, roundup/opinion format, "
+    "weak fit with the section): treat flagged items as guilty until the text "
+    "proves a real event. `when` (opportunities) = the real deadline/event date. "
+    "Ranked best-first within each section."
+)
+
 def main() -> None:
     data = json.loads(LATEST.read_text())
     now = datetime.datetime.now(datetime.timezone.utc)
@@ -809,39 +949,27 @@ def main() -> None:
 
     merge_opportunities_feed(sections_raw)           # P7
 
-    compute_buzz(sections_raw)                      # B2, before any dedup
-
     used_urls, used_keys = load_recent_used(now)              # A4: local drafts/*.json
-    pub_urls, pub_keys = load_published_urls(now)              # P1: real fix — published editions
+    pub_urls, pub_keys, memory, dedup_ok = load_published_urls(now)   # P1/v7
     used_urls |= pub_urls
     used_keys |= pub_keys
+    if not dedup_ok:
+        # A6-style marker the workflow greps for -> health issue. This is the
+        # line that would have caught the 27 Aug break on day one.
+        print("DEDUP_BROKEN: no published editions could be loaded — repeats WILL leak")
 
-    digest_sections = []
-    refs_today = {}
-    total_candidates = 0
-    drop_log = []
-    all_feed_stats = []
-    total_cross_day_dropped = 0
+    yield_prior = ed.SourceYield.load(SHORTLIST_LOG, SELECTED_DIR, REFS_DIR, now.date())
+    print(f"source-yield prior: {'on' if yield_prior.enabled else 'off (not enough history)'}"
+          f", base pick-rate {yield_prior.base:.0%}")
 
-    for section in sections_raw:
-        lean, refs, dropped, cross_day_dropped, feed_stats = shortlist_section(
-            section, now, used_urls, used_keys, ref_year)
-        refs_today.update(refs)
-        total_candidates += len(lean)
-        total_cross_day_dropped += cross_day_dropped
-        drop_log.append((section.get("name"), len(lean), dropped, cross_day_dropped))
-        all_feed_stats.extend(feed_stats)
-        if not lean:
-            continue
-        digest_sections.append({
-            "name": section.get("name"),
-            "slug": section.get("slug"),
-            "beta": section.get("beta", False),
-            "stories": lean,
-        })
+    (digest_sections, refs_today, total_candidates, drop_log, all_feed_stats,
+     total_cross_day_dropped) = shortlist_all(
+        sections_raw, now, ref_year, used_urls, used_keys, memory, yield_prior)
 
     # B1: full-text enrichment of shortlisted survivors only.
     try:
+        if os.environ.get("DC_OFFLINE"):
+            raise RuntimeError("DC_OFFLINE set (replay/test run)")
         from enrich_shortlist import enrich_sections
         digest_sections = enrich_sections(digest_sections, refs_today)
     except Exception as ex:                          # noqa: BLE001
@@ -860,11 +988,14 @@ def main() -> None:
         print(f"article-date correction pass skipped: {ex!r}")
         article_date_dropped = 0
 
+    annotate_after_enrichment(digest_sections, refs_today)   # v7
+
     digest_sections, size_chars = trim_digest_to_budget(digest_sections)
 
     digest = {
         "date": now.date().isoformat(),
         "colophon": build_colophon(data.get("stats", {})),
+        "how_to_read": DIGEST_NOTES,
         "sections": digest_sections,
     }
 
@@ -887,10 +1018,14 @@ def main() -> None:
                 lean["buzz"] = s["buzz"]
             if s.get("img"):
                 lean["img"] = True
+            for extra in ("when", "seen", "flags"):
+                if s.get(extra):
+                    lean[extra] = s[extra]
             lean_stories.append(lean)
         lean_sections.append({"name": sec.get("name"), "slug": sec.get("slug"),
                               "stories": lean_stories})
     lean_digest = {"date": digest["date"], "colophon": digest["colophon"],
+                   "how_to_read": DIGEST_NOTES,
                    "sections": lean_sections}
     (ROOT / "feeds" / "digest_lean.json").write_text(
         json.dumps(lean_digest, indent=2, ensure_ascii=False))
@@ -901,6 +1036,16 @@ def main() -> None:
         json.dumps(refs_today, ensure_ascii=False))
     prune_old_refs(now=now)
     REFS.write_text(json.dumps(build_refs_union(), ensure_ascii=False))
+
+    # v7: per-source shortlist counts — the denominator of the source-yield
+    # prior (the numerator is feeds/selected/<date>.json, written by select.yml).
+    from collections import Counter as _C
+    src_counts = _C(st.get("source", "") for sec in digest_sections
+                    for st in sec.get("stories", []))
+    with open(SHORTLIST_LOG, "a", encoding="utf-8") as f:
+        for src, n in src_counts.items():
+            f.write(json.dumps({"date": now.date().isoformat(), "source": src, "n": n},
+                               ensure_ascii=False) + "\n")
 
     # B8: append this run's per-feed fetched/shortlisted counts.
     with open(FEED_STATS, "a", encoding="utf-8") as f:

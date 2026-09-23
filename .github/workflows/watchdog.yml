@@ -1,0 +1,50 @@
+name: Watchdog — did today's paper publish?
+
+# v7: on 21 Sep 2026 the WRITE routine never ran, no paper appeared, and
+# nothing said so. This checks gh-pages every afternoon and opens a health
+# issue (GitHub emails the owner) when today's edition is missing.
+on:
+  schedule:
+    - cron: '43 8 * * *'     # 14:13 IST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Look for today's edition
+        id: look
+        run: |
+          TODAY=$(TZ=Asia/Kolkata date +%Y-%m-%d)
+          echo "today=$TODAY" >> "$GITHUB_OUTPUT"
+          if [ -f "editions/$TODAY.json" ]; then echo "missing=0" >> "$GITHUB_OUTPUT"; else echo "missing=1" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Open a health issue
+        if: steps.look.outputs.missing == '1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const d = '${{ steps.look.outputs.today }}';
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `Daily Cactus: no edition for ${d}`,
+              labels: ['health'],
+              body: [
+                `No editions/${d}.json on gh-pages by 14:13 IST.`,
+                '',
+                'Check, in order:',
+                '1. Actions -> "Fetch RSS Feeds" ran today (feeds committed)?',
+                '2. A `claude/**` branch with `Selections ' + d + '` exists (SELECT routine ran)?',
+                '3. Actions -> "Select — Full-text fetch" ran?',
+                '4. A `claude/**` branch with `Edition ' + d + '` exists (WRITE routine ran)? If not, the routine was skipped or failed on claude.ai — run it manually from the routine page.',
+              ].join('\n'),
+            });
