@@ -53,6 +53,14 @@ DIGEST_LEAN = ROOT / "feeds" / "digest_lean.json"
 TASTE = ROOT / "TASTE.md"
 LOG = ROOT / "feeds" / "newsroom_log.jsonl"
 
+# --- usage guard (v8.2) -----------------------------------------------------
+# Hard ceilings per call: a runaway input (a bug, a huge page) is refused
+# BEFORE it is sent, so one bad day can't eat the weekly allowance.
+MAX_INPUT_CHARS = {"editor": 160_000, "writer": 260_000}   # ~40k / ~65k tokens
+SPIKE_FACTOR = 2.0          # today vs the median of the last 7 runs
+SPIKE_FLOOR_TOKENS = 90_000 # never alarm below this (normal day ~60k)
+ALERT_FILE = ROOT / "newsroom_alert.txt"   # the workflow turns this into an issue
+
 MAX_FULL_CARDS = 24
 MAX_FRONT = 8
 MAX_ALSO = 4
@@ -63,6 +71,38 @@ MAX_OPPS = 4
 def ist_today() -> str:
     now = datetime.datetime.now(datetime.timezone.utc)
     return (now + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
+
+
+def alert(title: str, body: str) -> None:
+    with open(ALERT_FILE, "a", encoding="utf-8") as f:
+        f.write(f"## {title}\n{body}\n\n")
+    print(f"  !! ALERT: {title}")
+
+
+def usage_check(date: str) -> None:
+    """Compare today's newsroom tokens with the recent median; alarm on a spike.
+    Only OUR runs are visible here — for the account as a whole, compare with
+    claude.ai → Settings → Usage (HANDBOOK.md §4)."""
+    rows = []
+    try:
+        rows = [json.loads(l) for l in open(LOG, encoding="utf-8") if l.strip()]
+    except FileNotFoundError:
+        return
+    def tot(r):
+        return sum((r.get(k) or 0) for k in ("input_tokens", "cache_write_tokens", "output_tokens"))
+    by_day = {}
+    for r in rows:
+        by_day[r["date"]] = by_day.get(r["date"], 0) + tot(r)
+    today = by_day.get(date, 0)
+    past = sorted(v for d, v in by_day.items() if d < date)[-7:]
+    if not past:
+        return
+    median = sorted(past)[len(past) // 2]
+    print(f"  usage: today {today:,} tokens vs recent median {median:,}")
+    if today > SPIKE_FLOOR_TOKENS and today > SPIKE_FACTOR * median:
+        alert("Newsroom token use spiked",
+              f"{date}: {today:,} tokens vs a recent median of {median:,}. Check the run log; "
+              "if your claude.ai usage page also shows use you don't recognise, rotate the token.")
 
 
 def _parse_json(text: str):
@@ -77,6 +117,9 @@ def _parse_json(text: str):
 def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
                 effort: str | None, date: str, attempts: int = 2):
     """One non-agentic request via the Claude Code CLI. Returns parsed JSON."""
+    if len(user_text) > MAX_INPUT_CHARS.get(stage, 200_000):
+        raise RuntimeError(f"{stage} input {len(user_text)} chars exceeds the usage guard "
+                           f"({MAX_INPUT_CHARS.get(stage)}); refusing to send")
     last_err = None
     for attempt in range(1, attempts + 1):
         # Attempt 1 replaces Claude Code's system prompt (leanest). If that is
@@ -114,6 +157,9 @@ def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
               f"{row['output_tokens']} out, {dur}s, turns={row['turns']}")
         if meta.get("is_error"):
             last_err = str(meta.get("result"))[:400]
+            if re.search(r"auth|token|401|403|expired|invalid.*key|login", last_err, re.I):
+                alert("Claude token rejected", f"The {stage} call was refused: {last_err}\n"
+                      "The subscription token is expired, revoked or wrong — rotate it (HANDBOOK.md §4).")
             continue
         try:
             return _parse_json(meta.get("result", ""))
@@ -410,6 +456,7 @@ def main():
         print(f"  !! writer failed ({ex}) — publishing the no-AI wire edition instead")
         draft = wire_edition(sel, selected)
     (drafts / f"{date}.json").write_text(json.dumps(draft, indent=2, ensure_ascii=False))
+    usage_check(date)
     print(f"  wrote {(drafts / f'{date}.json').relative_to(ROOT)}"
           f"{' (BACKUP wire edition)' if draft.get('backup') else ''}")
 

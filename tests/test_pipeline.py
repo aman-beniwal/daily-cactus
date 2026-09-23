@@ -392,6 +392,28 @@ def test_v8_newsroom():
           wire["backup"] and wire["lead"]["summary"] == "One. Two.")
 
 
+def test_v82_usage_guard():
+    import newsroom as nr, tempfile, pathlib, json as _j
+    tmp = pathlib.Path(tempfile.mkdtemp())
+    old_log, old_alert = nr.LOG, nr.ALERT_FILE
+    nr.LOG, nr.ALERT_FILE = tmp / "log.jsonl", tmp / "alert.txt"
+    rows = [{"date": f"2026-09-{d:02d}", "input_tokens": 50000, "output_tokens": 10000} for d in range(10, 17)]
+    rows.append({"date": "2026-09-17", "input_tokens": 250000, "output_tokens": 20000})
+    nr.LOG.write_text("\n".join(_j.dumps(r) for r in rows))
+    nr.usage_check("2026-09-17")
+    check("usage guard: a 4x spike raises an alert", nr.ALERT_FILE.exists())
+    nr.ALERT_FILE.unlink()
+    nr.usage_check("2026-09-16")
+    check("usage guard: a normal day raises nothing", not nr.ALERT_FILE.exists())
+    try:
+        nr.call_claude("editor", "x", "y" * 200_000, "m", None, "2026-09-17")
+        refused = False
+    except RuntimeError as ex:
+        refused = "usage guard" in str(ex)
+    check("usage guard: an oversized input is refused before sending", refused)
+    nr.LOG, nr.ALERT_FILE = old_log, old_alert
+
+
 def main():
     for name, fn in list(globals().items()):
         if name.startswith("test_") and callable(fn):

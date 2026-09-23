@@ -131,6 +131,17 @@ jobs:
           keep_files: true
           commit_message: "Trial edition (newsroom v8)"
 
+      - name: Raise usage / token alerts
+        if: always() && hashFiles('newsroom_alert.txt') != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = require('fs').readFileSync('newsroom_alert.txt', 'utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `Daily Cactus ALERT: token or usage (${new Date().toISOString().slice(0,10)})`,
+              labels: ['health'], body: body + '\nRunbook: HANDBOOK.md section 4.' });
+
       - name: Open a health issue on failure
         if: failure()
         uses: actions/github-script@v7

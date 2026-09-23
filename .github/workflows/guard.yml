@@ -1,0 +1,60 @@
+name: Guard — workflow changes & token expiry
+
+# v8.2 security alarm. The realistic way to steal a GitHub secret is to change
+# a workflow so it prints or sends the secret somewhere. Any commit touching
+# .github/workflows opens an issue (GitHub emails the owner) naming who made
+# it. If you didn't make that change: rotate the token (HANDBOOK.md section 4).
+# Weekly, it also warns 30 days before the 1-year subscription token expires
+# (set repo variable TOKEN_SET_ON=YYYY-MM-DD when you add or rotate the token).
+on:
+  push:
+    branches: ['**']
+    paths: ['.github/workflows/**']
+  schedule:
+    - cron: '23 3 * * 1'     # Mondays 08:53 IST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Workflow files changed
+        if: github.event_name == 'push'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const files = (context.payload.commits || []).flatMap(c =>
+              [...(c.added||[]), ...(c.modified||[]), ...(c.removed||[])]).filter(f => f.startsWith('.github/workflows/'));
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `Daily Cactus GUARD: workflow files changed on ${context.ref.replace('refs/heads/','')}`,
+              labels: ['health'],
+              body: [`Pushed by: ${context.payload.pusher && context.payload.pusher.name} (${context.actor})`,
+                     `Commit: ${context.sha}`, `Files: ${[...new Set(files)].join(', ')}`, '',
+                     'If you (or Claude working with you) made this change, close this issue.',
+                     'If NOT: someone has write access to your repo. Rotate the Claude token and your GitHub password now (HANDBOOK.md section 4).'].join('\n'),
+            });
+
+      - name: Token expiry reminder
+        if: github.event_name != 'push'
+        env:
+          TOKEN_SET_ON: ${{ vars.TOKEN_SET_ON }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const set = process.env.TOKEN_SET_ON;
+            if (!set) { core.info('TOKEN_SET_ON not set; skipping'); return; }
+            const days = Math.floor((Date.now() - Date.parse(set)) / 86400000);
+            core.info(`token age ${days} days`);
+            if (days >= 335) {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: `Daily Cactus: Claude token expires in ~${365 - days} days`,
+                labels: ['health'],
+                body: 'Run `claude setup-token`, replace the CLAUDE_CODE_OAUTH_TOKEN secret, update TOKEN_SET_ON. See HANDBOOK.md section 4.',
+              });
+            }

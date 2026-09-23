@@ -4,6 +4,7 @@ A self-updating personal morning newspaper for one reader (Aman, Jaipur). A dail
 Claude Code Routine curates pre-fetched RSS news into a JSON draft; GitHub Actions
 publishes it to GitHub Pages.
 
+> Humans: start with `HANDBOOK.md` (setup, operations, security, status).
 > Keep this file SHORT. It is auto-loaded into the routine and re-sent every turn,
 > so every line here costs tokens daily. Long-form history lives in `HANDOFF.md`
 > (humans only — not loaded by the routine).
@@ -81,6 +82,7 @@ GitHub Pages renderer (site/index.html + app.js + style.css, committed in repo) 
 | `scripts/build_digest.py` | Dedup/rank/shortlist/enrich → digest + refs snapshot + feed_stats (Actions only). |
 | `scripts/editorial.py` | v7 news judgment: repeat memory, section fit, PR/format flags, outlet corroboration, opportunity scoring, learned source yield. |
 | `.github/workflows/watchdog.yml` | 14:13 IST: opens a health issue if today's edition is missing. |
+| `.github/workflows/guard.yml` | Alarm on any workflow-file change; token-expiry reminder. |
 | `scripts/enrich_shortlist.py` | Full-text extraction for shortlisted stories (trafilatura/readability). |
 | `scripts/fetch_markets.py` | Markets snapshot → `feeds/markets.json` (Actions only). |
 | `scripts/assemble_edition.py` | Draft + refs snapshot → full edition JSON, immutable-by-default (Actions only). |
