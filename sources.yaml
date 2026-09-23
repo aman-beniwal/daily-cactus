@@ -39,6 +39,8 @@ sections:
       - https://simonwillison.net/atom/everything/       # [VERIFIED 23 Sep 2026] practitioner signal on models/tools, ~5/day
       - https://www.theverge.com/rss/ai-artificial-intelligence/index.xml  # [VERIFIED 23 Sep 2026]
       - https://www.medianama.com/feed/                  # [VERIFIED 23 Sep 2026] India tech & AI POLICY — the missing beat
+      - https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml  # [VERIFIED 24 Sep 2026]
+      - https://www.wired.com/feed/rss                   # [VERIFIED 24 Sep 2026]
       - https://news.google.com/rss/search?q=(%22artificial+intelligence%22+OR+AI+OR+%22machine+learning%22+OR+OpenAI+OR+Anthropic+OR+DeepMind)+(India+OR+research+OR+breakthrough+OR+launch+OR+policy+OR+funding+OR+regulation+OR+acquisition)+when:3d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Deep Tech"
@@ -151,6 +153,9 @@ sections:
       - https://www.livemint.com/rss/markets             # [VERIFIED 23 Sep 2026] India markets
       - https://www.livemint.com/rss/companies           # [VERIFIED 23 Sep 2026] India companies
       - https://www.thehindubusinessline.com/feeder/default.rss  # [VERIFIED 23 Sep 2026] India business, numbers-heavy
+      - https://rss.nytimes.com/services/xml/rss/nyt/Business.xml  # [VERIFIED 24 Sep 2026]
+      - https://www.ft.com/companies?format=rss          # [VERIFIED 24 Sep 2026] FT companies — headlines
+      - https://news.google.com/rss/search?q=site:reuters.com+(business+OR+markets)+when:1d&hl=en-US&gl=US&ceid=US:en  # [VERIFIED 24 Sep 2026] Reuters business wire
       - https://news.google.com/rss/search?q=(Fed+OR+RBI+OR+tariff+OR+%22trade+war%22+OR+recession+OR+%22interest+rate%22+OR+%22central+bank%22+OR+geopolitics+OR+%22supply+chain%22)+when:2d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "India"
@@ -174,6 +179,11 @@ sections:
       - https://thediplomat.com/feed/                    # [VERIFIED 23 Sep 2026] Asia-Pacific & South Asia geopolitics
       - https://www.aljazeera.com/xml/rss/all.xml        # [VERIFIED 23 Sep 2026] Middle East / Global South
       - https://www.semafor.com/rss.xml                  # [VERIFIED 23 Sep 2026] fact vs view separated
+      - https://rss.nytimes.com/services/xml/rss/nyt/World.xml  # [VERIFIED 24 Sep 2026] NYT world desk
+      - https://rss.dw.com/rdf/rss-en-all                # [VERIFIED 24 Sep 2026] DW — Europe/Global South
+      - https://www.ft.com/world?format=rss              # [VERIFIED 24 Sep 2026] FT — headlines (text recovered via sibling outlets)
+      - https://news.google.com/rss/search?q=site:apnews.com+when:1d&hl=en-US&gl=US&ceid=US:en  # [VERIFIED 24 Sep 2026] AP (no official RSS)
+      - https://news.google.com/rss/search?q=site:reuters.com+(world+OR+politics)+when:1d&hl=en-US&gl=US&ceid=US:en  # [VERIFIED 24 Sep 2026] Reuters world wire
       - https://news.google.com/rss/search?q=world+news+when:1d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Other Interests"
@@ -285,6 +295,8 @@ sections:
       - https://www.theguardian.com/news/series/the-long-read/rss   # [VERIFIED] Jul 2026
       - https://longreads.com/feed/                                 # [VERIFIED] Jul 2026
       - https://nautil.us/feed/                                     # [VERIFIED] Jul 2026
+      - https://www.theatlantic.com/feed/all/            # [VERIFIED 24 Sep 2026]
+      - https://www.foreignaffairs.com/rss.xml           # [VERIFIED 24 Sep 2026] geopolitics essays
 
   - name: "Remainder"
     slug: remainder
