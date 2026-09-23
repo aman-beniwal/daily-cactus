@@ -140,6 +140,10 @@ this wins. Evidence behind every rule: `EDITORIAL_STANDARDS.md` (not loaded).
   carries the story. Label vendor claims as claims ("the company says").
 - text_source "none": one headline sentence + the flag, no signal. Text that
   opens "[Text below is X's report…]" is another outlet's coverage: use it.
+- First-principles clarity (the reader's standard): fact → mechanism (why/how,
+  one plain sentence) → consequence; every number gets a yardstick from the text
+  ("up from X", "a tenth of Y"; never invented); define a specialist term once in a few words; concrete
+  verbs, no "leverages/unlocks/ecosystem". Plain and precise, never dumbed down.
 - Skip `brief` (the page no longer shows it). Plain punctuation, few em-dashes.
 
 ## Editorial intent

@@ -73,7 +73,7 @@ jobs:
         if: env.HAS_TOKEN == 'true'
         run: |
           pip install trafilatura readability-lxml certifi
-          npm install -g @anthropic-ai/claude-code
+          npm install -g @anthropic-ai/claude-code@2.1.280   # pinned: exact reviewed version (supply-chain)
 
       - name: Editor + writer
         id: run
@@ -81,12 +81,20 @@ jobs:
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           EDITIONS_DIR: existing_editions/editions
+          DATE_INPUT: ${{ github.event.inputs.date }}
           EDITOR_MODEL: ${{ vars.EDITOR_MODEL }}
           WRITER_MODEL: ${{ vars.WRITER_MODEL }}
           EDITOR_EFFORT: ${{ vars.EDITOR_EFFORT }}
           WRITER_EFFORT: ${{ vars.WRITER_EFFORT }}
         run: |
-          python scripts/newsroom.py --mode "$MODE" ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }} | tee newsroom.log
+          # inputs arrive via env and are validated — never pasted into the shell
+          ARGS=(--mode "$MODE")
+          if [ -n "$DATE_INPUT" ]; then
+            [[ "$DATE_INPUT" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "bad date"; exit 1; }
+            ARGS+=(--date "$DATE_INPUT")
+          fi
+          set -o pipefail
+          python scripts/newsroom.py "${ARGS[@]}" | tee newsroom.log
 
       - name: Commit the day's selection, text and draft
         if: env.HAS_TOKEN == 'true'
@@ -94,7 +102,7 @@ jobs:
           git config user.name  "Daily Cactus Bot"
           git config user.email "bot@dailycactus.local"
           git add feeds/newsroom_log.jsonl
-          if [ "$MODE" = "live" ]; then git add selections/ feeds/selected/ drafts/; else git add trial/; fi
+          if [ "$MODE" = "live" ]; then git add selections/ feeds/selected/ drafts/; else git add trial/selections trial/drafts; fi   # trial article text stays out of git
           git diff --staged --quiet || git commit -m "Newsroom ($MODE) $(TZ=Asia/Kolkata date +%F)"
           for i in 1 2 3; do git pull --rebase -q origin main && git push && break; sleep 5; done
 
@@ -115,7 +123,7 @@ jobs:
 
       - name: Trial — deploy trial/ (keep_files; nothing else on the site changes)
         if: env.HAS_TOKEN == 'true' && env.MODE != 'live'
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453   # v4, pinned to commit
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./trial_site

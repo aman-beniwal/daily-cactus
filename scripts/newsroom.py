@@ -77,13 +77,16 @@ def _parse_json(text: str):
 def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
                 effort: str | None, date: str, attempts: int = 2):
     """One non-agentic request via the Claude Code CLI. Returns parsed JSON."""
-    cmd = ["claude", "-p", "--model", model, "--system-prompt", system_prompt,
-           "--tools", "", "--output-format", "json", "--no-session-persistence",
-           "--max-turns", "2"]
-    if effort:
-        cmd += ["--effort", effort]
     last_err = None
     for attempt in range(1, attempts + 1):
+        # Attempt 1 replaces Claude Code's system prompt (leanest). If that is
+        # refused for any reason, attempt 2 appends ours to the default instead.
+        sp_flag = "--system-prompt" if attempt == 1 else "--append-system-prompt"
+        cmd = ["claude", "-p", "--model", model, sp_flag, system_prompt,
+               "--tools", "", "--output-format", "json", "--no-session-persistence",
+               "--max-turns", "2"]
+        if effort:
+            cmd += ["--effort", effort]
         t0 = time.time()
         with tempfile.TemporaryDirectory() as tmp:   # no repo CLAUDE.md in scope
             proc = subprocess.run(cmd, input=user_text, capture_output=True,
@@ -160,6 +163,27 @@ def editor_input(digest: dict) -> str:
     except FileNotFoundError:
         pass
     return "\n".join(parts)
+
+
+PRIORITY = ["ai", "indian-startups", "india-deep-tech", "deep-tech", "global-economics",
+            "india", "world", "climate-energy", "work-careers", "health-tech", "agritech",
+            "other-interests", "beyond-your-beat"]
+
+
+def code_ranked_selection(digest: dict) -> dict:
+    """Editor fallback: the digest is already ranked best-first per section by
+    build_digest. Lead = top AI story; front = the top story of the next
+    priority sections; two more per section as cards; skip anything flagged
+    or already seen. Plain, but never a blank morning."""
+    secs = {s["slug"]: [x for x in s.get("stories", []) if not x.get("seen") and not x.get("flags")]
+            for s in digest.get("sections", [])}
+    order = [p for p in PRIORITY if secs.get(p)]
+    lead = secs[order[0]][0]["id"] if order else None
+    front = [secs[p][0]["id"] for p in order[1:9]]
+    sections = [{"slug": p, "stories": [x["id"] for x in secs[p][1:3]], "also": [x["id"] for x in secs[p][3:5]]}
+                for p in order]
+    return {"lead": lead, "frontpage": front, "sections": sections, "opportunities": [],
+            "lead_reason": "editor unavailable — ranking-script order"}
 
 
 def validate_selection(sel: dict, digest: dict) -> dict:
@@ -329,7 +353,7 @@ def main():
     ap.add_argument("--date", default=None)
     ap.add_argument("--editor-model", default=os.environ.get("EDITOR_MODEL") or "claude-opus-5-5")
     ap.add_argument("--writer-model", default=os.environ.get("WRITER_MODEL") or "claude-sonnet-5")
-    ap.add_argument("--editor-effort", default=os.environ.get("EDITOR_EFFORT") or "medium")
+    ap.add_argument("--editor-effort", default=os.environ.get("EDITOR_EFFORT") or "low")
     ap.add_argument("--writer-effort", default=os.environ.get("WRITER_EFFORT") or "low")
     ap.add_argument("--stop-after", choices=["editor", "fetch", "writer"], default="writer")
     a = ap.parse_args()
@@ -347,8 +371,12 @@ def main():
           f"writer={a.writer_model}/{a.writer_effort}")
 
     # 1 — page-one meeting
-    raw = call_claude("editor", (PROMPTS / "editor.md").read_text(), editor_input(digest),
-                      a.editor_model, a.editor_effort, date)
+    try:
+        raw = call_claude("editor", (PROMPTS / "editor.md").read_text(), editor_input(digest),
+                          a.editor_model, a.editor_effort, date)
+    except Exception as ex:                                      # noqa: BLE001
+        print(f"  !! editor failed ({ex}) — falling back to the ranking script's own order")
+        raw = code_ranked_selection(digest)
     sel = validate_selection(raw, digest)
     (sel_dir / f"{date}.json").write_text(json.dumps(sel, indent=2, ensure_ascii=False))
     (sel_dir / f"{date}.scores.json").write_text(json.dumps(raw.get("scores") or {}, ensure_ascii=False))

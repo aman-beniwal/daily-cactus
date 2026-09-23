@@ -29,7 +29,7 @@ sections:
       # only ~1.6 items/day while the Google News query supplied ~10.
       - https://www.technologyreview.com/topic/artificial-intelligence/feed   # [VERIFIED] Jul 2026
       # ?paged=2 dropped 23 Sep 2026: 0 items fetched in 7 days (feed_stats).
-      - https://www.technologyreview.com/feed/                                # [VERIFIED] Jul 2026 — main feed, highest velocity (~2.5/day)
+      # trimmed 24 Sep 2026 (general MIT TR feed; the AI topic feed covers the beat): https://www.technologyreview.com/feed/
       - https://www.theguardian.com/technology/artificialintelligenceai/rss   # [VERIFIED] Jul 2026 — 20 items, straight at the reader's main domain
       - https://techcrunch.com/category/artificial-intelligence/feed/          # [VERIFIED]
       # analyticsindiamag.com/feed dropped (Jul 2026 B7 audit): parse failure,
@@ -37,14 +37,14 @@ sections:
       # importai.substack.com dropped 23 Sep 2026 (0 items in 7 days) — Jack Clark's own mirror below.
       - https://jack-clark.net/feed/                     # [VERIFIED 23 Sep 2026] Import AI, weekly
       - https://simonwillison.net/atom/everything/       # [VERIFIED 23 Sep 2026] practitioner signal on models/tools, ~5/day
-      - https://www.theverge.com/rss/ai-artificial-intelligence/index.xml  # [VERIFIED 23 Sep 2026]
+      # trimmed 24 Sep 2026 (overlaps TechCrunch/Decoder): https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
       - https://www.medianama.com/feed/                  # [VERIFIED 23 Sep 2026] India tech & AI POLICY — the missing beat
-      - https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml  # [VERIFIED 24 Sep 2026]
-      - https://www.wired.com/feed/rss                   # [VERIFIED 24 Sep 2026]
+      # trimmed 24 Sep 2026 (text paywalled; Bloomberg/Reuters carry the same news): https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
+      # trimmed 24 Sep 2026 (general tech, low beat fit): https://www.wired.com/feed/rss
       - https://feeds.bloomberg.com/technology/news.rss              # [VERIFIED 24 Sep 2026] Bloomberg Tech
-      - https://arstechnica.com/ai/feed/                             # [VERIFIED 24 Sep 2026] Ars Technica AI
+      # trimmed 24 Sep 2026 (overlaps The Decoder / TechCrunch): https://arstechnica.com/ai/feed/
       - https://the-decoder.com/feed/                                # [VERIFIED 24 Sep 2026] The Decoder — model/research news
-      - https://www.ft.com/technology?format=rss                     # [VERIFIED 24 Sep 2026] FT Tech (headlines)
+      # trimmed 24 Sep 2026 (headline-only (paywall) — creates unreadable candidates): https://www.ft.com/technology?format=rss
       - https://news.google.com/rss/search?q=site:reuters.com/technology+when:1d&hl=en-US&gl=US&ceid=US:en # [VERIFIED 24 Sep 2026] Reuters tech wire
       - https://news.google.com/rss/search?q=(%22artificial+intelligence%22+OR+AI+OR+%22machine+learning%22+OR+OpenAI+OR+Anthropic+OR+DeepMind)+(India+OR+research+OR+breakthrough+OR+launch+OR+policy+OR+funding+OR+regulation+OR+acquisition)+when:3d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
@@ -56,15 +56,15 @@ sections:
     angle: "Semiconductors, space, robotics, drones/defence tech, quantum, advanced materials. Engineering reality over vaporware."
     feeds:
       - https://spectrum.ieee.org/feeds/feed.rss          # [OK]
-      - https://arstechnica.com/science/feed/             # [OK]
+      # trimmed 24 Sep 2026 (~3 items/day, low fit): https://arstechnica.com/science/feed/
       - https://www.quantamagazine.org/feed/              # [OK]
-      - https://www.theguardian.com/technology/rss        # [VERIFIED]
+      # trimmed 24 Sep 2026 (10% pick rate over the audit month): https://www.theguardian.com/technology/rss
       - https://www.scmp.com/rss/36/feed                  # [VERIFIED] Asia tech
       - https://spacenews.com/feed/                      # [VERIFIED 23 Sep 2026] space industry of record
       - https://www.eetimes.com/feed/                    # [VERIFIED 23 Sep 2026] semiconductors, trade press of record
       - https://breakingdefense.com/feed/                # [VERIFIED 23 Sep 2026] defence tech & procurement
       - https://payloadspace.com/feed/                               # [VERIFIED 24 Sep 2026] space business
-      - https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml # [VERIFIED 24 Sep 2026] defence industry
+      # trimmed 24 Sep 2026 (overlaps Breaking Defense): https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml
       - https://news.google.com/rss/search?q=(semiconductor+OR+robotics+OR+drones+OR+UAV+OR+%22defence+tech%22+OR+%22advanced+materials%22+OR+quantum+OR+spacetech+OR+ISRO+OR+%22humanoid+robot%22+OR+fusion+OR+photonics)+when:3d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] strategic + frontier
 
   - name: "Climate & Energy"
@@ -75,11 +75,11 @@ sections:
     feeds:
       - https://www.carbonbrief.org/feed/                 # [OK]
       - https://www.canarymedia.com/rss                   # [OK]
-      - https://www.theguardian.com/environment/rss       # [VERIFIED]
+      # trimmed 24 Sep 2026 (11% pick rate over the audit month): https://www.theguardian.com/environment/rss
       - https://www.mercomindia.com/feed                 # [VERIFIED 23 Sep 2026] India renewables — tenders, capacity, policy, with numbers
       - https://heatmap.news/feeds/feed.rss              # [VERIFIED 23 Sep 2026] climate business/politics, analytical
       - https://insideclimatenews.org/feed/                          # [VERIFIED 24 Sep 2026] Pulitzer-winning climate desk
-      - https://grist.org/feed/                                      # [VERIFIED 24 Sep 2026] climate solutions
+      # trimmed 24 Sep 2026 (overlaps Inside Climate News / Heatmap): https://grist.org/feed/
       - https://news.google.com/rss/search?q=(solar+OR+EV+OR+%22green+hydrogen%22+OR+%22renewable+energy%22+OR+%22energy+storage%22+OR+%22carbon+market%22+OR+%22climate+adaptation%22+OR+%22water+scarcity%22+OR+biodiversity+OR+IPCC+OR+%22extreme+weather%22)+(India+OR+study+OR+report)+when:3d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
   - name: "Health Tech"
@@ -138,7 +138,7 @@ sections:
       - https://economictimes.indiatimes.com/tech/startups/rssfeeds/78570550.cms  # [VERIFIED 23 Sep 2026] ET Startups
       - https://techcrunch.com/category/venture/feed/                # [VERIFIED 24 Sep 2026] global venture
       - https://news.crunchbase.com/feed/                            # [VERIFIED 24 Sep 2026] funding data & trends
-      - https://sifted.eu/feed                                       # [VERIFIED 24 Sep 2026] Europe startups
+      # trimmed 24 Sep 2026 (Europe-only; TechCrunch Venture + Crunchbase cover global venture): https://sifted.eu/feed
       - https://restofworld.org/feed/latest/               # [VERIFIED] Jul 2026 — B7 replacement, global emerging-market tech/venture angle
       - https://news.google.com/rss/search?q=(startup+OR+unicorn+OR+founder+OR+%22venture+capital%22+OR+%22seed+funding%22+OR+D2C+OR+%22quick+commerce%22)+(funding+OR+raises+OR+acquires+OR+IPO+OR+shuts+OR+%22lays+off%22+OR+%22Series+A%22+OR+SEBI+OR+RBI+OR+MeitY+OR+DPIIT)+India+when:2d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
@@ -164,13 +164,13 @@ sections:
       - https://www.economist.com/finance-and-economics/rss.xml  # [OK]
       - https://www.theguardian.com/business/rss          # [VERIFIED]
       # feeds.hbr.org dropped 23 Sep 2026: 0 items since July (the audit's own revisit rule).
-      - https://feeds.bloomberg.com/markets/news.rss     # [VERIFIED 23 Sep 2026]
+      # trimmed 24 Sep 2026 (overlaps Bloomberg Economics + Reuters business): https://feeds.bloomberg.com/markets/news.rss
       - https://www.livemint.com/rss/markets             # [VERIFIED 23 Sep 2026] India markets
       - https://www.livemint.com/rss/companies           # [VERIFIED 23 Sep 2026] India companies
       - https://www.thehindubusinessline.com/feeder/default.rss  # [VERIFIED 23 Sep 2026] India business, numbers-heavy
-      - https://rss.nytimes.com/services/xml/rss/nyt/Business.xml  # [VERIFIED 24 Sep 2026]
-      - https://www.ft.com/companies?format=rss          # [VERIFIED 24 Sep 2026] FT companies — headlines
-      - https://www.project-syndicate.org/rss                        # [VERIFIED 24 Sep 2026] economists' analysis (flagged as opinion)
+      # trimmed 24 Sep 2026 (text paywalled; overlaps Bloomberg/Reuters): https://rss.nytimes.com/services/xml/rss/nyt/Business.xml
+      # trimmed 24 Sep 2026 (headline-only (paywall)): https://www.ft.com/companies?format=rss
+      # trimmed 24 Sep 2026 (opinion, flagged and rarely picked): https://www.project-syndicate.org/rss
       - https://news.google.com/rss/search?q=site:reuters.com+(business+OR+markets)+when:1d&hl=en-US&gl=US&ceid=US:en  # [VERIFIED 24 Sep 2026] Reuters business wire
       - https://news.google.com/rss/search?q=(Fed+OR+RBI+OR+tariff+OR+%22trade+war%22+OR+recession+OR+%22interest+rate%22+OR+%22central+bank%22+OR+geopolitics+OR+%22supply+chain%22)+when:2d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
 
@@ -194,13 +194,13 @@ sections:
       - https://www.scmp.com/rss/5/feed                   # [VERIFIED] Asia angle
       - https://thediplomat.com/feed/                    # [VERIFIED 23 Sep 2026] Asia-Pacific & South Asia geopolitics
       - https://www.aljazeera.com/xml/rss/all.xml        # [VERIFIED 23 Sep 2026] Middle East / Global South
-      - https://www.semafor.com/rss.xml                  # [VERIFIED 23 Sep 2026] fact vs view separated
+      # trimmed 24 Sep 2026 (240 mixed items/2 days; mostly duplicates of wires): https://www.semafor.com/rss.xml
       - https://rss.nytimes.com/services/xml/rss/nyt/World.xml  # [VERIFIED 24 Sep 2026] NYT world desk
-      - https://rss.dw.com/rdf/rss-en-all                # [VERIFIED 24 Sep 2026] DW — Europe/Global South
-      - https://www.ft.com/world?format=rss              # [VERIFIED 24 Sep 2026] FT — headlines (text recovered via sibling outlets)
+      # trimmed 24 Sep 2026 (overlaps AP/Reuters/BBC): https://rss.dw.com/rdf/rss-en-all
+      # trimmed 24 Sep 2026 (headline-only (paywall)): https://www.ft.com/world?format=rss
       - https://news.google.com/rss/search?q=site:apnews.com+when:1d&hl=en-US&gl=US&ceid=US:en  # [VERIFIED 24 Sep 2026] AP (no official RSS)
       - https://news.google.com/rss/search?q=site:reuters.com+(world+OR+politics)+when:1d&hl=en-US&gl=US&ceid=US:en  # [VERIFIED 24 Sep 2026] Reuters world wire
-      - https://news.google.com/rss/search?q=world+news+when:1d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS]
+      # trimmed 24 Sep 2026 (generic query; AP + Reuters wires replace it): https://news.google.com/rss/search?q=world+news+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 
   - name: "Other Interests"
     slug: other-interests
@@ -220,11 +220,11 @@ sections:
       # the body IS in the HTML and trafilatura recovers it, so enrichment
       # works on them. ?paged=2 verified distinct.
       - https://www.newscientist.com/feed/home/           # [VERIFIED] Jul 2026 — science
-      - https://www.newscientist.com/feed/home/?paged=2   # [VERIFIED] Jul 2026 — distinct set
-      - https://www.newscientist.com/section/news/feed/   # [VERIFIED] Jul 2026 — ~2.5/day
-      - https://bookriot.com/feed/                        # [OK] books
-      - https://pitchfork.com/rss/news/                   # [VERIFIED] music
-      - https://news.mongabay.com/feed/                   # [VERIFIED] nature
+      # trimmed 24 Sep 2026 (duplicate page of the same feed): https://www.newscientist.com/feed/home/?paged=2
+      # trimmed 24 Sep 2026 (duplicates the home feed): https://www.newscientist.com/section/news/feed/
+      # trimmed 24 Sep 2026 (Guardian Books is the stronger books desk): https://bookriot.com/feed/
+      # trimmed 24 Sep 2026 (Guardian Music + the music query cover it): https://pitchfork.com/rss/news/
+      # trimmed 24 Sep 2026 (16% pick rate; flooded shortlists): https://news.mongabay.com/feed/
       - https://www.nature.com/nature.rss                 # [FLAKY] Jul 2026 B7 audit — parses fine in
                                                             # isolation (75 entries) but intermittently
                                                             # served corrupted mid-stream (a multi-byte
@@ -290,11 +290,11 @@ sections:
       # Fellowships / cohorts / accelerators / grants — India, forward-dated only.
       - https://news.google.com/rss/search?q=(%22applications+open%22+OR+%22call+for+applications%22+OR+%22apply+by%22+OR+%22last+date+to+apply%22+OR+%22applications+invited%22)+(fellowship+OR+cohort+OR+accelerator+OR+incubator+OR+residency+OR+grant+OR+scholarship)+India+-concludes+-concluded+-recap+-highlights+when:21d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] forward-dated
       # Conferences / summits / expos — India, forward-dated only.
-      - https://news.google.com/rss/search?q=(%22registrations+open%22+OR+%22registration+is+open%22+OR+%22to+be+held%22+OR+%22will+be+held%22+OR+%22early+bird%22+OR+%22tickets+on+sale%22)+(summit+OR+conference+OR+expo+OR+exhibition+OR+hackathon+OR+festival+OR+demo+day)+India+-concludes+-concluded+-recap+-highlights+-wrapped+when:21d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] forward-dated
+      # trimmed 24 Sep 2026 (returned foreign festivals/retrospectives; structured boards cover events): https://news.google.com/rss/search?q=(%22registrations+open%22+OR+%22registration+is+open%
       # AI / deep-tech specific, India — the reader's actual domain.
       - https://news.google.com/rss/search?q=(%22applications+open%22+OR+%22registrations+open%22+OR+%22call+for+papers%22+OR+%22apply+by%22)+(AI+OR+%22deep+tech%22+OR+robotics+OR+semiconductor+OR+quantum+OR+climate+OR+space)+(summit+OR+conference+OR+fellowship+OR+hackathon+OR+challenge)+India+-concluded+-recap+when:21d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] forward-dated
       # Global — only the creamiest; no India filter, so keep the bar high.
-      - https://news.google.com/rss/search?q=(%22applications+open%22+OR+%22call+for+applications%22+OR+%22apply+by%22)+(fellowship+OR+residency+OR+%22visiting+programme%22+OR+%22open+call%22)+-concluded+-recap+when:21d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] forward-dated, global
+      # trimmed 24 Sep 2026 (global fellowship query returned NGO/Africa listings, 0-4% picked): https://news.google.com/rss/search?q=(%22applications+open%22+OR+%22call+for+applications%
 
   - name: "Beyond Your Beat"
     slug: beyond-your-beat
@@ -314,7 +314,7 @@ sections:
     feeds:
       - https://aeon.co/feed.rss                                    # [VERIFIED] Jul 2026
       - https://www.theguardian.com/news/series/the-long-read/rss   # [VERIFIED] Jul 2026
-      - https://longreads.com/feed/                                 # [VERIFIED] Jul 2026
+      # trimmed 24 Sep 2026 (aggregator; Aeon/Atlantic/Guardian Long Read are the sources): https://longreads.com/feed/
       - https://nautil.us/feed/                                     # [VERIFIED] Jul 2026
       - https://www.theatlantic.com/feed/all/            # [VERIFIED 24 Sep 2026]
       - https://www.foreignaffairs.com/rss.xml           # [VERIFIED 24 Sep 2026] geopolitics essays

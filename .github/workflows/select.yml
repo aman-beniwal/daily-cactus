@@ -65,9 +65,12 @@ jobs:
 
       - name: Determine which date(s) changed
         id: changed
+        env:
+          DATE_INPUT: ${{ github.event.inputs.date }}   # via env, validated (no shell injection)
         run: |
-          if [ -n "${{ github.event.inputs.date }}" ]; then
-            echo "dates=${{ github.event.inputs.date }}" >> "$GITHUB_OUTPUT"
+          if [ -n "$DATE_INPUT" ]; then
+            [[ "$DATE_INPUT" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "bad date"; exit 1; }
+            echo "dates=$DATE_INPUT" >> "$GITHUB_OUTPUT"
           else
             DATES=$(git diff-tree --no-commit-id --name-only -r "${{ github.sha }}" -- 'selections/' \
               | grep -E 'selections/[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$' \

@@ -16,6 +16,7 @@ Single source of truth: this reads the SAME sources.yaml the routine uses,
 so you only ever edit your feed list in one place.
 """
 import json
+import time
 import re
 import html
 import ssl
@@ -194,6 +195,10 @@ def main() -> None:
         for url in section.get("feeds", []) or []:
             feeds_total += 1
             try:
+                if "news.google.com" in url:
+                    # v8: ~25 Google News searches from one runner IP — pace
+                    # them so Google doesn't answer 429/503 (a silent empty feed).
+                    time.sleep(1.5)
                 parsed = _fetch_feed(url)
                 # bozo with zero entries = a real failure; bozo WITH entries is
                 # usually just a sloppy-but-parseable feed, which we accept.
