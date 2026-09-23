@@ -748,7 +748,7 @@ function sectionSlugForFrontpage(ed, story) {
 async function loadEdition(date, pinDate) {
   $("#paper").innerHTML = `<p class="status">Loading ${esc(date)}&hellip;</p>`;
   try {
-    const path = date === "__fixture__" ? "dev-fixture.json" : `editions/${date}.json`;
+    const path = date === "__fixture__" ? "dev-fixture.json" : `${EDITION_BASE}editions/${date}.json`;
     const r = await fetch(path, { cache: "no-cache" });
     if (!r.ok) throw new Error(r.status);
     const ed = await r.json();
@@ -768,9 +768,24 @@ async function loadEdition(date, pinDate) {
   }
 }
 
+// v8: ?trial=YYYY-MM-DD shows the NEW pipeline's trial edition from trial/,
+// for side-by-side comparison. The live archive and its picker are untouched.
+let EDITION_BASE = "";
+
 async function init() {
   // Dev-only fixture path — harmless in prod, never linked from the UI.
   const params = new URLSearchParams(location.search);
+  if (params.get("trial")) {
+    EDITION_BASE = "trial/";
+    $("#datebar").style.visibility = "hidden";
+    await loadEdition(params.get("trial"));
+    const b = document.createElement("p");
+    b.className = "status";
+    b.textContent = "TRIAL edition from the new pipeline (not published). Compare with ?date=" + params.get("trial");
+    $("#paper").prepend(b);
+    setupKeyboardNav();
+    return;
+  }
   if (params.get("fixture") === "1") {
     $("#datebar").style.visibility = "hidden";
     loadEdition("__fixture__");

@@ -95,6 +95,15 @@ GitHub Pages renderer (site/index.html + app.js + style.css, committed in repo) 
 | `site/{index.html,app.js,style.css}` | The JS renderer. MUST stay committed; routine never touches it. |
 | `.github/workflows/{fetch,publish,taste,audit}.yml` | The pipeline (a gh-pages-triggered manifest workflow can't run, so the manifest rebuild is folded into publish.yml). |
 
+## v8 newsroom (built 24 Sep 2026, runs in TRIAL until switched)
+`.github/workflows/newsroom.yml` runs after the fetch: `scripts/newsroom.py` makes
+TWO plain model calls on the owner's subscription (`CLAUDE_CODE_OAUTH_TOKEN`):
+editor (`prompts/editor.md`, scores every candidate, picks) -> full-text fetch ->
+writer (`prompts/writer.md`). No agent loop, no laptop, prompts in the repo, token
+usage logged to `feeds/newsroom_log.jsonl`. Repo variable `NEWSROOM_MODE`: `trial`
+(writes `trial/`, viewable at `?trial=<date>`) or `live` (publishes; pause the
+routines). The routines below keep running until the switch.
+
 ## Editorial contract (v7, 24 Sep 2026) — BOTH routines follow this
 Applies whatever prompt is pasted in the routine; where a pasted prompt differs,
 this wins. Evidence behind every rule: `EDITORIAL_STANDARDS.md` (not loaded).

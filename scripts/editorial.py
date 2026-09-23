@@ -196,7 +196,7 @@ INDIA_STARTUP_SOURCES = ("inc42", "yourstory", "entrackr", "indian startup news"
                          "morning context", "medianama")
 # slug -> (cue regex, also-accepted sources, penalty when neither matches)
 SECTION_FIT = {
-    "indian-startups": (INDIA_CUE, INDIA_STARTUP_SOURCES, -4.0),
+    "indian-startups": (INDIA_CUE, INDIA_STARTUP_SOURCES, -1.5),   # India first; global mega-moves may compete
     "india-deep-tech": (INDIA_CUE, INDIA_STARTUP_SOURCES, -4.0),
     "india": (INDIA_CUE, INDIA_SOURCES, -3.0),
     "agritech": (AGRI_CUE, ("agfundernews", "agfunder"), -4.0),

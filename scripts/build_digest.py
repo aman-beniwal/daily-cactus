@@ -858,6 +858,13 @@ def trim_digest_to_budget(digest_sections):
 
 
 
+def paper_date(now) -> str:
+    """v7: the paper's date is the IST calendar day. Files used to be named by
+    UTC date, so a fetch at 02:47 IST was labelled 'yesterday' and only the
+    refs-union fallback kept links resolving."""
+    return (now + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
+
+
 def shortlist_all(sections_raw, now, ref_year, used_urls, used_keys, memory, yield_prior):
     """Everything between the raw fetch and enrichment, as one pure-ish step
     (no network when DC_OFFLINE is set) so scripts/replay_month.py can re-run
@@ -993,7 +1000,7 @@ def main() -> None:
     digest_sections, size_chars = trim_digest_to_budget(digest_sections)
 
     digest = {
-        "date": now.date().isoformat(),
+        "date": paper_date(now),
         "colophon": build_colophon(data.get("stats", {})),
         "how_to_read": DIGEST_NOTES,
         "sections": digest_sections,
@@ -1032,7 +1039,7 @@ def main() -> None:
 
     # A2: per-date refs snapshot + rolling union (back-compat) + prune.
     REFS_DIR.mkdir(parents=True, exist_ok=True)
-    (REFS_DIR / f"{now.date().isoformat()}.json").write_text(
+    (REFS_DIR / f"{paper_date(now)}.json").write_text(
         json.dumps(refs_today, ensure_ascii=False))
     prune_old_refs(now=now)
     REFS.write_text(json.dumps(build_refs_union(), ensure_ascii=False))
@@ -1044,18 +1051,18 @@ def main() -> None:
                     for st in sec.get("stories", []))
     with open(SHORTLIST_LOG, "a", encoding="utf-8") as f:
         for src, n in src_counts.items():
-            f.write(json.dumps({"date": now.date().isoformat(), "source": src, "n": n},
+            f.write(json.dumps({"date": paper_date(now), "source": src, "n": n},
                                ensure_ascii=False) + "\n")
 
     # B8: append this run's per-feed fetched/shortlisted counts.
     with open(FEED_STATS, "a", encoding="utf-8") as f:
         for row in all_feed_stats:
-            row["date"] = now.date().isoformat()
+            row["date"] = paper_date(now)
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
     est_tokens = size_chars // 4
     print(f"Wrote {DIGEST.relative_to(ROOT)} ({total_candidates} candidates, "
-          f"~{est_tokens} est. tokens) and refs/{now.date().isoformat()}.json "
+          f"~{est_tokens} est. tokens) and refs/{paper_date(now)}.json "
           f"({len(refs_today)} refs)")
     for name, kept, dropped, cross_day in drop_log:
         print(f"  {name:<18} kept {kept:>2}  dropped {dropped:>3}  (of which cross-day repeats: {cross_day:>3})")
@@ -1077,7 +1084,7 @@ if __name__ == "__main__":
         print(f"build_digest failed: {ex!r} — writing minimal empty digest")
         now = datetime.datetime.now(datetime.timezone.utc)
         DIGEST.write_text(json.dumps(
-            {"date": now.date().isoformat(),
+            {"date": paper_date(now),
              "colophon": "digest build failed — see CI log",
              "sections": []}, indent=2, ensure_ascii=False))
         REFS.write_text("{}")

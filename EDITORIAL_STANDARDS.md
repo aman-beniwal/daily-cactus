@@ -71,3 +71,41 @@ Hence the 24-card budget and the `also` rail.
 | Coverage gaps: geopolitics 22% of top stories, India business/markets and careers/visas had no home | Economy & Markets, World & Geopolitics, new Work & Careers; BYB reroutes India business/careers |
 | 6 dead feeds; no Indian business papers; thin defence/space/semis | 6 dead removed, 20 verified feeds added (Entrackr, ET Startups, Mint, BusinessLine, MediaNama, SpaceNews, EE Times, Breaking Defense, ThePrint Defence, Livefist, Mercom, Heatmap, The Diplomat, Al Jazeera, Semafor, Science, ET HealthWorld, Poets&Quants, Simon Willison, The Verge AI) |
 | ~6,500 words / 28-minute paper | 24-full-card budget, breadth via one-liners |
+
+## 5. How stories are picked (v8, 24 Sep 2026)
+
+Evidence: News Minimalist's LLM significance scoring (scale, impact, novelty,
+potential, credibility; 0-10), Techmeme and Google News (cross-outlet coverage and
+source authority as prominence), Hacker News time decay, and an arXiv 2025 study
+(2509.25491) showing LLM newsworthiness scores agree with editors within +-1 but
+not exactly, so scores should cut and order, and code should enforce the rules.
+
+1. **Code: prominence and hygiene** (free): independent-outlet count, recency,
+   learned source authority, 7-day memory, PR/format/section-fit flags, diversity caps.
+2. **Editor model: score everything** — Scale, Novelty, Consequence, Fit (0-4) +
+   a 10-word "why", for every candidate (the scores are saved next to the
+   selection, so picks can be audited and tuned).
+3. **Lead by head-to-head** between the top six, in both orders: "which would most
+   change what this reader believes or does this week?"
+4. **Code enforces** the budget (24 full cards), front-page caps, no repeats
+   across places, and "never lead with a story we could not read".
+
+Guards against the known biases: loudness (buzz is evidence, not importance),
+recency (structural beats breaking), PR, Anglophone skew (India lens raises Fit),
+sameness (one storyline per front-page slot).
+
+## 6. Sources (117 feeds, all live-checked 23-24 Sep 2026)
+Each beat now carries its best global outlets alongside Indian ones: AI (MIT TR,
+Bloomberg Tech, FT Tech, Reuters tech, Ars AI, The Decoder, Wired, NYT Tech, The
+Verge), startups (Inc42, Entrackr, ET Startups, TechCrunch Venture, Crunchbase
+News, Sifted, Rest of World), deep tech (IEEE, SpaceNews, Payload, EE Times,
+Breaking Defense, Defense News, ThePrint Defence, Livefist), climate (Carbon
+Brief, Canary, Heatmap, Inside Climate News, Grist, Mercom), health (STAT,
+Endpoints, Fierce Biotech, NYT Health, ET HealthWorld), agri (AgFunderNews,
+Reuters agri wire), economy (Bloomberg, FT, Economist, NYT Business, Reuters
+business, Mint, BusinessLine, Project Syndicate), world (Reuters, AP, NYT, BBC,
+Guardian, DW, Al Jazeera, SCMP, The Diplomat, Semafor, FT World), careers
+(Poets&Quants, Fast Company, MIT SMR), science and culture (Science, Scientific
+American, Nature, New Scientist, Guardian Books/Music).
+Blocked or stale when checked (skipped): Business Standard, WSJ feeds, Nikkei,
+VentureBeat, Tech in Asia, Civil Eats, IMF blog, HBR, Business Insider.

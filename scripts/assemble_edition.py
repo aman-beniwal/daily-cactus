@@ -43,13 +43,13 @@ import pathlib
 import os
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-DRAFTS = ROOT / "drafts"
+DRAFTS = pathlib.Path(os.environ.get("DC_DRAFTS_DIR", str(ROOT / "drafts")))
 REFS_DIR = ROOT / "feeds" / "refs"                     # A2 per-date snapshots
 REFS_FILE_LEGACY = ROOT / "feeds" / "refs.json"        # legacy rolling union
 LATEST = ROOT / "feeds" / "latest.json"
 DIGEST = ROOT / "feeds" / "digest.json"
 MARKETS_FILE = ROOT / "feeds" / "markets.json"         # B5, optional
-OUT_DIR = ROOT / "site" / "editions"
+OUT_DIR = pathlib.Path(os.environ.get("DC_OUT_DIR", str(ROOT / "site" / "editions")))
 
 # A3: where the workflow checks out gh-pages' editions/ before we run, so we
 # can tell which dates are already published. Override via env for testing.
@@ -581,7 +581,8 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
 
     for k in QUALITY:
         QUALITY[k] = 0
-    sel = load_json(ROOT / "feeds" / "selected" / f"{date}.json", default={}) or {}
+    sel = load_json(pathlib.Path(os.environ.get("DC_SELECTED_DIR", str(ROOT / "feeds" / "selected")))
+                    / f"{date}.json", default={}) or {}
     ts = {k: (v or {}).get("text_source") for k, v in (sel.get("stories") or {}).items()}
 
     lead = None
@@ -632,6 +633,10 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
         "sections": sections,
         "opportunities": opportunities,
     }
+    if draft.get("backup"):
+        edition["backup"] = True
+        edition["colophon"] = ("WIRE EDITION — the writer failed today, so these are the "
+                               "editor's picks with each article's opening lines. " + (colophon or ""))
     brief = draft.get("brief")
     if isinstance(brief, list) and brief:
         brief_out = []
@@ -652,7 +657,7 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
     out = OUT_DIR / f"{date}.json"
     out.write_text(json.dumps(edition, indent=2, ensure_ascii=False))
     n_stories = (1 if lead else 0) + len(frontpage) + sum(len(s["stories"]) for s in sections)
-    print(f"  {out.relative_to(ROOT)}  edition {edition['edition']}  "
+    print(f"  {os.path.relpath(out, ROOT)}  edition {edition['edition']}  "
           f"{n_stories} story slots, {len(opportunities)} opps")
     if DERIVED["count"]:
         print(f"    !! {DERIVED['count']} of {n_stories} stories arrived WITHOUT "

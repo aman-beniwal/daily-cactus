@@ -1,0 +1,136 @@
+name: Newsroom — select & write (v8)
+
+# One job, two model calls, on the owner's Claude SUBSCRIPTION (not the API):
+#   editor (prompts/editor.md) -> full-text fetch -> writer (prompts/writer.md)
+# Runs right after "Fetch RSS Feeds" finishes (no clock coupling, no laptop).
+#
+# Setup (owner, once): run `claude setup-token` on your own machine, then add
+# the printed token as repo secret CLAUDE_CODE_OAUTH_TOKEN (Settings -> Secrets
+# and variables -> Actions). Until it exists this workflow skips quietly.
+#
+# Mode (repo variable NEWSROOM_MODE, default "trial"):
+#   trial — output goes to trial/ and the page shows it at ?trial=<date>;
+#           the live archive is never touched. The routines keep publishing.
+#   live  — writes drafts/<date>.json and triggers "Publish Daily Cactus".
+# Optional repo variables: EDITOR_MODEL, WRITER_MODEL, EDITOR_EFFORT, WRITER_EFFORT.
+
+on:
+  workflow_run:
+    workflows: ["Fetch RSS Feeds"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'trial or live (blank = repo variable NEWSROOM_MODE, else trial)'
+        required: false
+        default: ''
+      date:
+        description: 'Paper date YYYY-MM-DD (blank = today IST)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  issues: write
+  actions: write     # to dispatch "Publish Daily Cactus" in live mode
+
+concurrency:
+  group: newsroom
+  cancel-in-progress: false
+
+jobs:
+  newsroom:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      HAS_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+      MODE: ${{ github.event.inputs.mode || vars.NEWSROOM_MODE || 'trial' }}
+    steps:
+      - name: No subscription token yet — skip
+        if: env.HAS_TOKEN != 'true'
+        run: echo "CLAUDE_CODE_OAUTH_TOKEN not set; newsroom skipped (the routines still publish)."
+
+      - uses: actions/checkout@v4
+        if: env.HAS_TOKEN == 'true'
+        with:
+          ref: main
+
+      - name: Checkout published editions (recent leads + immutability)
+        if: env.HAS_TOKEN == 'true'
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: existing_editions
+
+      - uses: actions/setup-python@v5
+        if: env.HAS_TOKEN == 'true'
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies (Python + Anthropic's official Claude Code CLI)
+        if: env.HAS_TOKEN == 'true'
+        run: |
+          pip install trafilatura readability-lxml certifi
+          npm install -g @anthropic-ai/claude-code
+
+      - name: Editor + writer
+        id: run
+        if: env.HAS_TOKEN == 'true'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          EDITIONS_DIR: existing_editions/editions
+          EDITOR_MODEL: ${{ vars.EDITOR_MODEL }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL }}
+          EDITOR_EFFORT: ${{ vars.EDITOR_EFFORT }}
+          WRITER_EFFORT: ${{ vars.WRITER_EFFORT }}
+        run: |
+          python scripts/newsroom.py --mode "$MODE" ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }} | tee newsroom.log
+
+      - name: Commit the day's selection, text and draft
+        if: env.HAS_TOKEN == 'true'
+        run: |
+          git config user.name  "Daily Cactus Bot"
+          git config user.email "bot@dailycactus.local"
+          git add feeds/newsroom_log.jsonl
+          if [ "$MODE" = "live" ]; then git add selections/ feeds/selected/ drafts/; else git add trial/; fi
+          git diff --staged --quiet || git commit -m "Newsroom ($MODE) $(TZ=Asia/Kolkata date +%F)"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push && break; sleep 5; done
+
+      - name: Live — hand the draft to "Publish Daily Cactus"
+        if: env.HAS_TOKEN == 'true' && env.MODE == 'live'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run "Publish Daily Cactus" --ref main
+
+      - name: Trial — assemble into trial/ only
+        if: env.HAS_TOKEN == 'true' && env.MODE != 'live'
+        env:
+          DC_DRAFTS_DIR: trial/drafts
+          DC_SELECTED_DIR: trial/feeds/selected
+          DC_OUT_DIR: trial_site/trial/editions
+          EXISTING_EDITIONS_DIR: /nonexistent
+        run: python scripts/assemble_edition.py
+
+      - name: Trial — deploy trial/ (keep_files; nothing else on the site changes)
+        if: env.HAS_TOKEN == 'true' && env.MODE != 'live'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./trial_site
+          publish_branch: gh-pages
+          keep_files: true
+          commit_message: "Trial edition (newsroom v8)"
+
+      - name: Open a health issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `Daily Cactus newsroom failed: ${new Date().toISOString().slice(0,10)}`,
+              labels: ['health'],
+              body: 'The newsroom workflow (editor/writer on the subscription) failed. See the run log. In trial mode the live paper is unaffected.',
+            });
