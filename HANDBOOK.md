@@ -21,7 +21,7 @@ flowchart LR
 - Only two steps use a model (editor, writer), each as ONE request on your
   Claude subscription — no agent loop, no laptop. Everything else is free code
   on GitHub Actions.
-- ~49k tokens in / ~11k out per paper (measured on 23 Sep data).
+- ~60k tokens in / ~16k out per paper (first real run, 23 Sep).
 - Until you switch to **live**, the new pipeline runs in **trial**: it writes to
   `trial/` and shows at `?trial=<date>`; your brother's routines keep
   publishing the real paper.
@@ -157,8 +157,14 @@ pinned CLI + deploy action); misuse alarms. 0 of 60 published editions changed.
 Optional: remove your name/Jaipur/career targets from the public prompts;
 delete the old expired `GITHUB_TOKEN.local.md` in the local Mac folder.
 
-**Not yet verified in production:** the first real `claude -p` run (needs your
-token); tonight's fetch with the new source list.
+**Verified 23 Sep 2026 (23:50 IST):** token added; first real trial run
+succeeded on the subscription — editor (Opus) ~24k in / ~7k out in 56 s,
+writer (Sonnet) ~36k in / ~10k out in 92 s, 21 stories published to
+`?trial=2026-09-23`. (The first attempt failed because the pasted token had a
+line break from terminal wrapping; the workflow now strips it, and the
+fallbacks — wire edition + token alert — worked as designed.)
+**Still to verify:** the first overnight run (fetch with 89 feeds → newsroom),
+24 Sep ~03:00 IST.
 
 **Known limits:** Reuters paywalled exclusives often stay headline-only (the
 paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
