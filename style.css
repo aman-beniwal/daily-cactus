@@ -368,7 +368,7 @@ a.sk:hover{text-decoration-thickness:1.5px}
 .also-rail h6{font-family:var(--stamp);font-size:11px;letter-spacing:2px;color:var(--faded);
   text-transform:uppercase;margin:0 0 6px}
 .also-rail ul{margin:0;padding-left:18px}
-.also-rail li{margin-bottom:5px;max-width:74ch}
+.also-rail li{margin-bottom:5px}   /* v8.3: full width (74ch cap wrapped mid-page) */
 .also-rail li::marker{color:#000}
 
 /* ---------- The 2-minute brief ---------- */
