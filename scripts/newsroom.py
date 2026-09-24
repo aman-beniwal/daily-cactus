@@ -63,8 +63,9 @@ ALERT_FILE = ROOT / "newsroom_alert.txt"   # the workflow turns this into an iss
 
 MAX_FULL_CARDS = 24
 MAX_FRONT = 8
-MAX_ALSO = 4
-MAX_OPPS = 4
+MAX_ALSO = 2          # per section (v8.3: 20-30 one-liners pulled the reader into clicking)
+MAX_ALSO_TOTAL = 10
+MAX_OPPS = 6
 
 
 # ---------------------------------------------------------------- model call
@@ -269,6 +270,13 @@ def validate_selection(sel: dict, digest: dict) -> dict:
         cut = set(sorted((i for s in sections for i in s["stories"]), key=comp)[:over])
         for s in sections:
             s["stories"] = [i for i in s["stories"] if i not in cut]
+    total_also = 0
+    for s in sections:                      # keep the best-scored one-liners overall
+        s["also"] = sorted(s["also"], key=comp, reverse=True)
+    for s in sorted(sections, key=lambda x: -max([comp(i) for i in x["also"]] or [0])):
+        keep = max(0, min(len(s["also"]), MAX_ALSO_TOTAL - total_also))
+        s["also"] = s["also"][:keep]
+        total_also += keep
     sections = [s for s in sections if s["stories"] or s["also"]]
     opps = [i for i in dict.fromkeys(sel.get("opportunities") or [])
             if ok(i) and known[i] == "opportunities"][:MAX_OPPS]
@@ -276,7 +284,65 @@ def validate_selection(sel: dict, digest: dict) -> dict:
     return {"date": digest.get("date"), "lead": lead, "frontpage": front, "sections": sections,
             "opportunities": opps, "longform": longform,
             "opp_when": {i: whens[i] for i in opps if i in whens},
-            "lead_reason": sel.get("lead_reason", ""), "lead_contenders": sel.get("lead_contenders", [])}
+            "lead_reason": sel.get("lead_reason", ""), "lead_contenders": sel.get("lead_contenders", []),
+            "_scores": {i: comp(i) for i in known}, "_section_of": known}
+
+
+def readable(st: dict) -> bool:
+    return (st or {}).get("text_source") == "full" or \
+        ((st or {}).get("text_source") == "digest-extract" and len((st or {}).get("fulltext") or "") >= 400)
+
+
+def replace_unreadable_cards(sel: dict, selected: dict, fs, max_fetches: int = 8) -> None:
+    """v8.3: a card with no readable text used to publish as a headline plus one
+    line (24 Sep: Modal Labs, LG/Samsung, a Fed story). Now each such card is
+    swapped for the best-scored unpicked story of the same section that CAN be
+    read; if none, it becomes a one-liner instead of an empty card."""
+    stories = selected.setdefault("stories", {})
+    scores, section_of = sel.get("_scores", {}), sel.get("_section_of", {})
+    used = {sel["lead"], *sel["frontpage"], *sel["opportunities"]}
+    for s in sel["sections"]:
+        used.update(s["stories"]); used.update(s["also"])
+    refs = fs.load_refs_for_date(sel["date"])
+    fallbacks = fs.load_digest_fallback()
+    fetches, start = 0, time.time()
+
+    def backfill(slug):
+        nonlocal fetches
+        pool = sorted((i for i, sec in section_of.items() if sec == slug and i not in used),
+                      key=lambda i: -scores.get(i, 0))
+        for cand in pool[:3]:
+            if fetches >= max_fetches or scores.get(cand, 0) < 8:
+                return None
+            fetches += 1
+            used.add(cand)
+            st = fs.fetch_one(cand, refs, fallbacks, start)
+            stories[cand] = st
+            if readable(st):
+                return cand
+        return None
+
+    for i, fid in enumerate(list(sel["frontpage"])):
+        if not readable(stories.get(fid)):
+            new = backfill(section_of.get(fid))
+            if new:
+                sel["frontpage"][i] = new
+                print(f"  front: swapped unreadable {fid} -> {new}")
+    for s in sel["sections"]:
+        keep = []
+        for sid in s["stories"]:
+            if readable(stories.get(sid)):
+                keep.append(sid)
+                continue
+            new = backfill(s["slug"])
+            if new:
+                keep.append(new)
+                print(f"  {s['slug']}: swapped unreadable {sid} -> {new}")
+            else:
+                s["also"] = [sid] + s["also"]           # a line, not an empty card
+                print(f"  {s['slug']}: {sid} unreadable, demoted to a one-liner")
+        s["stories"] = keep
+    sel["frontpage"] = [f for f in sel["frontpage"] if readable(stories.get(f))] or sel["frontpage"]
 
 
 def promote_readable_lead(sel: dict, selected: dict) -> None:
@@ -286,10 +352,10 @@ def promote_readable_lead(sel: dict, selected: dict) -> None:
     (Trial of 23 Sep 2026: the chosen lead yielded only its lede, and the
     lead card came out one thin bullet long.)"""
     st = selected.get("stories") or {}
-    if (st.get(sel["lead"]) or {}).get("text_source") == "full":
+    if readable(st.get(sel["lead"])):
         return
     for cand in sel.get("lead_contenders") or []:
-        if cand != sel["lead"] and (st.get(cand) or {}).get("text_source") == "full":
+        if cand != sel["lead"] and readable(st.get(cand)):
             old = sel["lead"]
             sel["frontpage"] = [old] + [i for i in sel["frontpage"] if i not in (old, cand)]
             for s in sel["sections"]:
@@ -424,7 +490,8 @@ def main():
         print(f"  !! editor failed ({ex}) — falling back to the ranking script's own order")
         raw = code_ranked_selection(digest)
     sel = validate_selection(raw, digest)
-    (sel_dir / f"{date}.json").write_text(json.dumps(sel, indent=2, ensure_ascii=False))
+    (sel_dir / f"{date}.json").write_text(json.dumps(
+        {k: v for k, v in sel.items() if not k.startswith("_")}, indent=2, ensure_ascii=False))
     (sel_dir / f"{date}.scores.json").write_text(json.dumps(raw.get("scores") or {}, ensure_ascii=False))
     n_full = 1 + len(sel["frontpage"]) + sum(len(s["stories"]) for s in sel["sections"])
     print(f"  editor picked lead + {len(sel['frontpage'])} front, {n_full} full cards, "
@@ -441,7 +508,10 @@ def main():
     fs.main()
     selected = json.loads((fs.SELECTED_DIR / f"{date}.json").read_text())
     promote_readable_lead(sel, selected)
-    (sel_dir / f"{date}.json").write_text(json.dumps(sel, indent=2, ensure_ascii=False))
+    replace_unreadable_cards(sel, selected, fs)
+    (fs.SELECTED_DIR / f"{date}.json").write_text(json.dumps(selected, indent=2, ensure_ascii=False))
+    (sel_dir / f"{date}.json").write_text(json.dumps(
+        {k: v for k, v in sel.items() if not k.startswith("_")}, indent=2, ensure_ascii=False))
     if a.stop_after == "fetch":
         return
 

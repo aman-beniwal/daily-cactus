@@ -61,7 +61,7 @@ SELECTED_DIR = ROOT / "feeds" / "selected"
 DIGEST = ROOT / "feeds" / "digest.json"
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from enrich_shortlist import fetch_extract   # reuse browser-UA fetch + extractors
+from enrich_shortlist import fetch_extract, fetch_extract_with_image   # reuse browser-UA fetch + extractors
 
 try:
     from resolve_gnews import resolve as resolve_gnews_url   # safety net, see module docstring
@@ -284,6 +284,61 @@ def _via_sibling(headline: str, own_url: str):
     return "", ""
 
 
+def _bing_items(headline: str):
+    """(title, source, real_url, snippet) for the same story from Bing News RSS.
+    v8.3 (24 Sep 2026): Bing returns each outlet's opening lines, e.g. for the
+    Reuters-only 'Modal Labs at $15B' story: 'up from $4.65B four months ago',
+    'rival Baseten eyes $26B' — enough for a real card when Reuters blocks us."""
+    q = _up.quote_plus(_re.sub(r"\s+[-|]\s+[^-|]+$", "", headline)[:140])
+    try:
+        req = _ur.Request(f"https://www.bing.com/news/search?q={q}&format=rss",
+                          headers={"User-Agent": BROWSER_UA})
+        with _ur.urlopen(req, timeout=15, context=_SSL_CTX) as r:
+            xml = r.read().decode("utf-8", errors="replace")
+    except Exception:                                          # noqa: BLE001
+        return []
+    import html as _h
+    out = []
+    for item in _re.findall(r"<item>(.*?)</item>", xml, _re.S)[:10]:
+        t = _re.search(r"<title>(.*?)</title>", item, _re.S)
+        l = _re.search(r"<link>(.*?)</link>", item, _re.S)
+        d = _re.search(r"<description>(.*?)</description>", item, _re.S)
+        src = _re.search(r"<News:Source>(.*?)</News:Source>", item, _re.S)
+        if not (t and l):
+            continue
+        link = _h.unescape(l.group(1).strip())
+        m = _re.search(r"[?&]url=([^&]+)", link)
+        real = _up.unquote(m.group(1)) if m else link
+        snip = _re.sub(r"<[^>]+>", "", _h.unescape(d.group(1))).strip() if d else ""
+        out.append((_h.unescape(t.group(1)), _h.unescape(src.group(1)) if src else "", real, snip))
+    return out
+
+
+def _via_bing(headline: str, own_url: str):
+    """Full text of the same story from an allow-listed outlet found via Bing,
+    else a short 'coverage from other outlets' digest of their opening lines."""
+    own_dom = _up.urlparse(own_url).netloc.replace("www.", "")
+    want = sig_tokens(headline)
+    items = [it for it in _bing_items(headline) if same_story(want, sig_tokens(it[0])) >= 0.3]
+    for title, src, real, snip in items:
+        dom = _up.urlparse(real).netloc.replace("www.", "")
+        if dom and dom != own_dom and not any(b in dom for b in BLOCKED_DOMAINS) and \
+                any(dom == ok or dom.endswith("." + ok) for ok in SIBLING_OK):
+            try:
+                text = fetch_extract(real, max_chars=FULLTEXT_CHARS) or ""
+            except Exception:                                  # noqa: BLE001
+                text = ""
+            if _usable(text):
+                return (f"[Text below is {src or dom}'s report of the same story — the original "
+                        f"outlet blocks automated reading. The link still points to the original.]\n" + text,
+                        f"bing-sibling:{src or dom}", "full")
+    snips = [f"- {src}: {snip}" for _, src, _, snip in items if len(snip) > 60][:5]
+    if len(snips) >= 2:
+        return ("[Coverage summary: opening lines of the same story from other outlets — "
+                "write only what these lines state.]\n" + "\n".join(snips), "bing-snippets", "digest-extract")
+    return "", "", ""
+
+
 def recover_text(headline: str, url: str, deadline: float):
     """v7 recovery chain. Returns (text, via) or ('', '')."""
     if not url or time.time() > deadline:
@@ -302,6 +357,12 @@ def recover_text(headline: str, url: str, deadline: float):
         note = (f"[Text below is {outlet}'s report of the same story — the original "
                 f"outlet blocks automated reading. The link still points to the original.]\n")
         return note + (lede + "\n" if lede else "") + t, f"sibling:{outlet}"
+    if time.time() < deadline:
+        t, via, kind = _via_bing(headline, url)
+        if t:
+            if kind == "digest-extract":
+                return (lede + "\n" + t) if lede else t, via
+            return t, via
     return (lede, "reader-lede") if lede else ("", "")
 
 
@@ -322,7 +383,7 @@ def fetch_one(sid: str, refs: dict, fallbacks: dict, start: float, lite: bool = 
     except Exception:                                          # noqa: BLE001
         pass
 
-    fulltext, source_kind = "", "none"
+    fulltext, source_kind, og_img = "", "none", None
     if lite:
         # also-rail one-liner: the digest snippet is plenty, skip the fetch
         snippet = (fallbacks.get(sid) or "").strip()
@@ -334,16 +395,17 @@ def fetch_one(sid: str, refs: dict, fallbacks: dict, start: float, lite: bool = 
         }
     if url and (time.time() - start) < TOTAL_TIME_BUDGET:
         try:
-            fulltext = fetch_extract(url, max_chars=FULLTEXT_CHARS) or ""
+            fulltext, og_img = fetch_extract_with_image(url, max_chars=FULLTEXT_CHARS)
+            fulltext = fulltext or ""
         except Exception:                                      # noqa: BLE001
-            fulltext = ""
+            fulltext, og_img = "", None
     via = ""
     if fulltext and not _usable(fulltext):
         fulltext = ""                          # paywall/bot-wall stub, not an article
     if not fulltext:
         fulltext, via = recover_text(ref.get("title", ""), url,
                                      start + TOTAL_TIME_BUDGET + RECOVERY_TIME_BUDGET)
-    if fulltext and via == "reader-lede":
+    if fulltext and via in ("reader-lede", "bing-snippets"):
         source_kind = "digest-extract"         # honest: the writer must treat it as partial
     elif fulltext:
         # "full" keeps the pasted writer prompt's contract; `text_via` records
@@ -363,6 +425,7 @@ def fetch_one(sid: str, refs: dict, fallbacks: dict, start: float, lite: bool = 
         "fulltext": fulltext,
         "text_source": source_kind,
         **({"text_via": via} if via else {}),
+        **({"og_image": og_img} if og_img and not ref.get("image") else {}),
     }
 
 

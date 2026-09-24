@@ -13,7 +13,8 @@ Style illustration only (its details are invented; never reuse them) — weak: "
 ## What to write for each story
 - **headline** — plain language, not the outlet's clickbait.
 - **hook** — ONE sentence, at most 30 words: the single most important fact, leading with its number. Never a restatement of the headline, never scene-setting.
-- **points** — 2-4 bullets, each at most 30 words, one fact or idea each, starting with the substance (not "The company said…"). Mine the WHOLE text for the numbers, names and comparisons that matter. Together hook + points should leave the reader rarely needing the source. No bullet repeats the hook.
+- **points** — 3-5 bullets, each at most 30 words, one fact or idea each, starting with the substance (not "The company said…").
+- **Completeness (Pareto) — the reader must NEVER need to open the article.** Before writing, list to yourself the 80% that matters in the piece: who, what exactly, how much, why/how it happened, what it is compared with, what happens next and who is affected. Every item on that list must appear in hook + points; drop colour, quotes and background that add nothing. Soft size guide: 90-130 words for hook + points on a full-text story (lead/front may run to ~150); fewer for a thin story. Crisp beats long: no sentence may exist only to sound complete.
 - **signal** — 1-3 short bullets: the specific implication for THIS reader (his beats, India, his career move) — only when concrete. Never "worth watching", "worth tracking", "not personally actionable", "the real signal". One sharp bullet beats two padded ones.
 - **key_stat** — a short stat chip ("$100M · Series C") whenever one number carries the story.
 - **editors_read** — ONLY for the lead and the first two front-page stories: 2-3 sentences of second-order analysis (what happens next, who wins/loses, what it means for the reader). You may reason beyond the article here; it is labelled as interpretation.
@@ -36,6 +37,6 @@ Style illustration only (its details are invented; never reuse them) — weak: "
  "lead": {"id": "...", "headline": "...", "hook": "...", "points": ["..."], "signal": ["..."], "key_stat": "...", "editors_read": "...", "developing": false},
  "frontpage": [{"id": "...", "headline": "...", "hook": "...", "points": [...], "signal": [...], "key_stat": "...", "editors_read": "..."}],
  "sections": [{"slug": "...", "stories": [{"id": "...", "headline": "...", "hook": "...", "points": [...], "signal": [...], "key_stat": "..."}],
-               "also": [{"id": "...", "line": "one tight sentence with its number"}]}],
+               "also": [{"id": "...", "line": "self-contained: what happened + its number + why it matters, <= 30 words, so there is no reason to click"}]}],
  "opportunities": [{"id": "...", "name": "...", "when": "date/deadline", "summary": "what + why go + city or 'online/global'"}]}
 Rules: copy every `id` exactly; write each story ONCE, in the place the editor gave it (a lead/front story is not repeated in its section); omit a field rather than leave it empty; plain text only except the ==/__ markers; valid JSON.

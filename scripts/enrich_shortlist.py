@@ -198,6 +198,33 @@ def fetch_extract_and_date(url: str, max_chars: int = EXTRACT_CHARS):
     return text, article_date
 
 
+_OG_IMG = re.compile(r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)(?::src)?["\'][^>]+content=["\']([^"\']+)["\']', re.I)
+_OG_IMG2 = re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\']', re.I)
+
+
+def fetch_extract_with_image(url: str, max_chars: int = EXTRACT_CHARS):
+    """v8.3: (text, preview_image_url) from one fetch. The article's own
+    og:image is what social cards show — used when the feed carried no
+    image, so more cards get a photo."""
+    if not url:
+        return None, None
+    html = _fetch_html(url)
+    if not html:
+        return None, None
+    m = _OG_IMG.search(html) or _OG_IMG2.search(html)
+    img = m.group(1).strip() if m and m.group(1).startswith("http") else None
+    text = None
+    for fn in (_extract_trafilatura, _extract_readability):
+        try:
+            t = fn(html)
+            if t and t.strip():
+                text = t.strip()[:max_chars]
+                break
+        except Exception:
+            continue
+    return text, img
+
+
 def fetch_extract(url: str, max_chars: int = EXTRACT_CHARS) -> str | None:
     """max_chars is optional (Option B / scripts/fetch_selected.py reuses this
     same fetch+extract path with a much larger cap for full-article text);

@@ -21,8 +21,8 @@ Judging rules (these are where papers go wrong):
 - **Front page**: 6-8 more, the next most consequential, across sections. ONE storyline = one slot. At most 2 from any one section.
 - **Sections**: for each section, the stories that clear the bar (composite >= 9 is a good guide), best first. A story on the front page is NOT repeated in its section.
 - **Budget**: at most **24 full stories in total** (lead + front + section stories, each counted once). A thin day is fine — fewer honest stories beat padding.
-- **also**: per section, 2-4 headline-grade items that deserve one line, not a card. This is where breadth goes.
-- **opportunities**: 0-4 ids with a concrete date >= 2 days away that he would actually attend or apply to (Jaipur/Delhi-NCR/online first; fellowships, AI/startup/policy events). No student college fests, NGO grants, foreign local festivals.
+- **also**: per section, 0-2 items that deserve one line, not a card (at most ~10 in the whole paper). If a story is good enough that he would want to read more, it is a CARD, not a one-liner.
+- **opportunities**: 3-6 ids when the list allows, each with a concrete date >= 2 days away, that he would actually attend or apply to. Priority: (1) AI builder meetups, hackathons and demo days in Jaipur / Delhi-NCR or online; (2) fellowships and cohorts in tech policy, AI governance, climate or public policy; (3) founder, VC and startup-ecosystem events; (4) climate and sustainability community events in Jaipur (he volunteers with an environmental film festival there); (5) top-MBA admissions events and info sessions; (6) volunteering where data/strategy skills help an NGO. Skip student college fests, NGO grant calls for organisations, and local events abroad.
 - **longform**: 0-2, only if a `longform` section exists today.
 - **Diversity**: no more than 2 picks from one outlet on the front page; not five versions of the same AI-model launch.
 

@@ -335,6 +335,7 @@ _FILLER_TAIL = re.compile(
     r"[;,]\s*(?:worth (?:watching|tracking|following))[.!]?\s*$", re.I)
 _FILLER_LEAD = re.compile(r"^\s*(?:worth (?:watching|tracking)(?: is)?|the thing to watch "
                           r"is|the number to (?:remember|watch)(?: is)?)\s*[:—–-]?\s*", re.I)
+OG_IMAGES = {}   # id -> article preview image (from feeds/selected), filled per edition
 QUALITY = {"hooks_split": 0, "points_split": 0, "signal_filler": 0,
            "editors_read_stripped": 0, "headline_only_commentary": 0}
 
@@ -432,6 +433,7 @@ def load_refs_for_date(date_str: str) -> dict:
 def build_story(item, refs, warnings, allow_read=True, text_source=None):
     """Merge model prose with the verbatim url/image/source from refs[id]."""
     text_source = text_source or {}
+    og_images = OG_IMAGES
     sid = item.get("id")
     ref = refs.get(sid)
     if ref is None:
@@ -470,7 +472,7 @@ def build_story(item, refs, warnings, allow_read=True, text_source=None):
         "why": item.get("why", ""),
         "source": ref.get("source", ""),
         "url": ref.get("url"),
-        "image": ref.get("image"),
+        "image": ref.get("image") or og_images.get(sid),      # v8.3: article's own preview image
         "developing": bool(item.get("developing", False)),
     }
     # v6 bullet summary — additive. `hook` is the one-line numbers-first
@@ -584,6 +586,9 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
     sel = load_json(pathlib.Path(os.environ.get("DC_SELECTED_DIR", str(ROOT / "feeds" / "selected")))
                     / f"{date}.json", default={}) or {}
     ts = {k: (v or {}).get("text_source") for k, v in (sel.get("stories") or {}).items()}
+    OG_IMAGES.clear()
+    OG_IMAGES.update({k: v["og_image"] for k, v in (sel.get("stories") or {}).items()
+                      if isinstance(v, dict) and v.get("og_image")})
 
     lead = None
     if draft.get("lead"):

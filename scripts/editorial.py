@@ -451,7 +451,10 @@ OPP_TOPIC = word_re([
     r"sustainability", r"energy", r"deep ?tech", r"space", r"semiconductors?",
     r"robotics", r"drones?", r"quantum", r"fintech", r"health ?tech", r"design",
     r"leadership", r"innovation", r"summit", r"conference", r"accelerator",
-    r"incubat\w+", r"cohort", r"residency", r"mba", r"scholarship"])
+    r"incubat\w+", r"cohort", r"residency", r"mba", r"scholarship",
+    r"venture capital", r"vc", r"investors?", r"demo day", r"pitch", r"admissions?",
+    r"info session", r"volunteer\w*", r"ngo", r"environment\w*", r"screening",
+    r"agri\w*", r"meetup", r"builders?", r"agents?"])
 OPP_LOCAL = word_re([r"jaipur", r"rajasthan"])
 OPP_NCR = word_re([r"delhi", r"new delhi", r"gurugram", r"gurgaon", r"noida", r"ncr"])
 OPP_INDIA = word_re([r"india", r"indian", r"bengaluru", r"bangalore", r"mumbai",
@@ -463,7 +466,7 @@ OPP_BAD = word_re([
     r"kids?", r"children", r"teens?", r"school students?", r"class \d+",
     r"ngos?", r"csos?", r"civil society organi[sz]ations", r"grants? for organi[sz]ations",
     r"africa\w*", r"nigeria\w*", r"kenya\w*", r"ghana\w*", r"(?:united states|us) only",
-    r"film festival", r"theat(?:er|re) festival", r"food festival", r"fall festival",
+    r"theat(?:er|re) festival", r"food festival", r"fall festival",
     r"ride presale", r"early bird drawing", r"kids festival", r"football club",
     r"latino", r"perth", r"tashkent", r"chisinau", r"gainesville", r"houston"])
 # Student-run college hackathons (most of Unstop) are not for a working
