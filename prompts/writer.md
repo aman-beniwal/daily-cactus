@@ -30,7 +30,7 @@ Style illustration only (its details are invented; never reuse them) — weak: "
 - Vendor and founder claims ("200x faster", "eliminates…") are written as claims: "the company says".
 - Never turn a relative date ("this month", "next week", "on Tuesday") into a calendar date. Quote it or omit it.
 - An opportunity whose date has passed, or is not concrete, is dropped.
-- If the full text shows a story is thinner than its headline suggested, you may drop it. Never pad.
+- Every CARD the editor placed has already been checked for readable text: write it as a full card in its place. Never demote a card to a one-liner or drop it for being brief — write fewer points instead. Drop a story only if its text shows the headline is wrong or the event is stale.
 
 ## Output — ONLY this JSON, no prose, no code fence
 {"date": "YYYY-MM-DD",

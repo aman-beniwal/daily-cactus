@@ -397,14 +397,16 @@ def test_v82_usage_guard():
     tmp = pathlib.Path(tempfile.mkdtemp())
     old_log, old_alert = nr.LOG, nr.ALERT_FILE
     nr.LOG, nr.ALERT_FILE = tmp / "log.jsonl", tmp / "alert.txt"
-    rows = [{"date": f"2026-09-{d:02d}", "input_tokens": 50000, "output_tokens": 10000} for d in range(10, 17)]
-    rows.append({"date": "2026-09-17", "input_tokens": 250000, "output_tokens": 20000})
+    rows = [{"date": f"2026-09-{d:02d}", "run": str(d), "input_tokens": 50000, "output_tokens": 10000} for d in range(10, 17)]
+    rows.append({"date": "2026-09-16", "run": "rerun", "input_tokens": 50000, "output_tokens": 10000})
+    rows.append({"date": "2026-09-17", "run": "17", "input_tokens": 250000, "output_tokens": 20000})
     nr.LOG.write_text("\n".join(_j.dumps(r) for r in rows))
     nr.usage_check("2026-09-17")
     check("usage guard: a 4x spike raises an alert", nr.ALERT_FILE.exists())
     nr.ALERT_FILE.unlink()
+    nr.LOG.write_text("\n".join(_j.dumps(r) for r in rows[:-1]))
     nr.usage_check("2026-09-16")
-    check("usage guard: a normal day raises nothing", not nr.ALERT_FILE.exists())
+    check("usage guard: a same-day re-run of normal size raises nothing", not nr.ALERT_FILE.exists())
     try:
         nr.call_claude("editor", "x", "y" * 200_000, "m", None, "2026-09-17")
         refused = False

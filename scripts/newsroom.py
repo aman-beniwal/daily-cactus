@@ -91,19 +91,25 @@ def usage_check(date: str) -> None:
         return
     def tot(r):
         return sum((r.get(k) or 0) for k in ("input_tokens", "cache_write_tokens", "output_tokens"))
-    by_day = {}
+    # Per RUN, not per day: a manual re-run on the same date is not a spike
+    # (24 Sep: the overnight trial + a re-run summed to 2x and false-alarmed).
+    by_run, order = {}, []
     for r in rows:
-        by_day[r["date"]] = by_day.get(r["date"], 0) + tot(r)
-    today = by_day.get(date, 0)
-    past = sorted(v for d, v in by_day.items() if d < date)[-7:]
-    if not past:
+        k = (r.get("date"), r.get("run") or f"{r.get('date')}-legacy")
+        if k not in by_run:
+            order.append(k)
+        by_run[k] = by_run.get(k, 0) + tot(r)
+    if len(order) < 2:
         return
+    this = order[-1]
+    today = by_run[this]
+    past = [by_run[k] for k in order[:-1]][-7:]
     median = sorted(past)[len(past) // 2]
-    print(f"  usage: today {today:,} tokens vs recent median {median:,}")
+    print(f"  usage: this run {today:,} tokens vs recent median {median:,}")
     if today > SPIKE_FLOOR_TOKENS and today > SPIKE_FACTOR * median:
         alert("Newsroom token use spiked",
-              f"{date}: {today:,} tokens vs a recent median of {median:,}. Check the run log; "
-              "if your claude.ai usage page also shows use you don't recognise, rotate the token.")
+              f"{date}: this run used {today:,} tokens vs a recent median of {median:,}. Check the run "
+              "log; if your claude.ai usage page also shows use you don't recognise, rotate the token.")
 
 
 def _parse_json(text: str):
@@ -143,7 +149,8 @@ def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
             print(f"  {stage} attempt {attempt}: {last_err}")
             continue
         usage = meta.get("usage") or {}
-        row = {"date": date, "stage": stage, "model": model, "effort": effort,
+        row = {"date": date, "run": os.environ.get("GITHUB_RUN_ID", "local"),
+               "stage": stage, "model": model, "effort": effort,
                "attempt": attempt, "seconds": dur, "turns": meta.get("num_turns"),
                "input_tokens": usage.get("input_tokens"),
                "cache_read_tokens": usage.get("cache_read_input_tokens"),
