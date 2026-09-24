@@ -22,9 +22,10 @@ flowchart LR
   Claude subscription — no agent loop, no laptop. Everything else is free code
   on GitHub Actions.
 - ~60k tokens in / ~16k out per paper (first real run, 23 Sep).
-- Until you switch to **live**, the new pipeline runs in **trial**: it writes to
-  `trial/` and shows at `?trial=<date>`; your brother's routines keep
-  publishing the real paper.
+- **LIVE since 25 Sep 2026** (`NEWSROOM_MODE=live`): the newsroom publishes the
+  real paper every morning. Your brother's two laptop tasks should be paused —
+  if they still run, their drafts are skipped (the date is already published)
+  but they waste his allowance.
 
 ## 2. One-time setup (you)
 
@@ -104,11 +105,29 @@ than your own use + one paper a day, treat it as a leak.
 4. If the GUARD alarm fired: also change your GitHub password and check
    Settings → Sessions for devices you don't recognise.
 
+## 4b. How cards are guaranteed readable (v8.3)
+1. Direct fetch → 2. reader proxy → 3. same story from an allow-listed outlet via
+Google News → 4. same story via **Bing News** (full text, else a summary of
+several outlets' opening lines) → 5. still unreadable: the card is swapped for
+the best-scored readable story in its section, else shown as a one-liner. The
+lead must always be readable. Photos: the article's own preview image when the
+feed has none.
+
+## 4c. Opportunities: what gets picked (tell Claude to change any of this)
+Up to 6, each with a real date >= 2 days away. Priority: (1) AI builder meetups,
+hackathons, demo days in Jaipur / Delhi-NCR or online; (2) fellowships in tech
+policy, AI governance, climate, public policy; (3) founder / VC / startup
+events; (4) climate & sustainability community events in Jaipur; (5) top-MBA
+admissions events; (6) NGO volunteering that uses data/strategy skills.
+Filtered out: student college fests, grant calls for organisations, local
+events abroad, anything already past. Sources: Unstop, Luma (Delhi/Mumbai/
+Bengaluru), Devpost, plus 3 Google News searches (festivals, fellowships, AI).
+
 ## 5. Settings you can change (repo Variables — no code)
 
 | Variable | Default | Use |
 |---|---|---|
-| `NEWSROOM_MODE` | `trial` | `live` to publish from the new pipeline |
+| `NEWSROOM_MODE` | `live` (set 24 Sep) | `trial` to test changes without publishing |
 | `EDITOR_MODEL` | `claude-opus-5-5` | `claude-sonnet-5` to save allowance |
 | `WRITER_MODEL` | `claude-sonnet-5` | |
 | `EDITOR_EFFORT` / `WRITER_EFFORT` | `low` | `medium` for more reasoning (more tokens) |
@@ -135,7 +154,9 @@ than your own use + one paper a day, treat it as a leak.
 - **Fix extraction for hard sources**, don't drop them (Reuters/Bloomberg).
 - **Published editions are immutable**; deploys only add files. Verify on a
   recent and the oldest (2026-06-18) edition before any renderer change.
-- **24 full stories max**, breadth via one-line mentions (~15-minute read).
+- **24 full stories max**, breadth via at most ~10 self-contained one-liners (2 per
+  section); cards are crisp but complete (Pareto: the reader never needs to open
+  the article; soft 90-130 words).
 - **Writing standard:** first-principles clarity — fact → mechanism →
   consequence, a yardstick from the text for every number, jargon glossed once.
 - **Selection:** code measures prominence; the editor scores Scale · Novelty ·
