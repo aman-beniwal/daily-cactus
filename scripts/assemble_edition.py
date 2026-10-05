@@ -42,6 +42,9 @@ import datetime
 import pathlib
 import os
 
+import storymatch as sm
+from editorial import RecentMemory
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DRAFTS = pathlib.Path(os.environ.get("DC_DRAFTS_DIR", str(ROOT / "drafts")))
 REFS_DIR = ROOT / "feeds" / "refs"                     # A2 per-date snapshots
@@ -463,6 +466,7 @@ def build_story(item, refs, warnings, allow_read=True, text_source=None):
                         f"— CHECK THE LINK ({headline[:50]!r} vs "
                         f"{ref.get('title','')[:50]!r})")
     story = {
+        "id": sid,
         "headline": headline,
         "summary": item.get("summary", ""),
         "signal": coerce_signal(item.get("signal")),
@@ -475,6 +479,8 @@ def build_story(item, refs, warnings, allow_read=True, text_source=None):
         "image": ref.get("image") or og_images.get(sid),      # v8.3: article's own preview image
         "developing": bool(item.get("developing", False)),
     }
+    if item.get("followup") or ref.get("followup"):
+        story["followup"] = True
     # v6 bullet summary — additive. `hook` is the one-line numbers-first
     # opener, `points` the 3-5 bullets under it. The renderer falls back to
     # `summary` whenever `points` is absent, so every already-published
@@ -570,6 +576,23 @@ def existing_edition_dates() -> set:
     return {f.stem for f in EXISTING_EDITIONS_DIR.glob("*.json") if f.stem != "index"}
 
 
+def published_memory(date):
+    """Reuse the gh-pages checkout already supplied by the publish workflow."""
+    memory = RecentMemory()
+    today = datetime.date.fromisoformat(date)
+    directory = pathlib.Path(os.environ.get('EDITIONS_DIR', str(EXISTING_EDITIONS_DIR)))
+    for path in sorted(directory.glob('*.json')):
+        try:
+            age = (today - datetime.date.fromisoformat(path.stem)).days
+        except ValueError:
+            continue
+        if 1 <= age <= 7:
+            edition = load_json(path, default={}) or {}
+            for card in sm.cards(edition):
+                memory.add(path.stem, card.get('headline', ''), card.get('url'), text=sm.card_text(card))
+    return memory
+
+
 def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
     draft = load_json(draft_path)
     if not isinstance(draft, dict):
@@ -658,6 +681,34 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
     if markets:
         edition["markets"] = markets   # B5, injected verbatim, optional
 
+    edition, duplicate_drops = sm.dedupe_cards(edition)
+    for pair in duplicate_drops:
+        warnings.append(f"storymatch duplicate: kept {pair['kept']!r}, dropped {pair['dropped']!r}")
+    memory = published_memory(date)
+    edition, repeat_drops = sm.filter_repeats(edition, memory)
+    for pair in repeat_drops:
+        warnings.append(f"storymatch repeat: kept published {pair['kept']!r}, dropped {pair['dropped']!r}")
+    if not memory:
+        warnings.append('storymatch: no prior published cards available for repeat check')
+    grounding_rows = []
+    for card in sm.cards(edition):
+        sid = card.get('id')
+        source = sm.source_text(sid, sel.get('stories') or {},
+                                {i: r.get('dupes', []) for i, r in refs.items()})
+        misses = sm.grounding(card, source)
+        grounding_rows.append({'id': sid, 'unsupported': misses, 'source_missing': not bool(source)})
+        if misses:
+            warnings.append(f"grounding {sid!r}: {', '.join(misses)}")
+        if not source:
+            warnings.append(f"grounding {sid!r}: source text unavailable")
+    quality = {'date': date, 'quality': {**QUALITY, 'duplicate_drops': duplicate_drops,
+               'repeat_drops': repeat_drops, 'repeat_memory_cards': len(memory),
+               'grounding': grounding_rows, 'grounding_misses': sum(len(r['unsupported']) for r in grounding_rows)}}
+    selected_dir = pathlib.Path(os.environ.get('DC_SELECTED_DIR', str(ROOT / 'feeds' / 'selected')))
+    quality_dir = pathlib.Path(os.environ.get('DC_QUALITY_DIR', str(selected_dir.parent / 'quality')))
+    quality_dir.mkdir(parents=True, exist_ok=True)
+    (quality_dir / f'{date}.json').write_text(json.dumps(quality, indent=2, ensure_ascii=False))
+    lead, frontpage, sections = edition.get('lead'), edition['frontpage'], edition['sections']
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUT_DIR / f"{date}.json"
     out.write_text(json.dumps(edition, indent=2, ensure_ascii=False))
