@@ -34,11 +34,15 @@ opportunity days went unnoticed for 3 runs).
 import datetime
 import html as htmllib
 import json
+import os
 import pathlib
 import re
 import ssl
 import urllib.parse
 import urllib.request
+import feedparser
+
+import editorial as ed
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "feeds" / "opportunities.json"
@@ -55,7 +59,7 @@ except ImportError:
 
 
 def _get(url, headers=None, timeout=TIMEOUT):
-    """Never raises: returns the decoded response body, or None on any error."""
+    """Return a public page body; callers isolate source failures."""
     h = {"User-Agent": BROWSER_UA, "Accept": "*/*"}
     if headers:
         h.update(headers)
@@ -191,6 +195,15 @@ def fetch_unstop():
                 if not seo_url:
                     continue
                 regn = it.get("regnRequirements") or {}
+                eligibility = regn.get("eligibility") or ""
+                if isinstance(eligibility, str):
+                    try:
+                        eligibility = json.loads(eligibility)
+                    except ValueError:
+                        eligibility = {}
+                sectors = eligibility.get("sector") or [] if isinstance(eligibility, dict) else []
+                if "students" in sectors and not any(x in sectors for x in ("professionals", "working professionals")):
+                    continue
                 deadline = _iso(regn.get("end_regn_dt"))
                 festival = it.get("festival") or {}
                 event_date = _iso(festival.get("start_date")) if isinstance(festival, dict) else None
@@ -201,7 +214,8 @@ def fetch_unstop():
                 if deadline:
                     when_bits.append(f"register by {deadline}")
                 when_txt = "; ".join(when_bits) or "dates on registration page"
-                summary = f"{opp_type.rstrip('s').title()} hosted by {org_name or 'organizer TBC'}. {when_txt}."
+                place = regn.get("work_location_type") or ""
+                summary = f"{opp_type.rstrip('s').title()} hosted by {org_name or 'organizer TBC'}. {place}. {when_txt}."
                 items.append({
                     "title": title,
                     "link": seo_url,
@@ -212,6 +226,7 @@ def fetch_unstop():
                     "feed_url": f"opportunities:unstop:{opp_type}:{term}",
                     "event_date": event_date,
                     "deadline": deadline,
+                    "organizer": org_name,
                 })
                 seen_ids.add(oid)
                 kept += 1
@@ -278,7 +293,7 @@ def fetch_10times():
                 "summary": f"Listed on 10times. {'Runs ' + ed if ed else 'Date on event page'}.",
                 "image_url": None,
                 "feed_url": f"opportunities:10times:{url}",
-                "event_date": ed,
+                "event_date": day,
                 "deadline": None,
             })
             kept += 1
@@ -289,7 +304,7 @@ def fetch_10times():
 # ---------------------------------------------------------------------------
 # 3. Lu.ma
 # ---------------------------------------------------------------------------
-LUMA_CITIES = ("new-delhi", "mumbai", "bengaluru")   # no Jaipur page exists
+LUMA_CITIES = ("new-delhi",)
 _NEXT_DATA_RE = re.compile(
     r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', re.S)
 
@@ -320,18 +335,18 @@ def fetch_luma():
             name = ev.get("name")
             slug = ev.get("url")
             start_at = ev.get("start_at")
-            if not (name and slug and start_at):
+            if not (name and slug and start_at) or not ed.OPP_TOPIC.search(name):
                 continue
-            ed = _iso(start_at)
+            day = _iso(start_at)
             items.append({
                 "title": name,
                 "link": f"https://lu.ma/{slug}",
                 "source": f"Luma ({city.replace('-', ' ').title()})",
                 "published": None,
-                "summary": f"Local event via Luma. {'On ' + ed if ed else 'Date on event page'}.",
+                "summary": f"In-person in {city.replace('-', ' ').title()} via Luma. {'On ' + day if day else 'Date on event page'}.",
                 "image_url": ev.get("cover_url"),
                 "feed_url": f"opportunities:luma:{city}",
-                "event_date": ed,
+                "event_date": day,
                 "deadline": None,
             })
             kept += 1
@@ -358,12 +373,16 @@ def fetch_devpost():
         if not (title and link):
             continue
         submission_dates = h.get("submission_period_dates") or ""
+        place = ((h.get("displayed_location") or {}).get("location") or "").strip()
+        organizer = (h.get("organization_name") or "").strip()
+        online = place.lower() in ("online", "")
         items.append({
             "title": title,
             "link": link,
             "source": "Devpost",
             "published": None,
-            "summary": f"Global hackathon via Devpost. {submission_dates or 'Dates on event page'}.",
+            "summary": f"{'Online' if online else 'In-person at ' + place} hackathon via Devpost. {submission_dates or 'Dates on event page'}.",
+            "organizer": organizer,
             "image_url": ("https:" + h["thumbnail_url"]) if h.get("thumbnail_url", "").startswith("//") else h.get("thumbnail_url"),
             "feed_url": "opportunities:devpost",
             "event_date": None,   # Devpost gives a free-text date range, not ISO — leave
@@ -374,19 +393,208 @@ def fetch_devpost():
     return items
 
 
+def _plain(s):
+    return re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
+
+
+def _named_date(s):
+    m = re.search(r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d\d)\b", s or "", re.I)
+    if not m:
+        return None
+    try:
+        return datetime.datetime.strptime(m.group(0).replace(",", ""), "%B %d %Y").date().isoformat()
+    except ValueError:
+        return None
+
+
+def _when_iso(s, year):
+    m = re.search(r"20\d\d-\d\d-\d\d", s or "")
+    if m:
+        return m.group(0)
+    named = _named_date(s)
+    if named:
+        return named
+    m = re.search(r"\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d\d)\b", s or "", re.I)
+    if m:
+        try:
+            return datetime.datetime.strptime(m.group(0), "%d %B %Y").date().isoformat()
+        except ValueError:
+            pass
+    m = re.search(r"\b(?:due|apply by)\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\b", s or "", re.I)
+    if m:
+        try:
+            return datetime.datetime.strptime(f"{m.group(1)} {m.group(2)} {year}", "%B %d %Y").date().isoformat()
+        except ValueError:
+            pass
+    m = re.search(r"\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b", s or "", re.I)
+    if m:
+        try:
+            return datetime.datetime.strptime(f"{m.group(1)} {m.group(2)} {year}", "%d %b %Y").date().isoformat()
+        except ValueError:
+            pass
+    return None
+
+
+def fetch_opportunity_desk():
+    """RSS descriptions begin with an explicit deadline; other posts are skipped."""
+    items, seen = [], set()
+    for page in range(1, 4):
+        url = f"https://opportunitydesk.org/category/fellowships/feed/?paged={page}"
+        try:
+            rows = feedparser.parse(_get(url)).entries
+        except Exception as ex:                         # noqa: BLE001
+            print(f"fetch_opportunities: Opportunity Desk page {page} failed: {ex!r}")
+            continue
+        for row in rows:
+            title, link = _plain(row.get("title")), row.get("link")
+            summary = _plain(row.get("summary"))
+            deadline_m = re.search(r"\bDeadline:\s*([^.]*)", summary, re.I)
+            deadline = _named_date(deadline_m.group(1)) if deadline_m else None
+            if not (title and link and deadline) or link in seen:
+                continue
+            if not re.search(r"\b(fellowship|fellows)\b", title, re.I):
+                continue
+            if re.search(r"\b(undergraduate|PhD|postdoctoral|scholars|reporting)\b", title, re.I):
+                continue
+            if not re.search(r"\b(ai|governance|policy|climate|environment|sustainab|nature)\w*\b", title + " " + summary, re.I):
+                continue
+            if re.search(r"\b(New York City|Washington, DC|Africa's|Africa’s|African|PhD research|graduate students?)\b", summary, re.I):
+                continue
+            items.append({"title": title, "link": link, "source": "Opportunity Desk",
+                          "published": row.get("published"), "summary": summary[:500],
+                          "image_url": None, "feed_url": url, "event_date": None,
+                          "deadline": deadline, "kind": "fellowship"})
+            seen.add(link)
+    print(f"fetch_opportunities: Opportunity Desk — {len(items)} dated fellowships")
+    return items
+
+
+def fetch_meetup_jaipur():
+    """Meetup's public Jaipur page exposes schema.org Event JSON-LD."""
+    page = _get("https://www.meetup.com/find/in--jaipur/")
+    items, seen = [], set()
+    for m in re.finditer(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', page, re.S):
+        try:
+            data = json.loads(m.group(1))
+        except ValueError:
+            continue
+        for event in data if isinstance(data, list) else [data]:
+            if not isinstance(event, dict) or event.get("@type") != "Event":
+                continue
+            title, link = event.get("name", "").strip(), event.get("url")
+            if not (title and link) or link in seen or not ed.OPP_TOPIC.search(title):
+                continue
+            location = event.get("location") or {}
+            city = (location.get("address") or {}).get("addressLocality", "") if isinstance(location, dict) else ""
+            if city.lower() != "jaipur":
+                continue
+            end_date = _iso(event.get("endDate"))
+            title_range = re.search(r"\b\d{1,2}\s+[A-Z][a-z]{2}\s*[-–]\s*(\d{1,2})\s+([A-Z][a-z]{2})\b", title)
+            if title_range and _iso(event.get("startDate")):
+                try:
+                    end_date = datetime.datetime.strptime(
+                        f"{title_range.group(1)} {title_range.group(2)} {_iso(event['startDate'])[:4]}",
+                        "%d %b %Y").date().isoformat()
+                except ValueError:
+                    pass
+            items.append({"title": title, "link": link, "source": "Meetup (Jaipur)",
+                          "published": None, "summary": "In-person in Jaipur. " + _plain(event.get("description"))[:300],
+                          "image_url": None, "feed_url": "opportunities:meetup:jaipur",
+                          "event_date": _iso(event.get("startDate")),
+                          "event_end_date": end_date, "deadline": None})
+            seen.add(link)
+    print(f"fetch_opportunities: Meetup Jaipur — {len(items)} dated relevant events")
+    return items
+
+
+def fetch_booth():
+    """Official Booth admissions table, restricted to virtual MBA sessions."""
+    url = "https://www.chicagobooth.edu/mba/full-time/admissions/events"
+    page = _get(url)
+    items = []
+    for m in re.finditer(r"<tr\b[^>]*>(.*?)</tr>", page, re.S | re.I):
+        block = m.group(1)
+        title_m = re.search(r"<th\b[^>]*>(.*?)</th>", block, re.S | re.I)
+        cells = re.findall(r"<td\b[^>]*>(.*?)</td>", block, re.S | re.I)
+        link_m = re.search(r'<a\b[^>]*href="([^"]+)"', block, re.I)
+        if not (title_m and len(cells) >= 3 and link_m):
+            continue
+        title = re.sub(r"\s+1\s*v$", "", _plain(title_m.group(1)))
+        day = _named_date(_plain(cells[2]))
+        if not day or "virtual" not in title.lower() or "deferred" in title.lower():
+            continue
+        items.append({"title": title, "link": htmllib.unescape(link_m.group(1)),
+                      "source": "Chicago Booth", "published": None,
+                      "summary": "Virtual MBA admissions event from Chicago Booth.",
+                      "image_url": None, "feed_url": "opportunities:booth",
+                      "event_date": day, "deadline": None, "kind": "mba"})
+    print(f"fetch_opportunities: Chicago Booth — {len(items)} dated virtual sessions")
+    return items
+
+
+def recent_published(today):
+    """Read the last seven published papers, locally on Actions or via Pages."""
+    urls, titles = set(), set()
+    local = pathlib.Path(os.environ.get("EDITIONS_DIR", "")) if os.environ.get("EDITIONS_DIR") else None
+    owner_repo = os.environ.get("GITHUB_REPOSITORY", "aman-beniwal/daily-cactus").split("/", 1)
+    base = f"https://{owner_repo[0].lower()}.github.io/{owner_repo[-1]}/editions"
+    loaded = 0
+    for offset in range(8):
+        day = (today - datetime.timedelta(days=offset)).isoformat()
+        try:
+            if local and local.is_dir():
+                edition = json.loads((local / f"{day}.json").read_text())
+            else:
+                edition = _get_json(f"{base}/{day}.json", timeout=8)
+        except Exception:                               # noqa: BLE001 — missing paper
+            continue
+        if not isinstance(edition, dict):
+            continue
+        loaded += 1
+        for opp in edition.get("opportunities") or []:
+            if not isinstance(opp, dict):
+                continue
+            if opp.get("url"):
+                urls.add(opp["url"].split("?", 1)[0].rstrip("/"))
+            if opp.get("name"):
+                event_day = _when_iso(opp.get("when"), int(day[:4]))
+                if event_day:
+                    titles.add((re.sub(r"\W+", "", opp["name"].casefold()), event_day))
+    print(f"fetch_opportunities: repeat memory — {loaded} published papers, {len(urls)} links")
+    return urls, titles
+
+
 def main():
     now = datetime.datetime.now(datetime.timezone.utc)
+    today = (now + datetime.timedelta(hours=5, minutes=30)).date()
+    past_urls, past_titles = recent_published(today)
     all_items = []
     counts = {}
     for name, fn in (("unstop", fetch_unstop), ("10times", fetch_10times),
-                     ("luma", fetch_luma), ("devpost", fetch_devpost)):
+                     ("luma", fetch_luma), ("devpost", fetch_devpost),
+                     ("opportunity_desk", fetch_opportunity_desk),
+                     ("meetup_jaipur", fetch_meetup_jaipur), ("booth", fetch_booth)):
         try:
             got = fn()
         except Exception as ex:                            # noqa: BLE001 — one source
             print(f"fetch_opportunities: {name} crashed unexpectedly: {ex!r}")
             got = []
-        counts[name] = len(got)
-        all_items.extend(got)
+        kept = []
+        for item in got:
+            item["kind"] = item.get("kind") or ed.opportunity_kind(item)
+            item["when"] = ed.opportunity_when(item)
+            reason = ed.opportunity_rejection(item, today)
+            if reason == "no concrete date":            # build_digest re-checks with the date parsed from text
+                reason = None
+            url_key = item["link"].split("?", 1)[0].rstrip("/")
+            title_key = re.sub(r"\W+", "", item["title"].casefold())
+            event_day = item.get("deadline") or item.get("event_date")
+            if reason is None and url_key not in past_urls and (title_key, event_day) not in past_titles:
+                kept.append(item)
+        if name == "booth":                            # a school's whole calendar would crowd out everything else
+            kept = sorted(kept, key=lambda i: i["event_date"])[:4]
+        counts[name] = len(kept)
+        all_items.extend(kept)
 
     payload = {
         "generated_at": now.isoformat(),
@@ -395,7 +603,7 @@ def main():
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False))
-    print(f"Wrote {OUT.relative_to(ROOT)}: {len(all_items)} total items "
+    print(f"Wrote {OUT}: {len(all_items)} total items "
           f"({', '.join(f'{k}={v}' for k, v in counts.items())})")
 
 

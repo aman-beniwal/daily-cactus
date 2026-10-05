@@ -477,7 +477,8 @@ OPP_TOPIC = word_re([
     r"info session", r"volunteer\w*", r"ngo", r"environment\w*", r"screening",
     r"agri\w*", r"meetup", r"builders?", r"agents?"])
 OPP_LOCAL = word_re([r"jaipur", r"rajasthan"])
-OPP_NCR = word_re([r"delhi", r"new delhi", r"gurugram", r"gurgaon", r"noida", r"ncr"])
+OPP_NCR = word_re([r"delhi", r"new delhi", r"gurugram", r"gurgaon", r"noida",
+                   r"ghaziabad", r"faridabad", r"ncr"])
 OPP_INDIA = word_re([r"india", r"indian", r"bengaluru", r"bangalore", r"mumbai",
                      r"hyderabad", r"pune", r"chennai", r"kolkata", r"ahmedabad",
                      r"iit\w*", r"iim\w*", r"isb"])
@@ -485,7 +486,7 @@ OPP_REMOTE = word_re([r"online", r"virtual", r"remote", r"global", r"internation
                       r"worldwide", r"open to all"])
 OPP_BAD = word_re([
     r"kids?", r"children", r"teens?", r"school students?", r"class \d+",
-    r"ngos?", r"csos?", r"civil society organi[sz]ations", r"grants? for organi[sz]ations",
+    r"grants? for organi[sz]ations",
     r"africa\w*", r"nigeria\w*", r"kenya\w*", r"ghana\w*", r"(?:united states|us) only",
     r"theat(?:er|re) festival", r"food festival", r"fall festival",
     r"ride presale", r"early bird drawing", r"kids festival", r"football club",
@@ -494,8 +495,68 @@ OPP_BAD = word_re([
 # professional — unless the host is a flagship institute or a real company.
 COLLEGE_HOST = re.compile(r"hosted by [^.]*(?:universit|college|institute of "
                           r"engineering|school of|polytechnic|vidyapeeth)", re.I)
-FLAGSHIP_HOST = word_re([r"iit\w*", r"iim\w*", r"isb", r"iisc", r"ashoka", r"bits"])
 _ISO = re.compile(r"(20\d\d)-(\d\d)-(\d\d)")
+OPP_STUDENT = re.compile(
+    r"\b(?:college|university|universities|institute|school|campus|students?|"
+    r"IIT\w*|NIT\w*|IIIT\w*|IIM\w*|JIIT|BITS|BIT Mesra|Jaypee|GL Bajaj|"
+    r"e-?cell|eDC|fest\w*|freshers?)\b", re.I)
+OPP_STUDENT_CONTEXT = re.compile(
+    r"\b(?:students? only|restricted to students?|college students?|graduate students?|"
+    r"college|university|institute|IIT\w*|NIT\w*|IIIT\w*|IIM\w*|JIIT|BITS|BIT Mesra|Jaypee|GL Bajaj|e-?cell|eDC|"
+    r"hosted by [^.]{0,120}school)\b", re.I)
+OPP_APPLICATION = re.compile(r"\b(?:fellowship|volunteer|mentorship|cohort)\b", re.I)
+
+
+def opportunity_kind(entry):
+    text = f"{entry.get('title', '')} {entry.get('summary', '')}".lower()
+    if re.search(r"\b(mba|admissions?|business school)\b", text):
+        return "mba"
+    if re.search(r"\b(fellowship|fellow)\b", text):
+        return "fellowship"
+    if re.search(r"\b(volunteer|ngo)\b", text):
+        return "volunteer"
+    if re.search(r"\b(climate|environment|sustainab|nature)\b", text):
+        return "climate"
+    if re.search(r"\b(startup|founder|venture|entrepreneur)\b", text):
+        return "startup-event"
+    return "ai-event"
+
+
+def opportunity_rejection(entry, today, text_date=None):
+    """Reason an opportunity cannot reach the editor; None means eligible."""
+    title_org = f"{entry.get('title', '')} {entry.get('organizer', '')}"
+    text = f"{title_org} {entry.get('summary', '')}"
+    kind = entry.get("kind") or opportunity_kind(entry)
+    summary = entry.get("summary", "")
+    student_only = bool(re.search(r"\b(?:students? only|restricted to students?|college students?|graduate students?)\b", summary, re.I))
+    if (OPP_STUDENT.search(title_org) or student_only or entry.get("students_only") or
+            (kind not in ("fellowship", "mba") and OPP_STUDENT_CONTEXT.search(summary))):
+        return "student/college"
+    # A deadline is an application, not a physical event to travel to.
+    application = bool(entry.get("deadline") and kind in ("fellowship", "volunteer"))
+    if not application and not (OPP_LOCAL.search(text) or OPP_NCR.search(text) or OPP_REMOTE.search(text)):
+        return "outside Jaipur/Delhi-NCR"
+    when = _as_date(entry.get("deadline")) or _as_date(entry.get("event_date")) or text_date
+    if not when:
+        return "no concrete date"
+    if (when - today).days < 2:
+        return "too soon/past"
+    return None
+
+
+def opportunity_when(entry, text_date=None):
+    """One display format for structured and parsed dates."""
+    deadline = _as_date(entry.get("deadline"))
+    start = deadline or _as_date(entry.get("event_date")) or text_date
+    if not start:
+        return None
+    end = _as_date(entry.get("event_end_date")) if not deadline else None
+    if end and end > start:
+        if end.month != start.month:
+            return f"{start.day} {start.strftime('%b')}-{end.day} {end.strftime('%b')}"
+        return f"{start.day}-{end.day} {start.strftime('%b')}"
+    date_text = f"{start.strftime('%a')} {start.day} {start.strftime('%b')}"
+    return f"apply by {date_text}" if deadline else date_text
 
 
 def _as_date(v):
@@ -514,6 +575,8 @@ def score_opportunity(entry, today: datetime.date, text_date=None) -> float:
     """Higher = more worth this reader's Saturday. -inf = drop (past or
     obviously not for him). `text_date` = a date parsed from the title/summary
     when no structured one exists."""
+    if opportunity_rejection(entry, today, text_date):
+        return float("-inf")
     text = f"{entry.get('title', '')} {entry.get('summary', '')}"
     when = _as_date(entry.get("deadline")) or _as_date(entry.get("event_date")) or text_date
     s = 0.0
@@ -543,8 +606,8 @@ def score_opportunity(entry, today: datetime.date, text_date=None) -> float:
     s += min(len(topics), 4) * 1.2
     if OPP_BAD.search(text):
         s -= 6.0
-    if COLLEGE_HOST.search(text) and not FLAGSHIP_HOST.search(text):
-        s -= 3.0
+    s += {"fellowship": 4.0, "mba": 2.0, "volunteer": 2.0}.get(
+        entry.get("kind") or opportunity_kind(entry), 0.0)
     return s
 
 

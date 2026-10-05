@@ -29,6 +29,7 @@ import pathlib
 import ssl
 import urllib.request
 import urllib.parse
+from zoneinfo import ZoneInfo
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "feeds" / "markets.json"
@@ -68,22 +69,45 @@ def to_inr_metal(usd_per_oz: float, usd_inr: float, grams: float) -> float:
     return usd_per_oz * usd_inr / TROY_OZ_G * grams
 
 
-def fetch_quote(symbol: str):
+def quote_from_chart(result, now):
+    """Compare the quote with the close before its own exchange trading date."""
+    meta = result["meta"]
+    price = meta.get("regularMarketPrice")
+    market_time = meta.get("regularMarketTime")
+    if price is None or market_time is None:
+        raise ValueError("missing regularMarketPrice or regularMarketTime")
+    tz = ZoneInfo(meta.get("exchangeTimezoneName") or "UTC")
+    as_of = datetime.datetime.fromtimestamp(market_time, datetime.timezone.utc)
+    trading_date = as_of.astimezone(tz).date()
+    previous = []
+    closes = result.get("indicators", {}).get("quote", [{}])[0].get("close", [])
+    for stamp, close in zip(result.get("timestamp", []), closes):
+        if close is not None and datetime.datetime.fromtimestamp(stamp, tz).date() < trading_date:
+            previous.append((stamp, close))
+    prev = max(previous)[1] if previous else meta.get("previousClose")
+    # chartPreviousClose precedes the FIRST candle in the requested range.
+    # It is only the right comparison when that first candle is today's.
+    stamps = result.get("timestamp") or []
+    if prev is None and stamps and datetime.datetime.fromtimestamp(stamps[0], tz).date() == trading_date:
+        prev = meta.get("chartPreviousClose")
+    closed = trading_date != now.astimezone(tz).date()
+    pct = round((price / prev - 1) * 100, 2) if prev and not closed else None
+    yahoo_pct = meta.get("regularMarketChangePercent")
+    # Daily candles can have a null row even for an open 24/7 market (BTC).
+    # Yahoo's quote-level daily change then has the missing prior close.
+    if not closed and yahoo_pct is not None and (pct is None or abs(pct - yahoo_pct) > 0.005):
+        pct = round(yahoo_pct, 2)
+    return {"price": price, "pct": pct, "as_of": as_of.isoformat(), "closed": closed}
+
+
+def fetch_quote(symbol: str, now=None):
     url = ("https://query1.finance.yahoo.com/v8/finance/chart/"
            f"{urllib.parse.quote(symbol)}?range=5d&interval=1d")
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=TIMEOUT, context=_SSL_CTX) as resp:
         data = json.loads(resp.read().decode("utf-8"))
     result = data["chart"]["result"][0]
-    meta = result["meta"]
-    closes = result.get("indicators", {}).get("quote", [{}])[0].get("close", [])
-    closes = [c for c in closes if c is not None]
-    price = meta.get("regularMarketPrice")
-    prev = closes[-2] if len(closes) >= 2 else meta.get("chartPreviousClose")
-    pct = None
-    if price is not None and prev:
-        pct = round((price - prev) / prev * 100, 2)
-    return price, pct
+    return quote_from_chart(result, now or datetime.datetime.now(datetime.timezone.utc))
 
 
 def main():
@@ -94,10 +118,12 @@ def main():
     raw = {}
     for label, symbol, unit, is_usd in INSTRUMENTS:
         try:
-            price, pct = fetch_quote(symbol)
+            q = fetch_quote(symbol, now)
+            price, pct = q["price"], q["pct"]
             if price is None:
                 raise ValueError("no regularMarketPrice")
-            raw[label] = {"price": price, "pct": pct, "unit": unit, "usd": is_usd}
+            raw[label] = {"price": price, "pct": pct, "unit": unit, "usd": is_usd,
+                          "as_of": q["as_of"], "closed": q["closed"]}
             ok += 1
         except Exception as ex:                      # noqa: BLE001
             print(f"markets: {label} ({symbol}) failed: {ex!r}")
@@ -119,6 +145,8 @@ def main():
                 "unit": inr_unit,          # "₹/10g" / "₹/kg" — spot, not retail
                 "change_pct": r["pct"],    # metal's own USD 1-day move (dominant)
                 "usd": False,
+                "as_of": r["as_of"],
+                "closed": r["closed"],
             })
         else:
             quotes.append({
@@ -127,10 +155,13 @@ def main():
                 "unit": r["unit"],
                 "change_pct": r["pct"],
                 "usd": r["usd"],
+                "as_of": r["as_of"],
+                "closed": r["closed"],
             })
 
     payload = {
         "generated_at": now.isoformat(),
+        "as_of": max((q["as_of"] for q in quotes), default=None),
         "quotes": quotes,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
