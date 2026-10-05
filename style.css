@@ -171,9 +171,8 @@ nav#nav .sep{color:rgba(244,238,221,.5)}   /* separators visible on green */
 .alsotop .altitem{display:inline-block;margin:0 20px 4px 0}
 .alsotop a{color:var(--brown)}
 
-/* Keep the lead card itself to a readable width, so every block inside it can
-   fill the same width without stopping halfway across a wider card. */
-.lead-wrap{max-width:min(100%,1200px);margin:24px auto 0}
+/* The lead spans the full page width, matching the card rows below it. */
+.lead-wrap{margin:24px 0 0}
 
 /* A lead WITH a photo now FLOATS the photo instead of parking it in a rigid
    grid column. The grid version reserved a full-height 534px column for a
@@ -334,7 +333,7 @@ a.sk:hover{text-decoration-thickness:1.5px}
 .story.crossref .crossref-headline{font-family:var(--serif);font-style:italic}
 
 /* ---------- "Also worth knowing" rail ---------- */
-.also-rail{grid-column:1/-1;margin-top:4px;font-size:15px}
+.also-rail{grid-column:1/-1;margin-top:28px;font-size:15px}
 .also-rail h6{font-family:var(--stamp);font-size:11px;letter-spacing:2px;color:var(--faded);
   text-transform:uppercase;margin:0 0 6px}
 .also-rail ul{margin:0;padding-left:18px}
