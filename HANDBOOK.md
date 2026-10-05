@@ -1,4 +1,4 @@
-# The Daily Cactus — Handbook (v8, 24 Sep 2026)
+# The Daily Cactus — Handbook (v9, 5 Oct 2026)
 
 The one document to open cold. Evidence and editorial reasoning live in
 `EDITORIAL_STANDARDS.md`; the routines' short rules live in `CLAUDE.md`.
@@ -189,3 +189,35 @@ fallbacks — wire edition + token alert — worked as designed.)
 
 **Known limits:** Reuters paywalled exclusives often stay headline-only (the
 paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
+
+
+## 9. v9 changes (5 Oct 2026) — audit + plan in `docs/V9_PLAN.md`
+
+- **No backup papers.** Usage limit hit -> the newsroom waits for the reset and
+  retries until 10:30 IST; still failing -> no paper, an ALERT issue. The 27 Sep
+  backup paper was removed from the site (draft kept in `drafts_rejected/`).
+- **Models:** writer `claude-sonnet-5-5` at medium (bake-off on 5 Oct inputs beat
+  Sonnet 5; medium uses ~2.7x the writer's output tokens), editor stays
+  `claude-opus-5-5` low. CLI pinned 2.1.289.
+- **Same story once:** `scripts/storymatch.py` (names + numbers + product names)
+  merges same-story candidates, rejects duplicate editor picks, drops duplicate
+  cards after writing, and drops 7-day repeats. Replay of 25 Sep-5 Oct: 14
+  same-day duplicate pairs and 10 repeats -> 0.
+- **Grounding check** (warn-only for now): numbers/names not in a card's own
+  article are logged to `feeds/quality/<date>.json`. `scripts/quality_report.py
+  <from>..<to>` prints the daily scorecard.
+- **Markets** fixed (wrong previous close); "as of" time and "closed" shown.
+- **Opportunities:** college events and in-person outside Jaipur/Delhi-NCR
+  filtered; new sources Opportunity Desk (fellowships), Meetup Jaipur, Chicago
+  Booth (full-time MBA, max 2); one date format; `kind` tags.
+- **Page:** lead Signal/Editor's Read single column (the wrapping bug), long
+  underline markers fixed, phone layout (one-line menu and markets, no desktop
+  toast, key sentence visible), clean outlet names, logo images skipped,
+  unsent-votes nudge.
+- **Votes:** the weekly fold now reads "feedback batch" issues and keeps a 90-day
+  ledger (`feeds/votes.jsonl`). Keep pressing "send to GitHub".
+- **Watchdog** at 11:13 IST; tests run on every push; routine-era docs and
+  `select.yml` moved to `docs/archive/`.
+- **Not done yet:** grounding check is warn-only (enforce after a week of logs);
+  `followup` cards are flagged but not specially shown; a few opportunity sources
+  failed (10times 403, ProFellow, iVolunteer).
