@@ -420,3 +420,6 @@ html{scroll-behavior:smooth}
    body prose. Muted + italic so it reads as a note about the source. */
 .src-flag{font-style:italic;color:var(--faded);font-size:.92em;white-space:nowrap}
 @media(max-width:520px){.src-flag{white-space:normal}}
+
+/* v9: unsent votes piling up */
+#votebar.nudge{background:color-mix(in srgb,var(--marigold,#E8B04B) 25%,transparent);padding:4px 10px;border-radius:4px}

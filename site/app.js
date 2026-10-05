@@ -137,7 +137,7 @@ window.daily.exportVotes = function () {
   const body = encodeURIComponent(
     "```json\n" + JSON.stringify(votes, null, 0) + "\n```");
   const title = encodeURIComponent(`feedback batch — ${votes.length} votes`);
-  const url = `https://github.com/amanbeni/daily-cactus/issues/new` +
+  const url = `https://github.com/aman-beniwal/daily-cactus/issues/new` +
     `?labels=feedback&title=${title}&body=${body}`;
   if (url.length > 7000 && navigator.clipboard) {
     navigator.clipboard.writeText(JSON.stringify(votes)).catch(() => {});
@@ -156,8 +156,12 @@ function renderVoteBar() {
   const el = document.getElementById("votebar");
   if (!el) return;
   const n = readVotes().length;
+  // v9: votes only teach the paper once sent; nudge when they pile up.
+  // Re-sending is harmless (the weekly fold dedupes by story + time).
+  el.classList.toggle("nudge", n >= 5);
   el.innerHTML = n
-    ? `${n} vote${n === 1 ? "" : "s"} saved on this device ` +
+    ? `${n} vote${n === 1 ? "" : "s"} saved on this device` +
+      (n >= 5 ? " (the paper only learns from votes you send) " : " ") +
       `<button type="button" onclick="daily.exportVotes()">send to GitHub</button>` +
       `<button type="button" onclick="daily.clearVotes()">clear</button>`
     : "";
