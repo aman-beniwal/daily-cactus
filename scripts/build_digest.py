@@ -49,6 +49,7 @@ import sys
 import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import storymatch as sm
 import editorial as ed                                      # v7 editorial layer
 
 try:
@@ -336,7 +337,8 @@ def load_published_urls(now, days=CROSS_DAY_WINDOW_DAYS):
     instead of silently publishing a month of repeats again."""
     used_urls, used_keys = set(), set()
     memory = ed.RecentMemory()
-    cutoff = now.date() - datetime.timedelta(days=days)
+    today = datetime.date.fromisoformat(paper_date(now))
+    cutoff = today - datetime.timedelta(days=days)
     editions = []          # (date_str, edition dict)
 
     local = pathlib.Path(EDITIONS_DIR) if EDITIONS_DIR else None
@@ -346,7 +348,7 @@ def load_published_urls(now, days=CROSS_DAY_WINDOW_DAYS):
                 d = datetime.date.fromisoformat(f.stem)
             except ValueError:
                 continue
-            if cutoff <= d < now.date() + datetime.timedelta(days=1):
+            if cutoff <= d < today:
                 e = load_json_safe(f, default=None)
                 if isinstance(e, dict):
                     editions.append((f.stem, e))
@@ -359,7 +361,7 @@ def load_published_urls(now, days=CROSS_DAY_WINDOW_DAYS):
                 d = datetime.date.fromisoformat((e or {}).get("date", ""))
             except (ValueError, TypeError, AttributeError):
                 continue
-            if d >= cutoff:
+            if cutoff <= d < today:
                 got = _http_get_json(f"{EDITIONS_BASE_URL}/{e['date']}.json")
                 if isinstance(got, dict):
                     editions.append((e["date"], got))
@@ -382,7 +384,10 @@ def load_published_urls(now, days=CROSS_DAY_WINDOW_DAYS):
                 k = title_key(headline)
                 if k:
                     used_keys.add(k)
-            memory.add(date_str, headline, url, url_title.get(url, ""))
+        for card in sm.cards(edition):
+            url = card.get("url")
+            memory.add(date_str, card.get("headline", ""), url,
+                       url_title.get(url, ""), sm.card_text(card))
 
     ok = bool(editions)
     print(f"cross-day dedup: {len(editions)} published edition(s) from {src} "
@@ -655,7 +660,10 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
         k = title_key(e.get("title", ""))
         if url in seen_urls or (k and k in seen_keys):
             continue
-        if url in used_urls or (k and k in used_keys):     # A4/P1 cross-day dedup
+        repeat = memory.check(e.get("title", ""), (e.get("summary") or "")[:300], url) if memory is not None else None
+        if repeat and repeat['followup']:
+            e['followup'] = True
+        if (repeat and not repeat['followup']) or (not repeat and (url in used_urls or (k and k in used_keys))):
             cross_day_dropped += 1
             continue
         if ed.is_sponsored(e):                             # v7: paid copy is never news
@@ -672,9 +680,7 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
         e["_fmt"] = ed.format_flags(e)
         e["_fit"] = ed.section_fit(slug, e)
         e["_yield"] = yield_prior.bonus(e.get("source", "")) if yield_prior else 0.0
-        m = memory.match(e.get("title", "")) if memory is not None else None
-        if m:
-            e["_seen"] = f"{m[0]}: {m[1][:110]}"
+
         pool.append(e)
 
     if is_opportunities:
@@ -697,18 +703,9 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
     # with nothing behind it was cutting e.g. the 4th Guardian AI story — the
     # Pentagon/Anthropic ruling — on four straight days while slots went to
     # weaker items.)
-    chosen, chosen_tokens, per_source, event_counts = [], [], {}, {}
-    chosen_sig = []
+    chosen, per_source, event_counts = [], {}, {}
 
     def try_add(e, enforce_source_cap):
-        toks = title_tokens(e.get("title", ""))
-        if any(jaccard(toks, ct) >= NEAR_DUP_JACCARD for ct in chosen_tokens):
-            return False
-        # v7: same event, different outlet/headline -> one candidate (its
-        # `buzz` already records how many outlets carried it).
-        stoks = ed.sig_tokens(e.get("title", ""))
-        if any(ed.same_story(stoks, c) >= 0.55 for c in chosen_sig):
-            return False
         src = (e.get("source") or "").strip().lower()
         if enforce_source_cap and src and per_source.get(src, 0) >= MAX_PER_SOURCE:
             return False
@@ -716,8 +713,6 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
         if sig and event_counts.get(sig, 0) >= EVENT_CAP_PER_SECTION:
             return False
         chosen.append(e)
-        chosen_tokens.append(toks)
-        chosen_sig.append(stoks)
         per_source[src] = per_source.get(src, 0) + 1
         if sig:
             event_counts[sig] = event_counts.get(sig, 0) + 1
@@ -750,7 +745,7 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
         url = e.get("link") or e.get("url")
         if url and "news.google.com/rss/articles" in url and not os.environ.get("DC_OFFLINE"):
             url = resolve_gnews_url(url)
-        sid = make_id(slug, url)
+        sid = e.get("id") or make_id(slug, url)
         summary = (e.get("summary") or "")[:SUMMARY_CHARS]
         source = e.get("source") or section.get("name", "")
         entry = {
@@ -774,6 +769,9 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
             flags.append(f"no clear fit with '{section.get('name', slug)}'")
         if flags:
             entry["flags"] = flags[:3]
+        for key in ("dupes", "followup"):
+            if e.get(key):
+                entry[key] = e[key]
         lean.append(entry)
         refs[sid] = {
             "url": url,
@@ -885,12 +883,34 @@ def shortlist_all(sections_raw, now, ref_year, used_urls, used_keys, memory, yie
 
     compute_buzz(sections_raw)                      # B2/v7, before any dedup
 
-    digest_sections, refs_today, drop_log, all_feed_stats = [], {}, [], []
+    # Cluster before shortlist caps so duplicates do not crowd out distinct news.
+    groups, refs_today = [], {}
+    for sec in sections_raw:
+        for e in sec.get('entries', []):
+            url = e.get('link') or e.get('url') or ''
+            e['id'] = make_id(sec.get('slug', 'x'), url)
+            refs_today[e['id']] = {'url': url, 'title': e.get('title', ''),
+                                   'source': e.get('source', ''), 'image': e.get('image_url'),
+                                   'published': e.get('published'), 'summary': e.get('summary', '')}
+        groups.append({'slug': sec.get('slug'), 'stories': [e for e in sec.get('entries', [])
+                       if not ed.is_sponsored(e) and (sec.get('slug') == 'opportunities' or
+                       score(e, now, sec.get('window_hours') or DEFAULT_MAX_AGE_HOURS) > float('-inf'))]})
+    _, merged = sm.cluster_candidates(groups, rank=lambda e: source_weight(e.get('source', '')) +
+                                      ed.pr_penalty(ed.pr_cues(e)))
+    for sec, group in zip(sections_raw, groups):
+        sec['entries'] = group['stories']
+    print(f"storymatch: merged {len(merged)} candidates across sections")
+    digest_sections, drop_log, all_feed_stats = [], [], []
     total_candidates = total_cross_day_dropped = 0
     for section in sections_raw:
         lean, refs, dropped, cross_day_dropped, feed_stats = shortlist_section(
             section, now, used_urls, used_keys, ref_year, memory, yield_prior)
         refs_today.update(refs)
+        for st in lean:
+            if st.get('dupes'):
+                refs_today[st['id']]['dupes'] = st['dupes']
+            if st.get('followup'):
+                refs_today[st['id']]['followup'] = True
         total_candidates += len(lean)
         total_cross_day_dropped += cross_day_dropped
         drop_log.append((section.get("name"), len(lean), dropped, cross_day_dropped))
@@ -903,6 +923,9 @@ def shortlist_all(sections_raw, now, ref_year, used_urls, used_keys, memory, yie
             "beta": section.get("beta", False),
             "stories": lean,
         })
+    needed = {st['id'] for sec in digest_sections for st in sec['stories']}
+    needed.update(d for sec in digest_sections for st in sec['stories'] for d in st.get('dupes', []))
+    refs_today = {i: r for i, r in refs_today.items() if i in needed}
     return (digest_sections, refs_today, total_candidates, drop_log,
             all_feed_stats, total_cross_day_dropped)
 
@@ -956,7 +979,7 @@ def main() -> None:
 
     merge_opportunities_feed(sections_raw)           # P7
 
-    used_urls, used_keys = load_recent_used(now)              # A4: local drafts/*.json
+    used_urls, used_keys = set(), set()  # Repeat decisions use published cards only.
     pub_urls, pub_keys, memory, dedup_ok = load_published_urls(now)   # P1/v7
     used_urls |= pub_urls
     used_keys |= pub_keys
@@ -1025,7 +1048,7 @@ def main() -> None:
                 lean["buzz"] = s["buzz"]
             if s.get("img"):
                 lean["img"] = True
-            for extra in ("when", "seen", "flags"):
+            for extra in ("when", "seen", "flags", "dupes", "followup"):
                 if s.get(extra):
                     lean[extra] = s[extra]
             lean_stories.append(lean)

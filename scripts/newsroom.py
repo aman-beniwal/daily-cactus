@@ -47,6 +47,7 @@ import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
+import storymatch as sm
 
 PROMPTS = ROOT / "prompts"
 DIGEST_LEAN = ROOT / "feeds" / "digest_lean.json"
@@ -236,8 +237,8 @@ def code_ranked_selection(digest: dict) -> dict:
     front = [secs[p][0]["id"] for p in order[1:9]]
     sections = [{"slug": p, "stories": [x["id"] for x in secs[p][1:3]], "also": [x["id"] for x in secs[p][3:5]]}
                 for p in order]
-    return {"lead": lead, "frontpage": front, "sections": sections, "opportunities": [],
-            "lead_reason": "editor unavailable — ranking-script order"}
+    return validate_selection({"lead": lead, "frontpage": front, "sections": sections, "opportunities": [],
+            "lead_reason": "editor unavailable — ranking-script order"}, digest)
 
 
 def validate_selection(sel: dict, digest: dict) -> dict:
@@ -288,11 +289,11 @@ def validate_selection(sel: dict, digest: dict) -> dict:
     opps = [i for i in dict.fromkeys(sel.get("opportunities") or [])
             if ok(i) and known[i] == "opportunities"][:MAX_OPPS]
     longform = [i for i in (sel.get("longform") or []) if ok(i)][:2]
-    return {"date": digest.get("date"), "lead": lead, "frontpage": front, "sections": sections,
+    return sm.unique_selection({"date": digest.get("date"), "lead": lead, "frontpage": front, "sections": sections,
             "opportunities": opps, "longform": longform,
             "opp_when": {i: whens[i] for i in opps if i in whens},
             "lead_reason": sel.get("lead_reason", ""), "lead_contenders": sel.get("lead_contenders", []),
-            "_scores": {i: comp(i) for i in known}, "_section_of": known}
+            "_scores": {i: comp(i) for i in known}, "_section_of": known}, digest)
 
 
 def readable(st: dict) -> bool:
@@ -323,7 +324,16 @@ def replace_unreadable_cards(sel: dict, selected: dict, fs, max_fetches: int = 8
                 return None
             fetches += 1
             used.add(cand)
+            fp = sm.fingerprint(refs.get(cand, {}).get('title', ''), fallbacks.get(cand, ''))
+            if any(sm.same_story(fp, sm.fingerprint(refs.get(i, {}).get('title', ''),
+                                                   fallbacks.get(i, ''))) >= sm.MATCH
+                   for i in used if i != cand):
+                continue
             st = fs.fetch_one(cand, refs, fallbacks, start)
+            st['dupes'] = (sel.get('dupes') or {}).get(cand, refs.get(cand, {}).get('dupes', []))
+            for sibling in st['dupes']:
+                if sibling not in stories:
+                    stories[sibling] = fs.fetch_one(sibling, refs, fallbacks, start)
             stories[cand] = st
             if readable(st):
                 return cand
@@ -405,7 +415,7 @@ def writer_input(sel: dict, selected: dict) -> str:
         head = (f"\n=== {role}{' | section: ' + section if section else ''} | id: {sid}\n"
                 f"headline: {s.get('headline', '')}\nsource: {s.get('source', '')} | "
                 f"published: {s.get('published', '')} | text_source: {s.get('text_source', 'none')}{extra}")
-        return head + "\n" + clean_text(s.get("fulltext", ""))
+        return head + "\n" + clean_text(sm.source_text(sid, stories, sel.get("dupes")))
 
     parts.append(block("LEAD", sel["lead"]))
     for i in sel["frontpage"]:
@@ -428,6 +438,9 @@ def validate_draft(draft: dict, sel: dict) -> dict:
     allowed = {sel["lead"], *sel["frontpage"], *sel["opportunities"], *sel["longform"]}
     for s in sel["sections"]:
         allowed.update(s["stories"]); allowed.update(s["also"])
+    for card in sm.cards(draft):
+        if card.get("id") in sel.get("followups", []):
+            card["followup"] = True
     draft["date"] = sel["date"]
     draft.pop("brief", None)
     if not isinstance(draft.get("lead"), dict) or draft["lead"].get("id") not in allowed:

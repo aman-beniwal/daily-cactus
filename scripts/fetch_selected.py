@@ -384,6 +384,8 @@ def fetch_one(sid: str, refs: dict, fallbacks: dict, start: float, lite: bool = 
         pass
 
     fulltext, source_kind, og_img = "", "none", None
+    fallbacks = dict(fallbacks)
+    fallbacks.setdefault(sid, ref.get("summary", ""))
     if lite:
         # also-rail one-liner: the digest snippet is plenty, skip the fetch
         snippet = (fallbacks.get(sid) or "").strip()
@@ -455,6 +457,10 @@ def main() -> None:
         write_placeholder(date, "selections file had no ids")
         return
 
+    primary_ids = list(ids)
+    dupe_map = {sid: sorted(set((sel.get('dupes') or {}).get(sid, []) +
+                               (refs.get(sid) or {}).get('dupes', []))) for sid in primary_ids}
+    ids = list(dict.fromkeys(ids + [d for ds in dupe_map.values() for d in ds]))
     fallbacks = load_digest_fallback()
     start = time.time()
     got_fulltext = got_fallback = got_none = 0
@@ -467,6 +473,9 @@ def main() -> None:
             got_fallback += 1
         else:
             got_none += 1
+        entry["dupes"] = dupe_map.get(sid, [])
+        if sid in sel.get("followups", []) or (refs.get(sid) or {}).get("followup"):
+            entry["followup"] = True
         stories[sid] = entry
 
     out = {

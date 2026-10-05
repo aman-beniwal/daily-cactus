@@ -48,6 +48,8 @@ import pathlib
 import re
 from collections import Counter, defaultdict
 
+import storymatch as sm
+
 # --------------------------------------------------------------------------
 # text helpers
 # --------------------------------------------------------------------------
@@ -357,7 +359,8 @@ def corroboration(all_entries: list, threshold: float = 0.5) -> None:
     (same-event headline similarity >= threshold), across every section.
     Wire/press-release relays count at most once in total. O(n^2) over ~900
     short token sets: ~1s on Actions."""
-    toks = [sig_tokens(e.get("title", "")) for e in all_entries]
+    fps = [sm.candidate_fp(e) for e in all_entries]
+    toks = [fp["nouns"] | fp["entities"] for fp in fps]
     # inverted index on tokens keeps it fast
     index = defaultdict(list)
     for i, t in enumerate(toks):
@@ -374,7 +377,7 @@ def corroboration(all_entries: list, threshold: float = 0.5) -> None:
         for j, n in cand.items():
             if n < 2:
                 continue
-            if same_story(toks[i], toks[j]) >= threshold:
+            if sm.same_story(fps[i], fps[j]) >= sm.MATCH:
                 k = outlet_key(all_entries[j])
                 if any(x in k for x in LOW_CREDIT_SOURCES):
                     low = 1
@@ -393,9 +396,12 @@ class RecentMemory:
 
     def __init__(self):
         self.urls = set()
-        self.items = []          # (date, headline, token set)
+        self.items = []          # legacy title lookup
+        self.fingerprints = []  # published card bodies, never unpublished drafts
 
-    def add(self, date: str, headline: str, url: str | None, source_title: str = ""):
+    def add(self, date: str, headline: str, url: str | None, source_title: str = "", text: str = ""):
+        self.fingerprints.append((date, headline, url, sm.fingerprint(headline, text),
+                                  sm.fingerprint(source_title or headline, text)))
         if url:
             self.urls.add(url)
         head = clean_title(headline)
@@ -414,6 +420,21 @@ class RecentMemory:
             if s > best_s:
                 best, best_s = (date, head), s
         return best if best_s >= threshold else None
+
+    def check(self, title, text='', url=None):
+        """Return repeat/followup evidence against the matching published cards."""
+        fp = sm.fingerprint(title, text)
+        matches = [(date, head, old) for date, head, old_url, old, source in self.fingerprints
+                   if (url and url == old_url) or max(sm.same_story(fp, old),
+                                                     sm.same_story(fp, source)) >= sm.MATCH]
+        if not matches:
+            return None
+        # Several outlets/placements may have covered different facts already.
+        combined = dict(matches[0][2])
+        for key in ('numbers', 'verdicts'):
+            combined[key] = set().union(*(old[key] for _, _, old in matches))
+        date, head, _ = max(matches, key=lambda m: m[0])
+        return {'date': date, 'headline': head, 'followup': sm.new_development(fp, combined)}
 
     def __len__(self):
         return len(self.items)
