@@ -521,9 +521,13 @@ def main():
     ap.add_argument("--mode", choices=["trial", "live"], default=os.environ.get("NEWSROOM_MODE", "trial"))
     ap.add_argument("--date", default=None)
     ap.add_argument("--editor-model", default=os.environ.get("EDITOR_MODEL") or "claude-opus-5-5")
-    ap.add_argument("--writer-model", default=os.environ.get("WRITER_MODEL") or "claude-sonnet-5")
+    # v9 bake-off (5 Oct, same inputs): Sonnet 5.5 beat Sonnet 5 (24 vs 20 cards,
+    # valid JSON first time); medium beat low on reasoning and grounding at
+    # ~2.7x the output tokens. Opus 5.5 low stays editor: Sonnet 5.5 medium put
+    # a near-duplicate of the lead on the front page and missed stronger picks.
+    ap.add_argument("--writer-model", default=os.environ.get("WRITER_MODEL") or "claude-sonnet-5-5")
     ap.add_argument("--editor-effort", default=os.environ.get("EDITOR_EFFORT") or "low")
-    ap.add_argument("--writer-effort", default=os.environ.get("WRITER_EFFORT") or "low")
+    ap.add_argument("--writer-effort", default=os.environ.get("WRITER_EFFORT") or "medium")
     ap.add_argument("--stop-after", choices=["editor", "fetch", "writer"], default="writer")
     a = ap.parse_args()
 
