@@ -662,8 +662,11 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
             continue
         if ed.JUNK_TEXT_RX.search(e.get("summary") or ""):
             e["summary"] = ""                              # bot-wall text is not a teaser
-        if is_opportunities and _opportunity_is_past(e, ref_year, today):  # A5/P7
-            continue
+        if is_opportunities:
+            td = extract_event_date((e.get("title", "") or "") + " " + (e.get("summary", "") or ""), ref_year)
+            if ed.opportunity_rejection(e, today, text_date=td):
+                continue
+            e["kind"] = e.get("kind") or ed.opportunity_kind(e)
         seen_urls.add(url)
         if k:
             seen_keys.add(k)
@@ -764,9 +767,9 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
         if outlets > 1:
             entry["buzz"] = outlets
         if is_opportunities:
-            when = e.get("deadline") or e.get("event_date")
-            if when and str(when) not in ("None", "null"):
-                entry["when"] = f"{'apply by' if e.get('deadline') else 'on'} {str(when)[:10]}"
+            td = extract_event_date((e.get("title", "") or "") + " " + (e.get("summary", "") or ""), ref_year)
+            entry["when"] = ed.opportunity_when(e, text_date=td)
+            entry["kind"] = e["kind"]
         if e.get("_seen"):
             entry["seen"] = e["_seen"]
         flags = (e.get("_pr") or []) + (e.get("_fmt") or [])
@@ -782,6 +785,9 @@ def shortlist_section(section, now, used_urls, used_keys, ref_year, memory=None,
             "title": e.get("title", ""),
             "published": e.get("published"),
         }
+        if is_opportunities:
+            refs[sid]["when"] = entry["when"]
+            refs[sid]["kind"] = entry["kind"]
     return lean, refs, dropped, cross_day_dropped, feed_stats
 
 
@@ -821,6 +827,9 @@ def merge_opportunities_feed(sections_raw):
                 "feed_url": it.get("feed_url") or f"opportunities:{it.get('source', 'unknown')}",
                 "event_date": it.get("event_date"),
                 "deadline": it.get("deadline"),
+                "event_end_date": it.get("event_end_date"),
+                "kind": it.get("kind"),
+                "organizer": it.get("organizer"),
             })
             added += 1
         print(f"fetch_opportunities feed: merged {added} candidate(s) into 'opportunities' section")
@@ -1025,7 +1034,7 @@ def main() -> None:
                 lean["buzz"] = s["buzz"]
             if s.get("img"):
                 lean["img"] = True
-            for extra in ("when", "seen", "flags"):
+            for extra in ("when", "kind", "seen", "flags"):
                 if s.get(extra):
                     lean[extra] = s[extra]
             lean_stories.append(lean)

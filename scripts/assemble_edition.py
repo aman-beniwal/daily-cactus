@@ -557,7 +557,8 @@ def build_opp(item, refs, warnings):
         warnings.append(f"unknown opportunity id {sid!r} — using draft fields only")
     return {
         "name": item.get("name", ref.get("title", "")),
-        "when": item.get("when", ""),
+        "when": ref.get("when") or item.get("when", ""),
+        "kind": ref.get("kind") or item.get("kind"),
         "summary": item.get("summary", ""),
         "source": ref.get("source", ""),
         "url": ref.get("url"),
