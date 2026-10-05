@@ -19,6 +19,14 @@ of piling up. Sections with a mixed/neutral signal get no line at all — this
 is a nudge, not a rewrite of the owner's hand-written preferences (which stay
 untouched above/below the auto block).
 
+v9 (Oct 2026): the page now sends votes as ONE "feedback batch" issue (JSON
+in the body) rather than one issue per vote, so the week's handful of votes
+could never clear MIN_VOTES. Every vote is therefore appended to a ledger
+(feeds/votes.jsonl, deduplicated) and the tally runs over the last
+WINDOW_DAYS of votes. Front-page votes whose id still says `front`
+(`<date>/front/lead`, `<date>/front/fp2`) are resolved to their section via
+that day's editor selection (selections/<date>.json: lead / frontpage[n-1]).
+
 Keeps TASTE.md's line budget: only sections with a CLEAR lean (>=70% one way,
 >=3 votes) get a line, and at most 5 lines total, so the file cannot grow
 without bound.
@@ -37,6 +45,9 @@ AUTO_END = "<!-- AUTO-FEEDBACK:END -->"
 MIN_VOTES = 3
 LEAN_THRESHOLD = 0.7
 MAX_LINES = 5
+WINDOW_DAYS = 90
+LEDGER = ROOT / "feeds" / "votes.jsonl"
+SELECTIONS = ROOT / "selections"
 
 
 NON_TOPIC = {"front", "opportunities", "unknown", ""}
@@ -53,6 +64,57 @@ def section_of(story_id: str) -> str:
         scope = parts[1] if len(parts) >= 3 else ""
         return scope if scope not in NON_TOPIC else "unknown"
     return re.sub(r"-[0-9a-f]{10}$", "", story_id)
+
+
+def resolve_front(story_id: str) -> str:
+    """`<date>/front/lead|fpN` -> `<date>/<section>/<tag>` using the editor's
+    selection for that date (ids look like `ai-f13e6555ac`). Unresolvable ids
+    are returned unchanged (and then count as 'unknown')."""
+    parts = story_id.split("/")
+    if len(parts) != 3 or parts[1] != "front":
+        return story_id
+    date, _, tag = parts
+    try:
+        sel = json.loads((SELECTIONS / f"{date}.json").read_text())
+        if tag == "lead":
+            pick = sel["lead"]
+        elif tag.startswith("fp"):
+            pick = sel["frontpage"][int(tag[2:]) - 1]
+        else:
+            return story_id
+    except Exception:                                   # noqa: BLE001
+        return story_id
+    return f"{date}/{re.sub(r'-[0-9a-f]{10}$', '', pick)}/{tag}"
+
+
+def normalise(e: dict) -> dict:
+    """Accept the old per-issue shape {story_id, vote} and the batch shape
+    {id, vote, date, at}."""
+    sid = e.get("story_id") or e.get("id") or ""
+    return {"story_id": resolve_front(sid), "vote": e.get("vote"),
+            "date": e.get("date") or sid[:10], "at": e.get("at", "")}
+
+
+def update_ledger(events: list) -> list:
+    """Append new votes to the ledger; return the votes inside the window."""
+    import datetime
+    seen, rows = set(), []
+    if LEDGER.exists():
+        for line in LEDGER.read_text().splitlines():
+            if line.strip():
+                r = json.loads(line)
+                rows.append(r)
+                seen.add((r["story_id"], r.get("at", ""), r["vote"]))
+    new = [e for e in map(normalise, events)
+           if e["vote"] in ("up", "down") and (e["story_id"], e["at"], e["vote"]) not in seen]
+    if new:
+        LEDGER.parent.mkdir(parents=True, exist_ok=True)
+        with open(LEDGER, "a", encoding="utf-8") as f:
+            for e in new:
+                f.write(json.dumps(e, ensure_ascii=False) + "\n")
+        rows += new
+    cutoff = (datetime.date.today() - datetime.timedelta(days=WINDOW_DAYS)).isoformat()
+    return [r for r in rows if (r.get("date") or "") >= cutoff]
 
 
 def summarize(events):
@@ -74,10 +136,10 @@ def summarize(events):
         up_ratio = counts["up"] / total
         if up_ratio >= LEAN_THRESHOLD:
             lines.append(f"- (feedback signal) more of **{section}** — "
-                          f"{counts['up']}↑/{counts['down']}↓ this week")
+                          f"{counts['up']}↑/{counts['down']}↓ in {WINDOW_DAYS} days")
         elif (1 - up_ratio) >= LEAN_THRESHOLD:
             lines.append(f"- (feedback signal) less of **{section}** — "
-                          f"{counts['up']}↑/{counts['down']}↓ this week")
+                          f"{counts['up']}↑/{counts['down']}↓ in {WINDOW_DAYS} days")
     return lines[:MAX_LINES]
 
 
@@ -96,11 +158,13 @@ def apply(taste_text: str, lines: list) -> str:
 def main():
     raw = sys.stdin.read()
     events = json.loads(raw) if raw.strip() else []
-    lines = summarize(events)
+    window = update_ledger(events)
+    lines = summarize(window)
     text = TASTE.read_text() if TASTE.exists() else "# TASTE\n\n## More of\n"
     updated = apply(text, lines)
     TASTE.write_text(updated)
-    print(f"Folded {len(events)} feedback event(s) into TASTE.md: {len(lines)} signal line(s).")
+    print(f"Folded {len(events)} new vote(s); {len(window)} in the {WINDOW_DAYS}-day window -> "
+          f"{len(lines)} signal line(s) in TASTE.md.")
 
 
 if __name__ == "__main__":

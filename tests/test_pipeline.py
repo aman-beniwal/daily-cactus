@@ -428,5 +428,14 @@ def main():
     sys.exit(1 if FAILURES else 0)
 
 
+def test_v9_taste_fold():
+    import fold_taste as ft
+    check("taste v9: front-page vote resolved to its section via the selection",
+          ft.resolve_front("2026-09-28/front/lead") == "2026-09-28/ai/lead")
+    check("taste v9: batch-shaped vote normalised",
+          ft.normalise({"id": "2026-09-12/climate-energy/0", "vote": "up", "date": "2026-09-12"})["story_id"]
+          == "2026-09-12/climate-energy/0")
+
+
 if __name__ == "__main__":
     main()

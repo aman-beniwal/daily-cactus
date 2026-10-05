@@ -33,20 +33,24 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const since = new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString();
-            const issues = await github.paginate(github.rest.issues.listForRepo, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: 'feedback',
-              state: 'open',
-              since,
+            // v9: no label filter. A prefilled issue only gets the `feedback`
+            // label if the label exists and the opener may set it (#27 arrived
+            // unlabelled), so match vote issues by title. Open issues only;
+            // processed ones are closed below, and the ledger dedupes anyway.
+            const all = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo, state: 'open',
             });
-            // Title convention from site/app.js: "👍 <story-id>" / "👎 <story-id>"
+            const issues = all.filter(i => !i.pull_request &&
+              (/^feedback batch/i.test(i.title) || /^(👍|👎)/.test(i.title)));
+            // Two shapes: the old one-vote issue ("👍 <story-id>") and the v6+
+            // "feedback batch — N votes" issue with a JSON array in a ```json block.
             const events = [];
             for (const issue of issues) {
-              const m = issue.title.match(/(👍|👎)\s*([a-z0-9-]+)/i);
-              if (!m) continue;
-              events.push({ story_id: m[2], vote: m[1] === '👍' ? 'up' : 'down', number: issue.number });
+              const m = issue.title.match(/(👍|👎)\s*([a-z0-9\/-]+)/i);
+              if (m) { events.push({ story_id: m[2], vote: m[1] === '👍' ? 'up' : 'down' }); continue; }
+              const j = (issue.body || '').match(/```json\s*([\s\S]*?)```/);
+              if (!j) continue;
+              try { for (const v of JSON.parse(j[1])) events.push(v); } catch (e) { core.warning(`#${issue.number}: unreadable vote JSON`); }
             }
             require('fs').writeFileSync('feedback_events.json', JSON.stringify(events));
             core.setOutput('count', events.length);
@@ -60,7 +64,7 @@ jobs:
         run: |
           git config user.name  "Daily Cactus Bot"
           git config user.email "bot@dailycactus.local"
-          git add TASTE.md
+          git add TASTE.md feeds/votes.jsonl
           git diff --staged --quiet || git commit -m "Weekly taste fold ($(date -u +%Y-%m-%d))"
           git push
 
