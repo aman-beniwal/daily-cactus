@@ -1,0 +1,25 @@
+name: Tests
+
+# v9: the pipeline's checks (tests/test_pipeline.py) used to run only when
+# someone remembered. Now every push that touches code runs them, so a broken
+# script shows up as a red X on the commit instead of a missing paper at 6 am.
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/**', 'tests/**', 'prompts/**', 'site/**', 'sources.yaml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install feedparser pyyaml trafilatura readability-lxml certifi
+      - run: python tests/test_pipeline.py
