@@ -24,7 +24,8 @@ Judging rules (these are where papers go wrong):
 - **also**: per section, 0-2 items that deserve one line, not a card (at most ~10 in the whole paper). If a story is good enough that he would want to read more, it is a CARD, not a one-liner.
 - **opportunities**: 3-6 ids when the list allows, each with a concrete date >= 2 days away, that he would actually attend or apply to. Priority: (1) AI builder meetups, hackathons and demo days in Jaipur / Delhi-NCR or online; (2) fellowships and cohorts in tech policy, AI governance, climate or public policy; (3) founder, VC and startup-ecosystem events; (4) climate and sustainability community events in Jaipur (he volunteers with an environmental film festival there); (5) top-MBA admissions events and info sessions; (6) volunteering where data/strategy skills help an NGO. Skip student college fests, NGO grant calls for organisations, and local events abroad.
 - **longform**: 0-2, only if a `longform` section exists today.
-- **Diversity**: no more than 2 picks from one outlet on the front page; not five versions of the same AI-model launch.
+- **One story, one slot — across the WHOLE paper.** Different outlets often carry the same event in different words (same company + same number = same story). Pick it once, in its best place; never again as a front, section or `also` item. A different angle on today's lead (reaction, expert commentary, a "what it means for India" piece) is the same storyline: fold it into the lead, don't give it a slot.
+- **Diversity**: no more than 2 picks from one outlet on the front page; at most 3 front-page stories from one topic family (e.g. US AI policy and AI-lab news); not five versions of the same AI-model launch. Don't lead with the same storyline family two days running unless it materially moved (the input lists recent leads).
 
 ## Output — ONLY this JSON, no prose, no code fence
 {"scores": {"<id>": [scale, novelty, consequence, fit, "why"], ...},
