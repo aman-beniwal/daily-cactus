@@ -521,7 +521,9 @@ def fetch_booth():
             continue
         title = re.sub(r"\s+1\s*v$", "", _plain(title_m.group(1)))
         day = _named_date(_plain(cells[2]))
-        if not day or "virtual" not in title.lower() or "deferred" in title.lower():
+        low = title.lower()
+        # full-time MBA only: JD/MBA, joint-degree, deferred and part-time sessions are not for the owner
+        if not day or "virtual" not in low or any(k in low for k in ("deferred", "jd/mba", "joint degree", "evening", "weekend", "executive")):
             continue
         items.append({"title": title, "link": htmllib.unescape(link_m.group(1)),
                       "source": "Chicago Booth", "published": None,
@@ -592,7 +594,7 @@ def main():
             if reason is None and url_key not in past_urls and (title_key, event_day) not in past_titles:
                 kept.append(item)
         if name == "booth":                            # a school's whole calendar would crowd out everything else
-            kept = sorted(kept, key=lambda i: i["event_date"])[:4]
+            kept = sorted(kept, key=lambda i: i["event_date"])[:2]
         counts[name] = len(kept)
         all_items.extend(kept)
 
