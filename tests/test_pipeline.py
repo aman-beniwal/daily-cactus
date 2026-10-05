@@ -387,9 +387,13 @@ def test_v8_newsroom():
     check("newsroom: unreadable lead is swapped for a readable contender", sel["lead"] == "ai-3")
     check("newsroom: text cleaning drops page furniture, keeps sentences",
           nr.clean_text("Advertisement\nMenu\nThe RBI cut rates by 25bp on Friday.") == "The RBI cut rates by 25bp on Friday.")
-    wire = nr.wire_edition(sel, {"stories": {"ai-3": {"headline": "H", "fulltext": "One. Two. Three."}}})
-    check("newsroom: backup wire edition is marked and never blank",
-          wire["backup"] and wire["lead"]["summary"] == "One. Two.")
+    import datetime as _dt
+    now = _dt.datetime(2026, 9, 26, 23, 44, tzinfo=_dt.timezone.utc)   # the 27 Sep failure
+    w = nr.reset_wait_seconds("You've hit your session limit · resets 2:30am (UTC)", now)
+    check("newsroom v9: usage-limit reset time parsed (2:30 UTC = 166 min + grace)", abs(w - (166 * 60 + 120)) < 1)
+    check("newsroom v9: limit errors recognised", bool(nr.LIMIT_RE.search("You've hit your session limit")))
+    check("newsroom v9: 10:30 IST deadline", nr.deadline_utc("2026-09-27").strftime("%d %H:%M") == "27 05:00")
+    check("newsroom v9: no backup wire edition any more", not hasattr(nr, "wire_edition"))
 
 
 def test_v82_usage_guard():

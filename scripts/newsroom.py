@@ -28,9 +28,12 @@ MODES
   trial — writes under trial/ (never the live archive); the page shows it at
           ?trial=<date>. Used to compare against the routine's paper.
   live  — writes drafts/<date>.json; the workflow assembles + publishes it.
-If the WRITER fails twice, a no-AI "wire edition" is written instead (the
-chosen stories with headline + opening sentences) so there is never a blank
-morning; it is marked `backup: true`.
+No backup papers (v9, owner's decision 5 Oct 2026): on 27 Sep a usage limit
+made the old fallback publish a no-AI "wire edition", and because editions are
+immutable that weak paper stuck for the day. Now a usage-limit error waits for
+the limit to reset and retries (until RETRY_DEADLINE_IST); any other failure,
+or a limit that will not reset in time, publishes NOTHING for the day and
+raises an alert issue. A missing paper is better than a false one.
 """
 from __future__ import annotations
 
@@ -60,6 +63,18 @@ MAX_INPUT_CHARS = {"editor": 160_000, "writer": 260_000}   # ~40k / ~65k tokens
 SPIKE_FACTOR = 2.0          # today vs the median of the last 7 runs
 SPIKE_FLOOR_TOKENS = 90_000 # never alarm below this (normal day ~60k)
 ALERT_FILE = ROOT / "newsroom_alert.txt"   # the workflow turns this into an issue
+
+# --- usage-limit retry (v9) --------------------------------------------------
+# The subscription has a rolling usage window shared with the owner's own
+# Claude use; the error says when it resets ("resets 2:30am (UTC)"). Wait for
+# that and retry, but never publish later than this (IST, same day).
+RETRY_DEADLINE_IST = (10, 30)
+LIMIT_RE = re.compile(r"session limit|usage limit|rate.?limit|limit reached|overloaded|\b429\b|\b529\b", re.I)
+
+
+class LimitError(RuntimeError):
+    """The subscription's usage window is exhausted (retry after reset)."""
+
 
 MAX_FULL_CARDS = 24
 MAX_FRONT = 8
@@ -147,6 +162,8 @@ def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
         except Exception:                                        # noqa: BLE001
             last_err = f"CLI exit {proc.returncode}: {proc.stderr[-400:] or proc.stdout[-400:]}"
             print(f"  {stage} attempt {attempt}: {last_err}")
+            if LIMIT_RE.search(last_err):
+                raise LimitError(last_err)
             continue
         usage = meta.get("usage") or {}
         row = {"date": date, "run": os.environ.get("GITHUB_RUN_ID", "local"),
@@ -165,6 +182,8 @@ def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
         print(f"  {stage}: {tin:,} tokens in / {row['output_tokens']:,} out, {dur}s, turns={row['turns']}")
         if meta.get("is_error"):
             last_err = str(meta.get("result"))[:400]
+            if LIMIT_RE.search(last_err):
+                raise LimitError(last_err)   # a second attempt would hit the same wall
             if re.search(r"auth|token|401|403|expired|invalid.*key|login", last_err, re.I):
                 alert("Claude token rejected", f"The {stage} call was refused: {last_err}\n"
                       "The subscription token is expired, revoked or wrong — rotate it (HANDBOOK.md §4).")
@@ -175,6 +194,47 @@ def call_claude(stage: str, system_prompt: str, user_text: str, model: str,
             last_err = f"unparseable output: {ex}"
             print(f"  {stage} attempt {attempt}: {last_err}")
     raise RuntimeError(f"{stage} failed: {last_err}")
+
+
+def reset_wait_seconds(err: str, now: datetime.datetime | None = None) -> float:
+    """Seconds until the usage window resets, from the CLI's error text
+    ("resets 2:30am (UTC)", "resets at 14:05 UTC"). Unknown -> 30 minutes."""
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    m = re.search(r"resets?\s+(?:at\s+)?(\d{1,2})(?::(\d{2}))?\s*(am|pm)?", err, re.I)
+    if not m:
+        return 30 * 60
+    h, mi, ap = int(m.group(1)), int(m.group(2) or 0), (m.group(3) or "").lower()
+    if ap == "pm" and h < 12:
+        h += 12
+    if ap == "am" and h == 12:
+        h = 0
+    t = now.replace(hour=h % 24, minute=mi, second=0, microsecond=0)
+    if t <= now:
+        t += datetime.timedelta(days=1)
+    return (t - now).total_seconds() + 120          # two minutes' grace
+
+
+def deadline_utc(date: str) -> datetime.datetime:
+    h, mi = RETRY_DEADLINE_IST
+    d = datetime.date.fromisoformat(date)
+    ist = datetime.datetime(d.year, d.month, d.day, h, mi, tzinfo=datetime.timezone.utc)
+    return ist - datetime.timedelta(hours=5, minutes=30)
+
+
+def call_with_retry(stage: str, *args, date: str, **kw):
+    """call_claude, but a usage-limit error waits for the reset and tries again
+    while the reset still lands before the publishing deadline."""
+    while True:
+        try:
+            return call_claude(stage, *args, date=date, **kw)
+        except LimitError as ex:
+            wait = reset_wait_seconds(str(ex))
+            now = datetime.datetime.now(datetime.timezone.utc)
+            if now + datetime.timedelta(seconds=wait) > deadline_utc(date):
+                raise RuntimeError(f"{stage}: usage limit, and it resets after the "
+                                   f"{RETRY_DEADLINE_IST[0]}:{RETRY_DEADLINE_IST[1]:02d} IST deadline ({ex})")
+            print(f"  {stage}: usage limit hit — waiting {wait / 60:.0f} min for the reset, then retrying")
+            time.sleep(wait)
 
 
 # ---------------------------------------------------------------- editor
@@ -444,25 +504,15 @@ def validate_draft(draft: dict, sel: dict) -> dict:
     return draft
 
 
-def wire_edition(sel: dict, selected: dict) -> dict:
-    """No-AI backup: the editor's picks, each with its headline and the first
-    two sentences of the article. Plain, honest, never blank."""
-    stories = selected.get("stories") or {}
-
-    def card(i):
-        s = stories.get(i) or {}
-        text = clean_text(s.get("fulltext", ""))
-        sents = re.split(r"(?<=[.!?])\s+(?=[A-Z\"“])", text)[:2]
-        summ = " ".join(sents).strip() if text else \
-            f"{s.get('headline', '')} (source unreachable — headline only)"
-        return {"id": i, "headline": s.get("headline", ""), "summary": summ[:600], "badge": "WIRE"}
-
-    return {"date": sel["date"], "backup": True, "lead": card(sel["lead"]),
-            "frontpage": [card(i) for i in sel["frontpage"]],
-            "sections": [{"slug": s["slug"], "stories": [card(i) for i in s["stories"]],
-                          "also": [{"id": i, "line": (stories.get(i) or {}).get("headline", "")}
-                                   for i in s["also"]]} for s in sel["sections"]],
-            "opportunities": []}
+def no_paper(date: str, stage: str, ex: Exception) -> None:
+    """v9: no backup paper. Log, raise an alert issue, exit non-zero (the
+    workflow then skips publishing and opens its own failure issue)."""
+    print(f"  !! {stage} failed ({ex}) — NO paper for {date} (no backup editions since v9)")
+    alert(f"No paper today: the {stage} failed",
+          f"{date}: {ex}\n\nNothing was published. To publish later today, run Actions -> "
+          "\"Newsroom — select & write\" -> Run workflow (date blank).")
+    usage_check(date)
+    sys.exit(2)
 
 
 # ---------------------------------------------------------------- main
@@ -491,11 +541,10 @@ def main():
 
     # 1 — page-one meeting
     try:
-        raw = call_claude("editor", (PROMPTS / "editor.md").read_text(), editor_input(digest),
-                          a.editor_model, a.editor_effort, date)
+        raw = call_with_retry("editor", (PROMPTS / "editor.md").read_text(), editor_input(digest),
+                              a.editor_model, a.editor_effort, date=date)
     except Exception as ex:                                      # noqa: BLE001
-        print(f"  !! editor failed ({ex}) — falling back to the ranking script's own order")
-        raw = code_ranked_selection(digest)
+        no_paper(date, "editor", ex)
     sel = validate_selection(raw, digest)
     (sel_dir / f"{date}.json").write_text(json.dumps(
         {k: v for k, v in sel.items() if not k.startswith("_")}, indent=2, ensure_ascii=False))
@@ -526,16 +575,14 @@ def main():
     drafts = base / "drafts"
     drafts.mkdir(parents=True, exist_ok=True)
     try:
-        draft = call_claude("writer", (PROMPTS / "writer.md").read_text(),
-                            writer_input(sel, selected), a.writer_model, a.writer_effort, date)
+        draft = call_with_retry("writer", (PROMPTS / "writer.md").read_text(),
+                                writer_input(sel, selected), a.writer_model, a.writer_effort, date=date)
         draft = validate_draft(draft, sel)
     except Exception as ex:                                      # noqa: BLE001
-        print(f"  !! writer failed ({ex}) — publishing the no-AI wire edition instead")
-        draft = wire_edition(sel, selected)
+        no_paper(date, "writer", ex)
     (drafts / f"{date}.json").write_text(json.dumps(draft, indent=2, ensure_ascii=False))
     usage_check(date)
-    print(f"  wrote {(drafts / f'{date}.json').relative_to(ROOT)}"
-          f"{' (BACKUP wire edition)' if draft.get('backup') else ''}")
+    print(f"  wrote {(drafts / f'{date}.json').relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

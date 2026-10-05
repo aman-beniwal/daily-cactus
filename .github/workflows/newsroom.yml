@@ -42,7 +42,9 @@ jobs:
   newsroom:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # v9: a usage-limit error now waits for the reset (up to 10:30 IST) instead of
+    # publishing a backup paper, so the job may legitimately run for hours.
+    timeout-minutes: 330
     env:
       HAS_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
       MODE: ${{ github.event.inputs.mode || vars.NEWSROOM_MODE || 'trial' }}
@@ -73,7 +75,7 @@ jobs:
         if: env.HAS_TOKEN == 'true'
         run: |
           pip install trafilatura readability-lxml certifi
-          npm install -g @anthropic-ai/claude-code@2.1.280   # pinned: exact reviewed version (supply-chain)
+          npm install -g @anthropic-ai/claude-code@2.1.289   # pinned: exact reviewed version (supply-chain); 2.1.289 reviewed 5 Oct 2026 (knows Sonnet 5.5)
 
       - name: Editor + writer
         id: run
@@ -104,7 +106,7 @@ jobs:
           python scripts/newsroom.py "${ARGS[@]}" | tee newsroom.log
 
       - name: Commit the day's selection, text and draft
-        if: env.HAS_TOKEN == 'true'
+        if: always() && env.HAS_TOKEN == 'true'   # v9: keep the token log even when no paper was made
         run: |
           git config user.name  "Daily Cactus Bot"
           git config user.email "bot@dailycactus.local"
@@ -146,11 +148,11 @@ jobs:
             const body = require('fs').readFileSync('newsroom_alert.txt', 'utf8');
             await github.rest.issues.create({
               owner: context.repo.owner, repo: context.repo.repo,
-              title: `Daily Cactus ALERT: token or usage (${new Date().toISOString().slice(0,10)})`,
+              title: `Daily Cactus ALERT: ${body.split('\n')[0].replace(/^## /, '')} (${new Date().toISOString().slice(0,10)})`,
               labels: ['health'], body: body + '\nRunbook: HANDBOOK.md section 4.' });
 
       - name: Open a health issue on failure
-        if: failure()
+        if: failure() && hashFiles('newsroom_alert.txt') == ''   # the alert above already explains it
         uses: actions/github-script@v7
         with:
           script: |
@@ -158,5 +160,5 @@ jobs:
               owner: context.repo.owner, repo: context.repo.repo,
               title: `Daily Cactus newsroom failed: ${new Date().toISOString().slice(0,10)}`,
               labels: ['health'],
-              body: 'The newsroom workflow (editor/writer on the subscription) failed. See the run log. In trial mode the live paper is unaffected.',
+              body: 'The newsroom workflow failed, so NO paper was published today (v9: no backup papers). See the run log and any ALERT issue for the reason. To retry: Actions -> Newsroom -> Run workflow.',
             });

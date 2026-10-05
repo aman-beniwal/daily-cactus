@@ -5,7 +5,11 @@ name: Watchdog — did today's paper publish?
 # issue (GitHub emails the owner) when today's edition is missing.
 on:
   schedule:
-    - cron: '43 8 * * *'     # 14:13 IST
+    # v9: GitHub starts scheduled jobs 3-5 h late on this repo (Sep-Oct 2026:
+    # 14:13 ran at 19:00-22:30 IST). 11:13 IST lands ~14:00-16:00 in practice,
+    # after the newsroom's 10:30 retry deadline. Newsroom failures already open
+    # their own issue at once; this is the backstop for 'nothing ran at all'.
+    - cron: '43 5 * * *'     # 11:13 IST
   workflow_dispatch:
 
 permissions:
@@ -39,12 +43,12 @@ jobs:
               title: `Daily Cactus: no edition for ${d}`,
               labels: ['health'],
               body: [
-                `No editions/${d}.json on gh-pages by 14:13 IST.`,
+                `No editions/${d}.json on gh-pages yet.`,
                 '',
                 'Check, in order:',
-                '1. Actions -> "Fetch RSS Feeds" ran today (feeds committed)?',
-                '2. A `claude/**` branch with `Selections ' + d + '` exists (SELECT routine ran)?',
-                '3. Actions -> "Select — Full-text fetch" ran?',
-                '4. A `claude/**` branch with `Edition ' + d + '` exists (WRITE routine ran)? If not, the routine was skipped or failed on claude.ai — run it manually from the routine page.',
+                '1. Actions -> "Fetch RSS Feeds" ran today?',
+                '2. Actions -> "Newsroom — select & write" ran, and is it still waiting for a usage-limit reset?',
+                '3. Any open "ALERT" / "newsroom failed" issue for today says why.',
+                'To publish now: Actions -> Newsroom -> Run workflow (date blank).',
               ].join('\n'),
             });
