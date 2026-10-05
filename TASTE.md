@@ -6,6 +6,9 @@
 
 ## More of
 <!-- AUTO-FEEDBACK:START -->
+- (feedback signal) more of **ai** — 3↑/0↓ in 90 days
+- (feedback signal) more of **climate-energy** — 3↑/0↓ in 90 days
+- (feedback signal) more of **indian-startups** — 3↑/0↓ in 90 days
 <!-- AUTO-FEEDBACK:END -->
 - Numbers: funding size, %, dates, scale — every summary that can carry a
   concrete figure must.
