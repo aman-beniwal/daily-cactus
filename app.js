@@ -137,7 +137,7 @@ window.daily.exportVotes = function () {
   const body = encodeURIComponent(
     "```json\n" + JSON.stringify(votes, null, 0) + "\n```");
   const title = encodeURIComponent(`feedback batch — ${votes.length} votes`);
-  const url = `https://github.com/amanbeni/daily-cactus/issues/new` +
+  const url = `https://github.com/aman-beniwal/daily-cactus/issues/new` +
     `?labels=feedback&title=${title}&body=${body}`;
   if (url.length > 7000 && navigator.clipboard) {
     navigator.clipboard.writeText(JSON.stringify(votes)).catch(() => {});
@@ -156,8 +156,12 @@ function renderVoteBar() {
   const el = document.getElementById("votebar");
   if (!el) return;
   const n = readVotes().length;
+  // v9: votes only teach the paper once sent; nudge when they pile up.
+  // Re-sending is harmless (the weekly fold dedupes by story + time).
+  el.classList.toggle("nudge", n >= 5);
   el.innerHTML = n
-    ? `${n} vote${n === 1 ? "" : "s"} saved on this device ` +
+    ? `${n} vote${n === 1 ? "" : "s"} saved on this device` +
+      (n >= 5 ? " (the paper only learns from votes you send) " : " ") +
       `<button type="button" onclick="daily.exportVotes()">send to GitHub</button>` +
       `<button type="button" onclick="daily.clearVotes()">clear</button>`
     : "";
@@ -203,13 +207,14 @@ function thumbsHTML(id, headline, date) {
 // web link is the default.
 const CLAUDE_DESKTOP = false;
 const ASK_MAX = 1800;   // safe cross-browser URL budget; Cloudflare caps at 16KB
+const stripMarkers = (text) => String(text == null ? "" : text).replace(/_{2,}|={2,}/g, "");
 
 function askPrompt(s) {
   const body = Array.isArray(s.points) && s.points.length
     ? [s.hook || "", ...s.points.map((p) => `- ${p}`)].filter(Boolean).join("\n")
     : String(s.summary || "");
   return `I'm reading this article:\n${s.url || ""}\n\n` +
-    `${String(s.headline || "")}\n${body.replace(/==/g, "")}\n\n` +
+    `${stripMarkers(s.headline)}\n${stripMarkers(body)}\n\n` +
     `Help me understand the second-order implications, especially for India. ` +
     `Push back on anything the summary overstates.`;
 }
@@ -256,21 +261,120 @@ function fmtQuoteValue(q) {
 }
 function marketsHTML(markets) {
   if (!markets || !Array.isArray(markets.quotes) || !markets.quotes.length) return "";
-  return markets.quotes.map((q) => {
+  const quotes = markets.quotes.map((q) => {
     const pct = typeof q.change_pct === "number" ? q.change_pct : null;
-    const dir = pct == null ? "" : (pct >= 0 ? "up" : "dn");
-    const pctTxt = pct == null ? "" : ` ${Math.abs(pct).toFixed(1)}%`;
+    const dir = q.closed || pct == null ? "" : (pct >= 0 ? "up" : "dn");
+    const pctTxt = q.closed ? " closed" : pct == null ? "" : ` ${Math.abs(pct).toFixed(1)}%`;
     return `<span class="q ${dir}">${esc(q.label)} <b>${fmtQuoteValue(q)}${esc(pctTxt)}</b></span>`;
   }).join("");
+  const asOf = markets.as_of || markets.quotes.find((q) => q.as_of)?.as_of;
+  if (!asOf) return quotes;
+  const stamp = new Date(asOf);
+  if (isNaN(stamp)) return `${quotes}<span class="markets-asof">as of ${esc(asOf)}</span>`;
+  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Kolkata", weekday: "short", day: "numeric", month: "short",
+    ...(String(asOf).includes("T") ? { hour: "2-digit", minute: "2-digit", hour12: false } : {}),
+  }).formatToParts(stamp).map((p) => [p.type, p.value]));
+  const time = parts.hour ? `, ${parts.hour}:${parts.minute} IST` : "";
+  return `${quotes}<span class="markets-asof">as of ${esc(`${parts.weekday} ${parts.day} ${parts.month}${time}`)}</span>`;
 }
 
 // ---------- story-card pieces ----------
+const SOURCE_NAMES = {
+  "ai news & artificial intelligence | techcrunch": "TechCrunch",
+  "tech - south china morning post": "SCMP",
+  "world - south china morning post": "SCMP",
+  "south china morning post": "SCMP",
+  "artificial intelligence – mit technology review": "MIT Technology Review",
+  "al jazeera – breaking news, world news and video from al jazeera": "Al Jazeera",
+  "conservation news": "Mongabay",
+  "finance & economics": "The Economist",
+  "fa rss": "Foreign Affairs",
+  "top health news | latest healthcare sector & healthcare industry news, information and updates: et healthworld : ethealthworld.com": "ET HealthWorld",
+  "oilprice.com": "OilPrice",
+  "pymnts.com": "PYMNTS",
+  "table.briefings": "Table.Briefings",
+  "unite.ai": "Unite.AI",
+  "carboncredits.com": "Carbon Credits",
+  "ua.news": "UA News",
+  "blog.google": "Google Blog",
+  "mint": "Mint",
+  "livemint": "Mint",
+  "inc42 media": "Inc42",
+  "reuters.com": "Reuters",
+  "yourstory.com": "YourStory",
+  "law.asia": "Law.asia", "mining.com": "Mining.com", "defence.in": "Defence.in",
+  "energy-storage.news": "Energy-Storage.News", "nyt > health": "NYT",
+  "science - ars technica": "Ars Technica", "rest of world -": "Rest of World",
+  "funding-tech-economic times": "The Economic Times",
+  "neurosciencenews.com": "Neuroscience News", "deccanchronicle.com": "Deccan Chronicle",
+  "financialexpress.com": "Financial Express", "saurenergy.com": "Saur Energy",
+  "newscientist.com": "New Scientist", "theconversation.com": "The Conversation",
+  "eu-startups.com": "EU-Startups", "startuphub.ai": "StartupHub.ai",
+  "digitalhealthnews.com": "Digital Health News", "deccanherald.com": "Deccan Herald",
+};
+const SOURCE_DOMAINS = {
+  "businesstoday.in": "Business Today", "energy.economictimes.indiatimes.com": "ET EnergyWorld",
+  "bfsi.economictimes.indiatimes.com": "ET BFSI", "news.bloombergtax.com": "Bloomberg Tax", "reuters.com": "Reuters",
+  "thehindubusinessline.com": "BusinessLine",
+  "livemint.com": "Mint", "scmp.com": "SCMP", "thehindu.com": "The Hindu",
+  "techcrunch.com": "TechCrunch", "yourstory.com": "YourStory",
+  "economictimes.indiatimes.com": "The Economic Times",
+  "theguardian.com": "The Guardian", "mongabay.com": "Mongabay",
+  "bloomberg.com": "Bloomberg", "moneycontrol.com": "Moneycontrol",
+  "mercomindia.com": "Mercom India", "outlookbusiness.com": "Outlook Business",
+  "indiatoday.in": "India Today", "ndtv.com": "NDTV",
+  "economictimes.com": "The Economic Times", "timesofindia.indiatimes.com": "The Times of India",
+  "orfonline.org": "ORF", "newsonair.gov.in": "News On AIR",
+  "analyticsindiamag.com": "Analytics India Magazine", "theprint.in": "ThePrint",
+  "business-standard.com": "Business Standard", "hindustantimes.com": "Hindustan Times",
+  "forbesindia.com": "Forbes India", "cnbc.com": "CNBC",
+  "nature.com": "Nature", "qz.com": "Quartz", "dw.com": "DW",
+  "rediff.com": "Rediff", "ddnews.gov.in": "DD News",
+  "calcalistech.com": "Calcalist", "olympics.com": "Olympics",
+  "thewire.in": "The Wire", "etvbharat.com": "ETV Bharat",
+  "expresshealthcare.in": "Express Healthcare", "thepamphlet.in": "The Pamphlet",
+  "pitchfork.com": "Pitchfork",
+  "ucanews.com": "UCA News",
+};
+function cleanSource(source, url) {
+  let name = String(source || "").trim();
+  if (!name) return "";
+  const domain = (() => { try { return new URL(url).hostname.replace(/^www\./, "").toLowerCase(); }
+    catch (e) { return ""; } })();
+  const fromDomain = Object.keys(SOURCE_DOMAINS).find((d) => domain === d || domain.endsWith(`.${d}`));
+  if (SOURCE_NAMES[name.toLowerCase()]) return SOURCE_NAMES[name.toLowerCase()];
+  if (name.includes(" | ")) name = name.split(" | ").pop().trim();
+  name = name.replace(/\s*:\s*Latest Posts$/i, "").replace(/\s+RSS Feed$/i, "")
+    .replace(/\s+-\s+(?:Home|companies|markets|work-life|HR News)$/i, "")
+    .replace(/^[–—-]\s*/, "").replace(/\s+[–—-]\s*$/, "")
+    .replace(/^[a-z][\w ]* [–-] ([A-Z].+)$/, "$1")      // "news - Mongabay", "neuroscience – Quanta Magazine"
+    .replace(/^(The Diplomat) [–-] .+$/, "$1").trim();
+  if (SOURCE_DOMAINS[name.toLowerCase()]) return SOURCE_DOMAINS[name.toLowerCase()];
+  if (/^(?:[\w-]+\.)+(?:com|org|net|in|io|ai|news|it|info|asia|tv)$/i.test(name)) {
+    const label = name.split(".").slice(-2, -1)[0];
+    return label.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+  if (/^(?:RSS|News|Business News Today):/i.test(name)) {
+    if (fromDomain) return SOURCE_DOMAINS[fromDomain];
+    if (domain) return domain.split(".").slice(-2, -1)[0].replace(/[-_]/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+  return SOURCE_NAMES[name.toLowerCase()] || name;
+}
+
+function usableImage(image, seenImages) {
+  if (!image || /og-image|\/logo\/|default|placeholder|\/theme\/images\//i.test(image)) return "";
+  if (seenImages.has(image)) return "";
+  seenImages.add(image);
+  return image;
+}
 // P5: no image => render NOTHING (lead included). The drawn-cactus symbol is
 // still used by the masthead/colophon, just never as a photo placeholder.
-function figureHTML(s, lead) {
-  if (s.image) {
+function figureHTML(image, lead) {
+  if (image) {
     const err = lead ? "daily.imgErr(this,true)" : "daily.imgErr(this,false)";
-    return `<div class="figure tape"><img src="${esc(s.image)}" alt="" loading="lazy" onerror="${err}"></div>`;
+    return `<div class="figure tape"><img src="${esc(image)}" alt="" loading="lazy" onerror="${err}"></div>`;
   }
   return "";
 }
@@ -305,31 +409,33 @@ function summaryHTML(summary) {
 // clickable underline on the page is BLUE (see a.sk in style.css). So an
 // underline never has to be guessed at — blue goes somewhere, black doesn't.
 // Two marks per block, max: past that it stops reading as emphasis.
-const _HL_RE = /==([^=]{1,120})==/g;
-const _UL_RE = /__([^_]{1,120})__/g;
+const _HL_RE = /={2,}([\s\S]+?)={2,}/g;
+const _UL_RE = /_{2,}([\s\S]+?)_{2,}/g;
 function hl(text) {
   const safe = esc(String(text == null ? "" : text));
   let n = 0, u = 0;
   return safe
     .replace(_HL_RE, (w, p) => (++n <= 2 ? `<mark class="hl">${p}</mark>` : p))
-    .replace(_UL_RE, (w, p) => (++u <= 2 ? `<span class="ul">${p}</span>` : p));
+    .replace(_UL_RE, (w, p) => (++u <= 2 ? `<span class="ul">${p}</span>` : p))
+    .replace(/_{2,}|={2,}/g, "");
 }
 
-// v6 summary block: a one-line numbers-first hook, then 3-5 bullets.
-// Falls back to the single-paragraph `summary` whenever `points` is absent,
-// which is what every edition published before v6 carries — those keep
-// rendering byte-for-byte as they do today.
-function summaryBlockHTML(s) {
+// Keep the hook (or legacy summary) outside the mobile accordion.
+function hookHTML(s) {
+  if (Array.isArray(s.points) && s.points.length)
+    return s.hook ? `<p class="hook">${hl(s.hook)}</p>` : "";
+  return `<p class="summary">${summaryHTML(s.summary)}</p>`;
+}
+function summaryRestHTML(s) {
   if (Array.isArray(s.points) && s.points.length) {
-    const hook = s.hook ? `<p class="hook">${hl(s.hook)}</p>` : "";
     const pts = s.points.map((p) => `<li>${hl(p)}</li>`).join("");
     const flag = _SRC_FLAG_RE.test(String(s.summary || ""))
       ? `<p class="src-flag-line"><span class="src-flag">${
           esc(String(s.summary).match(_SRC_FLAG_RE)[1])}</span></p>`
       : "";
-    return `${hook}<ul class="points">${pts}</ul>${flag}`;
+    return `<ul class="points">${pts}</ul>${flag}`;
   }
-  return `<p class="summary">${summaryHTML(s.summary)}</p>`;
+  return "";
 }
 
 function keyStatHTML(s) {
@@ -391,7 +497,7 @@ function alsoRailHTML(also) {
   const items = also.map((a) => {
     const url = a.url ? esc(a.url) : "";
     const line = esc(a.line || "");
-    const src = a.source ? ` <span style="opacity:.7">&mdash; ${esc(a.source)}</span>` : "";
+    const src = a.source ? ` <span style="opacity:.7">&mdash; ${esc(cleanSource(a.source, a.url))}</span>` : "";
     return url
       ? `<li><a class="sk" href="${url}" target="_blank" rel="noopener">${line}</a>${src}</li>`
       : `<li>${line}${src}</li>`;
@@ -414,12 +520,13 @@ function collapseToggles(collapseId) {
 
 // Renders one story <article>. `opts`: {lead, slug, sectionName, id, showTab}
 function storyCardHTML(s, opts) {
+  const image = usableImage(s.image, opts.seenImages);
   const tabVar = colorVar(opts.slug);
   const tag = opts.lead ? "article" : "article";
   const cls = ["story", "card"];
   if (opts.lead) cls.push("lead-story");
-  // P5: mark an image-less lead so it reflows to one full-width text column
-  if (opts.lead && !s.image) cls.push("no-figure");
+  // An image-less lead uses the full card width.
+  if (opts.lead && !image) cls.push("no-figure");
   const kicker = [];
   if (opts.showTab !== false) {
     const row1 = [];
@@ -429,7 +536,7 @@ function storyCardHTML(s, opts) {
     if (opts.sectionName) row1.push(`<span class="tab" style="--tabc:var(--${tabVar})">${esc(opts.sectionName)}</span>`);
     if (s.developing) row1.push(`<span class="badge-dev">Developing</span>`);
     if (s.badge) row1.push(`<span class="badge-custom">${esc(s.badge)}</span>`);
-    const row2 = s.source ? `<div class="row2">${esc(s.source)}</div>` : "";
+    const row2 = s.source ? `<div class="row2">${esc(cleanSource(s.source, s.url))}</div>` : "";
     kicker.push(`<div class="kicker"><div class="row1">${row1.join("")}</div>${row2}</div>`);
   }
   const url = s.url ? esc(s.url) : "";
@@ -440,19 +547,11 @@ function storyCardHTML(s, opts) {
       url ? `<a class="sk" href="${url}" target="_blank" rel="noopener">Read the original &rarr;</a>` : ""
     }${askAIHTML(s)}${thumbsHTML(opts.id, s.headline, opts.date)}</div>`;
 
-  const textBlock = `
-        ${kicker.join("")}
-        <h5>${headlineHTML}</h5>
-        ${keyStatHTML(s)}
-        ${summaryBlockHTML(s)}
-        ${bodyHTML(s, tabVar)}
-        ${meta}`;
-
   // Carried on the card so the "copy" button can lift the exact prompt the
   // Ask-AI links use, without rebuilding it or blowing the URL budget.
   // "heavy" cards (a photo, or a long read) are the ones the packer lets run
   // wide, so a section reads as a mix of broad and narrow boxes.
-  const heavy = !!s.image || String(s.summary || "").length > 240;
+  const heavy = !!image || String(s.summary || "").length > 240;
   const attrs = `class="${cls.join(" ")}" id="${esc(opts.anchorId)}" ` +
     `data-heavy="${heavy ? 1 : 0}" ` +
     `style="--tabc:var(--${tabVar})"` +
@@ -463,45 +562,46 @@ function storyCardHTML(s, opts) {
 
   if (opts.lead) {
     // The lead now collapses on mobile too. The .lead-collapse wrapper is
-    // display:contents on desktop, so the float (with photo) and two-column
-    // (no photo) desktop layouts render exactly as before; on mobile it becomes
+    // display:contents on desktop keeps the photo float; on mobile this is
     // the accordion body behind the Read more / Show less toggles.
-    if (!s.image) {
+    if (!image) {
       return `<${tag} ${attrs}>
-        <div class="lead-head">${kicker.join("")}<h5>${headlineHTML}</h5>${keyStatHTML(s)}</div>
+        <div class="lead-head">${kicker.join("")}<h5>${headlineHTML}</h5>${keyStatHTML(s)}${hookHTML(s)}</div>
         ${tog.top}
         <div class="lead-collapse" id="${collapseId}">
-          <div class="lead-main">${summaryBlockHTML(s)}${meta}</div>
+          <div class="lead-main">${summaryRestHTML(s)}</div>
           <div class="lead-side">${bodyHTML(s, tabVar)}</div>
+          ${meta}
           ${tog.bottom}
         </div>
       </${tag}>`;
     }
     return `<${tag} ${attrs}>
-      ${figureHTML(s, true)}
+      ${figureHTML(image, true)}
       ${kicker.join("")}
       <h5>${headlineHTML}</h5>
       ${keyStatHTML(s)}
+      ${hookHTML(s)}
       ${tog.top}
       <div class="lead-collapse" id="${collapseId}">
-        ${summaryBlockHTML(s)}
+        ${summaryRestHTML(s)}
         ${bodyHTML(s, tabVar)}
         ${meta}
         ${tog.bottom}
       </div>
     </${tag}>`;
   }
-  // Non-lead: on mobile the body collapses behind a "Read more" toggle
-  // (3.2). kicker + headline + key-stat stay visible; summary/signal/meta
-  // live in .card-collapse. Desktop CSS keeps .card-collapse always open.
+  // Non-lead: kicker, headline, key stat, and hook stay visible on mobile.
+  // Points, Signal, and meta live in .card-collapse.
   const cardHead = `${kicker.join("")}
         <h5>${headlineHTML}</h5>
-        ${keyStatHTML(s)}`;
-  const collapseBody = `${summaryBlockHTML(s)}
+        ${keyStatHTML(s)}
+        ${hookHTML(s)}`;
+  const collapseBody = `${summaryRestHTML(s)}
         ${bodyHTML(s, tabVar)}
         ${meta}`;
   return `<${tag} ${attrs}>
-    ${figureHTML(s, false)}
+    ${figureHTML(image, false)}
     ${cardHead}
     ${tog.top}
     <div class="card-collapse" id="${collapseId}"><div>
@@ -517,7 +617,7 @@ function oppCardHTML(o, id) {
     ? `<a class="sk" href="${url}" target="_blank" rel="noopener">${esc(o.name)}</a>`
     : esc(o.name);
   const when = o.when ? `<span class="when">${esc(o.when)}</span>` : "";
-  const src = o.source ? ` <span style="opacity:.7">&mdash; ${esc(o.source)}</span>` : "";
+  const src = o.source ? ` <span style="opacity:.7">&mdash; ${esc(cleanSource(o.source, o.url))}</span>` : "";
   return `<div class="opp card" id="${esc(id)}" style="--tabc:var(--sea)">
     ${when}<span>${name} &mdash; ${esc(o.summary)}${src}</span>
   </div>`;
@@ -559,6 +659,7 @@ const SECTION_ORDER = ["ai", "indian-startups", "deep-tech", "india-deep-tech",
 // ---------- main render ----------
 function renderEdition(ed) {
   const date = ed.date || "";
+  const seenImages = new Set();
   // Reorder sections to the fixed running order (nav + body both follow this,
   // since both iterate ed.sections). Stable for any unlisted/future slug.
   if (Array.isArray(ed.sections)) {
@@ -634,12 +735,12 @@ function renderEdition(ed) {
   if (ed.lead) {
     html += `<div class="lead-wrap">${storyCardHTML(ed.lead, {
       lead: true, slug: "front", sectionName: null,
-      id: leadFbId, anchorId: leadId, date })}</div>`;
+      id: leadFbId, anchorId: leadId, date, seenImages })}</div>`;
   }
   if (ed.frontpage && ed.frontpage.length) {
     html += `<div class="pack">`;
     (ed.frontpage || []).forEach((s, i) => {
-      html += storyCardHTML(s, { lead: false, slug: "front", sectionName: sectionNameForFrontpage(ed, s), id: frontpageFbIds[i], anchorId: frontpageIds[i], date });
+      html += storyCardHTML(s, { lead: false, slug: "front", sectionName: sectionNameForFrontpage(ed, s), id: frontpageFbIds[i], anchorId: frontpageIds[i], date, seenImages });
     });
     html += `</div>`;
   }
@@ -656,7 +757,7 @@ function renderEdition(ed) {
       if (frontAnchorId) {
         pointers.push(crossRefStripItem(s, sectionIds[si][i], frontAnchorId));
       } else {
-        cards += storyCardHTML(s, { lead: false, slug: sec.slug, sectionName: null, id: sectionIds[si][i], anchorId: sectionIds[si][i], date });
+        cards += storyCardHTML(s, { lead: false, slug: sec.slug, sectionName: null, id: sectionIds[si][i], anchorId: sectionIds[si][i], date, seenImages });
       }
     });
     html += `<div class="pack">${cards}</div>`;
@@ -819,7 +920,6 @@ async function init() {
 
   setupKeyboardNav();
   setupNavAutoHide();
-  showMobileNotice();
 }
 
 // Nav bar auto-hide: slides up when the reader scrolls down, returns on scroll
@@ -859,20 +959,6 @@ function setupNavAutoHide() {
     if (!ticking) { requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
   addEventListener("resize", () => { if (window.innerWidth >= 700) nav.classList.remove("nav-hidden"); });
-}
-
-// On phones, a small toast that fades after 3s: the paper is built for desktop.
-function showMobileNotice() {
-  if (window.innerWidth >= 700) return;
-  const t = document.createElement("div");
-  t.className = "mobile-toast";
-  t.textContent = "Website optimized for desktop";
-  document.body.appendChild(t);
-  requestAnimationFrame(() => t.classList.add("show"));
-  setTimeout(() => {
-    t.classList.remove("show");
-    setTimeout(() => t.remove(), 450);
-  }, 3000);
 }
 
 // keyboard j/k to jump between story cards
