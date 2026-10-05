@@ -133,6 +133,27 @@ def entities(text, sentence_initial=False):
     return result
 
 
+_TITLE_WORDS = {'prime', 'minister', 'chief', 'executive', 'officer', 'president', 'governor',
+                'secretary', 'director', 'chairman', 'chair', 'ceo', 'cfo', 'cto', 'founder',
+                'md', 'head', 'senator', 'sen', 'judge', 'justice'}
+_GLUE = {'the', 'of', 'and', 'for', 'in'}
+
+
+def product_names(text):
+    """Distinctive multi-word proper names ('Open Agent Safety Platform',
+    'Gemini 4 Argon'): runs of 3+ capitalised words that are not just a job
+    title. Two cards naming the same such thing about the same company are
+    the same story (v9: the 29 Sep Nvidia platform card written twice)."""
+    out = set()
+    for m in re.finditer(r"(?<![.!?]\s)(?<!^)\b((?:[A-Z][\w-]*|\d+)(?:\s+(?:[A-Z][\w-]*|\d+)){2,})", text):
+        words = [w.casefold() for w in m.group(1).split()]
+        # a phrase with a job title in it is a person ("Nvidia CEO Jensen
+        # Huang"), and people recur across unrelated stories: never a match key
+        if not set(words) & _TITLE_WORDS and sum(w not in _GLUE for w in words) >= 3:
+            out.add(' '.join(words))
+    return out
+
+
 @lru_cache(maxsize=16384)
 def fingerprint(title, text=''):
     head = clean(title)
@@ -148,7 +169,8 @@ def fingerprint(title, text=''):
             'verdicts': verdicts(head + ' ' + body),
             'focus_entities': entities(head + ' ' + re.split(r'(?<=[.!?])\s+(?=[A-Z])', body)[0]),
             'focus_numbers': numbers(head + ' ' + re.split(r'(?<=[.!?])\s+(?=[A-Z])', body)[0]),
-            'focus_verdicts': verdicts(head + ' ' + re.split(r'(?<=[.!?])\s+(?=[A-Z])', body)[0])}
+            'focus_verdicts': verdicts(head + ' ' + re.split(r'(?<=[.!?])\s+(?=[A-Z])', body)[0]),
+            'names': product_names(head + '. ' + body)}
 
 
 def verdicts(text):
@@ -201,6 +223,11 @@ def same_story(a, b):
     # most of the headline words: same event, reworded.
     if len(anchor) >= 2 and shared_counts and len(head) >= 4 and len(head) / max(1, hn) >= .6:
         return .85
+    # Same company in both headlines + the same distinctive product/programme
+    # name in the text (29 Sep: "Nvidia's new agent-safety platform" vs
+    # "Nvidia launches software to stop AI agents going rogue").
+    if a['primary'] and a['primary'] == b['primary'] and a.get('names', set()) & b.get('names', set()):
+        return .87
     body_overlap = len(content) / max(1, min(len(a['nouns']), len(b['nouns'])))
     head_entity_overlap = len(anchor) / max(1, min(len(a['head_entities']), len(b['head_entities'])))
     if head_entity_overlap >= .67 and len(shared) >= 3 and len(shared) / max(1, max(len(ea), len(eb))) >= .8 and len(head) >= 2 and len(head) / max(1, len(a['head'] | b['head'])) >= .3 and len(content) >= 5:

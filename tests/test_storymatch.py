@@ -159,3 +159,12 @@ def test_reworded_published_pairs_match_and_rounding_is_not_new():
     old = sm.fingerprint('GalaxEye gets Rs 64 crore funding', 'GalaxEye got Rs 64 crore.')
     new = sm.fingerprint('GalaxEye gets ₹63.8 Cr funding', 'GalaxEye got ₹63.8 Cr.')
     assert not sm.new_development(new, old)
+
+
+def test_shared_product_name_same_company():
+    # 29 Sep 2026: the same Nvidia launch written up twice in one paper
+    a = sm.fingerprint("Nvidia's new agent-safety platform, as covered in India",
+                       "Nvidia's Open Agent Safety Platform, unveiled Monday, is designed to stop AI agents.")
+    b = sm.fingerprint('Nvidia launches software to stop AI agents going rogue',
+                       'Nvidia unveiled the Open Agent Safety Platform, an open-source tool.')
+    assert sm.same_story(a, b) >= sm.MATCH
