@@ -1,0 +1,478 @@
+{
+  "date": "2026-10-14",
+  "lead": {
+    "id": "ai-9073325ad7",
+    "headline": "Chip stocks slide after Broadcom boss likens AI investing to 'casino'",
+    "hook": "South Korea's Kospi fell 6.25% on Tuesday as chip stocks sold off, after Broadcom's CEO said many AI investors are in a ==\"casino\"== and China's CXMT touted a new memory chip design.",
+    "points": [
+      "SK Hynix fell 10% and Samsung 7.4%. In Japan, Tokyo Electron lost 7.15% and SoftBank, an OpenAI investor, 8.5%. TSMC fell almost 2%.",
+      "On Wall Street the Nasdaq was down 0.35% after the open; Micron fell 4.8%, AMD 1.4%, Nvidia 0.8%.",
+      "CXMT makes Dram (memory chips that hold data AI chips compute on). It said it has made good progress on a new architecture that raises memory density, with a product rollout planned. Investors fear it could challenge Samsung, SK Hynix and Micron.",
+      "Broadcom's Hock Tan said many investors \"have no clue what they are investing in\". OpenAI's $50bn annualised revenue shows a viable model, he said, but not long-term profit, since it still loses money on training.",
+      "Tan added that much of AI labs' enterprise revenue comes from pilot projects. AI shares have swung on worries about debt-funded infrastructure spending."
+    ],
+    "signal": [
+      "Cheaper memory from a new rival helps chip buyers but squeezes margins of the incumbents whose valuations assume scarcity.",
+      "If pilot revenue does not convert into paid, repeat use, the debt-funded build-out has a harder time earning its cost."
+    ],
+    "key_stat": "Kospi −6.25% · SK Hynix −10%",
+    "editors_read": "Two separate worries hit at once: a Chinese competitor in memory, and an insider saying out loud that AI revenue is shaky. Memory makers look most exposed, because their profits depend on tight supply. Separately today, the IMF warned of AI-correction risk and Reuters described Korea as an early warning, so the sell-off reads as part of a wider shift toward demanding returns.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "indian-startups-677f0bab95",
+      "headline": "Fundamentum Frontier Advisors closes first ₹3,000 crore deeptech fund",
+      "hook": "F2A, a VC firm founded this year by Fundamentum cofounder Ashish Kumar, has closed ₹3,000 crore for growth-stage AI and deeptech, which it calls India's largest fund in the sector.",
+      "points": [
+        "Investors have approved raising the fund to ₹3,500 crore because demand exceeds capacity. Money comes from domestic and overseas investors via two vehicles; Nandan Nilekani is anchor investor.",
+        "It will back 12-15 companies over 2-3 years, writing ₹100-200 crore cheques into firms whose technology is validated and now scaling.",
+        "Targets: AI-led consumer businesses, enterprise software, deeptech infrastructure and engineered systems, for India-domiciled firms earning in India and abroad.",
+        "F2A says it is in advanced stages of closing three investments within the upcoming quarter.",
+        "It is a separate legal entity from Fundamentum, which has launched its own third fund targeting ₹2,200 crore this year."
+      ],
+      "signal": [
+        "Deeptech funding nearly tripled to $290M in the September quarter from $105M a year ago (Inc42), so large growth cheques are chasing a still-small deal count.",
+        "With only 12-15 slots, the fund needs few companies to reach ₹100-200 crore rounds; late-stage Indian deeptech has a new buyer."
+      ],
+      "key_stat": "₹3,000 Cr · first close",
+      "editors_read": "Money is moving from early bets to growth stage, where fewer Indian deeptech firms qualify. If the 12-15 cheques land on companies with real revenue, valuations in that tier will rise; if supply of such firms is thin, the fund competes for the same few names."
+    },
+    {
+      "id": "india-deep-tech-6595e497e0",
+      "headline": "Indian spacetech startup HEX20 picked to build UAE asteroid probe spacecraft",
+      "hook": "Technopark-based HEX20 has been selected by the UAE Space Agency to develop a spacecraft for an asteroid probe, and says it is the first Indian private company chosen for a UAE deep-space mission.",
+      "points": [
+        "The company announced the selection on Tuesday.",
+        "The spacecraft bus (the core platform carrying instruments) and software HEX20 developed were unveiled in the presence of Dubai's Crown Prince, Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum. (Summary from limited source text.)"
+      ],
+      "signal": [
+        "An Indian private firm winning a foreign deep-space contract shows export demand for Indian space hardware, not only for launches."
+      ],
+      "key_stat": "First Indian private firm in a UAE deep-space mission"
+    },
+    {
+      "id": "work-careers-541905abfa",
+      "headline": "Zoho halts 2026 salary hikes, citing AI infrastructure costs",
+      "hook": "Zoho will skip its usual salary hikes this year, co-founder Sridhar Vembu said, after server prices quadrupled and pushed up the cost of running AI data centres.",
+      "points": [
+        "Vembu said server prices have quadrupled, raising the cost of data centres that power AI workloads.",
+        "Zoho has also cut its marketing budget, according to Digit's report.",
+        "The headline says the aim is to avoid mass layoffs. (Summary from limited source text.)"
+      ],
+      "signal": [
+        "Hardware cost for AI is now cutting into payroll even at a profitable, self-funded firm; if server prices stay high, other software firms running their own infrastructure may face the same trade-off."
+      ],
+      "key_stat": "Server prices 4x"
+    },
+    {
+      "id": "other-interests-62d9ae95f5",
+      "headline": "OpenAI's Navier-Stokes proof differs from the approach it claimed to follow",
+      "hook": "Experts now say OpenAI's 166-page Navier-Stokes proof, built by about 10,000 AI agents over roughly 88 hours, does not follow the Spanish method the company said it used.",
+      "points": [
+        "The proof finds a \"blowup\" (equations predicting infinite fluid speed) by building an unphysical force, exploiting a loophole in the Clay Institute's problem statement. The Spanish program uses the same loophole but builds the force differently.",
+        "The swarm used about 130 billion tokens. The agents wrote their arguments in Lean, software that automatically checks each logical step, so groups can verify it even if humans cannot read it.",
+        "NYU's Tristan Buckmaster, who had worked on the Spanish program with Anthropic's Levent Alpöge, accused OpenAI of bribery and threats. OpenAI says its model could not have seen his data.",
+        "OpenAI did not understand its own model's proof at release, and more than a month later no one fully does.",
+        "Last week OpenAI released about 400 more results; the article says at least a dozen would once have merited a Fields Medal."
+      ],
+      "signal": [
+        "Lean verification means correctness can be checked without understanding, but credit and provenance disputes cannot be settled that way.",
+        "If AI output keeps outpacing expert review, verification capacity becomes the bottleneck in mathematics."
+      ],
+      "key_stat": "10,000 agents · 88 hours",
+      "editors_read": "The story shifts from \"AI solved it\" to \"nobody can say how.\" Machine-checkable proofs settle whether a result is true, not who deserves credit or whether training data leaked. Expect pressure for disclosure rules on training data in research claims."
+    },
+    {
+      "id": "global-economics-f9eb89f74e",
+      "headline": "Google releases Gemini 4 Argon, its new flagship model, to paying users and developers",
+      "hook": "Google's Gemini 4 \"Argon\" is rolling out worldwide at $2 per million input tokens and $10 per million output tokens, available only to paying users.",
+      "points": [
+        "Access: Pro and Ultra app subscribers (from $19.99 a month), AI Mode in Search, and the API. Free and Plus users get only weaker Flash models.",
+        "Google pitches it for coding, cybersecurity, and finance and law work. Google says engineers using it raised agent-driven code submissions over 35% and cut rollbacks by nearly a third (self-reported).",
+        "It tops the Vals Index but trails Anthropic's Claude Opus 5.5 in independent overall rankings, and sits behind Meta's Muse Wonder Full, launched a day earlier.",
+        "Safety: Google says Argon had a 0.7% successful attack rate on Gray Swan prompt-injection tests, versus 8.5% for GPT-6 Astra and 4.8% for Claude Opus 5; the tests may not be identical.",
+        "Google offers 10,000 researchers free top-tier Antigravity access for six months, and a separate Fairwind programme gives cyber defenders unrestricted access. A successor, \"Carbon\", is reportedly in testing."
+      ],
+      "signal": [
+        "Frontier access is moving behind paywalls, with free tiers on older-class models; for firms it means paying per token for the best model."
+      ],
+      "key_stat": "$2 / $10 per M tokens",
+      "editors_read": "Google is back at the frontier on price and safety claims, not on a clear lead; independent rankings still put Anthropic ahead. With Meta, OpenAI and Google all shipping within weeks, model advantage decays fast, so buyers gain leverage on price."
+    },
+    {
+      "id": "climate-energy-6309812a73",
+      "headline": "India curtailed over 4% of solar output in July-August despite power shortages",
+      "hook": "India turned away nearly 1.8 billion units of renewable electricity in July and August, over 4% of its solar output, while facing power shortages and low coal stocks, CREA says.",
+      "points": [
+        "Grid limits and shortages collided: power was available but could not be taken.",
+        "India aims for 500 GW of renewable capacity by 2030, up from the current 304 GW."
+      ],
+      "signal": [
+        "Adding capacity faster than grid and storage capacity wastes output; if curtailment persists, transmission and batteries matter as much as new panels. (Summary from limited source text.)"
+      ],
+      "key_stat": "4% solar output curtailed"
+    },
+    {
+      "id": "agritech-fac1c6a9dc",
+      "headline": "India's food inflation rises to 7.74% as weak monsoon and onion prices bite",
+      "hook": "India's food inflation hit 7.74% in September, up from 5.97% in August, led by onions, whose prices rose 108.09% year on year after a weak monsoon.",
+      "points": [
+        "Ginger inflation was 62.85%, garlic 54.62%, lemon 36.41%. Potatoes (−11.50%) and tomatoes (−8.62%) fell. Rice is ₹46.43/kg versus ₹43.15 a year earlier.",
+        "Cause: June-September rainfall was the lowest in over a decade; Rajasthan's garlic output is about 60% of last year's. Crisil also cites a low base (an unusually low level a year earlier that magnifies the rate) and rising global grain, oil and sugar prices.",
+        "Maharashtra, Andhra Pradesh, Punjab and Haryana face extreme drought; low soil moisture and heat threaten the rabi (winter-sown) crop.",
+        "Economists say pressure could last into 2027 if El Niño intensifies; Crisil expects food inflation to stay firm."
+      ],
+      "signal": [
+        "If the rabi crop disappoints, __food inflation could stay elevated into 2027__, limiting room for the RBI to cut rates."
+      ],
+      "key_stat": "7.74% · from 5.97%",
+      "editors_read": "Part of the jump is statistical base effect, but supply damage is real and spreading from vegetables to staples. Households and food-processing margins are hit first; the rabi outcome decides whether this is a spike or a trend."
+    },
+    {
+      "id": "india-c72f54c76b",
+      "headline": "Protests grow in India over electoral roll revision that removed 130 million names",
+      "hook": "Daily protests over a Special Intensive Revision (SIR) of electoral rolls that struck 130 million people off the register brought a heavy crackdown in Delhi at the weekend.",
+      "points": [
+        "Protesters want chief election commissioner Gyanesh Kumar removed and the SIR scrapped. It began after an Indian Express report that two other commissioners raised concerns about roll changes and digital systems; the ECI says differing views are normal.",
+        "Before a Saturday protest, authorities cancelled 245 trains to Delhi, shut 45 metro stations, cut internet in central Delhi and detained activists and opposition leaders. Delhi police later denotified Jantar Mantar as a protest site.",
+        "The BJP says the opposition is weaponising protests and that the country is governed by parliament, not streets. Critics, including ex-commissioner Ashok Lavasa, say SIR shifts the burden of enrolment onto citizens.",
+        "Kerala's assembly passed a resolution seeking Kumar's removal; opposition marched toward the Supreme Court."
+      ],
+      "signal": [
+        "If the government holds firm, protests and litigation over voter-roll credibility likely continue; the Supreme Court is the next test."
+      ],
+      "key_stat": "130 million struck off rolls",
+      "editors_read": "The crackdown's scale suggests the government sees the electoral-roll issue as a legitimacy threat. Investors care mainly through political stability and the policy-making calendar."
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-9e58dc3016",
+          "headline": "IMF warns an AI share crash could threaten global financial stability",
+          "hook": "The IMF says the risk of an AI-stock correction is elevated, citing $300bn of deals between hyperscalers and weaker AI firms in three years, backed by $650bn of debt.",
+          "points": [
+            "Those deals come with $1.4tn of future financial commitments, which the IMF calls \"circular financing\": strong AI firms tie themselves to weaker partners, so one failure spreads.",
+            "The \"magnificent seven\" are over 35% of the S&P 500, up from 12% a decade ago; their market value rose over 50% in two years.",
+            "The IMF sees growing evidence AI may not need hyperscaler-scale investment and that gains may be smaller than expected. Leverage also sits with companies, hedge funds and retail borrowers.",
+            "Asia would be most exposed after the US; the UK and euro area may be more insulated. Cyber-attacks and rising government borrowing costs are the other two top risks."
+          ],
+          "signal": [
+            "If AI earnings disappoint, forced selling by leveraged holders could amplify the fall, hitting investors well outside the US."
+          ],
+          "key_stat": "$300bn circular deals · $650bn debt"
+        },
+        {
+          "id": "ai-7c431d9eeb",
+          "headline": "AI labs are buying data from shut-down startups",
+          "hook": "SimpleClosure's data-sale platform has handled over 150 deals and expects to return over $10 million to failed startups by end-2026; 47% of its deals now include code or data.",
+          "points": [
+            "Buyers want real workplace data (Slack, email, code) to build practice environments for AI agents, after public and synthetic data ran short.",
+            "Founder Keelan Miskell got about $25,000 for his code and likely about $15,000 more for workspace data. Google paid $10 million for Spirit Airlines' data in bankruptcy, including 100 million emails.",
+            "No company has published tests showing real data beats alternatives, so prices vary wildly.",
+            "Privacy risk is real: a union objected to the Spirit sale, and a lawyer calls the data \"legally radioactive\". Proceeds go to creditors and investors, not employees."
+          ],
+          "signal": [
+            "If licensing rules tighten, this market shrinks; if data proves valuable, wind-down values rise for founders."
+          ],
+          "key_stat": "150+ deals · $10M+"
+        },
+        {
+          "id": "ai-ac3b4c5178",
+          "headline": "China's lead in robotic hands may decide the humanoid race",
+          "hook": "Only low thousands of the roughly 20,000 humanoid robots installed globally last year are doing real work, says LinkerBot's founder, because robot hands are not dexterous enough.",
+          "points": [
+            "The rest are mainly for entertainment, despite kung fu and sprinting demos.",
+            "Alex Zhou argues humanoids will not be commercially useful until hands match human capability: grasping, twisting, handling keys and shoelaces.",
+            "Bloomberg says China holds an early lead in advanced humanoid hardware over the US."
+          ],
+          "signal": [
+            "The bottleneck for useful humanoids is a component, the hand, so makers of dexterous hands could capture much of the value."
+          ],
+          "key_stat": "~20,000 installed · low thousands working"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-3bcd0d8cff",
+          "line": "Adani Enterprises and Jabil signed a non-binding deal for a 50:50 India JV making AI racks, servers and cooling gear, aimed at India's 5-8 GW data-centre capacity by 2030."
+        },
+        {
+          "id": "ai-5c90c6fa15",
+          "line": "Australian AI firm Firmus, which was preparing a market listing valuing it alongside Woolworths, collapsed last Friday; the Guardian podcast examines co-founder Oliver Curtis's role."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-cfdf5bb8b5",
+          "headline": "Institutions buy ₹413 crore of Tonbo Imaging shares before its IPO",
+          "hook": "Amansa, SBI Mutual Fund, HDFC Life and others bought over ₹413 crore of Tonbo Imaging shares in secondary deals valuing it near ₹4,000 crore, before its ₹852 crore IPO.",
+          "points": [
+            "Existing investors CEAQ Singapore and CEAQ India sold on September 29-30. Amansa was largest, paying about ₹170.24 crore for 24.32 lakh shares at ₹700, the top of the price band.",
+            "The IPO opens October 15, closes October 19, priced at ₹665-700 per share.",
+            "It is entirely an offer for sale of 1.22 crore shares by promoters and investors, so Tonbo receives no proceeds.",
+            "Tonbo makes thermal imaging, targeting and missile guidance systems for defence forces and OEMs."
+          ],
+          "signal": [
+            "Pre-IPO buying at the top of the band shows institutional demand, but since no money reaches the company, the IPO is an exit for sellers rather than growth funding."
+          ],
+          "key_stat": "₹413 Cr · ₹4,000 Cr valuation"
+        },
+        {
+          "id": "indian-startups-9b96f5c3af",
+          "headline": "Sarvam AI reportedly in talks to raise $250-300 million at $3 billion valuation",
+          "hook": "Sarvam AI is reportedly in talks to raise $250-300 million at a $3 billion valuation, double the $1.5 billion it was valued at in June 2026.",
+          "points": [
+            "In June it raised over $300 million. Talks reportedly involve large domestic enterprises and institutions; amount and valuation may change.",
+            "Money would fund research, computing and enterprise expansion, including a trillion-parameter model and a San Francisco office for research talent.",
+            "Reported customers include LIC, SBI Life, IDFC FIRST Bank, Tata Capital and CRED. Maharashtra approved its Indus AI workspace across government departments, with data hosted in India."
+          ],
+          "signal": [
+            "If the round closes, a valuation doubling in months shows investors paying for domestic-language AI with government and financial-sector customers."
+          ],
+          "key_stat": "$3B · double June"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-ade006b570",
+          "line": "Freshworks agreed to acquire New York-based Torii, which tracks AI use at token level, to add AI and software spend governance to Freshservice; closing expected by the December quarter."
+        },
+        {
+          "id": "indian-startups-30370aaf99",
+          "line": "Bengaluru chemical-process startup NuSynth raised ₹36.5 crore (about $4M) seed from Avaana Capital and Shastra VC to use AI to find cheaper synthesis routes, starting with pharma and electronics chemicals."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [],
+      "also": [
+        {
+          "id": "india-deep-tech-fd5ba41a93",
+          "line": "DRDO will showcase indigenous semiconductor technologies at ESTIC-2026, scheduled for October 27-29 at Bharat Mandapam, New Delhi, aimed at strengthening India's domestic chip ecosystem."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-6903b3fd7d",
+          "headline": "Huawei passes 100 million Kirin chips shipped since 2023 return",
+          "hook": "Huawei has shipped over 100 million Kirin-powered devices since returning to premium smartphones in 2023, and says tests of its next-generation Kirin 2027 chip meet its targets.",
+          "points": [
+            "The Kirin 9050 is the first mass-produced chip with LogicFolding, part of Huawei's Tau Scaling Law, which aims to speed data movement inside chips and systems.",
+            "The goal is more computing power from better design, without the cutting-edge lithography tools blocked by US-led export controls.",
+            "Huawei shipped 572,000 AI accelerators in H1 2026, up from over 300,000, taking 28% of China's data-centre AI chip market (IDC). Nvidia shipped 678,000, a 34% share, down from 44%.",
+            "US sanctions barred Huawei from TSMC in 2020; the Kirin 9000s in the Mate 60 Pro marked its 2023 return."
+          ],
+          "signal": [
+            "If design-led gains keep yields up, export controls on equipment buy less delay than intended."
+          ],
+          "key_stat": "100M+ Kirin devices"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-d60fb7de78",
+          "headline": "India considers local-manufacturing mandate for solar inverters and batteries",
+          "hook": "India's renewable energy ministry is weighing mandating domestically made inverters and local-content minimums for batteries in the next phase of the ₹75,021 crore PM Surya Ghar rooftop solar scheme.",
+          "points": [
+            "Current domestic-content rules mainly cover solar modules and cells. The proposals are not finalised; the ministry is reviewing industry input, and the current phase runs until March 2027.",
+            "The scheme aims for rooftop solar in one crore households, about 30 GW. Subsidy is ₹30,000 for 1 kW, ₹60,000 for 2 kW, ₹78,000 for 3 kW or more.",
+            "India still imports lithium, cathodes and anodes for batteries. Localisation could raise procurement costs initially if domestic capacity falls short.",
+            "Listed makers named include Waaree and Premier Energies (solar) and Exide and Amara Raja (batteries)."
+          ],
+          "signal": [
+            "Impact depends on thresholds and timelines; domestic makers gain protected demand, while installers and households could pay more at first."
+          ],
+          "key_stat": "₹75,021 Cr scheme"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-29fef0f0c4",
+          "headline": "Hyundai commits $15.5 billion to India through 2032",
+          "hook": "Hyundai Motor Group will invest $15.5 billion in India from 2026 to 2032, its largest pledge for the country, via a dedicated investment entity.",
+          "points": [
+            "Spending covers capacity at Hyundai and Kia India, about $700 million for the R&D centre and a test track, supplier localisation, and startup and mobility investments. Current capacity is over 1.4 million vehicles a year.",
+            "It follows last year's $5.4 billion pledge to FY30 and Suzuki's ₹77,500 crore commitment in August.",
+            "Hyundai Motor India's domestic sales fell 2% to 584,906 in FY26, dropping it to fourth place after 16 years as number two; it blames slower model launches.",
+            "Hyundai plans 26 launches by 2030; Kia aims for 410,000 annual sales in India by 2030."
+          ],
+          "signal": [
+            "Capital is also a response to lost share; if launches come on time, supplier and EV localisation demand rises across India."
+          ],
+          "key_stat": "$15.5B · 2026-2032"
+        },
+        {
+          "id": "global-economics-38387bfbe4",
+          "headline": "RBI's defence of the rupee at 100 per dollar looks increasingly desperate",
+          "hook": "The RBI is defending the psychologically important 100-rupees-per-dollar level with measures last used in the 2013 taper tantrum, writes Bloomberg columnist Andy Mukherjee.",
+          "points": [
+            "It first nudged banks to borrow $133 billion from the diaspora in under three months; that drive ended in August without changing bearish sentiment.",
+            "Last weekend it raised lenders' currency-hedging costs and told oil importers to buy dollars from the RBI, bypassing the market rate.",
+            "Mukherjee warns that the harder the defence, the greater the risk authorities overplay their hand and cause serious damage."
+          ],
+          "signal": [
+            "If the RBI keeps replacing market pricing with directives, importers and banks face rising costs and uncertainty."
+          ],
+          "key_stat": "₹100/$ line · $133B diaspora drive"
+        },
+        {
+          "id": "global-economics-4cb3e7208e",
+          "headline": "Nvidia's share of China AI chips falls to 34% as Huawei closes gap",
+          "hook": "Nvidia shipped 678,000 AI chips in China in the first half of 2026, and its market share fell to 34%, IDC data show.",
+          "points": [
+            "The decline stems chiefly from US limits on its most advanced chips; Beijing also largely held back approvals of the small pool of chips Washington allowed.",
+            "Huawei leads Chinese makers with 28%. T-Head has 7%, Cambricon 5%, Kunlunxin 4% and Hygon 3%."
+          ],
+          "signal": [
+            "Export controls push China's buyers to domestic chips; every share point lost may be hard to win back."
+          ],
+          "key_stat": "34% Nvidia share"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-3dd52e624d",
+          "line": "CtrlS opened a ₹400 crore, 12 MW Patna data centre and signed a letter of intent with Bihar for a ₹10,000 crore, 150 MW AI factory in Bodh Gaya."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-ad6a6507b8",
+          "headline": "India defers 0.4% UPI merchant fee until after Diwali",
+          "hook": "The 0.4% fee on UPI merchant payments above ₹2,000, due October 15, is deferred until after Diwali on November 8, NPCI said, citing the festive season.",
+          "points": [
+            "The fee is a merchant discount rate (what banks charge businesses for processing). It is capped at ₹300 for payments of ₹75,000 or more and does not apply to person-to-person transfers. Credit cards typically carry 1-3%.",
+            "Government says 96% of transactions escape the charge. But payments above ₹2,000 are 4% of person-to-merchant volume and nearly two-thirds of its value.",
+            "The government 'advised' banks not to pass the cost to customers. A Supreme Court petition says merchants may pass it on; opposition demands rollback, and traders in Madhya Pradesh protested."
+          ],
+          "signal": [
+            "Because large payments are two-thirds of value, the fee could matter to merchants despite touching few transactions; a new date may revive the dispute."
+          ],
+          "key_stat": "0.4% above ₹2,000"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-b30120ddb6",
+          "line": "IMF raised India's growth forecast for the current year to 7% from 6.4%, joining the World Bank, ADB, S&P and Moody's after first-quarter growth was estimated at 7.8%."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-e8d10436cc",
+          "headline": "India braces for a strong El Niño: warmer winter, harsh summer, another weak monsoon",
+          "hook": "The southwest monsoon delivered about 13% less rain than normal, and Maharashtra has ordered water cuts of at least 10% from October 16 to stretch supplies through August 2027.",
+          "points": [
+            "Mumbai hit 37.6°C on October 8 and Delhi 37.1°C on October 3, unusually hot for October.",
+            "US NOAA and India's Institute of Tropical Meteorology warn of consequences for water, food supplies and livelihoods."
+          ],
+          "signal": [
+            "If El Niño persists, water and crop stress carry into 2027, adding to current food-price pressure."
+          ],
+          "key_stat": "Monsoon −13%"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-b429835570",
+          "headline": "Government to fund ₹86 crore for Peptris AI-discovered drug candidates",
+          "hook": "The Technology Development Board will give Bengaluru's Peptris ₹86 crore as optionally convertible debt toward a ₹172 crore project to advance four AI-discovered drugs toward clinical trials.",
+          "points": [
+            "The VIGOR project moves four candidates from Technology Readiness Level 4 to 6: validation, preclinical studies and trial preparation.",
+            "Targets: PEPR111 (neuromuscular disorders and cancer), PEPRX101 (hair loss), PEPR202 (neuropathy), PEPR112 (diabetes).",
+            "Funding comes through the RDI Fund; Peptris plans to use a global network of contract research organisations."
+          ],
+          "signal": [
+            "The state is paying for the costly step between AI discovery and human trials; the result will show whether AI-found molecules survive lab testing."
+          ],
+          "key_stat": "₹86 Cr of ₹172 Cr"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-66c42f4139",
+          "headline": "'Brutal session' for chip stocks signals AI trade is turning",
+          "hook": "Korean chip stocks fell for a fifth straight day, with the Kospi down over 6% and Tokyo's Kioxia down 13%, as cracks in AI financing widen.",
+          "points": [
+            "The Philadelphia semiconductor index fell 2.7% on Monday. BlackRock's research arm cut its US stocks outlook to neutral over 'AI buildout' volatility.",
+            "Firmus, a Nvidia-backed data-centre operator, shelved a $5 billion Australian IPO. Credit investors are growing picky on AI debt.",
+            "SoftBank sold record high-yield debt, promising up to 9.75% on $4.5 billion. US Treasury yields sit at 5.2%.",
+            "One strategist says Korea reflects positioning and cost of capital, not weaker AI demand, but could warn of a wider shakeout."
+          ],
+          "signal": [
+            "With yields at 5.2%, AI projects must earn more to justify debt; capex may slow if funding costs stay high."
+          ],
+          "key_stat": "Kospi −6% · 5th day"
+        }
+      ],
+      "also": [
+        {
+          "id": "world-2743ea2faa",
+          "line": "Pope Leo, 71, has lung adenocarcinoma, the Vatican said after surgery removing his right lung's lower lobe; surgery had no complications and public events are cancelled until October 20."
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-21f5992cef",
+          "headline": "Land carbon sink rebounds in 2025 after two weak years",
+          "hook": "Earth's land absorbed 2.36 gigatonnes of carbon in 2025, 0.71 gigatonnes above the 2015-2022 average, after El Niño and Amazon fires nearly cancelled the sink in 2023-24.",
+          "points": [
+            "Tropical forests drove the recovery as weather normalised in Africa and the Amazon, slowing growth in atmospheric CO2.",
+            "Land and ocean sinks have removed over half of human CO2 emissions; scientists expect land to turn into a source within decades unless emissions fall.",
+            "A super El Niño is expected to peak later this year, so another slump in uptake is expected next year.",
+            "The sink is already 25% smaller than it would have been without climate change and natural variability."
+          ],
+          "signal": [
+            "Rebound shows short-term resilience, not long-term safety; repeated shocks could weaken the sink."
+          ],
+          "key_stat": "2.36 Gt C absorbed"
+        }
+      ],
+      "also": []
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-ac380a5751",
+      "name": "Bitshala BOSS Summit 2026",
+      "when": "26-31 Oct",
+      "summary": "Six-day residency of sessions, workshops and building time for Bitcoin open-source developers, designers and educators; sponsored seats, apply with what you're building. Jaipur."
+    }
+  ]
+}
