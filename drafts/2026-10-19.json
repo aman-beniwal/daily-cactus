@@ -1,0 +1,466 @@
+{
+  "date": "2026-10-19",
+  "lead": {
+    "id": "climate-energy-824ffd8b4c",
+    "headline": "China proposes export controls on 12 solar-manufacturing technologies",
+    "hook": "China proposed ==export curbs on 12 solar manufacturing technologies==, banning some and restricting others on national-security grounds; public consultation closes November 15.",
+    "points": [
+      "Proposed bans cover technology for thin silicon wafers, perovskite and tandem solar cells (higher-efficiency designs), and large-scale fluidised-bed polysilicon plants, which are cheaper and more energy-efficient than the conventional Siemens process.",
+      "Advanced cell technologies TOPCon, HJT (heterojunction) and XBC (back-contact) would be restricted, not banned, so exports would need approval.",
+      "The Commerce Ministry cites aerospace and defence use of photovoltaics. The change is part of a wider revision of its technology export catalogue, which also covers AI and biotech.",
+      "Until the catalogue is revised, exporters must register certain overseas technology transfers.",
+      "Officials had already discussed curbs with manufacturers, raising concern about US expansion plans including Tesla's, and China has already tightened solar-technology access for India.",
+      "The measures are only proposed; the final scope depends on the consultation and the licensing rules."
+    ],
+    "signal": [
+      "If the final list keeps the bans, Indian makers that planned to buy wafer, polysilicon or tandem-cell know-how from China must find other suppliers or build it themselves, which means delay and higher capex.",
+      "Restricted (not banned) TOPCon, HJT and XBC mean licences, so approvals, not prices, become the bottleneck."
+    ],
+    "key_stat": "12 technologies · consultation closes Nov 15",
+    "editors_read": "China is protecting its lead at the point where it matters most, the process know-how for the next generation of cells, not the panels themselves. India's solar manufacturing push assumed access to foreign process technology; if the bans hold, that assumption fails first for the newest cell types. The likely response is state-backed funding for domestic equipment and R&D, but that takes years, so expect Indian capacity plans to slip or lean on older cell designs.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-04f9dcaeea",
+      "headline": "Two German courts now hold Google liable for what its AI overviews say",
+      "hook": "A second German court, in Aachen, has barred Google from repeating false AI claims about a doctor, treating its AI answers as ==Google's own statements==; fines reach €250,000 per violation.",
+      "points": [
+        "Google's AI Mode pinned a different professor's sexual-assault allegation and criminal case on an Aachen neuroradiologist, then invented a legal aftermath. The court confirmed from its records that the case involved someone else.",
+        "Google refused to delete the text after his emailed request and a legal demand in mid-September. The Aachen court issued an emergency injunction dated September 24, 2026, without hearing Google. Google can challenge it.",
+        "Aachen relied on a late-May Munich ruling that AI Overviews, which falsely linked two publishers to fraud, are Google's own content, not links to third-party sites.",
+        "Google appealed the Munich ruling, then settled, so no higher court has tested it. Terms are unknown.",
+        "The court said Google could check AI output against its source sites and could have caught the errors by running the doctor's objection through its own AI."
+      ],
+      "signal": [
+        "If this reasoning survives appeal, every wrong AI answer in Germany is Google's legal problem, and each lawsuit raises its cost of running AI search there.",
+        "Separately, if AI answers count as original content, publishers whose texts feed them could claim compensation. That is not yet argued in any case."
+      ],
+      "key_stat": "€250,000 per violation",
+      "editors_read": "Settling keeps Google from losing in a higher court, but the lower-court reasoning keeps spreading, and each new case is cheap to file. The bigger fight is economic: if AI answers are Google's own content, the sources behind them have a licensing claim. Watch whether Google fixes the product (checking outputs against sources) or keeps paying to avoid a precedent."
+    },
+    {
+      "id": "ai-2617445300",
+      "headline": "What are self-replicating 'AI worms', and why is Anthropic worried about them?",
+      "hook": "Anthropic's red team built a malicious AI program that spread by itself through smart TVs, splitting parts of itself across 15 televisions and still functioning on a little power from each.",
+      "points": [
+        "A worm is a self-copying virus that needs no human to be tricked. Past worms such as NotPetya and WannaCry caused tens of billions of dollars in damage, often by exploiting unpatched known flaws.",
+        "Smart devices get patches less often than phones or laptops, so Anthropic says an AI worm could be harder to stop. It could also adapt to new hardware by researching newly disclosed vulnerabilities.",
+        "Anthropic says a successful worm needs more capability on weak devices than exists now, but current trends make that feasible by year's end.",
+        "A University of Toronto paper months earlier infected a full-size computer and spread to similar machines faster than the TV version.",
+        "Sceptics, including SentinelOne's research head, call it stunt hacking. Toronto's Jonas Guan says the Anthropic version is very slow, and strong passwords plus two-factor authentication would stop most worms."
+      ],
+      "signal": [
+        "The practical risk is old: unpatched connected devices. If AI lets malware adapt on its own, defenders' patching delays become more costly.",
+        "Experts disagree on how urgent this is; some see marketing by AI labs, others say the reality exceeds the PR."
+      ],
+      "key_stat": "15 TVs · one worm",
+      "editors_read": "This is a proof of concept, not an outbreak, and the gap between the two is whether small devices can run capable models. Anthropic's own year-end estimate for that gap is the date to watch. The policy angle is thin: the article says Congress has conflicting bills and the White House only a small review board, so defence will rest on companies' patching habits."
+    },
+    {
+      "id": "india-deep-tech-08b9884268",
+      "headline": "DRDO tests quantum key distribution on a live military network",
+      "hook": "DRDO announced on October 14, 2026 that it configured and tested a quantum key distribution (QKD) platform on its live network at the Chandipur test range in Odisha.",
+      "points": [
+        "QKD uses single photons to share encryption keys. Eavesdropping disturbs the quantum state, so interception can be detected during key generation.",
+        "The platform protects real-time telemetry (remote measurements) from artillery and armoured weapon trials at the Proof and Experimental Establishment, Chandipur.",
+        "It was built under DRDO's MCC cluster with Bengaluru-based Taqbit Labs, which has worked with DRDO on QKD for the armed forces since 2020.",
+        "On July 14, 2026, the two completed military field trials of a scalable fibre-based QKD system, meant as a base for multi-hop quantum networks.",
+        "DRDO says 15 industry-academia centres of excellence exist at institutions including the IITs and IISc."
+      ],
+      "signal": [
+        "The move from lab to live range matters: if it scales, keys for sensitive defence links stop depending on the computing power of an adversary, including future quantum computers.",
+        "Taqbit Labs gets a defence reference customer; no contract values or rollout dates were given."
+      ],
+      "key_stat": "Live-network QKD · Chandipur"
+    },
+    {
+      "id": "global-economics-db26b65739",
+      "headline": "Military drone security framework nears finalisation, expected by year-end",
+      "hook": "India's framework for testing security flaws in drones the military buys is in final inter-ministerial talks, due 'in a month or two' and by year-end at the latest, said DG Acquisition A Anbarasu.",
+      "points": [
+        "It was first published in March 2025, after a businessline report on August 27, 2024 about Chinese spares and components slipping into drones up for acquisition.",
+        "The Army Design Bureau resubmitted the revised draft to the Defence Ministry over three months ago. The draft is being discussed with the Home Affairs and Civil Aviation ministries before final vetting.",
+        "It requires more than 20 tests at accredited labs, based on a modified international standard cited as OSWASP 4.0, and applies from request for information through post-contract management.",
+        "Testing will be done by STQC IT Services, ETDC Bangalore and the Ministry of Electronics and IT.",
+        "The Army wants ECCM drones (resistant to electronic jamming) with upgradeable security software. One firm warns the lack of a standard security architecture lets units define security differently, risking interoperability problems."
+      ],
+      "signal": [
+        "If the tests are enforced, drone makers using Chinese parts face re-sourcing or failing procurement, which favours firms with verified indigenous supply chains.",
+        "A late framework means large buys happen under a stopgap architecture; whether those drones must be retested later is not stated."
+      ],
+      "key_stat": "20+ tests · due by year-end"
+    },
+    {
+      "id": "world-c656ecc3f3",
+      "headline": "Zelenskyy thanks Trump for resumed intelligence sharing, but blames US for Starlink slowdown",
+      "hook": "Zelenskyy says US intelligence on Russian ballistic missiles was blocked for three days and ==Starlink speeds were throttled on a US 'message'==; US officials deny any administration role.",
+      "points": [
+        "Zelenskyy says SpaceX technically slowed Starlink, hampering drone operations and some air defence. Treasury Secretary Bessent called the charge 'reckless' and said Trump and Rubio have denied it.",
+        "Trump announced an 'energy ceasefire' on October 11, which collapsed. Zelenskyy says Russia hit Ukraine's energy, oil and gas sectors 76 times in the following week.",
+        "Ukraine launched more than 1,000 drones overnight, setting fires at St Petersburg's oil terminal and a depot. Russia says it downed 1,015.",
+        "Trump put a hold on a new Russia sanctions package passed by Congress and said Zelenskyy 'doesn't want to end this war'.",
+        "A Ukrainian drone, possibly diverted by Russian jamming, entered Lithuanian airspace and Ukraine apologised. Nato jets were scrambled and residents sheltered for about an hour."
+      ],
+      "signal": [
+        "If Washington keeps easing pressure on Moscow while Kyiv hits refineries, expect more friction over who controls Ukraine's key dependencies: intelligence and Starlink.",
+        "Diverted drones near Nato borders are a spillover risk that Russian jamming makes harder to control."
+      ],
+      "key_stat": "76 energy attacks in a week",
+      "editors_read": "The dispute shows Ukraine's reliance on two US-controlled inputs it cannot replace quickly: missile-warning intelligence and Starlink bandwidth. Even a short throttle works as leverage, whoever ordered it. Ukraine's answer is to hit Russian oil harder, which sets it against Trump's push for talks."
+    },
+    {
+      "id": "global-economics-dd8c81f98c",
+      "headline": "Russia sanctions waiver is a 60-day pause; Europe refused to target India, China over oil, US says",
+      "hook": "The US says Trump's waiver of Russia sanctions and tariffs on other countries, including India, is a 60-day pause, and that Europe refused to impose secondary sanctions on India and China.",
+      "points": [
+        "Bessent says 'no sanctions were lifted'. The order waives provisions of the Graham Act, which passed with overwhelming bipartisan support last month.",
+        "Rubio says the 60 days lets the US assess the economic effect of sanctions and tariffs, amid pressure on energy supplies from the Iran war and Houthi attacks on Saudi Arabia.",
+        "The order lasts until the President or the Secretary of State, after consulting Treasury and the Trade Representative, decides further action is appropriate.",
+        "Bessent says the US imports $4B of Russian products ($1.8B fertiliser) while Europe imports more than ten times that, and asks why the US should go it alone.",
+        "Republicans and Democrats criticised the waiver. Rubio is leaving for a six-day visit to Uzbekistan and India."
+      ],
+      "signal": [
+        "If the 60-day pause ends with Europe still unwilling to share the burden, Indian Russian-oil buying stays a US-India bargaining item. The article gives no outcome.",
+        "The order has no fixed expiry, so '60 days' is a stated intent rather than a deadline."
+      ],
+      "key_stat": "60-day pause"
+    },
+    {
+      "id": "work-careers-402438218f",
+      "headline": "Big Four battle for India's $2-billion and growing GCC work",
+      "hook": "Deloitte India and EY India each crossed ₹5,000 crore in revenue from global capability centres (GCCs) in FY26, as the Big Four chase multinationals' India-based in-house centres.",
+      "points": [
+        "GCCs are India centres run by multinationals. In FY26, 2,100-plus GCCs generated $98.4B in revenue and employed 2.36 million people. Projections suggest up to 5,000 by 2030.",
+        "They are moving from cost-cutting back-office work to strategy, governance and product development, with parents wanting a 'strategic twin' that owns transformation.",
+        "GCCs are 28% of Deloitte India revenue (growing 25% a year), 35% of PwC's technology consulting, and 30-35% of KPMG's advisory revenue. PwC's GCC practice grew about 35%.",
+        "Big Four offer co-managed, fully managed and build-operate-transfer models. Deloitte says some deals take over operations and deliver 35% to 40% efficiency.",
+        "About 150-160 players compete. GCC work bills 30-40% above domestic engagements, but KPMG says pricing pressure is rising."
+      ],
+      "signal": [
+        "Demand is shifting from headcount-based outsourcing to combined AI, domain and governance work, the kind of cross-functional role that suits a generalist.",
+        "As larger firms scale, premium rates erode; differentiation will come from specialist expertise, not price."
+      ],
+      "key_stat": "₹5,000 cr+ each · Deloitte, EY"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-fe0e184822",
+          "headline": "Anthropic to put 5% of its shares into a new public benefit fund",
+          "hook": "Anthropic plans to commit ==5% of its shares to a new public benefit fund==, subject to stockholder approval, to fund the 'public good', including softening AI's labour-market impact.",
+          "points": [
+            "The fund would be a wholly owned LLC, not a nonprofit, and would grow with the company: 2% more at the board's discretion for every 50% rise in value above a set baseline.",
+            "None of the equity held by the LLC can be used for lobbying or political giving in the US or abroad.",
+            "It comes as Anthropic prepares an IPO; people familiar said in early October that marketing could start as soon as the week of November 9."
+          ],
+          "signal": [
+            "Because the fund is an LLC the company owns, Anthropic keeps control of the shares; how donations are decided is not specified.",
+            "If the IPO proceeds at a higher value, the 2% step-ups would add to the fund automatically, tied to the board's discretion."
+          ],
+          "key_stat": "5% of shares + 2% per 50% value rise"
+        },
+        {
+          "id": "ai-8a55ca6bfb",
+          "headline": "OpenAI engineer arrested over alleged covert recording device",
+          "hook": "An OpenAI engineer has been arrested, accused of planting a covert recording device in an executive conference room, Bloomberg reports, raising concerns about protecting sensitive AI technology.",
+          "points": [
+            "Bloomberg's Morgan Meaker discusses the case on Bloomberg This Weekend as a sign of growing worry about guarding AI secrets.",
+            "She also says AI training work is shifting toward highly skilled experts, which could eventually reshape the professions supplying that expertise. (Summary from limited source text.)"
+          ],
+          "signal": []
+        },
+        {
+          "id": "ai-18feec813d",
+          "headline": "Anthropic consults law firms on fair rules for AI agents that negotiate",
+          "hook": "Anthropic is consulting law firms on fair negotiation norms for AI agents that haggle over prices, resolve complaints or improve contract offers, the Financial Times reports.",
+          "points": [
+            "Anthropic's own experiments show stronger models negotiate better deals, which could widen inequality between users with better and worse AI.",
+            "It is hiring lawyers as Conceptual Reasoning Fellows: four months, $100,000 to $167,000, testing Claude on judgment-heavy questions in law, philosophy and other fields.",
+            "Mechanism: in math and code, verifiable answers are plentiful for training. In the humanities they are not, so experts must build test cases. Anthropic's Justin Curl says quality in law is 'notoriously hard to define'."
+          ],
+          "signal": [
+            "If agents negotiate for consumers, the model you can afford becomes a bargaining advantage; norms set now could decide who gets protected."
+          ],
+          "key_stat": "$100K-$167K · 4-month fellowships"
+        },
+        {
+          "id": "ai-1fc828ece8",
+          "headline": "How generative AI is pushing India's Designs Act to its breaking point",
+          "hook": "An opinion piece argues AI-generated designs fall into a legal vacuum under India's Designs Act 2000: they cannot be registered without a human author or physical article, yet may infringe protected designs.",
+          "points": [
+            "The Act protects visual features applied to a physical article by an industrial process (Sections 2(a), 2(d)), so purely digital or avatar-only designs fall outside it.",
+            "Ownership rests on human creativity (Sections 2(g), 2(j)); Indian and US precedents hold that a prompt alone is an instruction, not creative execution.",
+            "Section 22 covers 'fraudulent or obvious imitation'; AI recombines training data rather than copying, and the penalty ceiling is ₹50,000 (₹25,000 per breach).",
+            "The author wants Parliament to amend these sections, with DPIIT draft amendments on virtual designs as a start and ownership based on selection and modification by a human."
+          ],
+          "signal": [
+            "Until Parliament acts, fashion houses using AI design tools have unprotectable output and unclear infringement exposure. The Delhi High Court ANI v. OpenAI case covers only the copyright side."
+          ]
+        },
+        {
+          "id": "ai-e753c15d54",
+          "headline": "AI trade reversal hits Asia's picks-and-shovels stocks",
+          "hook": "A Goldman Sachs basket of Asian AI hardware stocks fell 11% last week, as an eight-session US chip rout, the longest since 2008, cut roughly 16% off the sector benchmark.",
+          "points": [
+            "Oil rose to $110 a barrel and investors focused on the trillions being borrowed for AI infrastructure; the Nasdaq 100 had its worst week since April 2025.",
+            "CoreWeave bonds fell to levels signalling distress, and its shares dropped 25% on the week. Samsung Electro-Mechanics fell 23%.",
+            "Mechanism: if hyperscalers and neoclouds cannot finance datacentres, orders fall for TSMC, Samsung and SK Hynix, which together make up nearly a third of the MSCI Asia ex-Japan Index.",
+            "Eight of the 10 best performers in the MSCI Asia-Pacific this year are component makers, each up at least 236%. Gartner warns $3.5 trillion of AI infrastructure spending could be impaired by 2030.",
+            "So far there is little evidence financing strain has cut orders, and some investors say demand remains strong."
+          ],
+          "signal": [
+            "If borrowing costs stay high, delays hit component makers first because they have less visibility into project timing."
+          ],
+          "key_stat": "-11% in a week"
+        },
+        {
+          "id": "ai-02b8790878",
+          "headline": "Microsoft pulls out of Nscale's Essex AI datacentre over power supply",
+          "hook": "Microsoft, the expected anchor tenant, has cancelled its agreement for Nscale's Loughton AI datacentre in Essex after being told grid power would not arrive until the early to mid-2030s.",
+          "points": [
+            "UK Power Networks told Nscale it cannot supply enough power until the early to mid-2030s. The site was due to open next year and was billed as the 'largest UK sovereign AI datacentre'.",
+            "Nscale loses its only publicly announced customer there. Microsoft remains on board for Nscale's Norway project.",
+            "Nscale, backed by Nvidia, hopes to list on Wall Street this year at about $35bn. Nick Clegg's 0.25% stake could be worth $88m at that value.",
+            "Nscale is exploring onsite generation and faster grid connection, and says its other contracts are unaffected."
+          ],
+          "signal": [
+            "Power access, not chips, is now the constraint on datacentres. If Nscale's IPO slips, doubts about debt-funded 'neocloud' builders grow."
+          ],
+          "key_stat": "Grid delay to early-to-mid 2030s"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-6a083a36de",
+          "line": "Disney will offer jobs to most of Character.AI's staff after the chatbot startup filed for bankruptcy; Disney agreed to buy some assets for $20 million."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-dfbbb94dfd",
+          "headline": "QNu Labs secures ₹150 crore for India's quantum network",
+          "hook": "QNu Labs signed a ₹150 crore convertible-debt agreement with the Technology Development Board to build the technology backbone of India's Quantum Secure and Sensing Networks.",
+          "points": [
+            "The money comes from the government's RDI fund and is debt, not equity. It sits alongside QNu's ₹200 crore Series A1 equity round, for a ₹350 crore package with separate purposes.",
+            "QKD shares encryption keys using quantum states of light. Post-quantum cryptography instead uses mathematical algorithms built to resist future quantum computers.",
+            "QNu has outlined a 2,000 km QKD network between Bengaluru and Delhi under the National Quantum Mission (₹6,003.65 crore budget to 2030-31). It is not confirmed to be the same project as the RDI-funded network.",
+            "No spending schedule, full route list or operational date was given."
+          ],
+          "signal": [
+            "If the network meets technical validation and procurement steps, QNu moves from lab hardware to national infrastructure, but the deal guarantees no commercial contracts."
+          ],
+          "key_stat": "₹150 cr · convertible debt"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-deep-tech-86ed8f32c0",
+          "line": "Bengaluru spacetech startup OXG Space raised ₹17 crore led by Aum Ventures to build an orbital network that processes and sends Earth-observation data in near-real time."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-5fd76df517",
+          "headline": "Starlink, Jio and OneWeb: untangling India's satcom queue",
+          "hook": "No company has launched satellite internet in India yet; the government says Starlink, Jio and Eutelsat OneWeb are at 'broadly the same regulatory stage', after Elon Musk accused Reliance of monopoly.",
+          "points": [
+            "Approval has four steps: GMPCS licence, IN-SPACe authorisation, security assessment, spectrum assignment. All three firms hold GMPCS licences; security assessments continue, and spectrum follows.",
+            "OneWeb got its licence in August 2021, Jio in March 2022, Starlink in June 2025. Security demonstrations: OneWeb January 2025, Jio March 20, 2025, Starlink early 2026, per a report citing DoT records.",
+            "Starlink says it has in-country gateways and 'requisite government approvals' but does not say its security assessment is complete or spectrum assigned.",
+            "Jio's IPO papers flag satellite broadband as a competitor to JioFiber and AirFiber, and note administratively allocated satellite spectrum could give a different cost structure. Jio Satellite earned ₹34.3 crore in FY26.",
+            "TRAI data for August 2026: 48.63M wired and 19.34M fixed wireless connections."
+          ],
+          "signal": [
+            "Different timelines alone do not prove favouritism; the test is whether each firm faces the same pending requirements, which the government has not published.",
+            "If spectrum is assigned administratively rather than auctioned, Jio's terrestrial business faces a cost-structure gap."
+          ],
+          "key_stat": "0 satcom launches · 3 operators"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-4dbc4e1a48",
+          "line": "Battery Smart raised close to ₹100 crore (about $10M) from an existing investor to extend its battery-swapping network for electric two- and three-wheelers, topping up its Series C."
+        },
+        {
+          "id": "indian-startups-e691ef6a62",
+          "line": "Ixigo posted a ₹63.42 crore net profit in Q2 FY27 on 13% revenue growth to ₹321 crore, helped by its FreshBus stake sale and ₹22 crore other income."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-a19100d458",
+          "headline": "India's carbon market opens for business",
+          "hook": "From November, Indian factories can buy and sell carbon credit certificates on power exchanges; the Bureau of Energy Efficiency has set targets for about 490 units across seven sectors.",
+          "points": [
+            "Credits are expected to be issued this month, with trading between November and January. A firm beating its target earns one credit per tonne of CO2 avoided; one missing it must buy credits.",
+            "Targets are set per unit of output, not as a cap on total emissions, so factories can grow while rewarded for cleaner production.",
+            "Unlike a carbon tax, where every firm pays a fixed price and the government collects, here the market sets the price per tonne.",
+            "One research firm valued India's carbon credit market at about $34 billion in 2025 and expects it to grow over tenfold by 2034. India pledged to cut emissions intensity 47% by 2035.",
+            "Risks: total emissions can still rise as output grows, and heavy emitters may buy their way out of obligations."
+          ],
+          "signal": [
+            "If targets are tough, verification honest and penalties real, clean factories gain; if not, credits become a permission slip. The author says enforcement decides."
+          ],
+          "key_stat": "~490 units · 7 sectors"
+        },
+        {
+          "id": "climate-energy-191e971b7b",
+          "headline": "India's EV share is growing faster than America's",
+          "hook": "India's battery-EV share of new car sales hit 5.8% in April 2026, up from 3.7% a year earlier, passing the US at 5.1%, VAHAN data shows.",
+          "points": [
+            "Ember says 49 of the 56 countries it tracks now have a higher BEV share than the US, whose share fell to 6% over the first eight months of 2026 after federal incentives were rolled back.",
+            "This is share, not volume: in April India sold about 23,500 electric cars against roughly 70,000 in the US.",
+            "India sold a record 255,326 electric passenger vehicles in the first nine months of 2026. Tata Motors retailed 101,484 of them, about 40%.",
+            "September set a monthly retail record of 36,904 units. Charging infrastructure and upfront prices remain challenges."
+          ],
+          "signal": [
+            "If affordable models and state incentives keep widening choice, EVs are moving past early adopters in India, even though the US remains the larger market in absolute numbers."
+          ],
+          "key_stat": "5.8% vs 5.1% · April 2026"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-f8d80d75d1",
+          "line": "Engie plans about €3 billion of new Indian investment by 2030, raising its renewables and storage portfolio from around 2 GW to 7 GW."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-e1dbc00a71",
+          "headline": "Jio IPO buzz reaches crypto market as Bitget lists pre-IPO futures",
+          "hook": "Crypto exchange Bitget launched JIOUSDT on October 14, a perpetual futures contract letting traders bet on Jio Platforms' pre-IPO value with up to 20x leverage and no shares owned.",
+          "points": [
+            "The contract trades 24x7, settles in USDT, has no expiry, and charges funding fees every eight hours. Its price was near $11.9.",
+            "Jio's IPO opens October 21, closes October 23, with allotment likely October 26 and listing expected October 28.",
+            "The grey market premium was ₹250 on Sunday, implying a ₹1,369 listing price and a 22.34% gain, per media reports.",
+            "Reliance Jio Infocomm had 533.3 million customers as of June 30, 2026."
+          ],
+          "signal": [
+            "Both the grey market premium and the crypto contract are unofficial price guesses. 20x leverage means small price moves can wipe out a position."
+          ],
+          "key_stat": "20x leverage · IPO opens Oct 21"
+        },
+        {
+          "id": "global-economics-f549e5b833",
+          "headline": "India widens cancer drug price caps on 137 medicines",
+          "hook": "India will cut prices of as many as 137 cancer drugs by 70%, the Ministry of Chemicals and Fertilizers said, as it widened price controls.",
+          "points": [
+            "Another report says the National Pharmaceutical Pricing Authority introduced a 30% trade margin cap on 137 commonly used cancer medicines to regulate retail prices.",
+            "The source text is partial, so the link between the 70% cut and the 30% cap is not stated. (Summary from limited source text.)"
+          ],
+          "signal": []
+        }
+      ],
+      "also": [
+        {
+          "id": "india-bdeb4e12b1",
+          "line": "Weak rupee pushes India’s $5-trillion economy milestone to 2029 despite faster growth: IMF data (source unreachable — headline only)"
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-2c9177433f",
+          "headline": "St Petersburg oil facilities ablaze as Ukraine launches 1,000+ drones at Russia",
+          "hook": "Ukraine fired more than 1,000 drones at Russia, setting the Petersburg Oil Terminal and the Ruchi oil depot ablaze; one person died and five were hurt, the governor said.",
+          "points": [
+            "Russia's Defence Ministry says it destroyed 1,015 Ukrainian drones over 15 regions, Crimea and the Black Sea. An Ozon logistics centre and a VK data centre were also targeted.",
+            "The strikes follow Trump's October 11 'energy ceasefire' announcement. Zelenskyy says Russia hit Ukrainian energy, oil and gas sites 76 times in the week after; Kyiv resumed refinery strikes after a three-day pause.",
+            "Zelenskyy says US intelligence sharing resumed after being blocked for a time. Ukraine's drones also strayed into Lithuanian airspace, possibly diverted by Russian electronic warfare."
+          ],
+          "signal": [
+            "Mass-drone strikes on oil export infrastructure raise Russia's cost of exporting, but Washington's criticism of them adds strain between Kyiv and the US."
+          ],
+          "key_stat": "1,000+ drones · 1,015 downed (Russia)"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-7c521b7374",
+          "headline": "Onion prices double as India's food inflation climbs to 7.74%",
+          "hook": "India's food inflation rose to 7.74% in September from 5.97% in August, with onion inflation at 108.09%, pushing headline retail inflation to 5.54%, the highest in the new CPI series.",
+          "points": [
+            "Ginger rose 62.85% year on year, garlic 54.62% and lemon 36.41%, while potatoes fell 11.50% and tomatoes 8.62%.",
+            "Rural food inflation was 8.06% against 7.18% urban, and rural headline inflation 6.08% against 4.88%. Food is a bigger share of spending for lower-income households.",
+            "FAO's Food Price Index averaged 136.0 in September, up 1.5% on August and 5.8% on a year earlier; cereals were up 17.2% year on year.",
+            "The article says there is no evidence yet that global prices drove India's vegetable spike; onions depend on domestic harvests. FAO forecasts 2026 global cereal output down 2.1%."
+          ],
+          "signal": [
+            "The next CPI release, on November 12, 2026, will show whether the surge stays in a few vegetables or spreads. Fresh crop arrivals are the near-term test."
+          ],
+          "key_stat": "Food inflation 7.74% vs 5.97%"
+        }
+      ],
+      "also": [
+        {
+          "id": "agritech-e62fdbe884",
+          "line": "Southern India faces water stress amid a deficient monsoon; the Telugu Ganga project, bringing Krishna water from Andhra Pradesh, supplies an estimated 25-30% of Chennai's water."
+        }
+      ]
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-4420d86fe9",
+          "headline": "Samsung to use TSMC technology for Nvidia's next-generation memory chips",
+          "hook": "Samsung will use TSMC's 3-nanometre process to make base dies for Nvidia's custom NVHBM memory chips, Seoul Economic Daily reported, a first for Samsung at the HBM stage.",
+          "points": [
+            "Nvidia asked Samsung, SK Hynix and Micron to use TSMC's process for NVHBM base dies and sixth-generation DRAM for the core dies.",
+            "NVHBM, unveiled in August, puts Nvidia's custom memory controller into the base die to standardise design across suppliers.",
+            "Samsung accepted after internal review but keeps its in-house model for standard HBM and custom products for other customers.",
+            "It is assessing whether its own foundry could make NVHBM base dies if demand exceeds TSMC's capacity."
+          ],
+          "signal": [
+            "If Nvidia's design holds, memory makers become more interchangeable, and TSMC capacity becomes a shared bottleneck for them."
+          ],
+          "key_stat": "TSMC 3nm · NVHBM base dies"
+        }
+      ],
+      "also": [
+        {
+          "id": "world-46647e0022",
+          "line": "Masked Israeli settlers attacked a European diplomat delegation near Taybeh in the West Bank; the EU demanded accountability, and Israel's foreign minister condemned the violence and police opened an investigation."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-db9f45e3b9",
+      "name": "Databricks Community Connect: Building the Modern Data & AI Stack",
+      "when": "31 October 2026, 10:00 AM onwards",
+      "summary": "In-person Databricks User Group meetup with technical sessions, practitioner use cases and networking, hosted with R Systems International. Venue: Greater Noida (near Delhi). Passes are limited."
+    },
+    {
+      "id": "opportunities-6706d1e9c9",
+      "name": "Atlantic Fellows for Social and Economic Equity (AFSEE) 2027-2028",
+      "when": "Apply by 11 January 2027, 5:00pm GMT",
+      "summary": "Fully funded fellowship at the LSE's International Inequalities Institute for mid-career leaders with 7+ years in tackling inequality. Requires admission to LSE's MSc in Inequalities and Social Science; residential and non-residential tracks. London/online."
+    }
+  ]
+}
