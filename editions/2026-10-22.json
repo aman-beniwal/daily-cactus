@@ -1,0 +1,705 @@
+{
+  "date": "2026-10-22",
+  "edition": 129,
+  "colophon": "89 sources scanned · 88 ok · 1 failed",
+  "lead": {
+    "id": "deep-tech-efd652a2c2",
+    "headline": "Two critical PHP flaws force government and company websites offline worldwide",
+    "summary": "",
+    "signal": [
+      "If AI keeps finding bugs at this scale, patch cycles shorten for every organisation that runs web software, not just governments.",
+      "Leaks during a private-disclosure window now cost far more, because the affected base is so large."
+    ],
+    "badge": "",
+    "takeaway": "",
+    "why": "",
+    "source": "Tech - South China Morning Post",
+    "url": "https://www.scmp.com/news/world/article/3371694/websites-go-dark-worldwide-ai-exposes-critical-security-flaws",
+    "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/10/22/c0dbdcbd-c66b-40ec-9420-863b1c4ce02a_0a3c5f83.jpg?itok=NcZqqLCw&v=1792620652",
+    "developing": true,
+    "hook": "Two critical flaws in PHP, which Wiz estimates ==runs about 70% of the world's websites==, let attackers take over web servers without a password, and sites went offline on Wednesday.",
+    "points": [
+      "The NSA told organisations to patch immediately or pull vulnerable systems offline; the flaws often give a direct path to a server's file system or database.",
+      "Details leaked online on Tuesday, a day before the planned fix release, which set off the rush to shut sites down.",
+      "France took local government sites offline, including Paris police's. The Netherlands pulled DigiD (national digital ID), parliament and cybersecurity centre sites. Belgium's foreign ministry and Australia's cyber.gov.au were also affected.",
+      "Security firm Calif found the flaws in August using OpenAI's GPT-5.6 Sol in an OpenAI-funded audit. Wiz found them independently weeks later with AI models.",
+      "PHP Foundation's Volker Dusch called it PHP's most serious problem in over a decade, comparable to Heartbleed (2014). Vulnerabilities found in 2026 are on track to roughly double last year's record."
+    ],
+    "key_stat": "~70% of websites run PHP",
+    "editors_read": "AI-driven bug-finding makes the gap between discovery and exploitation the key risk, and defenders now need to patch in days. Firms with slow patching, or no inventory of what runs where, carry the most exposure. For a Chief-of-Staff type, vendor patch speed and dependency visibility become board-level operating questions."
+  },
+  "frontpage": [
+    {
+      "id": "ai-166a3dc871",
+      "headline": "Meta plans non-voting stock class to help fund AI spending",
+      "summary": "",
+      "signal": [
+        "If Meta raises money via non-voting shares, it can fund AI capex without diluting Zuckerberg's control."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-21/meta-boosts-ai-bet-with-capex-outlook-new-stock-class-video",
+      "image": null,
+      "developing": false,
+      "hook": "Meta confirmed on its earnings call a new class of non-voting stock that could help fund AI spending, after reporting ==record third-quarter revenue== of $64.6 billion.",
+      "points": [
+        "Meta said the new stock won't affect Mark Zuckerberg's voting control; one report puts it at 61%.",
+        "Semafor first reported the plan; another outlet ties it to funding of up to $145 billion in AI spending.",
+        "Outside shareholders would hold shares with no vote, so governance influence of existing holders is not widened."
+      ],
+      "key_stat": "$64.6B · Q3 revenue",
+      "editors_read": "Non-voting stock lets Meta raise equity for a heavy AI build without giving up control. Investors buying it accept no say in how the money is spent. Details such as size and timing are not in the text we have."
+    },
+    {
+      "id": "world-9e5f09d152",
+      "headline": "China drafts export-permission rules for its top AI models",
+      "summary": "",
+      "signal": [
+        "If frontier models need licences, foreign users of free Chinese models face supply uncertainty."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "NYT > World News",
+      "url": "https://www.nytimes.com/2026/10/21/world/asia/china-exports-ai-controls.html",
+      "image": "https://static01.nyt.com/images/2026/10/21/multimedia/21int-china-ai-rules-01-lvpc/21int-china-ai-rules-01-lvpc-mediumSquareAt3X.jpg",
+      "developing": false,
+      "hook": "Under rules proposed last week, China's next advanced AI models might need government permission to be exported, putting free open-weight releases like Moonshot's Kimi K3 in doubt.",
+      "points": [
+        "Moonshot AI released Kimi K3 in July as a free download, rivalling some of the best US systems.",
+        "Open access has been one of China's biggest advantages in its AI rivalry with the US.",
+        "The draft would give Beijing power to track, and potentially limit, where top-tier systems go.",
+        "The government says the vast majority of Chinese AI would still be freely exported."
+      ],
+      "key_stat": "Draft export rules",
+      "editors_read": "Beijing wants both control and global adoption, and those pull in opposite directions. The practical line is how 'frontier' gets defined: a narrow definition keeps most open releases flowing. Separately today, a US DHS ban on DeepSeek adds pressure from the other side."
+    },
+    {
+      "id": "global-economics-ba060f091f",
+      "headline": "Musk says Tesla and SpaceX have formed committees to explore a merger",
+      "summary": "",
+      "signal": [
+        "If approved, it would be the largest corporate tie-up ever, built around AI, chips and robotics.",
+        "The 50%-of-all-shares bar is high, since many holders never vote."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Business | The Guardian",
+      "url": "https://www.theguardian.com/science/2026/oct/20/spacex-revenue-earnings-report",
+      "image": "https://i.guim.co.uk/img/media/e8751fbc7c731bbd0529b03c52637c25514b5fc6/619_0_4330_3463/master/4330.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=56dbe6bc786c1458b6be0034f9cbf225",
+      "developing": false,
+      "hook": "SpaceX (worth about ==$2 trillion==) and Tesla (nearly $1.5 trillion) have formed special committees to explore a merger, with no terms agreed, Musk said as SpaceX reported $14.58bn quarterly revenue.",
+      "points": [
+        "Committees of independent directors run the talks; Musk is excluded as a conflicted party. He says there is 'a lot of merit' but a deal is not certain.",
+        "Tesla __would need approval from 50% of all shareholders__, not just those voting.",
+        "SpaceX Q3 revenue was $14.58bn vs $12.72bn expected, up 161%; net income $4.4bn. Its AI segment earned $7.6bn, ahead of connectivity.",
+        "Musk owns about 20% of Tesla and 45% of SpaceX, and would own about a third of a combined company.",
+        "Terafab, the two firms' chip venture, targets a first test chip around May or June next year and volume production by Q3 2028."
+      ],
+      "key_stat": "~$3.5T combined value"
+    },
+    {
+      "id": "ai-a28446b274",
+      "headline": "Private equity funding for Indian AI start-ups tripled to about ==$5 billion== in 2025",
+      "summary": "",
+      "signal": [
+        "Money is flowing to infrastructure and applications, not home-grown foundation models."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Forbes India",
+      "url": "https://www.forbesindia.com/article/business/startups/pe-funding-for-indian-ai-start-ups-has-tripled-in-2025-goldman-sachs/2999669/1",
+      "image": "https://images.forbesindia.com/blog/wp-content/uploads/2026/10/AI-Meets-Rising-MarketsBG-2026-10-04b97c3eda4caef0dde36536c40e74f3.jpg?im=FitAndFill,width=1200,height=900",
+      "developing": false,
+      "hook": "PE funding for Indian AI start-ups rose to roughly $5 billion in 2025 from $1.6 billion in 2024, and the first 8-9 months of 2026 have already matched that, Goldman Sachs says.",
+      "points": [
+        "AI's share of PE funding in India rose from about 5% in 2024 to about 20% in 2026.",
+        "Goldman identified 84 'Private AI Contenders' worth about $55 billion, from screening about 7,000 unlisted companies. Bangalore hosts 32.",
+        "Upstream firms (power, chips, data centres) are about $35B; downstream adopters $18B; model builders only about $2B across seven firms.",
+        "71 of the 84 are at growth stage or later. If 25-50% list at an average 4x step-up, __$50-100 billion of market value could be added__ to listed AI, against a $670B listed enabler cohort.",
+        "Goldman calls the IPO exercise illustrative and says its screen may include false positives."
+      ],
+      "key_stat": "$5B · 2025 PE in AI"
+    },
+    {
+      "id": "global-economics-043f834fd7",
+      "headline": "RBI rejects all bids at treasury bill auction as yields climb",
+      "summary": "",
+      "signal": [
+        "If crude stays near $110, bond yields likely drift higher and borrowing costs rise for companies and the government."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/india/indian-central-bank-rejects-all-bids-treasury-bill-auction-short-term-yields-2026-10-21/",
+      "image": null,
+      "developing": false,
+      "hook": "The RBI rejected all bids at a ₹23,000 crore treasury bill auction on Wednesday, signalling discomfort as the 10-year yield hit 7.44%, its ==highest since November== 2022.",
+      "points": [
+        "Traders say investors asked for higher yields than the RBI wanted. The RBI last rejected bids in June.",
+        "Between September 9 and October 14, yields on 91, 182 and 364-day bills rose 64, 83 and 69 basis points.",
+        "The 364-day bill's spread over the repo rate (RBI's lending rate to banks) widened to 99 bps, a four-year high.",
+        "The RBI raised the repo rate to 5.50% this month and moved to calibrated tightening; bets on a 50 bps December hike are growing.",
+        "Banking liquidity has tightened: the RBI ran a ₹1 trillion variable rate repo auction on Monday, the first in three months. Brent is about $112."
+      ],
+      "key_stat": "10-yr yield 7.44%"
+    },
+    {
+      "id": "work-careers-8a9a4a98a1",
+      "headline": "About 12,700 Indian tech workers returned from the US by September",
+      "summary": "",
+      "signal": [
+        "If the trend holds, India's senior tech talent pool grows, helping founders' offices and AI hiring."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Hindustan Times",
+      "url": "https://www.hindustantimes.com/world-news/us-news/h1b-woes-over-12-000-indian-tech-workers-return-from-us-amid-visa-uncertainty-and-layoffs-101792598505937.html",
+      "image": "https://www.hindustantimes.com/ht-img/img/2026/10/21/1600x900/photo-1581553673739-c4906b5d0de8_1752862600147_1752862610289_1792599383820_FPTw_aaac1e36-9b92-4bd5-b5bb-62aedc07f59e_WMmo.jpg",
+      "developing": false,
+      "hook": "About 12,700 Indian tech professionals had returned from the US by September 2026, on track to beat last year's peak of 15,100, per Xpheno data.",
+      "points": [
+        "Returns rose from 7,200 in 2023 to 9,800 in 2024 and 15,100 last year.",
+        "Drivers cited: visa uncertainty under Trump, layoffs and a shaky global job market.",
+        "PERM processing (the labour-certification step for employer-sponsored green cards) has halted for several firms including Microsoft, Adobe, Infosys, Cognizant, Wipro and HCL.",
+        "Valid H-1B visas and approved green cards are not revoked; new PERM filings stop and pending ones pause.",
+        "Returnees face hiring focused on AI, cloud, cybersecurity and product skills rather than overseas experience, and dual tax rules."
+      ],
+      "key_stat": "12,700 · returns by Sept"
+    },
+    {
+      "id": "indian-startups-3892a33f13",
+      "headline": "Legal AI start-up Legora ==raises $550M== at $8.8B valuation",
+      "summary": "",
+      "signal": [
+        "Revenue doubling in about six months supports these valuations; legal AI is a two-horse race."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Venture Capital News | TechCrunch",
+      "url": "https://techcrunch.com/2026/10/21/legal-ai-startup-legora-raises-550m-series-e-at-8-8b-valuation/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2296593553.jpg?w=1024",
+      "developing": false,
+      "hook": "Legora raised a $550 million Series E at an $8.8 billion valuation, with annual recurring revenue now above $200 million, double April's $100 million.",
+      "points": [
+        "Atreides Management led; Baron Capital, Bessemer, General Catalyst and Menlo joined.",
+        "In April it was valued at $5.6 billion after a Series D extension.",
+        "Rival Harvey raised $550 million at $15.5 billion a month ago.",
+        "Legora will use the money to expand across North America."
+      ],
+      "key_stat": "$550M · Series E"
+    }
+  ],
+  "sections": [
+    {
+      "name": "AI",
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-dc1c99f797",
+          "headline": "Recursive releases Flint, a free laptop coding model built largely with AI",
+          "summary": "",
+          "signal": [
+            "If local models like Flint match paid assistants, code stays private and cloud fees fall for small teams.",
+            "The benchmarks are the company's own; it admits Flint needs more guidance than big paid assistants."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "AI News & Artificial Intelligence | TechCrunch",
+          "url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
+          "image": "https://techcrunch.com/wp-content/uploads/2026/05/GettyImages-2157738833.jpg?resize=1200,800",
+          "developing": false,
+          "hook": "Recursive released Flint, a free coding model that runs on a laptop and that the company says was built largely by its AI research system in under four months.",
+          "points": [
+            "Flint is a mixture-of-experts model: it uses only 2.5 billion of its 40 billion parameters at a time. Meta's Muse Spark Open uses 816 billion and needs at least a terabyte of memory.",
+            "It generates about 131 tokens a second on a MacBook Pro M4 Pro, roughly twice the 58-69 of Gemma 4 and Nemotron 3.5 Lightning.",
+            "It beat other sub-50B models on SWE-Bench Verified. On Recursive's six-test average only Qwen3.8 27B scored higher.",
+            "Free on Hugging Face under Apache 2.0, so developers can run it offline and avoid per-token fees.",
+            "Recursive says its Eureka Machine contributed to nearly every stage; the company raised $650M at $4.65B in May."
+          ],
+          "key_stat": "131 tokens/sec on laptop"
+        },
+        {
+          "id": "ai-1a821e7a7f",
+          "headline": "Hassabis shortens his AGI estimate to two to three years",
+          "summary": "",
+          "signal": [
+            "This is one person's estimate that has moved closer repeatedly; treat it as a stated view, not a measurement."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/deepmind-founder-hassabis-shortens-agi-timeline-from-five-to-two-to-three-years/",
+          "image": "https://the-decoder.com/wp-content/uploads/2026/07/deepmind_hassabis.png",
+          "developing": false,
+          "hook": "Demis Hassabis now says AGI, a system matching the full cognitive range of the human brain, could arrive in two to three years, down from three to five earlier this year.",
+          "points": [
+            "His test: __could a system trained only on pre-1901 knowledge__ reproduce Einstein's 1905 papers?",
+            "He compares AGI's impact to '10 times the industrial revolution at 10 times the speed'.",
+            "On safety he pitched an industry-funded oversight board under government control to vet models before release, and warns bad regulation is worse than none."
+          ],
+          "key_stat": "AGI in 2-3 years"
+        },
+        {
+          "id": "ai-eabcc68ce2",
+          "headline": "Anthropic previews Claude Duet, an AI agent for small businesses",
+          "summary": "",
+          "signal": [
+            "Anthropic targets workplace use, where it already competes for enterprise share, rather than consumers."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/technology/anthropic-unveils-claude-duet-ai-agent-app-2026-10-21/",
+          "image": null,
+          "developing": false,
+          "hook": "Anthropic announced a preview of Claude Duet, an agent for small businesses and professionals that sends daily briefs, watches connected apps and does tasks like dashboards and financial forecasts.",
+          "points": [
+            "It works in the background and checks with the user before it acts; Anthropic warns it 'might misread a thread or miscalibrate what's urgent'.",
+            "Available to Pro and Max subscribers via a waitlist, in a standalone app or on the Claude website.",
+            "Rivals: Meta's Muse, which topped Apple's App Store, and OpenAI's dots. Zuckerberg said over 10 million people in the US and Canada set up Muse agents in about six weeks.",
+            "Anthropic says personal errands such as booking tickets are 'not quite as strong'."
+          ],
+          "key_stat": "10M+ Muse agents set up"
+        }
+      ],
+      "also": [
+        {
+          "line": "Canadian publisher Boreal dropped author Thelyson Orelien after an outside analysis found AI traces in his novel's metadata; the Goncourt prize had earlier removed it from its shortlist.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/21/canadian-publisher-cuts-ties-with-best-selling-writer-orelien-over-ai-use"
+        }
+      ]
+    },
+    {
+      "name": "Startups & Venture",
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-0b038bcb37",
+          "headline": "Nutanix co-founder Ajeet Singh launches AI marketing start-up Different with $48M",
+          "summary": "",
+          "signal": [
+            "It targets teams that can't hire specialists or manage many agencies, so the pitch rests on replacing agency spend."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/buzz/nutanix-founder-ajeet-singh-floats-new-ai-martech-startup-different/",
+          "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/10/ajeet-singh-different-featured.png",
+          "developing": false,
+          "hook": "Ajeet Singh, co-founder of Nutanix and ThoughtSpot, launched Different, an AI marketing system, with a ==$48 million seed round== (about ₹453 crore) led by General Catalyst.",
+          "points": [
+            "Lightspeed also invested. Co-founders are ex-Asana's Abhishek Pani and ex-PharmEasy CTPO Abhinav Yajurvedi.",
+            "It runs demand generation end to end for lean B2B marketing teams, planning, creating and running content and learning from results.",
+            "Early customers include Descope and Motif; teams sit in San Francisco and Bengaluru."
+          ],
+          "key_stat": "$48M · seed"
+        },
+        {
+          "id": "indian-startups-27417646ac",
+          "headline": "AI infrastructure start-up Simplismart in talks to ==raise $40==-50M",
+          "summary": "",
+          "signal": [
+            "Investors are concentrating on a small pool of Indian AI infrastructure companies."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Funding-Tech-Economic Times",
+          "url": "https://economictimes.indiatimes.com/tech/funding/ai-startup-simplismart-in-talks-to-raise-40-50-million-valuation-may-triple/articleshow/135072487.cms",
+          "image": "https://img.etimg.com/photo/msid-135072487,imgsize-1723483.cms",
+          "developing": false,
+          "hook": "Simplismart is in talks to raise $40-50 million at a $300-400 million valuation, potentially more than tripling its $100-120 million valuation in months.",
+          "points": [
+            "Peak XV Partners and Damac Digital, the data-centre arm of Dubai's Damac, are in discussions to invest.",
+            "Founded by former Oracle and Google engineers."
+          ],
+          "key_stat": "$300-400M valuation"
+        }
+      ],
+      "also": [
+        {
+          "line": "San Francisco enterprise AI firm AuxoAI raised $20.7 million (over ₹195 crore) in Series A led by NTTVC, to expand its forward-deployed engineer team and partnerships.",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/buzz/enterprise-ai-startup-auxoai-nets-20-7m-to-strengthen-its-fde-team/"
+        }
+      ]
+    },
+    {
+      "name": "India Deep Tech",
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-7df6dc67b7",
+          "headline": "India's chip testing capacity is now the bottleneck for its packaging plants",
+          "summary": "",
+          "signal": [
+            "Announced chip capacity numbers alone say little; tester count and skills decide real output."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/indias-osat-buildout-puts-semiconductor-testing-in-focus/",
+          "image": "https://www.eetimes.com/wp-content/uploads/fetaure-image-test-option-2-e1792589633725.png",
+          "developing": false,
+          "hook": "With five semiconductor plants in commercial production in India, the open question is whether OSATs (outsourced chip assembly and test firms) can test chips fast enough to hit targets.",
+          "points": [
+            "Kaynes Semicon chose NI (Emerson) testers for its Sanand, Gujarat plant; other OSATs are still qualifying equipment, which takes six months to a year.",
+            "Tester need depends on test time: under a minute versus five to ten minutes per chip means very different equipment for the same output.",
+            "Global test equipment sales are __forecast to grow 31% to $15.3B in 2026__, after 55.3% in 2025 (SEMI).",
+            "Some Indian chip start-ups have never run final testing and rely on the OSAT to design it.",
+            "Balasekar says OSAT growth could outpace skilled workers; ISM 2.0 includes workforce development."
+          ],
+          "key_stat": "$15.3B · 2026 test equipment"
+        }
+      ],
+      "also": [
+        {
+          "line": "Reliable Robotics, which builds autonomous flight systems for existing aircraft, raised $115 million in an extension of its Series D, pushing its valuation above $1 billion.",
+          "source": "BigGo Finance",
+          "url": "https://finance.biggo.com/news/69befbe5-6d8c-42c6-8e0b-cd8a83c30f86"
+        }
+      ]
+    },
+    {
+      "name": "Climate & Energy",
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-9aa8fea839",
+          "headline": "China proposes banning exports of top perovskite and tandem solar manufacturing technology",
+          "summary": "",
+          "signal": [
+            "If adopted, overseas factories that depend on Chinese know-how face delays and higher compliance costs, relevant to India's solar manufacturing push.",
+            "The article says it could also complicate Chinese makers' own expansion abroad."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "pv magazine India",
+          "url": "https://www.pv-magazine-india.com/2026/10/21/china-proposes-ban-on-exports-of-perovskite-tandem-solar-manufacturing-technology/",
+          "image": "https://www.pv-magazine-india.com/wp-content/uploads/2026/10/thumbnail_4-ProductionLine-1536x1024-1.jpg",
+          "developing": false,
+          "hook": "China proposed adding 12 photovoltaic technologies to its prohibited or restricted export list, covering perovskite-tandem, polysilicon, wafer and cell manufacturing know-how, with consultation open until Nov. 15.",
+          "points": [
+            "It targets production processes and equipment know-how above set thresholds, such as tandem cells at 30% or higher efficiency; finished modules are not covered.",
+            "Prohibited technologies cannot be exported; restricted ones need government approval and licences.",
+            "An interim registration requirement for planned exports took effect Oct. 16.",
+            "It is part of a 40-technology consultation also covering AI and biomedicine."
+          ],
+          "key_stat": "12 PV technologies"
+        }
+      ],
+      "also": [
+        {
+          "line": "India's rooftop solar uptake is growing under heavy government subsidy, but the report says utilities are resisting, as households install panels to cut rising power bills.",
+          "source": "Daily Pioneer",
+          "url": "https://dailypioneer.com/india/rooftop-solar-discoms-revenue-challenges-india"
+        }
+      ]
+    },
+    {
+      "name": "Economy & Markets",
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "india-b98ffd2da3",
+          "headline": "RBI raises 2026-27 growth forecast to 7.1% but warns inflation is building",
+          "summary": "",
+          "signal": [
+            "The RBI sees the economy as strong enough to absorb tightening, so further hikes are possible."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Economic Times",
+          "url": "https://economictimes.indiatimes.com/news/economy/indicators/indias-economy-stays-resilient-at-7-1-but-rising-inflation-raises-a-red-flag-says-rbis-sanjay-malhotra/articleshow/135091927.cms",
+          "image": "https://img.etimg.com/thumb/msid-135091952,width-1200,height-900,imgsize-76916,overlay-economictimes/articleshow.jpg",
+          "developing": false,
+          "hook": "RBI Governor Sanjay Malhotra raised the 2026-27 growth forecast to 7.1% from 6.7% in August, while warning inflation pressures are building.",
+          "points": [
+            "All six MPC members voted to raise the repo rate by 25 bps to 5.5%, the first hike since February 2023.",
+            "37% of commodities in the CPI basket had inflation above 4% in August, up from 20% in March, a sign that price rises are spreading."
+          ],
+          "key_stat": "7.1% growth forecast"
+        },
+        {
+          "id": "global-economics-1975dafd30",
+          "headline": "Walmart launches tools to let AI agents shop and pay for customers",
+          "summary": "",
+          "signal": [
+            "Walmart is betting that being open to agents wins sales that closed platforms lose."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Business News Today: Latest Business News, Finance News",
+          "url": "https://www.thehindubusinessline.com/news/world/walmart-launches-ai-tools-to-let-agents-shop-and-complete-purchases/article71609558.ece",
+          "image": "https://bl-i.thgim.com/public/incoming/swlulw/article71609847.ece/alternates/LANDSCAPE_1200/2025-07-24T090147Z_2143102603_RC2GIEABV5IV_RTRMADP_3_WALMART-AI.JPG",
+          "developing": false,
+          "hook": "Walmart will roll out 'Agent Profiles' next month, letting shoppers authorise individual AI agents with spending limits or per-purchase approval.",
+          "points": [
+            "Its 'Agent Gateway' lets assistants such as ChatGPT, Gemini and Meta's Muse search products and buy from Walmart and Sam's Club.",
+            "Agents can't access payment card data and can be blocked for breaking rules; shoppers can revoke access anytime.",
+            "Open to all Walmart account holders, no Walmart+ needed. Amazon has sought to limit third-party shopping agents."
+          ],
+          "key_stat": "Agent Gateway · open to all"
+        },
+        {
+          "id": "global-economics-19d1b1a63e",
+          "headline": "ESDS targets ==$5 billion revenue== in five years by renting AI chips",
+          "summary": "",
+          "signal": [
+            "The target needs sustained 2.5x growth, which the article notes is rare outside US giants; utilisation and funding are the key risks."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "mint - companies",
+          "url": "https://www.livemint.com/companies/news/buoyed-by-blockbuster-ipo-esds-bets-on-ai-chip-rentals-for-5-billion-revenue-in-5-years-11792473076889.html",
+          "image": "https://www.livemint.com/lm-img/img/2026/10/21/1600x900/logo/Piyush-Somani_1792549317177_AxpJ_1792549325251_KGLO_4f66856d-0e88-4d91-95b4-cf6319946943_rtni.jpg",
+          "developing": false,
+          "hook": "Nashik-based ESDS, whose FY26 revenue was ₹472.21 crore, says it will reach $5 billion annual revenue within five fiscal years by renting GPUs, which would need 2.5x growth every year.",
+          "points": [
+            "Shares listed on 4 September at ₹908.40 against a ₹429 IPO price and trade at ₹1,434; market cap is ₹16,800 crore.",
+            "A $1.25B five-year GPU rental deal with Australia's Sharon AI __could yield about $250M a year__, but exposes ESDS to upfront GPU costs if the client cancels.",
+            "GPU-as-a-service is expected to be about 75% of revenue; rentals were 44% of FY26 revenue.",
+            "Power supply is the main constraint. Three C-suite executives have left in 18 months; competitors include Yotta, E2E, Neysa and global clouds."
+          ],
+          "key_stat": "₹472 cr FY26 → $5B goal"
+        }
+      ],
+      "also": [
+        {
+          "line": "Bloomberg Economics says Asia's chip exports are surging even as markets debate whether the AI boom is a bubble.",
+          "source": "Bloomberg Economics",
+          "url": "https://www.bloomberg.com/news/newsletters/2026-10-21/asia-s-chip-exports-soar-as-ai-bubble-debate-rages"
+        }
+      ]
+    },
+    {
+      "name": "World & Geopolitics",
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-9f64e67e90",
+          "headline": "AI-made election videos flood Brazil ahead of Sunday's presidential vote",
+          "summary": "",
+          "signal": [
+            "Brazil is a test case for how well rules can police AI content, relevant to upcoming US midterms."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "NYT > World News",
+          "url": "https://www.nytimes.com/2026/10/21/world/americas/ai-election-videos-brazil.html",
+          "image": null,
+          "developing": false,
+          "hook": "AI-made videos, from deepfakes to satire, have flooded Brazilian internet ahead of Sunday's presidential election in a country of 214 million.",
+          "points": [
+            "One deepfake shows the barred former right-wing leader endorsing his son's campaign.",
+            "Brazil has strict rules on electoral falsehoods and AI use, but they have been largely untested.",
+            "The electoral court chief, Kássio Nunes Marques, says: 'We made the rules, now we're watching to see what happens.'"
+          ],
+          "key_stat": "214M people · vote Sunday"
+        }
+      ],
+      "also": [
+        {
+          "line": "Putin freed jailed American Stephen Hubbard and agreed to resume US-mediated Ukraine peace talks as soon as next month, possibly in Abu Dhabi, after meeting Trump envoy Witkoff.",
+          "source": "World news | The Guardian",
+          "url": "https://www.theguardian.com/world/2026/oct/21/putin-witkoff-russia-ukraine-trump-stephen-hubbard-release"
+        }
+      ]
+    },
+    {
+      "name": "Health Tech",
+      "slug": "health-tech",
+      "stories": [],
+      "also": [
+        {
+          "line": "China's RiboX released first human data for circular RNA therapies, a next-generation mRNA approach that three Boston-area start-ups are also chasing with billions in funding.",
+          "source": "Endpoints News",
+          "url": "https://endpoints.news/china-biotech-ribox-reveals-first-data-of-circular-rna-therapies-in-people/"
+        }
+      ]
+    },
+    {
+      "name": "Agritech",
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-3a5f9ed308",
+          "headline": "A strengthening El Niño adds to India's weather risk after a 13% monsoon deficit",
+          "summary": "",
+          "signal": [
+            "If winter heat coincides with grain filling, wheat output and food prices face pressure, adding to the RBI's inflation worry."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Times of India",
+          "url": "https://timesofindia.indiatimes.com/india/monsoons-gone-el-nio-isnt-why-indias-weather-worries-are-far-from-over/articleshow/135090741.cms",
+          "image": "https://static.toiimg.com/thumb/msid-135090828,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
+          "developing": false,
+          "hook": "India's monsoon ended with a 13% rainfall deficit, and a strengthening El Niño could intensify into late 2026 and persist into 2027, the WMO warns.",
+          "points": [
+            "Eastern and northeastern India saw a 26% deficit (classed exceptional drought); southern states 24% below average; central India was near normal.",
+            "South Asia is projected to see normal to above-normal temperatures in October-December.",
+            "Heat during wheat's grain-filling stage could cut yields, depending on actual weather; January-February conditions remain uncertain."
+          ],
+          "key_stat": "13% monsoon deficit"
+        }
+      ],
+      "also": [
+        {
+          "line": "The government is drafting a policy to promote agrivoltaics (solar and farming on the same land); about 30% of India's 160 million hectares of cropland has potential.",
+          "source": "Daily Excelsior",
+          "url": "https://www.dailyexcelsior.com/govt-framing-policy-to-enhance-farmers-income-via-adoption-of-agrivoltaics/amp"
+        }
+      ]
+    },
+    {
+      "name": "Other Interests",
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-c86bd9f21b",
+          "headline": "AI tool improves weather forecasts up to a month ahead",
+          "summary": "",
+          "signal": [
+            "If it holds up, month-ahead forecasts would help farm and energy planning."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Nature",
+          "url": "https://www.nature.com/articles/d41586-026-03077-0",
+          "image": "https://media.nature.com/lw1200/magazine-assets/d41586-026-03077-0/d41586-026-03077-0_53882678.jpg",
+          "developing": false,
+          "hook": "A Nature paper describes a machine-learning approach that improves subseasonal weather forecasts, those reaching up to a month ahead (the summary gives no accuracy figures).",
+          "points": [
+            "The paper is Guan et al., 'Advancing subseasonal forecasting with machine learning', Nature 658, 951-957 (2026).",
+            "The text provided is only a citation summary, with no results detail."
+          ],
+          "key_stat": "Forecasts up to 1 month"
+        }
+      ],
+      "also": [
+        {
+          "line": "Physicists trapped a single antimatter particle for months, allowing study of its quantum states and possibly clues to why the universe is made of matter.",
+          "source": "Scientific American",
+          "url": "https://www.scientificamerican.com/article/physicists-trap-a-single-antimatter-particle-for-a-month/"
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "name": "Bitshala BOSS Summit 2026",
+      "when": "26-31 Oct",
+      "kind": "ai-event",
+      "summary": "Six-day Bitcoin open-source residency with sessions, workshops and demos; limited sponsored seats, apply with a strong note on your work. Jaipur.",
+      "source": "Meetup (Jaipur)",
+      "url": "https://www.meetup.com/bitshala/events/315594305/"
+    },
+    {
+      "name": "Global AI Builder's Challenge",
+      "when": "Sat 21 Nov",
+      "kind": "ai-event",
+      "summary": "Free online hackathon: build an AI project that helps people learn, create or simplify a task, solo or in teams of up to six. Online/global.",
+      "source": "Devpost",
+      "url": "https://global-ai-builders-challenge.devpost.com/"
+    },
+    {
+      "name": "Ctrl+V Hackathon",
+      "when": "Fri 6 Nov",
+      "kind": "ai-event",
+      "summary": "Online hackathon on using AI to make access easier (education, health, information); participants with eligible projects get certificates. Online/global.",
+      "source": "Devpost",
+      "url": "https://ctrl-v-hackathon-31831.devpost.com/"
+    }
+  ],
+  "markets": {
+    "generated_at": "2026-10-22T00:06:20.977257+00:00",
+    "as_of": "2026-10-22T00:06:07+00:00",
+    "quotes": [
+      {
+        "label": "Nifty 50",
+        "value": 22811.35,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-10-21T10:01:08+00:00",
+        "closed": true
+      },
+      {
+        "label": "Sensex",
+        "value": 73709.69,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-10-21T10:02:30+00:00",
+        "closed": true
+      },
+      {
+        "label": "USD/INR",
+        "value": 94.45,
+        "unit": "₹",
+        "change_pct": 0.0,
+        "usd": false,
+        "as_of": "2026-10-21T23:21:43+00:00",
+        "closed": false
+      },
+      {
+        "label": "Brent Crude",
+        "value": 110.06,
+        "unit": "$/bbl",
+        "change_pct": 1.14,
+        "usd": true,
+        "as_of": "2026-10-21T23:54:16+00:00",
+        "closed": false
+      },
+      {
+        "label": "Bitcoin",
+        "value": 84213.95,
+        "unit": "$",
+        "change_pct": 1.53,
+        "usd": true,
+        "as_of": "2026-10-22T00:06:07+00:00",
+        "closed": false
+      },
+      {
+        "label": "Gold",
+        "value": 125793,
+        "unit": "₹/10g",
+        "change_pct": -0.18,
+        "usd": false,
+        "as_of": "2026-10-21T23:56:19+00:00",
+        "closed": false
+      },
+      {
+        "label": "Silver",
+        "value": 174941,
+        "unit": "₹/kg",
+        "change_pct": -0.17,
+        "usd": false,
+        "as_of": "2026-10-21T23:56:19+00:00",
+        "closed": false
+      }
+    ]
+  }
+}
