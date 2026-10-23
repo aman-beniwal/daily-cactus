@@ -1,0 +1,462 @@
+{
+  "date": "2026-10-23",
+  "lead": {
+    "id": "ai-adb397617d",
+    "headline": "OpenAI nears a $30 billion funding round at a $1.25 trillion valuation",
+    "hook": "OpenAI is raising up to $30 billion at a ==$1.25 trillion valuation, led by UAE investors and Coatue==, as a bridge before a possible IPO.",
+    "points": [
+      "The valuation excludes the new money. UAE investors and Coatue lead; the round is framed as \"opportunistic\" because investors approached OpenAI in September.",
+      "OpenAI told investors it wants signatures by the end of next week. The final size is still being set.",
+      "It is also negotiating a commercial deal for more computing capacity from the UAE. In February it told investors it targets about $600 billion in total compute spend by 2030.",
+      "OpenAI confidentially filed its IPO prospectus with the SEC in June. CFO Sarah Friar said in August it \"will be a public company in 2027\"; CEO Sam Altman said a month later that going public now would be \"ill-advised\".",
+      "Rival Anthropic also filed confidentially in June and reportedly seeks a $1.5-2 trillion IPO valuation. In May it closed $65 billion at a $965 billion valuation."
+    ],
+    "signal": [
+      "The UAE ties money to compute: if the capacity deal closes, a funder also becomes a supplier of OpenAI's biggest cost.",
+      "If both labs list, public investors will price AI spending directly, just as AI stocks are falling (see today's market story)."
+    ],
+    "key_stat": "$30B at $1.25T",
+    "editors_read": "A bridge round before an IPO lets OpenAI lock in a price while private demand is strong. The Friar-Altman split on timing suggests the listing date depends on market conditions. With Anthropic aiming higher, the two labs' valuations will be compared directly, and a weak AI-stock market would pressure both.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-1abb7be22e",
+      "headline": "AI stocks drag markets down worldwide as oil jumps",
+      "hook": "The S&P 500 fell 1.2%, its worst day since July, as the Nasdaq dropped 2.6% on a global selloff in AI stocks.",
+      "points": [
+        "Nvidia fell 4.4% and was the biggest single drag on the S&P 500. Meta lost 7%, Lam Research 11.8% and CoreWeave 10.1%, even though Lam and Meta beat revenue forecasts.",
+        "The fear is that borrowing to build data centers and buy chips has become costly, and that prices ran too high. Meta said it will create a new class of stock to fund AI spending.",
+        "Asia fell first: South Korea's Kospi dropped 3.5%, Hong Kong's Hang Seng 3% and Japan's Nikkei 2.7%.",
+        "Brent crude rose 4% to $113.17, from under $97 at the start of the month, on uncertainty over the Iran war.",
+        "The 10-year US Treasury yield fell to 4.97% from 5.13% on Wednesday and above 5.30% earlier this month, as investors bought safer bonds."
+      ],
+      "signal": [
+        "Most S&P 500 stocks rose (two in three), so this is a tech-concentration story, not a broad economic slump."
+      ],
+      "key_stat": "S&P 500 -1.2% · Nasdaq -2.6%",
+      "editors_read": "Good earnings did not lift AI stocks, which means expectations are already priced in and the market now cares about financing costs. Highly indebted names like CoreWeave are the most exposed. If yields stay near 5%, funding data centers gets harder, and that bears directly on the OpenAI and Anthropic IPO plans."
+    },
+    {
+      "id": "global-economics-8b0c156fef",
+      "headline": "DeepSeek raises about $15 billion, one of China's largest rounds",
+      "hook": "DeepSeek has raised about 100 billion yuan ($15 billion), with CATL and Tencent among the biggest investors, ahead of a planned IPO.",
+      "points": [
+        "The target rose at least twice during talks, from 50 billion to 80 billion yuan, before reaching 100 billion.",
+        "US labs Anthropic and OpenAI have each raised more than $100 billion, so DeepSeek still has far less money, but the gap is narrowing.",
+        "DeepSeek is spending more on AI data centers and on open-source models for China and abroad. Bloomberg has reported it is preparing an IPO.",
+        "Its September V4.1 Flash release hit the shares of local rivals MiniMax and Z.AI. A benchmark chart from Artificial Analysis has dubbed the zone where rivals must beat its performance or price the \"DeepSeek death zone\"."
+      ],
+      "signal": [
+        "If DeepSeek's cheap open models keep pricing pressure on rivals, that undermines the premium US labs charge, which matters as they go to the public markets."
+      ],
+      "key_stat": "$15B · 100B yuan",
+      "editors_read": "The money lets DeepSeek build its own compute rather than rent it, which has been its main constraint. Chinese listings of DeepSeek and Moonshot would give investors a public price for Chinese AI, to compare with the US labs' valuations."
+    },
+    {
+      "id": "climate-energy-e628f884e1",
+      "headline": "India curtailed 118.6 GW of renewable capacity in September",
+      "hook": "Grid limits forced India to curtail 118.6 GW of solar and wind capacity in September, equal to 1.28% of renewable generation.",
+      "points": [
+        "Solar accounted for 96.9 GW and wind 21.7 GW, per JMK Research, citing Grid-India data.",
+        "Causes: demand-supply mismatch, transmission limits, little battery storage, and high renewable output overlapping with moderate demand.",
+        "From May to August curtailment rose fourfold on last year, as 44.6 GW of new solar strained the grid.",
+        "CREA found over 4% of solar generated in July and August was curtailed, even as coal plants ran with critically low stocks.",
+        "From July 2027, India plans to require new solar and wind developers to install battery storage at their sites."
+      ],
+      "signal": [
+        "Capacity is being built faster than grids and storage. If the storage rule holds, battery demand follows."
+      ],
+      "key_stat": "118.6 GW curtailed"
+    },
+    {
+      "id": "ai-ca13395dd2",
+      "headline": "US court weighs whether training AI on lyrics is fair use; India proposes mandatory licensing",
+      "hook": "Anthropic asked a US federal judge on October 21 to rule that training Claude on song lyrics is fair use; the judge did not rule.",
+      "points": [
+        "Universal Music Group, Concord and ABKCO sued in 2023, alleging use of lyrics by artists like Beyoncé and the Rolling Stones. Both sides seek summary judgment (a ruling without a full trial).",
+        "Anthropic argues the output is transformative and that AI does not reduce demand for lyrics. Publishers cite nearly 120,000 Claude requests for synthetic lyrics in six months and warn of market flooding.",
+        "Two Northern District of California judges reached different conclusions in 2025: Alsup allowed lawfully acquired books, Chhabria found training often not fair use.",
+        "India's DPIIT proposed in December 2025 a mandatory blanket licence with royalties set by a government committee. It is not law, and ANI v OpenAI is still pending."
+      ],
+      "signal": [
+        "If courts split, India's licensing model could become the more predictable route for AI firms."
+      ]
+    },
+    {
+      "id": "global-economics-1bab1e0497",
+      "headline": "Jio Platforms' record IPO draws over five times demand",
+      "hook": "Demand for Mukesh Ambani's $3.2 billion Jio Platforms IPO exceeded five times the shares on offer on Thursday.",
+      "points": [
+        "The IPO is valued at ₹30,213 crore and drew ₹3.73 lakh crore in bids, per one report.",
+        "It was reportedly fully subscribed within 100 minutes and was 3.2 times subscribed on Day 1.",
+        "It is India's largest share sale to date and the first from Reliance's Ambani for Jio."
+      ],
+      "signal": [
+        "Strong demand despite oil-driven market caution suggests retail and institutional appetite for large Indian listings remains deep."
+      ],
+      "key_stat": "₹30,213 cr · 5x+"
+    },
+    {
+      "id": "work-careers-429b8092a7",
+      "headline": "India's GCCs pay up to 40% more for AI talent as fresher share falls",
+      "hook": "Global Capability Centres (GCCs) now pay up to 40% more for AI roles, while entry-level share of their hiring fell from 42% to 30%.",
+      "points": [
+        "GCCs are India-based units of global firms. They pay 15-30% more than IT services firms; for AI and generative AI roles, foundit puts the gap at 30-40%.",
+        "Mid-to-senior staff were over 77% of FY26 GCC hiring, up from 60% in 2023, per TeamLease Digital. Four-to-six-year experience rose from 26% to 34%.",
+        "AI, data science and analytics are 18% of GCC hiring and grew 38% year on year, against 14% for general IT.",
+        "foundit projects 5.10 lakh GCC openings in 2026, up 12% from 4.54 lakh, with AI-related roles 64% of demand. India has about 2,120 GCCs."
+      ],
+      "signal": [
+        "Premiums go to specialised, ownership-heavy roles, not to generalists. A generalist moving into AI roles needs demonstrable deployment results."
+      ],
+      "key_stat": "Up to 40% AI premium"
+    },
+    {
+      "id": "indian-startups-460b4305ee",
+      "headline": "Data centers' water demand is sparking community resistance worldwide",
+      "hook": "A hyperscale data center can use 1-5 million gallons of water a day, as much as a city of 10,000-50,000 people.",
+      "points": [
+        "GPUs run hotter than older chips, so they need more cooling. Facilities want clean water, and tapping drinking supplies is cheaper than treating their own.",
+        "In Cerrillos, Chile, Google's planned data center would use 169 liters a second, in a drought-hit region. In a December 2019 referendum, 49% rejected it and 38% backed it. Google later proposed air cooling.",
+        "In Uruguay, Google's Canelones site planned 2 million gallons a day during the worst drought in 70 years.",
+        "In Brazil, a $10 billion data center near Fortaleza is reportedly being developed for TikTok, in a region with emergency drought conditions in 16 of 21 years."
+      ],
+      "signal": [
+        "Water is becoming a permitting constraint on data centers. Siting in water-scarce regions, which includes much of India, will draw similar scrutiny."
+      ],
+      "key_stat": "1-5M gallons/day"
+    },
+    {
+      "id": "india-96648df819",
+      "headline": "India-EU trade deal could operate in early 2027, says Goyal",
+      "hook": "India's trade minister Piyush Goyal says the EU free-trade agreement could become operational four to five months after it is signed.",
+      "points": [
+        "Goyal said on Thursday that signing is expected soon.",
+        "The Economic Times reports the deal aims to boost market access."
+      ],
+      "signal": [
+        "If signing happens soon, operation in early 2027 follows from Goyal's timeline."
+      ],
+      "key_stat": "4-5 months after signing"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-5cabb389fd",
+          "headline": "Recursive releases Flint, a coding model built largely by its own AI researcher",
+          "hook": "Recursive released Flint, a 40-billion-parameter coding model (2.5 billion active) built in four months, largely by an internal AI system called Eureka Machine.",
+          "points": [
+            "Flint is a mixture-of-experts model, where only a fraction of parameters run per token. It targets agentic coding on local Apple and Nvidia hardware.",
+            "Recursive claims it leads MoE models under 50 billion parameters on SWE-Bench Pro v2 and Terminal-Bench 2.1. These claims are not independently verified.",
+            "The company says it runs over 125 tokens per second on a MacBook Pro M4 Pro and over 150 on an Nvidia RTX Spark, and more than five times faster than dense 25-40B models.",
+            "Weights are free on Hugging Face under Apache 2.0, with a 512,000-token context. Flint needs more guidance on complex tasks than large proprietary models.",
+            "Recursive raised $650 million at a $4.65 billion valuation in May. It has not yet shown that Eureka Machine itself improves with each model, which full self-improvement would require."
+          ],
+          "signal": [
+            "If Eureka Machine's results hold up independently, small teams could build capable models faster; the self-improvement claim is unproven."
+          ],
+          "key_stat": "40B params · 2.5B active"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-a4344d39d1",
+          "line": "Nirva raised $25 million in pre-Series A funding, adding to $8 million earlier, for a jewelry-like pendant that listens only to its wearer, entering a crowded ambient-AI hardware field."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-bd6a23f494",
+          "headline": "DeepSeek open-sources chip software built with Huawei",
+          "hook": "DeepSeek released free, open-source software for Huawei's Ascend AI chips, including TileLang, which China pitches as its answer to Nvidia's CUDA.",
+          "points": [
+            "CUDA is Nvidia's software platform, the global standard for developing AI. DeepSeek said it optimised for Ascend 950 chips with Huawei's support.",
+            "DeepSeek plans to deploy at least 160,000 of Huawei's most powerful accelerators in an Inner Mongolia data center, per earlier Bloomberg reporting.",
+            "The move fits Beijing's push to replace US software and chips with local equivalents, though global model training still relies heavily on Nvidia."
+          ],
+          "signal": [
+            "If developers adopt TileLang, Nvidia's software lock-in in China weakens, which is Huawei's stated aim."
+          ],
+          "key_stat": "160,000 Ascend chips planned"
+        },
+        {
+          "id": "deep-tech-b7b026c287",
+          "headline": "Quantinuum hits error-correction milestone, targets fault tolerance by 2029",
+          "hook": "Quantinuum says it achieved 99.9995% logical fidelity on its Helios computer, putting it on a path to fully reliable quantum computers by 2029.",
+          "points": [
+            "Logical fidelity measures how accurate error-corrected qubits are. Quantinuum calls the result a world record.",
+            "The WSJ reported the milestone first and says it supports the 2029 target for fault-tolerant machines (summary from limited source text)."
+          ],
+          "signal": [
+            "Quantinuum's claim is company-reported; the 2029 date is a target, not a result."
+          ],
+          "key_stat": "99.9995% logical fidelity"
+        },
+        {
+          "id": "deep-tech-50539c2e18",
+          "headline": "Unitree builds an AI loop for humanoid robots to improve themselves",
+          "hook": "Unitree Robotics is developing \"Unitree Rehearsal\", an AI loop where robots write code, run simulations and improve without manual programming.",
+          "points": [
+            "Founder Wang Xingxing called it the company's most important initiative of the year. AI would search papers, write code and test it in simulation before physical trials, with humans giving feedback.",
+            "The challenge, he said, is aligning the model's inputs and outputs with a real robot's. Robots also face unpredictable environments and mechanical errors.",
+            "Wang said humanoids could tidy rooms on command as early as 2027, with 2028 more realistic.",
+            "Stanford's 2026 AI Index found robots succeeded at only 12% of real household tasks, though far better in simulation."
+          ],
+          "signal": [
+            "The gap between 12% real-world success and the 2027-28 claim is the number to test the roadmap against."
+          ],
+          "key_stat": "12% real-world household success"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-69ea6f406e",
+          "line": "Russia hit Kyiv with 21 ballistic missiles and said it downed 808 Ukrainian drones; at least four died, hours after Putin agreed in principle to resume three-way talks after Nov. 10."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-eef06c4646",
+          "headline": "ITBP builds drone platoons and bunkers on the China border",
+          "hook": "The Indo-Tibetan Border Police has set up a drone platoon in every border battalion and earmarked 70% of a ₹400 crore grant for drone capability.",
+          "points": [
+            "The ITBP guards the 3,488-km Line of Actual Control with China. Its chief, Shatrujeet Singh Kapoor, said traditional methods of countering China are outdated, citing drone use in Ukraine and Iran-US wars.",
+            "The Home Ministry has given in-principle approval to a ₹4,000 crore modernisation scheme, of which ₹1,000 crore is for drone and anti-drone systems.",
+            "A new 'Strike' course for Galwan-like clashes will cover the whole force by the end of 2027. Underground shelters are under construction, with a pilot project under way.",
+            "Some weapons are about 50 years old and are being replaced."
+          ],
+          "signal": [
+            "₹1,000 crore for drones and anti-drone systems is a concrete demand pool for Indian defence-drone makers if the scheme gets final approval."
+          ],
+          "key_stat": "₹4,000 cr scheme"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-deep-tech-2d0f5a2061",
+          "line": "Eka Robotics raises $150M to bring tactile AI to industrial robots (source unreachable — headline only)"
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-e3be0a54a5",
+          "headline": "India curtailed 378.52 MU of renewable energy in September",
+          "hook": "India curtailed 378.52 million units of renewable energy in September, 1.28% of generation and 43% lower than August.",
+          "points": [
+            "Solar was 83% of the total (about 314 MU). Wind curtailment nearly tripled year on year to 64.98 MU.",
+            "Gujarat (187.76 MU) and Rajasthan (110 MU) made up about 79% of the total.",
+            "61% was emergency TRAS Down (cuts to balance supply and demand) and 39% real-time congestion cuts. JMK calls the fall seasonal relief, not structural improvement.",
+            "JMK estimates the volume equals about 3 GW of 4-hour storage, which could be sited at constrained nodes in Gujarat and Rajasthan."
+          ],
+          "signal": [
+            "If curtailment stays concentrated in two states, targeted battery storage there gives the quickest fix."
+          ],
+          "key_stat": "378.52 MU · 1.28%"
+        },
+        {
+          "id": "climate-energy-d5b64837bd",
+          "headline": "Navitas raises up to $20M for 2.2 GW solar cell plant",
+          "hook": "India's Navitas has raised up to $20 million to build a 2.2 GW solar cell plant (summary from limited source text).",
+          "points": [
+            "The source text was blocked, so only the headline details are available."
+          ],
+          "key_stat": "Up to $20M · 2.2 GW"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-3857faf9b4",
+          "headline": "Tonbo Imaging founders sell ₹137 crore of shares in IPO",
+          "hook": "Tonbo Imaging's three cofounders sold ₹137.2 crore of shares in its ₹852 crore IPO, which was 136 times oversubscribed.",
+          "points": [
+            "The IPO was entirely an offer for sale (existing holders selling), with no fresh capital for the company, valuing it at ₹4,009.8 crore at the top of the ₹665-700 band.",
+            "CEO Arvind Lakshmikumar sold ₹80.5 crore; related entities CEAQ Technologies sold ₹350 crore and ₹291 crore of shares.",
+            "Artiman earned 4.8x on its investment.",
+            "Revenue fell 22.7% to ₹362.6 crore in FY26 and profit to ₹50.8 crore from ₹72.8 crore. Q1 FY27 showed a ₹17.7 crore net loss. The government supplies 71% of revenue."
+          ],
+          "signal": [
+            "Demand reflects enthusiasm for defence tech despite shrinking revenue; the dependence on government orders is the risk."
+          ],
+          "key_stat": "136x subscribed · ₹852 cr OFS",
+          "followup": true
+        },
+        {
+          "id": "indian-startups-8dc3e50fc7",
+          "headline": "CureBay raises ₹100 crore to expand rural clinics and AI screening",
+          "hook": "Healthtech startup CureBay raised about ₹100 crore ($10.6 million) in a pre-Series C round, ₹69 crore equity led by IvyCap and ₹30 crore debt.",
+          "points": [
+            "It will grow rural clinics from 250 to 800 over two to three years, and enter Telangana and Andhra Pradesh. It now operates in Odisha, Chhattisgarh, Jharkhand and Bihar.",
+            "It is training AI models for screening in skin, dental and haemoglobin, and says it has served over 12 lakh patients.",
+            "The CEO says FY26 ended with nearly ₹170 crore annual recurring revenue, with operating EBITDA breakeven, and a goal of doubling it by end-FY27. The company is still loss-making overall."
+          ],
+          "signal": [
+            "Growth depends on holding operating EBITDA breakeven as it opens new states; the company says net profit comes only once expansion stops."
+          ],
+          "key_stat": "₹100 Cr · ARR ~₹170 Cr"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-a129824a23",
+          "line": "Chapter Home, founded in 2025 by ex-PharmEasy executives, raised Rs 63 crore in equity and debt from Bessemer, Stride Ventures and others at a valuation near Rs 1,000 crore."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-4f32307268",
+          "headline": "Indian IT stocks rebound in October; TCS up 22%",
+          "hook": "The Nifty IT index rose 16% in October, with TCS up 22%, Wipro and Tech Mahindra 20% each, and Infosys 16%.",
+          "points": [
+            "Reasons: better September-quarter results, cheap valuations, and easing fears of an AI slowdown. Combined market value rose ₹3.87 lakh crore to ₹25.88 lakh crore.",
+            "The index is up 22% from its July low but still down about 18% this year, on track for its worst year since 2022.",
+            "Infosys reports October 23 and is expected to show revenue growth of just 1.8%.",
+            "Jefferies says a re-rating depends on individual firms sustaining revenue growth, and warns of risk if global AI capex sentiment worsens."
+          ],
+          "signal": [
+            "The rally is a recovery from depressed levels, not proof of recovery in growth; Infosys's guidance is the next test."
+          ],
+          "key_stat": "Nifty IT +16% in October"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-7a4f8b2deb",
+          "headline": "Ebola outbreak spreads to Nigeria, its widest reach yet",
+          "hook": "Nigeria reported its first Ebola case in over a decade, making it the fourth African country in the outbreak and the most populous yet.",
+          "points": [
+            "Health officials are urgently seeking the origin of the case (summary from limited source text).",
+            "Separately, a report says the Democratic Republic of the Congo has reached a tipping point, letting it accelerate efforts to bring its outbreak under control."
+          ],
+          "signal": [
+            "Nigeria's population size raises the stakes if the source of the case is not traced quickly."
+          ],
+          "key_stat": "4 countries"
+        }
+      ],
+      "also": [
+        {
+          "id": "health-tech-a01e2c5e0f",
+          "line": "A US Treasury draft rule would sharply limit US companies and venture capital from investing in much of China's biotech and drug assets, per Endpoints News."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-da64b71f1c",
+          "headline": "Odisha to launch India's first dedicated agrivoltaics policy",
+          "hook": "Odisha's proposed Agri-PV Policy 2026 targets 1 GW of agrivoltaics by 2030 and requires at least 90% of project land to stay under cultivation.",
+          "points": [
+            "Agrivoltaics means growing crops under raised solar panels. Land keeps its agricultural classification and farmers stay eligible for crop insurance.",
+            "Farmers can own the systems or lease land to developers for assured long-term rent.",
+            "Developers get 25-year power purchase agreements with GRIDCO, guaranteed offtake, grid connectivity and open access.",
+            "Odisha has about 4.07 million acres of suitable cropland and 4.77 million acres of fallow land. A 1 MW project is under way, with a pilot planned with Singapore's Nanyang Technological University."
+          ],
+          "signal": [
+            "If the 90% cultivation rule is enforced, it separates agrivoltaics from ordinary ground-mounted solar; site suitability will decide viability."
+          ],
+          "key_stat": "1 GW by 2030"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-3da0d07e19",
+          "headline": "IMF and OECD warn AI could widen the gap between rich and poor countries",
+          "hook": "The IMF estimates effective AI adoption could add up to 0.5% to annual global growth, but poorer countries may miss out without power, digital infrastructure and skills.",
+          "points": [
+            "The OECD estimates AI could add 0.4-1.2% to annual productivity growth across member countries. Its chief economist says workplace use lags consumer use.",
+            "The IMF estimates about 40% of jobs worldwide are exposed to AI, and says entry-level workers are particularly vulnerable because AI takes over tasks through which they gain experience.",
+            "Examples of cuts: Barclays about 5,000 jobs this year; eBay reportedly 9% of its workforce."
+          ],
+          "signal": [
+            "Entry-level exposure matches the shift in GCC hiring today (see work and careers)."
+          ],
+          "key_stat": "Up to +0.5% global growth"
+        }
+      ],
+      "also": [
+        {
+          "id": "world-c5548c0caf",
+          "line": "France reported the first known human case of Shamonda virus, a midge-borne animal virus, in a severely immunocompromised patient who died in early October; WHO says it is likely isolated."
+        }
+      ]
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-b0e6b9a85d",
+          "headline": "About 12,700 Indian tech workers returned from the US by September",
+          "hook": "About 12,700 Indian technology professionals had returned from the US by September 2026, putting departures on track to exceed last year's peak.",
+          "points": [
+            "Reports link the returns to US job cuts and H-1B visa uncertainty (summary from limited source text)."
+          ],
+          "signal": [
+            "A larger returning pool may feed GCC hiring in India, if those roles are mid-to-senior and AI-skilled."
+          ],
+          "key_stat": "12,700 returned"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "other-interests",
+      "stories": [],
+      "also": [
+        {
+          "id": "other-interests-935a92370d",
+          "line": "Researchers say Van Gogh's The Starry Night matches the Hyades star cluster as seen around July 22, 1889, a month later than the usual June dating; one expert disputes it."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-e46c263ec6",
+      "name": "WIPO Global Innovation Index Fellowship 2026/2027",
+      "when": "Apply by Fri 30 Oct",
+      "summary": "Fellowship in WIPO's economics and data analytics department on the Global Innovation Index, with a stipend of CHF 3,300-6,000 a month. Requires a master's in economics, statistics or data science and R/Python skills. Geneva."
+    },
+    {
+      "id": "opportunities-70d7883a47",
+      "name": "The Booth Exchange: Muslims in Business (Virtual)",
+      "when": "Mon 26 Oct, 7:00 PM CDT",
+      "summary": "Chicago Booth virtual session where Muslim MBA students and alumni discuss the classroom, recruiting and community. Useful if you are considering an MBA. Online."
+    },
+    {
+      "id": "opportunities-4550189bdc",
+      "name": "The Booth Exchange: Armed Forces Group (Virtual)",
+      "when": "Tue 3 Nov",
+      "summary": "Chicago Booth's military-affiliated MBA group runs a virtual lounge offering application mentorship to prospective veterans. Online."
+    }
+  ]
+}
