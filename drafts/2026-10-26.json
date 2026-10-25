@@ -1,0 +1,485 @@
+{
+  "date": "2026-10-26",
+  "lead": {
+    "id": "ai-9d81fbefc4",
+    "headline": "SpaceX closes $40 billion debt deal to buy Nvidia chips, at sharply higher rates",
+    "hook": "Elon Musk says SpaceX has closed a ==$40 billion debt deal to buy Nvidia GPUs==, but lenders are charging about 8.3% on the riskiest portion.",
+    "points": [
+      "The money pays for Nvidia graphics processing units (GPUs, the chips that train AI models). Musk says investment-grade ratings plus Starlink and rocket-launch revenue made the deal possible; it sits off the balance sheet.",
+      "Apollo and Goldman Sachs lead it. The lowest-rated piece is expected near 8.3%. A safer piece, backed by some of SpaceX's chips, should price next week around 7.75%.",
+      "That is over 1 percentage point above where SpaceX's existing bonds trade, reflecting an AI-loan market that has pulled back sharply in recent weeks.",
+      "Existing SpaceX bonds weakened in recent days: strong earnings were overshadowed by huge spending plans, debt-load worries and CoreWeave's debt selloff. Default insurance on the company also widened.",
+      "Pricing could change before the deal is finalised, expected sometime next week. SpaceX is also considering a merger with Tesla."
+    ],
+    "signal": [
+      "Even a strongly rated borrower now pays more to fund AI chips; if that holds, smaller AI builders face dearer or scarcer credit.",
+      "Chip-backed debt means lenders are betting on GPU resale value, so a fall in chip prices would hit lenders as well as SpaceX."
+    ],
+    "key_stat": "$40B debt · ~8.3% top rate",
+    "editors_read": "The deal shows AI capex is now financed by bond markets, not just cash flow, and the price of that money is rising. SpaceX's Starlink and launch cash flows give it access others lack. If rates stay near 8%, expect weaker AI borrowers to cut or delay chip orders first.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-7241bd68f0",
+      "headline": "Anthropic's Jack Clark now expects self-improving AI as early as 2027",
+      "hook": "Anthropic co-founder Jack Clark has moved his forecast for recursive self-improvement (AI building its own successors) to 2027 from 2028, after a benchmark showed AI research skill ==doubling every three months==.",
+      "points": [
+        "The benchmark, TasteVal from P-Zero Research, tests how well AI designs experiments and interprets results across eight AI-development tasks. Each run gets one Nvidia H100 GPU, capped at 40 GPU-hours.",
+        "Score is a compute multiplier: how much less compute a model needs to match experts. Anthropic's Opus 5.5 hit 2.3, beating 24 expert researchers from labs like OpenAI and Google DeepMind, at about one-thirtieth of the cost per attempt.",
+        "Uncertainty is wide: the range runs 1.15 to 4.37, and the doubling time since December 2025 ranges from 1.7 to 5.0 months.",
+        "It does not test choosing which research question to pursue. The authors say results may overstate progress, since tasks are quick to check and the human group had no top-tier researchers.",
+        "In May Clark put the odds of an AI training a stronger successor at 30% by 2027 and 60% by end-2028. Anthropic's own model tops the benchmark, a bias to note."
+      ],
+      "signal": [
+        "If the trend holds on other tests, AI research gets faster and cheaper, but more of it becomes hard for humans to verify."
+      ],
+      "key_stat": "2.3x compute multiplier",
+      "editors_read": "The debate is shifting from what models can solve to whether they can decide what to try next. One benchmark, from a lab-linked forecaster, is thin evidence, but it targets exactly the skill sceptics said was missing. Watch for replication on harder, less checkable tasks."
+    },
+    {
+      "id": "ai-9a401c479b",
+      "headline": "India's AI builders can pay for GPUs but can't get them fast enough",
+      "hook": "Indian AI firms wait ==three to four months for GPU deliveries==, so the constraint has shifted from what they can afford to what they can actually get.",
+      "points": [
+        "Startups get free cloud credits, and cash-rich firms can pay, but GPU (AI chip) deliveries take 3-4 months. Juspay's cofounder says it has been told 3-6 months and is bottlenecked.",
+        "Memory is a second choke point: only SK hynix, Samsung and Micron make high-bandwidth memory at scale, and Micron said its entire 2026 supply was committed.",
+        "Power and data-centre space is a third; larger players could lock up Indian capacity even if chips ease within 12 months.",
+        "Cost logic: Juspay says renting an 8-node GPU costs ₹25-35 lakh a month, while the same work bought as frontier-lab tokens could cost 5-10x more. It runs about 95% of AI coding on open-source models.",
+        "IndiaAI Mission has onboarded 38,000+ GPUs at subsidised rates, but robotics and defence firms need local or dedicated racks it does not offer."
+      ],
+      "signal": [
+        "Most app-building startups should still rent, since owned hardware can date before the product finds a market.",
+        "Firms that secure capacity early, via multi-year commitments, gain speed over rivals even at equal funding."
+      ],
+      "key_stat": "3-4 month GPU wait",
+      "editors_read": "Queues reward whoever books capacity earliest, which favours cash-rich incumbents over new startups. Dedicated rack space, the gap defence and robotics firms flag, looks like an unserved niche for Indian data-centre operators."
+    },
+    {
+      "id": "indian-startups-7ec739c0d3",
+      "headline": "Flipkart loses 14 senior leaders in a year as IPO and stock-option liquidity stall",
+      "hook": "Flipkart has seen ==14 senior exits in a year==, with three more VPs leaving, as employees wait for a way to cash out stock options.",
+      "points": [
+        "The latest VPs are Kanchan Mishra (smartphones), Amit Sachan (product and tech) and Kamal Chopra (corporate), with four to over ten years at Flipkart. It has about 30 VPs, so the company is not destabilised.",
+        "Walmart reportedly wants EBITDA breakeven by end of FY27 before any IPO or outside fundraise. Valuation is $35-36 billion against an earlier $50 billion target.",
+        "Former executives, including Mukesh Bansal, Ankit Nagori and Sanjay Baweja, wrote to Walmart's board seeking a full cash-out of vested options.",
+        "Flipkart Group FY26 revenue rose 18.2% to ₹1.45 lakh crore; net loss narrowed 2.1% to ₹8,468 crore. Flipkart Internet's net loss rose to ₹5,498 crore from ₹1,694 crore.",
+        "Spending is rising: Minutes quick commerce has 1,000 fulfilment centres, and a food delivery service is due for the public by end of this month."
+      ],
+      "signal": [
+        "If Walmart holds to breakeven first, option holders wait past FY27, so more senior churn is likely."
+      ],
+      "key_stat": "14 senior exits",
+      "editors_read": "Walmart can wait; employees cannot. Funding quick commerce and food delivery while chasing breakeven pulls in opposite directions, and the gap lands on talent retention."
+    },
+    {
+      "id": "deep-tech-014a402c71",
+      "headline": "ISRO plans four launch pads by 2029 and a new small-rocket spaceport",
+      "hook": "ISRO chairman V. Narayanan says India will have ==four functional launch pads by 2029==, leaning on private firms for commercial operations.",
+      "points": [
+        "A 2,000-acre complex at Kulasekarapattinam in Tuticorin district will launch Small Satellite Launch Vehicles (SSLV), with integration buildings, pads, rail tracks and tracking systems.",
+        "He said ISRO will not be privatised but will hand-hold startups and transfer technology.",
+        "The first uncrewed Gaganyaan test is planned within two months, followed by two more before the crewed mission. About 8,000 ground experiments are done and four astronaut-designates are in training.",
+        "Chandrayaan-5, with Japan's space agency, would carry a 350-kg rover for 100 days of surface experiments."
+      ],
+      "signal": [
+        "If private partners take over commercial launches, ISRO capacity is freed for missions and startups gain a domestic launch route."
+      ],
+      "key_stat": "4 launch pads by 2029"
+    },
+    {
+      "id": "health-tech-e3c1c7d3ee",
+      "headline": "First pivotal trial of a personalised mRNA cancer vaccine succeeds",
+      "hook": "Merck and Moderna's custom mRNA vaccine intismeran cut the risk of recurrence or death ==by 42%== when added to Keytruda, versus Keytruda alone.",
+      "points": [
+        "Results were presented at the European Society for Medical Oncology meeting in Madrid, in melanoma patients.",
+        "Keytruda is Merck's checkpoint inhibitor (a drug that releases the immune system's brake on cancer).",
+        "A Memorial Sloan Kettering researcher called prior cancer-vaccine efforts a 'long and sordid' history of roughly 100 years of failure.",
+        "The meeting's scientific co-chair said the approach may apply to other tumour types, so attention is turning to adoption and expansion."
+      ],
+      "signal": [
+        "If other tumours respond similarly, bespoke vaccines become a platform; the open questions are cost and manufacturing speed, which the text does not address."
+      ],
+      "key_stat": "42% lower recurrence or death risk"
+    },
+    {
+      "id": "india-bd103bb014",
+      "headline": "Goyal expects India-EU trade deal to be operational by end-2026, effective Q1 2027",
+      "hook": "Commerce Minister Piyush Goyal expects the India-EU free trade agreement to be ==operationalised by end-2026==, taking effect in the first quarter of 2027.",
+      "points": [
+        "He spoke to the diaspora in Amsterdam on October 25 during a Netherlands visit.",
+        "He visited the Port of Rotterdam, Europe's largest port, and met its chief executive.",
+        "Indian customs and Rotterdam officials discussed digitalising cargo processes in India to speed cargo clearance and cut ship turnaround times."
+      ],
+      "signal": [
+        "If the timeline holds, Indian exporters get a 2027 start; port and customs efficiency will decide how much of the tariff benefit they actually capture."
+      ],
+      "key_stat": "Effective Q1 2027"
+    },
+    {
+      "id": "india-de8f147333",
+      "headline": "India's crude basket hits a 15-year high, squeezing fuel retailers and the budget",
+      "hook": "India's crude basket averaged ==about $120 a barrel in October==, the highest since March 2012's $123.61, pressuring oil marketing companies and public finances.",
+      "points": [
+        "Diesel under-recovery (selling below cost) has roughly doubled since September 23 to about ₹20 a litre, per Icra, despite ₹7.50 a litre price rises in May and a ₹10 a litre excise cut.",
+        "Excise collections fell nearly 23% to ₹86,687 crore in April-August, leaving little room for another cut. A coming Uttar Pradesh election may limit price rises.",
+        "Fertiliser subsidy has used over 58% of the ₹1.70 trillion budget in five months and could reach about ₹3 trillion, a record, as gas rose from about $10 to $28-29 per MMBtu.",
+        "WPI inflation hit 11.4% in September. The RBI raised the repo rate 25 bps to 5.5%. One economist sees the fiscal deficit at 4.6% of GDP against 4.3% budgeted.",
+        "Crude imports rose 46.4% to $90.6 billion in April-September."
+      ],
+      "signal": [
+        "If crude stays elevated three more months, __the fiscal deficit could overshoot to 4.6% of GDP__ and retail inflation may hover at 5-6%.",
+        "Hindustan Petroleum is most exposed, with a refining-to-marketing ratio of 51% against 80% at Indian Oil."
+      ],
+      "key_stat": "$120/bbl · 15-year high"
+    },
+    {
+      "id": "world-a77db52aa3",
+      "headline": "Serbia's Vucic concedes defeat to student-led list in snap election",
+      "hook": "Aleksandar Vucic conceded after a snap election in which the student list won about ==138 of 250 seats== against 104 for his SNS, per a pollster sample.",
+      "points": [
+        "Turnout neared 70%, the highest since Yugoslavia's breakup in 1992.",
+        "The election followed nearly two years of protests over perceived corruption, triggered by the 2024 Novi Sad station canopy collapse that killed 16.",
+        "Vucic said the students would hold 135-140 seats and his party 105, based on preliminary results; no other list entered parliament apart from minority parties.",
+        "Results are preliminary and a pollster sample, not final counts."
+      ],
+      "signal": [
+        "If the preliminary count holds, a protest movement takes government for the first time; how it governs is untested."
+      ],
+      "key_stat": "~138 vs 104 seats"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-d399085249",
+          "headline": "Elvis estate sues Anthropic over 274 songs",
+          "hook": "Authentic Brands Group, owner of Elvis Presley's music, is suing Anthropic for allegedly training Claude on 274 songs, seeking about $41 million.",
+          "points": [
+            "It claims $150,000 per infringed track and says Claude produced infringing output of copyrighted songs, including Can't Help Falling in Love and All Shook Up.",
+            "It argues Anthropic's guardrails, added after it was caught, show knowing infringement.",
+            "Earlier music suits came from the RIAA and labels like Sony, Universal and Warner; this is one of the first major cases brought directly by an artist's estate."
+          ],
+          "signal": [
+            "If courts accept per-track damages, training on large catalogues carries a countable liability that scales with the number of works."
+          ],
+          "key_stat": "$41M · 274 songs"
+        },
+        {
+          "id": "ai-427cb7b893",
+          "headline": "India ranks 40th of 98 countries on Coursera's AI-and-human-skills index",
+          "hook": "India ranks ==40th of 98== on the Global Skills Report 2026's AI-Human Skills Synergy Index, in the 'Competitive' tier behind Japan (3rd), the UAE (6th) and Singapore (10th).",
+          "points": [
+            "The report from Coursera and Udemy uses data from over 300 million learners. Germany and France lead; the US is 8th.",
+            "88% of leaders say planned AI investments will fail without more skills training, yet only 18% say most staff did AI reskilling last year.",
+            "Enrolments in critical thinking rose 107% and complex problem-solving 126% year on year; AI micro-credential enrolments rose 122%.",
+            "Cited PwC research says 74% of AI's economic value goes to 20% of organisations."
+          ],
+          "signal": [
+            "For India's entry-level pipeline, the report says AI-exposed roles are 2.5 times more likely to need judgment and creativity, so pure coding skill counts for less."
+          ],
+          "key_stat": "India 40th of 98"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-d4f402b2f6",
+          "line": "A Union Bank of India report estimates AI, semiconductors and defence could draw about ₹16.24 lakh crore of investment in India over three to five years: ₹5.9 lakh crore AI, ₹5.27 lakh crore chips, ₹5.07 lakh crore defence."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-083fa7a510",
+          "headline": "Memory-chip shortage hits Indian EV maker Ultraviolette",
+          "hook": "Ultraviolette's founder says RAM alone adds ₹20,000 to the cost of a vehicle, but the company will not pass the cost on to customers.",
+          "points": [
+            "The Bengaluru electric motorcycle maker is looking for alternative parts, software and manufacturers.",
+            "It is leaning on investor-partners TVS, TDK Ventures and Intel for expertise, though it did not detail the alternatives.",
+            "Separately, ePlane, an IIT Madras eVTOL (electric air taxi) developer, is targeting commercialisation in 2028 with a phased rollout."
+          ],
+          "signal": [
+            "Absorbing ₹20,000 per vehicle squeezes margins; the shortage penalises small hardware makers with less buying power."
+          ],
+          "key_stat": "₹20,000 RAM cost per vehicle"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-daeefca5bb",
+          "headline": "Ex-OpenAI product chief Kevin Weil launches AI drug-discovery startup with $215M",
+          "hook": "Warp Sciences, founded by Kevin Weil, Manohar Paluri and DJ Patil, raised ==$215 million in Series A== to speed drug discovery with AI and robotics.",
+          "points": [
+            "Lightspeed led the round, with Premji Invest, Mayfield, IVP, Lux Capital and Menlo Ventures participating.",
+            "Weil was OpenAI's chief product officer; Paluri is a former Meta AI leader; Patil was the White House's first chief data scientist.",
+            "Several former OpenAI colleagues, including Fidji Simo, Mark Chen and Sarah Friar, also invested, as did Reid Hoffman and Brian Armstrong."
+          ],
+          "signal": [
+            "Premji Invest's presence gives an Indian capital link to AI-for-biology, an area drawing frontier-AI talent."
+          ],
+          "key_stat": "$215M · Series A"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-deep-tech-41eee0cf45",
+          "line": "US to award $389 million in R&D funds for power semiconductors and critical materials (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-889d13ab65",
+          "headline": "Polish firm WB Group offers India drone technology transfer, starting near 40%",
+          "hook": "WB Group says it would transfer about ==40% of drone technology to India at the start==, rising to 60% quickly and possibly full local production over years.",
+          "points": [
+            "India's Make in India defence rule sets a 60% localisation cut-off. WB's vice-president says its tech is battle-tested in Ukraine and its FlyEye resists jamming and navigates without GPS.",
+            "The company already has an Indian joint venture and cites a $100 million investment over the next three years; it declined to discuss trials or contracts.",
+            "He pitched WB as a 'drone academy' for the Indian Army and called India a market possibly bigger than Ukraine or Europe."
+          ],
+          "signal": [
+            "The 40% to 60% path is a pitch, not a contract; if India's trials reward it, local suppliers become sub-contractors or competitors."
+          ],
+          "key_stat": "40% → 60% ToT"
+        },
+        {
+          "id": "deep-tech-61b7c76175",
+          "headline": "Chinese tech giants offer up to 1 million yuan for 'forward-deployed' AI engineers",
+          "hook": "ByteDance, Tencent and Alibaba advertise pay near ==1 million yuan a year== for forward-deployed engineers (FDEs), who embed with customers to turn AI models into working applications.",
+          "points": [
+            "FDE job postings in China rose 1,523% in the first seven months versus a year earlier, per Maimai, the fastest-growing AI technical role.",
+            "ByteDance posts 35,000-65,000 yuan a month for 15 months, up to 975,000 yuan a year. China's average disposable income was 43,377 yuan in 2025.",
+            "An HR executive says the top figures are a small part of the market; most roles pay less.",
+            "Anthropic announced a $100 million plan to train 10,000 FDEs by end-2027. China's industry ministry has urged firms to build FDE teams."
+          ],
+          "signal": [
+            "Demand is for people who combine client business understanding with AI agent-building, which fits generalist-to-AI roles."
+          ],
+          "key_stat": "+1,523% FDE postings"
+        },
+        {
+          "id": "deep-tech-104ad14b6a",
+          "headline": "Toyota takes on Tesla and China in humanoid robot race",
+          "hook": "Toyota is entering the humanoid robot race against Tesla and Chinese rivals (source text was paywalled; headline only).",
+          "points": [
+            "No further detail was available from the source text."
+          ]
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-6b282c60e3",
+          "line": "Ukraine is fielding signal-repeater drones that act as flying relay towers, letting mission drones fly farther and resist Russian jamming; drones account for over 95% of Russia's front-line losses."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [],
+      "also": [
+        {
+          "id": "climate-energy-c971441d90",
+          "line": "Solex Energy's chairman urges incentives for domestic solar equipment, as China proposes curbs on exports of 12 technologies used in making photovoltaic equipment, threatening India's supply chain."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-d8796718e7",
+          "headline": "India-US interim trade deal stalls on tariffs and farm concessions",
+          "hook": "Despite Rubio's claim the deal is 99% done, India won't accept more than the ==current extra 10% tariff==, while the US wants to keep the 18% from the February framework.",
+          "points": [
+            "The US Supreme Court invalidated reciprocal tariffs after the February 7 framework, making the old terms unacceptable to India; the current 10% levy is under Section 301.",
+            "Sources say even 12-14% is unacceptable, and India won't sign agriculture concessions aimed at US Republican states two weeks before the midterms.",
+            "India also wants assurances that any extra penalties, such as Russia-sanctions or excess-capacity tariffs, leave it below Vietnam, Bangladesh and Indonesia, and no new tariffs after signing; the US has not answered satisfactorily."
+          ],
+          "signal": [
+            "India appears set to wait until after the US midterms, so exporters should not expect a deal before then."
+          ],
+          "key_stat": "10% vs 18% tariff gap"
+        },
+        {
+          "id": "global-economics-6c3001f2e9",
+          "headline": "RBI governor defends forcing Tata Sons to list",
+          "hook": "RBI Governor Sanjay Malhotra said upper-layer NBFCs that use public funds and group balance sheets must register and ==must list==, backing the rejection of Tata Sons' bid to quit its licence.",
+          "points": [
+            "Last month the RBI refused Tata Sons' application to surrender its NBFC licence; Tata Sons has been in the upper layer since September 2022.",
+            "He said such holding companies carry systemic risk because public money via bonds and banks is exposed; those without access to public funds are exempt.",
+            "The Tata Sons board split 4-1 on September 17 to begin the listing process; Noel Tata, chairman of Tata Trusts (about 66% holder), opposed.",
+            "Noel Tata proposes merging unlisted units like Tata Electronics into Tata Sons to reclassify it and avoid mandatory listing."
+          ],
+          "signal": [
+            "If the RBI holds its line, the merger route is the main path to avoid a listing."
+          ],
+          "key_stat": "~66% Tata Trusts stake"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-a4dafb4ffd",
+          "line": "Audi will spend $4 billion on its first US factory in Macon, Georgia, building 200,000 SUVs and 4,500 jobs, as Volkswagen says US tariffs cost it up to €5 billion a year."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-2bf2eb16d5",
+          "headline": "IMF: Bangladesh's per capita GDP passes India's in 2026, but India's is higher on PPP",
+          "hook": "The IMF projects Bangladesh's 2026 GDP per capita at ==$2,886 against India's $2,749==, though India's is higher adjusted for purchasing power.",
+          "points": [
+            "India's economy is $4.15 trillion against Bangladesh's $506.4 billion, with about 175 million Bangladeshis spread over a much smaller total. On purchasing power parity, India is $12,998 against $10,884.",
+            "India is forecast to grow 7% against 3.6%, with inflation of 5% against 8.7%.",
+            "Bangladesh imports 95% of its oil and LNG, and garments are over 80% of exports, both hit by the Middle East energy shock.",
+            "The IMF sees Bangladesh ahead through 2028, then India ahead in 2029 at $3,661 against $3,334. Dollar figures move with exchange rates."
+          ],
+          "signal": [
+            "The headline gap reflects a nominal-dollar measure; faster Indian growth is projected to reverse it by 2029."
+          ],
+          "key_stat": "$2,886 vs $2,749"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-7a695e6a87",
+          "headline": "Brazil runoff: voting extended two hours as Lula and Bolsonaro run neck and neck",
+          "hook": "With 13.65% counted, Flávio Bolsonaro led Lula ==50.01% to 49.99%== after a court extended voting by two hours.",
+          "points": [
+            "Justice Cristiano Zanin extended voting after Lula's campaign alleged that public transport was restricted in at least 10 states. Some stations had already closed.",
+            "Bolsonaro allies called the ruling an 'intervention' and signalled it could be used to challenge a Lula win.",
+            "Never since 1985 has the first-round runner-up won the runoff; Lula trailed in round one.",
+            "Meta denies bias; the electoral court ordered it not to treat candidates unequally. Fact-checkers found 920 AI-made election items, 60% unlabelled."
+          ],
+          "signal": [
+            "A narrow result plus the extension dispute raises the risk of legal challenges whoever wins; early counts are not predictive."
+          ],
+          "key_stat": "50.01% vs 49.99%"
+        },
+        {
+          "id": "world-c8d839f31a",
+          "headline": "Ukraine depends on Starlink; Europe has no equal yet",
+          "hook": "Europe has no fast alternative to Starlink for Ukraine: Eutelsat's OneWeb has about ==600 satellites against Starlink's 10,000-plus==.",
+          "points": [
+            "Last week's Starlink slowdown hurt Ukraine's defence; Musk said misuse for drone strikes ends service and the front line would collapse without Starlink.",
+            "Eutelsat terminals are about five times pricier and often too big for small drones.",
+            "The EU's Govsatcom shares satellites but cannot be used for warfare such as piloting drones; the commission hopes commercial firms join by next year's start.",
+            "Iris², with 348 satellites, is due in 2029, with Ukraine guaranteed access. A former Eutelsat chief says even €8 billion would not put a network up before 2032-2033."
+          ],
+          "signal": [
+            "Until 2029, Europe offers backup, not replacement; the dependence on a US provider stays."
+          ],
+          "key_stat": "600 vs 10,000+ satellites"
+        },
+        {
+          "id": "world-0d35a5b9ce",
+          "headline": "Venezuela's Machado returns home after nearly a year abroad",
+          "hook": "Nobel laureate María Corina Machado returned to Venezuela ==after nearly a year away==, posting 'I'm here. With you all.'",
+          "points": [
+            "She crossed from Colombia after a private flight from Panama; earlier attempts failed and US officials had asked her to delay.",
+            "Trump said he knew nothing of her return and suggested the US would keep backing interim President Delcy Rodríguez. Rubio credited US-backed reconciliation talks.",
+            "Those talks involve a faction of the opposition and do not include her movement.",
+            "Her adviser says she will push for a date for free elections."
+          ],
+          "signal": [
+            "If Rodríguez keeps delaying elections, her return gives the opposition a focal figure against a US-backed interim government."
+          ],
+          "key_stat": "~1 year in exile"
+        }
+      ],
+      "also": [
+        {
+          "id": "world-e528548a0f",
+          "line": "Machado's return follows the first nationwide opposition protest in nearly two years; Rodríguez has stayed acting president beyond her 90-day mandate and has not called an election."
+        }
+      ]
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-db8b4a5a7f",
+          "headline": "Cancer immunotherapy nivolumab falls from over ₹1 lakh to ₹30,000 a cycle in India",
+          "hook": "A cheaper nivolumab version cut a cycle's cost ==from over ₹1 lakh to ₹30,000==, but hospital stocking incentives may stop patients seeing the saving.",
+          "points": [
+            "Only 2.8% of eligible Indian patients got immunotherapy in 2022, per a Tata Memorial study; one Mumbai doctor says his prescriptions rose over 50% in six months.",
+            "Nivolumab works across 25 tumour types. In melanoma, long-term survival rose from about 5 in 100 to 50% with immunotherapy.",
+            "Four more versions are expected; one expert says the price could fall to ₹10,000.",
+            "The pricing authority caps trade margins on 137 cancer drugs from November 8, projected to save ₹2,500 crore a year.",
+            "Hospitals earning higher margins on costly originals may not stock cheap versions; India has seven checkpoint inhibitors against 35 in China."
+          ],
+          "signal": [
+            "If hospitals keep favouring higher-margin drugs, the factory price cut won't reach patients."
+          ],
+          "key_stat": "₹1 lakh → ₹30,000"
+        }
+      ],
+      "also": [
+        {
+          "id": "health-tech-4db44cb555",
+          "line": "An ICMR study of 19,703 adults in 53 Odisha tribal communities found 24.8% had impaired kidney function, including 1.5% severe and 0.3% kidney failure."
+        }
+      ]
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-38b6f786f5",
+          "headline": "US immigration curbs on Indians likely to outlast Trump",
+          "hook": "Indian nationals get ==70% of H-1B approvals==, and an analyst argues both US parties will keep pushing visa restrictions after Trump.",
+          "points": [
+            "Trump measures include a $100,000 fee on some new H-1B petitions (later diluted by exemptions), a wage-weighted selection system from February 2026, and PERM suspensions.",
+            "Democrats, expected to do well in the midterms, are more pro-immigration but still push H-1B reform over fraud and labour concerns.",
+            "The Labour Department suspended eight firms from green card sponsorship, including Infosys, TCS, Wipro, Microsoft and Adobe.",
+            "Over 54% of India's software services exports go to the US."
+          ],
+          "signal": [
+            "If both parties keep pressing, Indian IT firms should plan for higher visa costs and fewer entry-level hires abroad."
+          ],
+          "key_stat": "70% of H-1B approvals"
+        }
+      ],
+      "also": [
+        {
+          "id": "work-careers-0c2f225e74",
+          "line": "India's Composite PMI rose to 56.7 in October, with hiring growth slowing (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [],
+      "also": [
+        {
+          "id": "other-interests-fbc9ebe0e0",
+          "line": "Sheffield scientists have rediscovered how to make Roman colour-changing glass like the 1,600-year-old Lycurgus Cup, which turns from jade green to ruby red when lit from behind."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-025d545dfa",
+      "name": "LPC Hacks",
+      "when": "Sat 14 Nov",
+      "summary": "Free one-day in-person hackathon at Las Positas College for college students; build anything in teams of 1-4. US-based, so mainly relevant to those studying there."
+    }
+  ]
+}
