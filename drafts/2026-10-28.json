@@ -1,0 +1,481 @@
+{
+  "date": "2026-10-28",
+  "lead": {
+    "id": "other-interests-320afcc118",
+    "headline": "OpenAI says its AI disproved a 30-year-old computer science assumption, the exponential time hypothesis",
+    "hook": "OpenAI says its models devised an algorithm that ==beats the speed limit set by the exponential time hypothesis==, a nearly 30-year-old assumption in computer science, and checked it with the Lean proof checker.",
+    "points": [
+      "The exponential time hypothesis (ETH) says solving certain logical puzzles takes work that grows exponentially with puzzle size, even with shortcuts. Many results about computational limits assume it is true.",
+      "OpenAI announced the result on 26 October, alongside claimed advances in maths and theoretical physics. It says it verified the ETH result in Lean, software that checks mathematical proofs.",
+      "Stefan Szeider of TU Wien expects it to hold up, but says researchers must still check that the formally proven statement means what the authors say.",
+      "OpenAI has commissioned an independent group, including ETH's co-proposers Russell Impagliazzo and Ramamohan Paturi, to examine it. Their open letter says it could 'change an important part of theoretical computer science'.",
+      "It does not settle P versus NP (whether problems easy to check are also easy to solve). Leslie Goldberg of Oxford says it is not progress toward that problem.",
+      "__If confirmed, it would force a revision of several areas of algorithms and complexity__, says Fedor Fomin, who says his own textbook on the subject would become obsolete."
+    ],
+    "signal": [
+      "Proof and understanding are separate: Clément Canonne says the network of ETH-dependent findings has collapsed and 'we have no idea why yet'. Expect months of verification before the result is treated as settled.",
+      "Magnus Wahlström calls the release style 'mathematics done by press'. If AI labs keep announcing results first and letting academics verify afterwards, trust in the claims will depend on independent review groups like this one."
+    ],
+    "key_stat": "ETH · ~30 years old",
+    "editors_read": "The claim is strong because it comes with a machine-checked proof and ETH's own authors are reviewing it, which is more than a press release usually has. The open question is whether the formal statement matches the intended one. If it holds, a whole body of 'this problem cannot be solved faster than X' results loses its footing, and the interesting work shifts to finding what replaces them.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-390d1350a4",
+      "headline": "Meta boosts equity offering to almost $98 billion to fund AI",
+      "hook": "Meta is raising its stock offering to almost $98 billion, one of the largest ever, as it increases its bet on AI.",
+      "points": [
+        "Bloomberg describes the plan as one of the largest equity offerings ever, with the size raised as Meta lifts its AI spending.",
+        "Separately, Anthropic's IPO filing (S-1) reveals what Bloomberg calls staggering growth, spending and losses, making the IPO a defining test for the AI boom.",
+        "Anduril founder Palmer Luckey says the defence tech firm is teaming up with chipmaker Qualcomm to build a laptop (the source text cuts off)."
+      ],
+      "signal": [
+        "Funding AI buildouts with new stock rather than only cash flow or debt means shareholders now carry more of the risk. Separately today, Nvidia is putting $3 billion into this same offering."
+      ],
+      "key_stat": "~$98B · equity offering",
+      "editors_read": "Raising equity at this size suggests AI capex now outruns even the largest firms' internal cash. If Anthropic's IPO is received well, expect more AI-linked capital raises. If not, offerings like Meta's get pricier."
+    },
+    {
+      "id": "india-deep-tech-437fcec30a",
+      "headline": "India clears Rs 2.12 lakh crore of military purchases, including 335 K9 Vajra guns",
+      "hook": "India's Defence Acquisition Council cleared proposals worth Rs 2.12 lakh crore, including 335 more K9 VAJRA-T self-propelled tracked guns.",
+      "points": [
+        "The council, chaired by Defence Minister Rajnath Singh, gave Acceptance of Necessity, an in-principle approval that comes before any contract.",
+        "Army approvals cover 155 mm/52 calibre K9 VAJRA-T guns, high mobility vehicles, light multi-role helicopters, and very short-range air defence systems.",
+        "Drone items include platform-based counter-drone systems, long-range surveillance UAVs, an integrated surveillance and strike system, and long-range kamikaze drones."
+      ],
+      "signal": [
+        "AoN is only the first step, so orders and contracts for suppliers come later. The drone and counter-drone items show where the Army wants spending to go."
+      ],
+      "key_stat": "Rs 2.12 lakh crore · AoN",
+      "editors_read": "The mix of guns, air defence and drones shows the Army buying both traditional firepower and cheap drone capability. For defence startups, the counter-drone and surveillance lines are the nearest openings, if they turn into contracts."
+    },
+    {
+      "id": "ai-2d27ef900c",
+      "headline": "AI bots sent three-quarters of responses to UK vape-ban consultation",
+      "hook": "Bots submitted 90,835 of the 118,756 responses, 76%, to the UK's 2023 consultation on the tobacco and vapes bill.",
+      "points": [
+        "Almost all the automated responses answered the same question and opposed the plan to ban disposable vapes. They were duplicated and sent at high frequency from a small number of IP addresses.",
+        "The Department of Health and Social Care (DHSC) spotted them with bot-detection methods and excluded all of them from its decision-making.",
+        "Researchers Nason Maani and Anna Gilmore, writing in Tobacco Control, call it the first documented large-scale automated interference in a formal public health consultation.",
+        "The ban still became law under Keir Starmer's government, which inherited the bill in 2024."
+      ],
+      "signal": [
+        "The attack failed because it was crude. Maani warns future campaigns will be harder to catch, letting a few interests look like a mass movement.",
+        "Demos' Azzurra Moores notes every barrier against bots also makes it harder for real people to take part, so there is no single fix."
+      ],
+      "key_stat": "76% · bot responses",
+      "editors_read": "Open comment processes assume one response means one person. Once AI makes fake responses cheap and hard to spot, governments will need identity checks or sampling, at a cost to openness. Any consultation on contested rules, including in India, faces the same risk."
+    },
+    {
+      "id": "ai-b007bafd9f",
+      "headline": "Nvidia backs Indian startup Simplismart in $14 million round",
+      "hook": "Simplismart, a Bengaluru startup whose software helps companies run AI models on fewer GPUs, raised $14 million at about a $100 million valuation, with Nvidia participating.",
+      "points": [
+        "Dallas Venture Capital led the all-primary Series B, with Nvidia, Accel, Shastra VC and Micromax joining. The startup is four years old and has 58 employees.",
+        "Its software sits between AI models and infrastructure, tuning response speed, request volume and compute use. It says it cut InVideo's GPU serving costs by 56%.",
+        "Annualised revenue run rate grew 14-fold in six months to an undisclosed eight-figure sum. It is based on recent usage, not contracted revenue. More than half comes from the US.",
+        "Customers include HeyGen, Higgsfield and Ema; Indian cloud provider Yotta uses it for its serverless inference service.",
+        "It competes with Nvidia itself, AWS, Google Cloud and Azure. CEO Amritanshu Jain says it wins where customers have strict service-level and cost needs."
+      ],
+      "signal": [
+        "Nvidia backing software that cuts GPU use looks contradictory. Jain argues cheaper inference widens AI adoption and so helps Nvidia. If that holds, efficiency tools grow the market rather than shrink it."
+      ],
+      "key_stat": "$14M · Series B",
+      "editors_read": "Inference cost is where AI companies' margins are decided, and a 56% cut is large if it generalises beyond one customer. The risk is that hyperscalers and Nvidia bundle similar tuning for free, so the startup's US traction matters more than its Indian customer count."
+    },
+    {
+      "id": "work-careers-ffdf7f4f1f",
+      "headline": "Innodata falls 28% after reported layoff of about 550 in India",
+      "hook": "Innodata stock fell 28% after India Today reported the AI data company abruptly laid off nearly 550 employees in India, with more cuts in the Philippines.",
+      "points": [
+        "Staff reportedly lost system access during Monday's workday. Termination emails citing a 'ramp-down of the business assignment' followed, saying it was not about individual performance.",
+        "Innodata has not commented. Its third-quarter report on Nov. 5 is the first chance to hear from management.",
+        "Its two largest customers made up 71% of second-quarter revenue, so one lost program could hurt badly.",
+        "Analysts expect revenue to rise from $252 million in 2025 to $360 million this year and $460 million in 2027. If a program is gone, 2027 takes the hit.",
+        "The stock went from about 40x forward earnings to about 29x after the drop."
+      ],
+      "signal": [
+        "The reported reason points to shrinking customer work, but it does not say which customer, how much revenue, or whether it is temporary.",
+        "Data-labelling work in India depends on a few big clients' budgets and can disappear in a day."
+      ],
+      "key_stat": "-28% · 550 jobs",
+      "editors_read": "With 71% of revenue from two customers, a cut by one of them shows up at once as layoffs. The Nov. 5 report should show whether guidance moves; if it does not, this was a smaller program ending."
+    },
+    {
+      "id": "agritech-a9f0eefbbc",
+      "headline": "India's weakest monsoon in over a decade is cutting farm spending",
+      "hook": "The monsoon ended 12.6% below normal, and fertiliser and tractor sales are already weakening as farmers lose crops and cut spending.",
+      "points": [
+        "June was the fifth driest since 1901 (39.8% below average) and August ran 16.3% short in the hottest August on record, as El Nino strengthened.",
+        "17 meteorological subdivisions, covering 42% of India's area, had deficient rain. Punjab was down 41%, Marathwada 39%, Bihar 32% and Kerala 28%.",
+        "Reservoirs were at 68.6% of capacity on October 15, against 90.8% a year earlier and a 10-year average of 82.1%. Barclays says over 37% of districts have severe soil-moisture deficits.",
+        "Complex fertiliser sales fell more than 20% in April-September year on year, and urea also declined.",
+        "Tractor retail sales were 76,906 in September, down 18% year on year. Barclays says the effect of crop losses on tractor buying may show in early 2027.",
+        "__Low reservoirs and soil moisture threaten rabi (winter) sowing__, which could mean another season of little farm income for rain-fed farmers."
+      ],
+      "signal": [
+        "Rural demand for inputs and machinery is the first to weaken. If rabi sowing fails too, companies selling to farmers face a second weak season."
+      ],
+      "key_stat": "-12.6% · monsoon rainfall",
+      "editors_read": "The risk has moved from this season's crop to next season's sowing, because reservoirs and soil moisture are low. Crop insurance payouts and state relief decide how much rural spending is lost. Rural-facing lenders and input makers carry the exposure."
+    },
+    {
+      "id": "india-91b856760d",
+      "headline": "Rubio's India trip skipped Delhi and Modi, and went to Mumbai and Jamnagar",
+      "hook": "US Secretary of State Marco Rubio, on his second India visit this year, skipped Delhi and did not meet Modi, going to Mumbai and Reliance's Jamnagar refinery instead.",
+      "points": [
+        "Carnegie's Milan Vaishnav says the venues were intentional: Mumbai for business deals, and Jamnagar to meet Mukesh Ambani, with US petrol prices a midterm issue (3 November).",
+        "One aim, he says, was to encourage Reliance to process more Venezuelan crude. India is a major consumer of oil and a major exporter of refined products.",
+        "Strains remain: a 50% US tariff in 2025 was cut to 18% without a full trade deal, and H-1B and green card limits hit Indian workers. Delhi called JD Vance's remarks 'deeply offensive'.",
+        "Counterweights: record bilateral trade in 2025, nearly $68bn in pledged US tech AI infrastructure investment in India, and record joint military exercises this year.",
+        "The Trump administration has embraced Pakistan since the May 2025 conflict. Vaishnav says Modi's rapport with Trump is no guarantee against a reversal."
+      ],
+      "signal": [
+        "Vaishnav says much current progress comes from decisions made years ago, and turbulence could make new initiatives a heavier lift. Pledged AI investment is only an announcement until delivered."
+      ],
+      "key_stat": "18% · US tariff on India",
+      "editors_read": "Washington is treating India as a deal partner, and Reliance as a lever on oil prices before its midterms. That gives India bargaining room now, but a transactional partner can change terms quickly."
+    },
+    {
+      "id": "world-66dd4c7205",
+      "headline": "21 Indian news publishers challenge Modi's privacy law in court",
+      "hook": "A group of 21 news publishers, including companies owned by Mukesh Ambani and Gautam Adani, has challenged India's privacy law in court.",
+      "points": [
+        "Reuters reports the publishers argue the law would trample press freedom (the source text cuts off after 'trample').",
+        "The group includes outlets owned by two of India's richest businessmen, Ambani and Adani, which are rarely on the same side as critics of the government (summary from limited source text)."
+      ],
+      "signal": [
+        "Publishers owned by billionaires joining the challenge suggests concern is broad across the industry (summary from limited source text)."
+      ],
+      "key_stat": "21 publishers · court challenge",
+      "editors_read": "When owners as large as Reliance and Adani join a legal challenge, the objections are likely about operating costs or journalism rules rather than politics alone. The court's response will show how privacy rules treat news reporting."
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-a5dc742f69",
+          "headline": "Robotics lab Physical Intelligence in talks to raise at a $20 billion valuation",
+          "hook": "Physical Intelligence is in early talks to raise at least $1 billion at about a $20 billion valuation, nearly double the $11.5 billion set earlier this year, Bloomberg reports.",
+          "points": [
+            "Existing backers Lux Capital and Avenir are in talks to lead. Other backers include CapitalG, Thrive Capital and Jeff Bezos.",
+            "The company has no revenue. It builds a hardware-agnostic AI platform to control different robots, and was founded in 2024 by former Google DeepMind researchers and Stanford and UC Berkeley academics.",
+            "This month it opened beta access to its latest robotics models for outside developers to fine-tune, which raised investor interest.",
+            "Rivals include OpenAI and Tesla, and Skild AI, valued at $14 billion in January, which says it passed $100 million in annual recurring revenue."
+          ],
+          "signal": [
+            "A pre-revenue valuation near $20 billion bets that one software layer can control many robots. If developers adopt the beta, that bet gains support; if not, the price is hard to defend."
+          ],
+          "key_stat": "$20B · valuation in talks"
+        },
+        {
+          "id": "ai-cf62f60ad2",
+          "headline": "Nvidia puts $3 billion into Meta's stock offering",
+          "hook": "Nvidia is investing $3 billion in Meta's planned equity offering, while Meta plans to run more of its AI agents on Nvidia hardware, the Wall Street Journal reports.",
+          "points": [
+            "Meta wants to raise up to $95 billion in stock offerings to pay for AI infrastructure. AMD and Broadcom signalled non-binding interest in up to $5 billion combined, per CNBC.",
+            "The companies will expand their partnership around Meta's AI product Muse, with Meta using Nvidia's Vera Rubin systems and Vera CPUs for next-generation AI agents.",
+            "Critics call such deals circular financing: a chip supplier funds a customer who buys its chips, which they say could hide how much real demand exists."
+          ],
+          "signal": [
+            "If investment flows back as chip orders, Nvidia's sales growth partly reflects its own money. Separately today, Meta raised its offering to almost $98 billion."
+          ],
+          "key_stat": "$3B · Nvidia stake"
+        },
+        {
+          "id": "ai-a878112837",
+          "headline": "General Compute raises $100 million Series A for a cloud built on non-Nvidia chips",
+          "hook": "General Compute raised a $100 million Series A at an $800 million post-money valuation, up from $60 million after a May seed round.",
+          "points": [
+            "Blackbird Ventures and Abstract Ventures led. A large customer deal worth $100 million in annual recurring revenue paved the way.",
+            "It builds its cloud on inference chips from Nvidia rivals SambaNova, Positron and Cerebras, and has a $400 million deal to buy SambaNova chips, billed as the first debt financing of inference chips.",
+            "It rents space in others' data centres and converts former bitcoin-mining sites, instead of building from scratch. CEO Finn Puklowski expects 75 megawatts deployed in 2027, with access to 200 megawatts of power.",
+            "The raise comes as CoreWeave's stock sits at a 12-month low and Elon Musk predicts 'guppy-level death and consolidation' among neoclouds."
+          ],
+          "signal": [
+            "Puklowski says capital, both debt and equity, is 'a full-time job'. If hardware financing dries up, power access alone won't let it grow."
+          ],
+          "key_stat": "$100M · Series A"
+        },
+        {
+          "id": "ai-cac2f27240",
+          "headline": "Ex-DeepMind researcher proposes AlphaGo-style search to reduce AI hallucinations",
+          "hook": "Thore Graepel's new startup Metis Reasoning proposes pairing language models with a verified knowledge ledger, but so far it is only a white paper, with no working system or benchmarks.",
+          "points": [
+            "Metis says today's language models resemble only AlphaGo's move-suggesting network. It wants to add AlphaGo's systematic search, applied to reasoning.",
+            "A ledger records what is known, confidence and open questions. A separate module checks entries against calculations, proofs or evidence, and re-evaluates conclusions when an assumption fails.",
+            "Metis claims this would cut hallucinations, give source citations, and let knowledge be edited without retraining.",
+            "The paper admits real-world evidence is partial and costly, and the hard question is building the ledger in messy fields, since earlier symbolic AI failed when knowledge had to be entered by hand.",
+            "Per Bloomberg, Graepel is raising a low tens-of-millions round, with a follow-on of several hundred million dollars in the works."
+          ],
+          "signal": [
+            "Funding is racing ahead of evidence. Until Metis shows benchmark results against current reasoning models, treat it as a hypothesis."
+          ],
+          "key_stat": "0 · working systems so far"
+        },
+        {
+          "id": "ai-a9a2cf8c96",
+          "headline": "Anthropic's pre-IPO governance leaves public shareholders with little control",
+          "hook": "Anthropic's structure will leave anyone buying its stock with little say over most major decisions, including who sits on its board.",
+          "points": [
+            "It is a public benefit company, so its board can weigh AI safety against profit without being sued by investors.",
+            "A Long-Term Benefit Trust owns a class of stock that lets it elect and remove a majority of the board.",
+            "Its seven founders jointly hold stock giving a majority of them 50.1% of voting power, letting them elect three directors.",
+            "The board's nominating committee can decline a trust move on a 'Specified' director and send it to an employee vote.",
+            "Founder control ends ten years after the IPO, or earlier if fewer than three founders remain. The trust continues until 85% of common shareholders vote to end it."
+          ],
+          "signal": [
+            "If founders split, common shareholders gain more say than expected. Employees can override the trust on board seats, echoing how OpenAI staff backed Sam Altman's reinstatement."
+          ],
+          "key_stat": "50.1% · founders' voting power"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-00d1ec5d52",
+          "line": "Bloomberg's India Edition uses Anthropic's IPO numbers to argue that competing at the AI frontier takes industrial-scale capital, not startup-scale funding, putting India's AI ambitions in perspective."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-6b73d31626",
+          "headline": "Global robotics startup funding hit $9.9 billion in Q3, more than double a year ago",
+          "hook": "Venture funding to robotics startups reached $9.9 billion in Q3 2026, more than double the $4.3 billion in Q3 2025, per Crunchbase.",
+          "points": [
+            "Funding for Q1 to Q3 2026 is up about 185% year on year. China leads with $13.2 billion, then the US with $12.1 billion and Germany with $1.7 billion.",
+            "Large rounds: Xpeng Robotics $900 million, AI² Robotics $736 million Series C, Skild AI $1.4 billion and Neura Robotics $1.4 billion.",
+            "About 75 robotics companies on the unicorn board raised in the past three years, 45 of them joining this year.",
+            "Encord's Ulrik Stig Hansen says physical AI has no 'internet of data': data must be collected, and storing and curating it is expensive."
+          ],
+          "signal": [
+            "Funding is concentrated in China and the US, with India absent from the rankings given. Data collection cost may decide which robotics firms survive."
+          ],
+          "key_stat": "$9.9B · Q3 robotics funding"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-fc29b736e3",
+          "line": "Matiks raised $10 million in a pre-Series A round led by General Catalyst, to expand internationally, develop new games and social experiences, and launch an AI-powered game creation platform."
+        },
+        {
+          "id": "indian-startups-123ca8e821",
+          "line": "Bengaluru's Live2.ai raised ₹130 crore ($13.7 million) in a pre-Series B led by IvyCap Ventures, part fresh issue and part secondary, for its AI SaaS tool that tracks campaign engagement."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [],
+      "also": [
+        {
+          "id": "india-deep-tech-46956561d5",
+          "line": "Bengaluru defence-robotics startup Paar Autonomy raised Rs 10 crore led by AdvantEdge Founders, after Rs 3.5 crore pre-seed, to scale AI camera production and build GPS-free drone navigation."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-8f594f63a7",
+          "headline": "Ember: home batteries could cut India's daytime rooftop solar exports by 85-90%",
+          "hook": "Ember says a 5 kWh home battery could cut daytime rooftop solar exports by 85-90%, but would stretch payback from 3.3 years to about nine without subsidy.",
+          "points": [
+            "Ember modelled a 3 kW system for a household using 350 units a month. It costs INR 87,000 after the INR 78,000 PM Surya Ghar subsidy.",
+            "Net metering makes discoms pay for daytime exports even though they buy evening power at higher prices, so households have no incentive to add batteries.",
+            "A 50% battery subsidy would cut payback to 6.3 years. Supporting 5 million households would create 15-25 GWh of storage, needing around INR 280 billion.",
+            "__Payback falls to 6.5 years with a 40% cap on banked exports__, and to 5.7 years with peak-hour restrictions and a 20% surcharge."
+          ],
+          "signal": [
+            "If net metering is tightened, batteries become worth buying on their own, so subsidising them now prepares households for that change."
+          ],
+          "key_stat": "3.3 → 9 years · payback with battery"
+        },
+        {
+          "id": "climate-energy-59178369e5",
+          "headline": "Delectrik Systems wins 20MW/120MWh flow battery project in Gujarat",
+          "hook": "Vanadium flow battery startup Delectrik Systems won a 20MW/120MWh, six-hour project from Gujarat Industries Power Company Ltd (GIPCL) at its Vadodara gas plant.",
+          "points": [
+            "The project came through a competitive tender GIPCL issued in May, and uses existing site transmission infrastructure.",
+            "GUVNL, Gujarat's main power buyer, approved it as a pilot and demonstration of flow battery technology for grid flexibility and renewable integration.",
+            "India has 5.3GWh of operating battery storage and 185GWh under development, per the Central Electricity Authority."
+          ],
+          "signal": [
+            "It is a pilot, so the test is whether flow batteries prove cost-competitive for long-duration storage against lithium."
+          ],
+          "key_stat": "120MWh · 6-hour flow battery"
+        },
+        {
+          "id": "climate-energy-22d4b2c7f2",
+          "headline": "Jakson Solar to invest up to $525 million in solar cell and ingot-wafer plants",
+          "hook": "Jakson Solar plans to invest up to ₹50 billion ($525.2 million) to build 3 GW each of solar cell and ingot-wafer capacity.",
+          "points": [
+            "The 3 GW cell plant is targeted for commissioning by December 2027, and the ingot-wafer plant by the third quarter of fiscal 2028. Equipment tie-ups are already secured.",
+            "The plants will mainly serve the merchant market. Jakson already has a 1.2 GW module plant.",
+            "Managing Director Ivan Saha says a domestic chain is needed to avoid supply shocks. The government plans local-content rules for ingots and wafers from June 1, 2028, to cut dependence on China."
+          ],
+          "signal": [
+            "The rule gives buyers a reason to source domestic wafers from 2028, if it takes effect as planned."
+          ],
+          "key_stat": "₹50B · 3 GW cells + wafers"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-2d538fc102",
+          "line": "Volkswagen has halted capex on its India EV programme until its proposed partnership with JSW Group has a commercial structure, per Bloomberg; its CMP 21 entry-level EV platform design is ready."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-f948e0f78d",
+          "headline": "FCC approves Amazon Leo's $11.5 billion Globalstar acquisition",
+          "hook": "The FCC approved Amazon Leo's $11.5 billion deal to buy Globalstar, giving Amazon mobile-satellite spectrum to challenge SpaceX's Starlink.",
+          "points": [
+            "Amazon Leo has launched over 300 satellites since April 2025 and aims for about 3,200 by 2029. Starlink has more than 11,000. Amazon has committed over $10 billion and plans commercial service by the end of 2026.",
+            "Globalstar adds about two dozen satellites and spectrum, boosting Leo's direct-to-device market entry, where phones connect directly to satellites.",
+            "Globalstar powers iPhone Emergency SOS and Find My. Amazon says it signed an agreement with Apple to continue those services.",
+            "Apple, with a 20% stake from its 2024 investment of about $1.5 billion, provided 63% of Globalstar's revenue last year. Amazon plans to acquire that stake."
+          ],
+          "signal": [
+            "Amazon's gap to Starlink remains large; the Apple contract is the immediate revenue base."
+          ],
+          "key_stat": "$11.5B · Globalstar deal"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [],
+      "also": [
+        {
+          "id": "health-tech-08e2ffb51c",
+          "line": "Anthropic acquired Mithril Medicine, a one-person stealth drug discovery startup backed by Atlas Venture, as part of its push into life sciences, Endpoints News reports."
+        },
+        {
+          "id": "health-tech-6e0138d153",
+          "line": "The NYT reports ChatGPT helped a woman taper off a lifesaving seizure drug and hide the plan from her doctors, with devastating consequences, a case showing medical risk from chatbot advice."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-e3c5902a26",
+          "headline": "Gujarat and Rajasthan declare drought in 18 districts",
+          "hook": "Rajasthan declared drought in 14 of its 41 districts and Gujarat in four, after monsoon rain fell short.",
+          "points": [
+            "Rajasthan got 340.2mm of rain from June 1 to September 30 against a normal 435.6mm, a 22% deficit.",
+            "Gujarat's drought districts are Devbhumi Dwarka, Porbandar, Jamnagar and Kutch. The state got about 89% of normal rainfall overall.",
+            "Gujarat will pay Rs 8,500 per hectare (capped at two hectares per farmer), sell fodder at Rs 2 per kg, give Rs 80 per animal to cattle shelters and offer 150 days of employment from November 1.",
+            "IIT Gandhinagar's India Drought Monitor puts 46.7% of India's land under drought as of October 21. Karnataka, Maharashtra and Andhra Pradesh had already declared drought in parts."
+          ],
+          "signal": [
+            "Compensation is capped at two hectares per farmer, so larger holdings get partial cover."
+          ],
+          "key_stat": "46.7% · India under drought"
+        }
+      ],
+      "also": [
+        {
+          "id": "agritech-a28b6b159f",
+          "line": "Maharashtra CM Devendra Fadnavis says the state has asked the RBI to stop microfinance companies from forcibly recovering loans from farmers hit by drought."
+        }
+      ]
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-c39d926816",
+          "headline": "Israel election: exit polls show Netanyahu and Eisenkot blocs tied",
+          "hook": "Exit polls on two Israeli networks show Netanyahu's bloc and Gadi Eisenkot's opposition bloc tied at 51 seats each, short of the 61 needed for a majority.",
+          "points": [
+            "Channel 12 has Netanyahu's bloc on 50 and the opposition on 52. Israeli exit polls are imprecise, and absentee soldiers' ballots will be counted in the coming days.",
+            "Netanyahu's bloc is projected to lose 14 seats since 2022. Likud is narrowly the largest party but down about 25% of its seats.",
+            "Palestinian parties are projected to win 17-18 seats, up from 10. Eisenkot would likely need them to govern, and has set four conditions for the Joint List.",
+            "Turnout was 77.7% at 10pm, the highest at that time since 1999. First official results are expected around 1am local time on Wednesday."
+          ],
+          "signal": [
+            "Weeks of coalition bargaining or another election are likely. If Netanyahu cannot form a coalition, he stays as caretaker."
+          ],
+          "key_stat": "51–51 · seats, exit poll"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "india",
+      "stories": [],
+      "also": [
+        {
+          "id": "india-39a6e04d52",
+          "line": "Pakistani import data shows nearly $62 million of Indian goods entered in three months, up 69%, despite both countries' trade restrictions; Times of India points to a Dubai-Singapore route."
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [],
+      "also": [
+        {
+          "id": "other-interests-445c4db199",
+          "line": "IBM linked two quantum chips with superconducting cables, a step toward larger quantum computers, though Science notes improvements are still needed."
+        }
+      ]
+    },
+    {
+      "slug": "beyond-your-beat",
+      "stories": [
+        {
+          "id": "beyond-your-beat-c82d135fe0",
+          "headline": "India to host first SCO Civilisational Dialogue Forum, inviting Pakistan's culture minister",
+          "hook": "India will hold the SCO's first Civilisational Dialogue Forum from November 20-22 in Delhi and has invited Pakistan's culture minister.",
+          "points": [
+            "The forum, proposed by Modi at last year's Tianjin summit, will be inaugurated by him at Purana Quila. Culture ministers of all 10 member states and 15 dialogue partners and observers are invited.",
+            "If Pakistan's minister Aurungzeb Khan Khichi attends, it would be the first Pakistani minister hosted by India since the 2023 SCO foreign ministers' meeting in Goa and since the May 2025 conflict.",
+            "Pakistan has not confirmed who will lead its delegation. It holds the SCO presidency, with the leaders' summit in Pakistan scheduled for August 2027.",
+            "India says it deals with SCO as an entity; who will represent it at that summit is undecided."
+          ],
+          "signal": [
+            "Attendance would show whether multilateral forums can run while bilateral ties stay frozen."
+          ],
+          "key_stat": "Nov 20–22 · Delhi"
+        }
+      ],
+      "also": [
+        {
+          "id": "beyond-your-beat-cfb19879db",
+          "line": "Sanxingdui: Future Past, China's first fully AI-generated feature in cinemas, made only an estimated $180,000 through Monday, a flop that suggests audiences accept AI microdramas more readily."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-bcc0da3205",
+      "name": "Bharat BuilderTour Hackathon 2026",
+      "when": "Mon 16 Nov",
+      "summary": "48-hour online sprint to build a product on AI, Web3, cloud or mobile, judged on innovation, technical implementation, impact and presentation. Participants get certificates and a badge, with internships on offer. Online."
+    },
+    {
+      "id": "opportunities-120922cf35",
+      "name": "TRMI X Lovhack: Multiplayer Everything Hackathon",
+      "when": "Sat 31 Oct",
+      "summary": "Build a game, shared tool or live app that people use together, using TRMI's shared workspace with an AI coding agent. Optional credit requests, one per team. Online."
+    }
+  ]
+}
