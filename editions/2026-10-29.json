@@ -1,0 +1,730 @@
+{
+  "date": "2026-10-29",
+  "edition": 136,
+  "colophon": "89 sources scanned · 87 ok · 2 failed",
+  "lead": {
+    "id": "india-deep-tech-178d0227a0",
+    "headline": "Sarvam signs five-year deal with defence staff to build AI for Army, Navy and Air Force",
+    "summary": "",
+    "signal": [
+      "An umbrella MoU is a framework, not a purchase order. If actual contracts with values follow, Sarvam gets a captive, sovereign-infrastructure customer that foreign AI labs would struggle to serve.",
+      "Inc42 data cited says 89% of Indian defence tech startups already integrate AI, so competition for these budgets is crowded."
+    ],
+    "badge": "",
+    "takeaway": "",
+    "why": "",
+    "source": "Defence BREAKING NEWS | Defence LATEST NEWS | Defence NEWS TODAY | Defence LIVE UPDATES | Defence TRENDING NEWS | – ThePrint",
+    "url": "https://theprint.in/defence/design-develop-deploy-sarvam-signs-5-year-mou-with-mod-to-build-ai-for-army-navy-iaf/3083107/",
+    "image": "https://staticprintenglish.theprint.in/wp-content/uploads/2026/10/Sarvam-MoU.jpg",
+    "developing": true,
+    "hook": "Bengaluru's Sarvam signed a ==five-year MoU with HQ Integrated Defence Staff to build AI for all three services==, with no financial terms, project count or deployment timeline disclosed.",
+    "points": [
+      "Sarvam will design, develop and deploy AI for operations, training and decision-support, plus follow-on technical support. HQ IDS (the tri-service coordinating body set up in 2001) will facilitate the engagement.",
+      "Focus areas are decision support, target acquisition and data fusion across the sensor-to-shooter loop (detecting a target through to engaging it), with human oversight on operational decisions.",
+      "Work goes to Chanakya, Sarvam's firewalled defence division announced on 29 March. It runs on-premise, air-gapped systems (cut off from the internet, as classified networks require) on Sarvam 105B, an open-sourced model.",
+      "Sarvam 105B uses Mixture-of-Experts design: only 10.3 billion of its 105 billion parameters are active at a time.",
+      "Precedent: on 18 August the Defence Services Staff College launched DRONA 2.0, a generative AI platform on Sarvam 105B, certified by HQ IDS and the Defence Cyber Agency after security audits.",
+      "Sarvam raised $234M in June and $74M in August for a $300M Series B at a $1.5B post-money valuation. __Services will share the same models, so lessons from one service's projects can feed the next.__"
+    ],
+    "key_stat": "5-year MoU · 3 services",
+    "editors_read": "The value of this deal depends on what follows: contracts, budgets and deployments, none of which are disclosed. The structural logic is sound, though: classified networks must run air-gapped, on domestic models, which favours a local lab over foreign API providers. If Sarvam turns the framework into funded projects, defence becomes its anchor customer and shapes its product roadmap."
+  },
+  "frontpage": [
+    {
+      "id": "ai-4ed0d40e6c",
+      "headline": "US Justice Department questions Nvidia's $12.93 billion Hugging Face purchase",
+      "summary": "",
+      "signal": [
+        "If Hugging Face's neutrality is the issue, remedies would likely be access commitments for rival chips rather than a block, but the article does not say."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Firstpost",
+      "url": "https://www.firstpost.com/business/nvidia-hugging-face-acquisition-doj-ai-competition-14056152.html",
+      "image": null,
+      "developing": false,
+      "hook": "The US DOJ is asking whether Nvidia's ==$12.93 billion Hugging Face deal would let it capture a key distribution point for AI==, Reuters reported, citing two people familiar.",
+      "points": [
+        "Officials asked how Nvidia might use Hugging Face (where developers share models and datasets) to harm rivals or gain leverage, and are questioning Hugging Face's competitors.",
+        "Nvidia expects the deal to close in the first half of 2027 and says Hugging Face will keep supporting a range of chip, cloud and AI providers.",
+        "The questions sit inside a longer DOJ probe of Nvidia's acquisitions, investments, sales practices and pressure on customers, begun under Biden and continued under Trump.",
+        "Other deals examined: the 2025 Groq licensing and hiring deal (did Nvidia offer larger chip allocations to buyers of its networking gear and Groq processors?), Run:ai and SchedMD.",
+        "Inquiries are not evidence of wrongdoing and may not lead to action. The DOJ says it would be inappropriate to run a merger investigation under a conduct probe."
+      ],
+      "key_stat": "$12.93B · DOJ questions",
+      "editors_read": "Hugging Face matters because developers default to it, so whoever owns it can tilt tooling toward its own hardware. Rivals such as AMD, Google and Broadcom are building alternatives, and they benefit if conditions are attached. Closing is not expected until the first half of 2027, so the review has time to run."
+    },
+    {
+      "id": "ai-37f5357ffc",
+      "headline": "Security startup's AI agents breached Anthropic's internal systems via third-party software",
+      "summary": "",
+      "signal": [
+        "Third-party integrations are the weak point. Any firm using many SaaS tools has the same exposure, and agents make probing cheap."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/ai-agents-hacked-anthropic-maker-of-arguably-the-most-capable-ai-models-for-cyberdefense/",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/10/claude_hack.png",
+      "developing": false,
+      "hook": "Startup Cathedral used AI agents to reach Anthropic's internal data in under 12 hours, it says; Anthropic says the attempts lasted several days and ==never exposed source code or model weights==.",
+      "points": [
+        "Cathedral got in through third-party admin and sales software during Anthropic's bug bounty programme, reaching meeting transcripts, salary data, job postings and Slack messages, per its draft report.",
+        "Anthropic confirms access to limited sales, HR and IT systems, including some customer and partner contact details. It says chats with Claude, source code and weights were safe.",
+        "Anthropic shut the access points the same day, disabled the third-party programmes and notified US federal authorities.",
+        "Disputes: Anthropic says Cathedral found two vulnerabilities but reported one, and went beyond the programme's safe harbour. Ex-OpenAI employee Will Depue claims full Slack admin access; Anthropic's Logan Graham says his sources were wrong.",
+        "Graham says attackers already run agents around the clock against external dependencies, and even models a generation behind the frontier are capable enough."
+      ],
+      "key_stat": "<12 hrs vs several days",
+      "editors_read": "The dispute over duration and scope matters less than the route in: vendor software, not the model. Expect enterprise buyers to ask AI labs for evidence on vendor security. Anthropic's answer, constant self-red-teaming, implies a recurring security cost for everyone."
+    },
+    {
+      "id": "global-economics-7bc29a3b31",
+      "headline": "Fed holds rates at 3.75%-4% after September hike, with two dissents for another rise",
+      "summary": "",
+      "signal": [
+        "A high-oil, high-yield US keeps pressure on import-dependent economies like India; the article does not discuss India directly."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Business | The Guardian",
+      "url": "https://www.theguardian.com/business/2026/oct/28/fed-interest-rates-midterms",
+      "image": "https://i.guim.co.uk/img/media/7880dcf74afd8e1464e25cee2da4b52881ed5e8e/1146_740_2868_2294/master/2868.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b081c701087cb6d833262061fe8004b7",
+      "developing": false,
+      "hook": "The Fed held its rate at ==3.75% to 4% on a 10-2 vote== while September inflation rose to 3.7% from 3.4% in August.",
+      "points": [
+        "Governor Lisa Cook and Cleveland Fed president Beth Hammack dissented, wanting a quarter-point hike. September's hike was the first since 2023.",
+        "Inflation is driven largely by the Iran war and the Hormuz closure; Brent is about $115.75, up 80% in a year. Economists note rate hikes do little against supply shocks.",
+        "Chair Kevin Warsh said politics played no role, the economy is strong, and unemployment is 4.2%. The vote came six days before the 3 November midterms.",
+        "Markets give about 85% odds of a December quarter-point hike. The 10-year Treasury yield is above 5%.",
+        "Warsh also announced fewer rate-setting meetings: seven in 2027 and six in 2028, with the rest on strategy."
+      ],
+      "key_stat": "3.75%–4% · 10-2 vote"
+    },
+    {
+      "id": "deep-tech-e1b4cd13aa",
+      "headline": "Report: India should focus on components, chip packaging and mature-node chips",
+      "summary": "",
+      "signal": [
+        "If subsidies are tied to customer-qualified output, as the report urges, winners would be firms with real orders rather than announced capacity."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "EE Times India",
+      "url": "https://www.eetindia.co.in/india-targets-higher-electronics-value-addition-semiconductor-packaging-and-mature-node-chips/",
+      "image": null,
+      "developing": false,
+      "hook": "India's electronics output hit an estimated ₹13.11 lakh crore in FY26, up 15.8% from ₹11.32 lakh crore, but Strat360 says ==value addition and chip depth are the gaps==.",
+      "points": [
+        "Exports were ₹4.24 lakh crore (about $47.96 billion), making electronics India's third-largest export category, led by mobile phones.",
+        "Five packaging and test units are in commercial production under the India Semiconductor Mission. Semicon 2.0 was approved in July 2026 with ₹1,27,500 crore.",
+        "The component scheme (ECMS) had approved 106 projects by August 2026, 38 reportedly producing. It aims to lift phone value addition from an estimated 18-20% to 35-40%.",
+        "India's first commercial fab at Dholera, Gujarat, is expected to start around mid-2028 at mature nodes (older, cheaper chip processes).",
+        "The report wants policy tied to milestones such as qualified output and yields, plus time limits on subsidies."
+      ],
+      "key_stat": "₹13.11 lakh crore · +15.8%"
+    },
+    {
+      "id": "global-economics-9374c5c1c9",
+      "headline": "Fed keeps rates unchanged but leaves December hike open",
+      "summary": "",
+      "signal": [
+        "Core PCE and Q3 GDP data due Thursday are the next test; a hot reading would raise December hike odds further."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Business News Today: Latest Business News, Finance News",
+      "url": "https://www.thehindubusinessline.com/money-and-banking/fed-holds-interest-rates-steady-at-39-as-us-inflation-remains-elevated/article71638045.ece",
+      "image": "https://bl-i.thgim.com/public/incoming/2ykp04/article71638046.ece/alternates/LANDSCAPE_1200/2026-10-28T204443Z_539219598_RC2ICOA05O08_RTRMADP_3_USA-FED.JPG",
+      "developing": false,
+      "hook": "The Fed held rates at ==3.75% to 4% on a 10-2 vote==, and traders now put 85% odds on a December hike, up from 75% a day earlier.",
+      "points": [
+        "Cook and Hammack dissented for a quarter-point hike; it is Cook's first dissent. The next meeting is Dec. 8-9.",
+        "September CPI rose 3.7% from a year earlier versus 2.4% in February, before the Iran war. Producer prices rose 6.3%.",
+        "Warsh said labour conditions are positive, so discussion focused on price stability. He could not clearly explain why no hike this time.",
+        "The 30-year mortgage rate hit a three-year high of 7.4%. Oxford Economics says high rates made homes unaffordable for 5 million more Americans this year.",
+        "AI investment is insensitive to rates, an economist argues, and keeps pushing up construction and equipment prices."
+      ],
+      "key_stat": "85% · December hike odds"
+    },
+    {
+      "id": "work-careers-21abac410b",
+      "headline": "KPMG survey: 52% of Indian CEOs plan workforce cuts as AI changes hiring",
+      "summary": "",
+      "signal": [
+        "Cuts and AI hiring coexisting suggests workforce composition changes rather than simple shrinkage; entry-level skill requirements are being rewritten."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Business Today",
+      "url": "https://www.businesstoday.in/jobs/story/52-of-indian-ceos-plan-workforce-cuts-as-ai-reshapes-hiring-which-jobs-are-at-risk-564399-2026-10-28",
+      "image": "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202610/6ae1ff3231092-ai-job-impact-on-graduates-whichakpmg-found-that-86-of-indian-ceos-are-reassessing-the-skills-requ-285704933-16x9.png",
+      "developing": false,
+      "hook": "KPMG's survey of 125 Indian CEOs found ==52% plan workforce cuts as AI reshapes hiring==, while 87% are focusing on retaining and retraining high-potential staff.",
+      "points": [
+        "The survey ran between August 11 and September 21, 2026. 84% are redesigning roles, career paths and team structures for human-AI collaboration.",
+        "86% are reassessing skills needed for entry-level roles, and 79% say AI is changing how they train staff.",
+        "Training: 48% prioritise workforce-wide AI education, 44% role-specific training, 41% retraining for AI-supported roles.",
+        "The report does not name which job functions face cuts. It reflects CEO plans, not confirmed layoffs."
+      ],
+      "key_stat": "52% of CEOs · cuts planned"
+    },
+    {
+      "id": "agritech-c1d31901ae",
+      "headline": "Drought and El Nino push India toward more food, feed and farm imports",
+      "summary": "",
+      "signal": [
+        "If the government grants these import requests, domestic price relief comes at the cost of a larger import bill."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "The Economic Times",
+      "url": "https://economictimes.indiatimes.com/industry/cons-products/food/india-may-import-more-food-feed-and-farm-commodities-as-drought-hits-crops/articleshow/135277518.cms",
+      "image": "https://img.etimg.com/thumb/msid-135277659,width-1200,height-900,imgsize-109268,overlay-economictimes/articleshow.jpg",
+      "developing": false,
+      "hook": "Edible oil imports may rise from 16.5 million tonnes in 2025-26 to ==17.5 million tonnes in 2026-27== as drought hits oilseeds, per Sunvin Group's CEO.",
+      "points": [
+        "The strongest El Nino on record has hit pulses, sugar, oilseeds and paddy. Drought has wilted soybean in Marathwada, Vidarbha, Telangana and parts of Madhya Pradesh.",
+        "Kharif groundnut output __could fall more than 20%__, per the Solvent Extractors' Association. Mustard crop concerns persist.",
+        "Poultry feed makers want to import 30 lakh tonnes of soybean meal; soybean meal and maize are 80% of feed and prices are high.",
+        "Sugar has secured an extension for raw sugar imports, textile makers want cotton import duty removed, and starch makers fear importing from China if maize goes to ethanol."
+      ],
+      "key_stat": "16.5 → 17.5 Mt · edible oil imports"
+    },
+    {
+      "id": "indian-startups-3d183480cf",
+      "headline": "Simplismart raises $14M Series B for AI inference software",
+      "summary": "",
+      "signal": [
+        "Growth is company-stated. If GPU capacity keeps outpacing software to run it, neutral orchestration layers like this gain."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "YourStory RSS Feed",
+      "url": "https://yourstory.com/2026/10/ai-startup-simplismart-14-million-dallas-venture-capital-nvidia-others",
+      "image": "https://images.yourstory.com/cs/2/220356402d6d11e9aa979329348d4c3e/Simplismart-FINAL-1793105396412.png",
+      "developing": false,
+      "hook": "Bengaluru's Simplismart raised ==$14 million in a Series B led by Dallas Venture Capital==, with Nvidia, Accel, Shastra VC and Micromax, and says revenue run rate grew 14x in six months.",
+      "points": [
+        "It sells software between AI models and GPUs (inference is running trained models). It owns no compute, unlike providers that resell GPU capacity.",
+        "Cloud providers can use it to offer managed AI services under their own brands. At Yotta it powers the serverless inference layer of Shakti Studio.",
+        "Customers include HeyGen, Higgsfield, InVideo, Shiprocket, Apna and Ema.",
+        "Entrackr reported a valuation of about $100M post-money; Series A was $7M in October 2024. Funds go to product, cloud partnerships and North America."
+      ],
+      "key_stat": "$14M · Series B"
+    }
+  ],
+  "sections": [
+    {
+      "name": "AI",
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-2caeea9abb",
+          "headline": "Google DeepMind releases Gemini 4 Carbon, two weeks after Argon",
+          "summary": "",
+          "signal": [
+            "If Google opens it broadly at this price, it pressures rivals on cost per task."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/google-deepmind-releases-gemini-4-carbon-just-two-weeks-after-argon-with-gains-across-the-board/",
+          "image": "https://the-decoder.com/wp-content/uploads/2026/10/gemini_4_argon-2.png",
+          "developing": false,
+          "hook": "Gemini 4 Carbon scores 59 on the Artificial Analysis Intelligence Index v5, ==up from Argon's 50 two weeks earlier==, but is limited to selected security experts at first.",
+          "points": [
+            "It trails Claude Opus 5.5 on agentic coding by three points, and leads SEC-bench Pro (88.2%) with guardrails off.",
+            "Google says it ran for days on multi-step engineering tasks. Hallucination rate rose from 4% to 11%, still second-lowest in the ranking.",
+            "Cost per task is $7.76, about 23% below Opus 5.5 ($10.04). Pricing is $2 per million input and $10 per million output tokens, the same as Argon.",
+            "Because of its cyber capability it is in US government voluntary pre-testing; wider access via the Fairwind Program, then developers and consumers."
+          ],
+          "key_stat": "59 vs 50 · Intelligence Index"
+        },
+        {
+          "id": "ai-b5d4597945",
+          "headline": "FuriosaAI raises $620M at $2.9B valuation",
+          "summary": "",
+          "signal": [
+            "Government money is more than 45% of the round, showing chip challengers to Nvidia depend on state backing."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Bloomberg Technology",
+          "url": "https://www.bloomberg.com/news/articles/2026-10-28/furiosaai-quadruples-valuation-to-2-9-billion-in-nvidia-chase",
+          "image": null,
+          "developing": false,
+          "hook": "South Korean chip startup FuriosaAI ==quadrupled its valuation to $2.9 billion== with a $620 million Series D.",
+          "points": [
+            "Investors include US-based Infinitum Partners; South Korea's National Growth Fund put in $280 million and international investors $110 million.",
+            "Jericho Capital, Worldline Capital, Singapore's QUDA Capital and Abu Dhabi's NeoFort Holding are among backers (summary from limited source text)."
+          ],
+          "key_stat": "$620M · Series D"
+        },
+        {
+          "id": "ai-6bf579f54b",
+          "headline": "Cognition weighs raising at $70-80 billion valuation",
+          "summary": "",
+          "signal": [
+            "A near-60% jump in weeks reflects investor competition for AI coding leaders rather than any disclosed revenue figure."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/cognition-round-of-funding-at-a-75-billion-valuation-2026-10",
+          "image": "https://i.insider.com/6ae210baca24d51c5f89fcd6?width=1200&format=jpeg",
+          "developing": false,
+          "hook": "Cognition has offers valuing it at ==$70 billion to $80 billion==, weeks after announcing a round at $48 billion.",
+          "points": [
+            "It is seriously considering a round before year-end; talks are early and targets could change.",
+            "It makes Devin, an AI coding agent. Investors include a16z, Accel, Founders Fund and Khosla Ventures.",
+            "Business Insider notes SpaceX bought rival Cursor for $60 billion a few months ago.",
+            "Last month, Factory AI accused Cognition staff of posing as job applicants; Cognition denies seeking confidential information."
+          ],
+          "key_stat": "$70–80B · offers"
+        },
+        {
+          "id": "ai-077dbdc75a",
+          "headline": "Anthropic's IPO filing says some AI risks may be uninsurable",
+          "summary": "",
+          "signal": [
+            "Firms that cannot show where AI is used may face exclusions or tighter terms, per the experts quoted."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/10/28/anthropic-ipo-ai-risks-insurance.html",
+          "image": "https://image.cnbcfm.com/api/v1/image/108438643-1792524250508-gettyimages-2299053956-img_6160.jpeg?v=1792524398&amp;w=1920&amp;h=1080",
+          "developing": false,
+          "hook": "Anthropic's S-1 warns that ==no single insurer, and possibly the whole industry, may have capacity to cover a catastrophic AI incident==.",
+          "points": [
+            "Cyber insurance does the most to cover AI today, but nearly every policy excludes bodily injury. Gartner's Alissa Lugo says 'death by AI' claims __could exceed 2,000 worldwide by end of 2026__.",
+            "Zurich's Kara Higginbotham says the bodily-harm gap exists because carriers cannot yet underwrite such risk.",
+            "Marsh's Jaymin Kim argues AI should be handled in existing policies; Accenture's Vikram Desai says cyber insurance followed the same path of naming, excluding, then selling back.",
+            "Most AI claims now are IP and privacy cases. Insurers are asking companies where AI is used and who oversees it."
+          ],
+          "key_stat": "2,000+ · 'death by AI' claims"
+        }
+      ],
+      "also": [
+        {
+          "line": "Anthropic launched reporting tools showing enterprise customers what their AI spend buys; investors saw a Q2 operating profit and 900% net revenue retention for Claude Code.",
+          "source": "AI News & Artificial Intelligence | TechCrunch",
+          "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/"
+        }
+      ]
+    },
+    {
+      "name": "India Deep Tech",
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-b5aa5b61d7",
+          "headline": "Indian Army wants interceptor drones launched from larger UAVs",
+          "summary": "",
+          "signal": [
+            "Retrofit-based demand favours firms with interface and avionics engineering skills, not only drone builders."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Defence.in",
+          "url": "https://defence.in/threads/indian-army-seeks-uav-launched-interceptor-drones-to-boost-counter-drone-range-and-loiter-time.18971/",
+          "image": "https://defence.in/attachments/2812116qseoswfg-1-webp.6168/",
+          "developing": false,
+          "hook": "The Indian Army is exploring launching kinetic interceptor drones from MALE and short-range UAVs, to ==skip the energy-draining climb== that limits ground-launched ones.",
+          "points": [
+            "A mid-air release saves battery, extending range and loiter time against kamikaze drones and loitering munitions.",
+            "The plan is to retrofit existing fleets to carry modified VTOL interceptors being designed for ground troops, not to build a new carrier.",
+            "Private firms must redesign for release from a moving aircraft: launcher interfaces, avionics and stable separation.",
+            "It is part of a layered counter-drone plan; the Air Force is evaluating armed helicopters paired with AI against swarms."
+          ],
+          "key_stat": "Air-launched interceptors"
+        }
+      ],
+      "also": [
+        {
+          "line": "Bengaluru defence-robotics startup Paar Autonomy raised Rs 10 crore led by AdvantEdge Founders, after Rs 3.5 crore pre-seed, to scale AI camera systems and GPS-free drone navigation.",
+          "source": "Entrackr",
+          "url": "https://entrackr.com/snippets/deep-tech-defence-startup-paar-autonomy-raises-rs-10-cr-12751873"
+        }
+      ]
+    },
+    {
+      "name": "Deep Tech",
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-5e5f04951c",
+          "headline": "Huawei puts Tau Scaling Law design into its base stations",
+          "summary": "",
+          "signal": [
+            "All figures are company claims; independent tests would show whether architecture can really substitute for lithography."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Tech - South China Morning Post",
+          "url": "https://www.scmp.com/tech/big-tech/article/3372454/huaweis-tau-scaling-law-roll-out-reaches-base-stations-blow-us-chip-curbs",
+          "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/10/28/04dadb8e-ad30-4fe2-8949-be7bb00f79a6_0df993ad.jpg?itok=l3GCNzq7&v=1793182280",
+          "developing": false,
+          "hook": "Huawei says base stations using its Tau Scaling Law give ==1.3x average network experience and 40% lower energy use==.",
+          "points": [
+            "The law focuses on time compression and system-level efficiency rather than shrinking chips, a response to US export controls on chipmaking equipment.",
+            "In May Huawei targeted 1.4-nanometre-equivalent transistor performance by 2031 without advanced lithography tools.",
+            "Its Kirin 9050 Pro, the first LogicFolding chip, delivers 42% better performance than its predecessor, per the company.",
+            "It plans LogicFolding on its Ascend 990 AI chip around 2030."
+          ],
+          "key_stat": "1.3x · 40% less energy"
+        },
+        {
+          "id": "deep-tech-6a4c723e77",
+          "headline": "SK Hynix posts record Q3 with 80% operating margin",
+          "summary": "",
+          "signal": [
+            "Locked contracts could dampen the traditional memory boom-bust cycle if buyers keep honouring them."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "EE Times",
+          "url": "https://www.eetimes.com/sk-hynix-reports-record-q3-results-driven-by-ai-memory-surge/",
+          "image": "https://www.eetimes.com/wp-content/uploads/AdobeStock_616002873_Editorial_Use_Only-e1712606123854.jpeg",
+          "developing": false,
+          "hook": "SK Hynix's Q3 revenue passed 100 trillion won for the first time, at 104.62 trillion won, with ==operating profit of 83.33 trillion won at an 80% margin==.",
+          "points": [
+            "Operating profit beat the 77 trillion won consensus. Counterpoint says standard DRAM prices rose from 20-30 cents to $2 per Gb.",
+            "It has long-term agreements with 14 tech giants covering over 50% of 2027-2028 capacity, and expects a memory shortage through 2030.",
+            "It dropped a possible Solidigm US IPO and expanded shareholder returns to 100 trillion won.",
+            "Counterpoint's main risk is cloud providers cutting orders together, as in 2018, and it expects Samsung to lead HBM4 share in 2027."
+          ],
+          "key_stat": "₩104.62T · 80% margin"
+        }
+      ],
+      "also": [
+        {
+          "line": "Trump says imported robotics pose national security risks but does not impose tariffs (source unreachable — headline only)",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/china/trump-says-imported-robotics-pose-national-security-risks-does-not-impose-2026-10-28/"
+        }
+      ]
+    },
+    {
+      "name": "Startups & Venture",
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "global-economics-5cadb2cc81",
+          "headline": "SEBI weighs domestic AI model for securities markets",
+          "summary": "",
+          "signal": [
+            "A public market AI model would be an opening for Indian AI vendors, if built rather than only explored."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/india/india-markets-regulator-weighs-domestic-ai-model-securities-trading-chairman-2026-10-28/",
+          "image": null,
+          "developing": false,
+          "hook": "SEBI chairman Tuhin Kanta Pandey said the regulator is ==considering a domestically governed AI model for the securities market== as digital public infrastructure.",
+          "points": [
+            "SEBI is implementing IOSCO's AI supervisory toolkit to strengthen risk management and governance.",
+            "Pandey said AI use needs reliable data, oversight of models and clear accountability.",
+            "SEBI will issue a consultation paper on aligning foreign investor compliance with global standards, saying some domestic rules are more onerous than elsewhere."
+          ],
+          "key_stat": "AI toolkit · consultation paper"
+        },
+        {
+          "id": "indian-startups-7b6c26b93a",
+          "headline": "Indian AI founders eye Silicon Valley, but experts say keep building in India",
+          "summary": "",
+          "signal": [
+            "The advice is to match location to the customer, not to chase the Valley by default."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/resources/why-indian-ai-founders-are-eyeing-silicon-valley-and-what-they-risk-leaving-behind/",
+          "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/10/Silicon-Valley-Shift-ftr.jpg",
+          "developing": false,
+          "hook": "Indian AI startups raised $438 million in Q3 2026, ==up 265% year on year==, and many now sell to the US while building in India.",
+          "points": [
+            "Reo.Dev raised $11.3M in July; the US is nearly two-thirds of its revenue, while most of its roughly 75 staff are in India.",
+            "90% of funded Indian AI startups are at the application layer, where features are easy to copy; customer insight and distribution last.",
+            "India's AI market is projected at $126B by 2030, but consumer AI monetisation was only $12M in 2024 on 177M downloads.",
+            "Suhas Motwani says moving early can raise costs and separate founders from engineers; customer-facing roles can sit in the US while engineering stays in India."
+          ],
+          "key_stat": "$438M · +265% YoY"
+        },
+        {
+          "id": "indian-startups-2714c04d2c",
+          "headline": "Sanjeev Bikhchandani returns as Info Edge group CEO as Hitesh Oberoi steps down",
+          "summary": "",
+          "signal": [
+            "Two top departures in one quarter makes the leadership structure the thing to watch."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/buzz/sanjeev-bikhchandani-to-take-over-as-info-edge-group-ceo-hitesh-oberoi-steps-down/",
+          "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/01/info-edge-leak-featured.png",
+          "developing": false,
+          "hook": "Founder Sanjeev Bikhchandani becomes ==Info Edge MD and group CEO from December 3==, succeeding Hitesh Oberoi after nearly 27 years.",
+          "points": [
+            "Appointment needs shareholder approval and runs to April 26, 2031. Oberoi stays as a non-executive director.",
+            "Bikhchandani, 63, says no external CEO search was discussed and internal talent comes first. Naukri business head Pawan Goyal has also resigned.",
+            "Oberoi's tenure saw market cap rise from about ₹2,500 crore to ₹80,000 crore.",
+            "Q2 FY27 consolidated profit rose 87% to ₹649.8 crore; revenue rose 12.2% to ₹903.9 crore. AI and data products run at about ₹240 crore annualised.",
+            "Shiksha revenue fell 8.5% on lower Google referral traffic."
+          ],
+          "key_stat": "Dec 3 · founder returns"
+        }
+      ],
+      "also": [
+        {
+          "line": "Practo co-founder Shashank ND's Cent raised $15M in Series A led by Blume and South Park Commons and acquired AI radiology platform Medsee.",
+          "source": "Entrackr : Latest Posts",
+          "url": "https://entrackr.com/news/practo-co-founder-shashank-nds-startup-cent-raises-15-mn-led-by-blume-acquires-medsee-12757196"
+        }
+      ]
+    },
+    {
+      "name": "Other Interests",
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-94a9194559",
+          "headline": "OpenAI claims proof of Yang-Mills 'existence', ahead of two human mathematicians",
+          "summary": "",
+          "signal": [
+            "Until the proof is public, the claim is unverified, and provenance disputes will recur."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Scientific American",
+          "url": "https://www.scientificamerican.com/article/openai-just-scooped-human-researchers-on-a-million-dollar-quantum-math-problem/",
+          "image": "https://static.scientificamerican.com/dam/asset/be949c97-6aba-446d-bd3a-f2e111fa9566/Quantum-AI-math-blob.jpeg?m=1793127414.515&w=1200",
+          "developing": false,
+          "hook": "OpenAI says its internal model proved the =='existence' part of the Yang-Mills Millennium problem==, scooping Anthropic's Levent Alpöge and Northwestern's Ethan Sussman.",
+          "points": [
+            "Yang-Mills asks for a rigorous footing for quantum field theory, with two parts: consistency and a nonzero mass gap. OpenAI claims only the first.",
+            "The proof is unreleased; OpenAI gave it to experts to shepherd. It says its model reached the result on September 9, then spent over a month on Lean verification.",
+            "Alpöge and Sussman, using Claude agents, had posted progress publicly from October 6 and said they might be weeks away.",
+            "Michael Douglas of Harvard calls it a major advance. Tristan Buckmaster disputes the month-long verification, saying it takes days."
+          ],
+          "key_stat": "Sept 9 · claimed date"
+        }
+      ]
+    },
+    {
+      "name": "World & Geopolitics",
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-7464cb5f81",
+          "headline": "Malaysia seizes 30 AI-chip servers worth $12.2 million",
+          "summary": "",
+          "signal": [
+            "Transit hubs are enforcement targets; expect tighter checks on declared goods."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "AP News",
+          "url": "https://apnews.com/article/malaysia-us-ai-chips-export-transit-technology-79a912de57b21a4e59b27c9a86340202",
+          "image": null,
+          "developing": false,
+          "hook": "Malaysian customs seized ==30 servers with advanced AI chips worth about 50 million ringgit ($12.2 million)== in a suspected export-control violation.",
+          "points": [
+            "The servers were falsely declared as electric components and intercepted on Oct. 15 at the airport free trade zone, for re-export to another Asian country without a permit.",
+            "The shipment is linked to a syndicate behind five attempted smuggling operations, including 72 servers seized in June.",
+            "Malaysia introduced permits for US-origin AI chips last year under US pressure. A local firm is assisting the investigation."
+          ],
+          "key_stat": "30 servers · $12.2M"
+        }
+      ],
+      "also": [
+        {
+          "line": "Putin praised Elon Musk as a genius and said he is in touch with Starlink's controlling shareholder while Russia builds its own Rassvet satellite constellation for military use.",
+          "source": "World news | The Guardian",
+          "url": "https://www.theguardian.com/world/2026/oct/28/vladimir-putin-elon-musk-genius-russia-starlink"
+        }
+      ]
+    },
+    {
+      "name": "Health Tech",
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-537be4ebb6",
+          "headline": "Lilly's retatrutide beats Novo's Ozempic head-to-head in Phase 3",
+          "summary": "",
+          "signal": [
+            "If approved, the higher discontinuation rates may limit use even if efficacy leads."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "STAT",
+          "url": "https://www.statnews.com/2026/10/28/biotech-news-lillys-triple-g-drug-beats-ozempic-in-head-to-head-study/?utm_campaign=rss",
+          "image": "https://www.statnews.com/wp-content/uploads/2025/08/GettyImages-2092473213-645x645.jpg",
+          "developing": false,
+          "hook": "Lilly's retatrutide lowered A1C by ==2.2 points versus 1.8 for Ozempic== and cut body weight 19.5-20.9% versus 9.4% after 80 weeks.",
+          "points": [
+            "The open-label trial enrolled almost 1,300 adults with Type 2 diabetes on metformin; baseline A1C averaged 8.3%.",
+            "Retatrutide hits GLP-1, GIP and glucagon pathways; Novo's three-target candidates are only in Phase 2.",
+            "On the top dose 7.9% stopped treatment for side effects versus 2.7% on Ozempic; diarrhea hit up to 32.7% versus 26.4%.",
+            "Lilly plans to file for FDA approval in the first quarter of 2027."
+          ],
+          "key_stat": "20.9% vs 9.4% weight loss"
+        }
+      ],
+      "also": [
+        {
+          "line": "Pfizer temporarily closed an Indian cancer drug factory that will not reopen for up to two years, risking worse cancer drug shortages (summary from limited source text).",
+          "source": "Endpoints News",
+          "url": "https://endpoints.news/pfizer-india-site-closure-risks-exacerbating-cancer-drug-shortages/"
+        }
+      ]
+    },
+    {
+      "name": "Beyond Your Beat",
+      "slug": "beyond-your-beat",
+      "stories": [
+        {
+          "id": "beyond-your-beat-f644e08fa9",
+          "headline": "Indian media groups challenge privacy law in Supreme Court",
+          "summary": "",
+          "signal": [
+            "The outcome decides whether reporters need consent from subjects when the provisions start."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/india/indias-privacy-law-threatens-newsrooms-media-groups-tell-top-court-2026-10-27/",
+          "image": null,
+          "developing": false,
+          "hook": "21 publishers told the Supreme Court the privacy law's consent requirement ==amounts to pre-censorship and could shut newsrooms==.",
+          "points": [
+            "Petitioners include Network18, NDTV, Indian Express and Times Internet, through the Digital News Publishers Association.",
+            "They say the law could force story erasure and expose sources, and lacks a written journalist carve-out like the EU, Singapore and Britain.",
+            "They want most contentious provisions, which start from May 2027, quashed. The Supreme Court will hear the case in November."
+          ],
+          "key_stat": "21 publishers"
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "name": "Homingo Hack Days",
+      "when": "apply by Sun 15 Nov",
+      "kind": "ai-event",
+      "summary": "Free online AI hackathon on Agents, Automation or LLM apps; solo or teams of 2-4, ₹5,000 for the winner. Register on Homingo's site, not only Unstop. Online, India.",
+      "source": "Unstop",
+      "url": "https://unstop.com/hackathons/homingo-hack-days-online-ai-hackathon-homingo-1769121"
+    },
+    {
+      "name": "CRC Hacks",
+      "when": "Mon 9 Nov",
+      "kind": "ai-event",
+      "summary": "Virtual hackathon connecting real-world APIs with AI tools; beginners welcome, teams up to 4. Submit on Devpost with a demo video. Online/global.",
+      "source": "Devpost",
+      "url": "https://crc-student-hackathon.devpost.com/"
+    },
+    {
+      "name": "Primewise Founders Club Networking Event",
+      "when": "Sat 31 Oct",
+      "kind": "ai-event",
+      "summary": "Online session for 25-40 selected founders and investors with 50-second spotlights and breakout rooms. Complete the confirmation form first; Meetup registration alone does not confirm a seat. Online.",
+      "source": "Meetup (Jaipur)",
+      "url": "https://www.meetup.com/primewise-founders-club-jaipur/events/317044442/"
+    }
+  ],
+  "markets": {
+    "generated_at": "2026-10-29T01:06:44.576828+00:00",
+    "as_of": "2026-10-29T01:06:40+00:00",
+    "quotes": [
+      {
+        "label": "Nifty 50",
+        "value": 22698.85,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-10-28T10:01:24+00:00",
+        "closed": true
+      },
+      {
+        "label": "Sensex",
+        "value": 73246.03,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-10-28T10:02:32+00:00",
+        "closed": true
+      },
+      {
+        "label": "USD/INR",
+        "value": 95.21,
+        "unit": "₹",
+        "change_pct": 0.0,
+        "usd": false,
+        "as_of": "2026-10-29T01:06:33+00:00",
+        "closed": false
+      },
+      {
+        "label": "Brent Crude",
+        "value": 110.7,
+        "unit": "$/bbl",
+        "change_pct": -0.84,
+        "usd": true,
+        "as_of": "2026-10-29T00:53:54+00:00",
+        "closed": false
+      },
+      {
+        "label": "Bitcoin",
+        "value": 80901.42,
+        "unit": "$",
+        "change_pct": 0.09,
+        "usd": true,
+        "as_of": "2026-10-29T01:06:40+00:00",
+        "closed": false
+      },
+      {
+        "label": "Gold",
+        "value": 123989,
+        "unit": "₹/10g",
+        "change_pct": -0.03,
+        "usd": false,
+        "as_of": "2026-10-29T00:56:41+00:00",
+        "closed": false
+      },
+      {
+        "label": "Silver",
+        "value": 163920,
+        "unit": "₹/kg",
+        "change_pct": -0.22,
+        "usd": false,
+        "as_of": "2026-10-29T00:56:28+00:00",
+        "closed": false
+      }
+    ]
+  }
+}
