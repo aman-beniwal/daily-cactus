@@ -1,0 +1,487 @@
+{
+  "date": "2026-10-30",
+  "lead": {
+    "id": "global-economics-93e64a748a",
+    "headline": "Amazon shares fall 6% as $77 billion quarterly AI spending drains cash",
+    "hook": "Amazon spent more than $77 billion on property and equipment in the third quarter, and its shares fell about 6% in extended trading as free cash flow turned deeply negative.",
+    "points": [
+      "Trailing 12-month free cash outflow was $42.4 billion. Amazon is building data centers to meet AI demand, and a memory-chip crunch curbed supply earlier this year.",
+      "Amazon held its 2026 capex forecast at $220 billion, raised in July from a prior figure.",
+      "Revenue rose 12% to $201.9 billion, slightly below estimates. Online sales grew just 2% to $68.5 billion, the slowest since early 2023.",
+      "Advertising grew 11%, its slowest since Amazon began reporting it separately in 2020. Moving Prime Day to June from July explains part of the weakness, an analyst said.",
+      "Holiday-quarter sales guidance is $240-247 billion against $244.5 billion expected. Operating profit guidance is $28.5-33.5 billion against $33 billion expected."
+    ],
+    "signal": [
+      "AWS (Amazon's cloud unit) accelerated for a sixth straight quarter, with OpenAI and Anthropic as customers, but investors want cash returns for the spending.",
+      "Separately today, Alphabet fell 13% and Microsoft under 1%: the market is rewarding AI spending only where cloud growth is strong and capex looks contained."
+    ],
+    "key_stat": "$77B · quarterly capex",
+    "editors_read": "Investors have moved from asking whether AI demand is real to asking who funds it and when it pays back. Amazon is now spending more than it earns in cash, with a weakening retail core. If consumer pressure persists, AWS must carry the whole case, which raises the bar for every later quarter.",
+    "developing": false
+  },
+  "frontpage": [
+    {
+      "id": "deep-tech-1deb7ef615",
+      "headline": "Japan explores using Indian firing ranges to test long-range missiles and drones",
+      "hook": "Japan's army chief says officials are visiting India to find a range for testing the 1,000-km Type 24 missile and smaller attack drones.",
+      "points": [
+        "General Masayoshi Arai said using the missile's full 1,000-km range in training is \"a major challenge\", so Japan is weighing overseas ranges if domestic ones fall short.",
+        "Testing drones at home faces problems: radio interference with civilian TVs and smartphones, and friction with local governments.",
+        "The search supports a layered coastal defence plan using cheap unmanned air, surface and underwater vehicles plus standoff missiles (which strike from beyond an enemy's range).",
+        "Japan already has a similar munitions-testing arrangement with Australia. India, Japan and Australia are all Quad members."
+      ],
+      "signal": [
+        "If India agrees, it gains a defence-testing role in the Indo-Pacific and a paying foreign user for its ranges, though the article gives no terms or timeline."
+      ],
+      "key_stat": "1,000 km · Type 24 missile range",
+      "editors_read": "Japan lacks space to test long-range weapons at home, and India has space and a growing security tie with Tokyo. Any deal would deepen Quad defence links as the US pulls back from the region, per the article. Watch for whether it stays a range-access deal or grows into joint production."
+    },
+    {
+      "id": "deep-tech-c9a53b7784",
+      "headline": "Chinese chipmaker Iluvatar CoreX says its new GPU matches Nvidia's H200",
+      "hook": "Iluvatar CoreX says its Tiangai 300 GPU matched and in places beat Nvidia's H200, with state-backed Shanghai INESA tests showing 1.05 times the H200's throughput.",
+      "points": [
+        "The H200 is the most advanced Nvidia AI chip approved for export to China. A live demo on Wednesday showed Tiangai 300 beating it on text-to-image and text-to-video tasks.",
+        "In one image test, Tiangai 300 had a 100% completion rate versus the H200's 87.5%, though it took 0.64 seconds longer.",
+        "Wallstreetcn reported 15% higher mixture-of-experts (MoE) throughput and up to 30% lower first-token latency on long text. MoE routes tasks to specialised sub-networks to save compute.",
+        "When fine-tuning Qwen3-32B, it delivered 1.33 times the throughput of Nvidia's older H100.",
+        "Iluvatar says Tiangai has reached 10,000-card deployments, and aims to leapfrog Nvidia's Rubin platform within two years."
+      ],
+      "signal": [
+        "These are company-demonstrated and Chinese-media-reported results; Iluvatar did not respond to comment. If independent tests hold, Beijing's push to avoid foreign chips gets more credible.",
+        "Nvidia began H200 shipments to China in August after a supply freeze, so domestic rivals now compete directly with a legal import."
+      ],
+      "key_stat": "1.05x · H200 throughput",
+      "editors_read": "Matching a chip launched in late 2023 means China is still roughly a generation behind Nvidia's frontier, but good enough for many workloads. With Beijing discouraging foreign purchases, the commercial test is volume deployment, not benchmarks."
+    },
+    {
+      "id": "ai-56fa7327f2",
+      "headline": "OpenAI-backed Thrive Holdings acquires security firm ADT",
+      "hook": "Thrive Holdings is buying ADT at $10 per share, about $7.6 billion in equity and $15.3 billion including debt, to build a smart home security business.",
+      "points": [
+        "Thrive Holdings is a holding company spun out of Thrive Capital, the VC firm led by Josh Kushner. It holds over 75 companies and aims to revitalise them with AI.",
+        "OpenAI is both a partner and an investor, supplying models and forward-deployed engineers (engineers embedded inside client companies).",
+        "No new AI security products were named, but the companies said they plan to invest and release new ones.",
+        "ADT already partners with Apple and Google and is expected to continue. Apple and Amazon have also launched AI smart-home security products recently."
+      ],
+      "signal": [
+        "The test is whether AI lifts margins at a mature, debt-heavy service business; the $7.6B equity versus $15.3B enterprise value gap shows how much debt comes with it."
+      ],
+      "key_stat": "$15.3B · enterprise value",
+      "editors_read": "This is a bet that AI-driven operating improvement can be bought, not built. If it works at ADT, expect more AI-lab-linked buyers of old-economy service firms. If not, the leverage will be the problem."
+    },
+    {
+      "id": "work-careers-44b92e4f0d",
+      "headline": "Innodata fires about 550 employees in India without notice",
+      "hook": "US-based AI data services firm Innodata has laid off nearly 550 employees in India, with cuts also reported in the Philippines.",
+      "points": [
+        "Around lunchtime on Monday, employees lost access to company systems and got termination emails on personal accounts, per an India Today report.",
+        "No prior notice was given to staff.",
+        "The text provided cuts off before the reason Innodata gave in the termination email."
+      ],
+      "signal": [
+        "AI data work (labelling and annotation) is exposed to client budget swings and automation, so jobs in it can vanish quickly."
+      ],
+      "key_stat": "~550 · India layoffs"
+    },
+    {
+      "id": "india-c930279057",
+      "headline": "EU chief says Modi will visit Brussels in December to sign India-EU trade deal",
+      "hook": "European Council President Antonio Costa says Prime Minister Modi will go to Brussels in December to formally sign the India-EU free trade agreement.",
+      "points": [
+        "Costa made the remark in Montreal, at a Montreal Council on Foreign Relations event during an EU-Canada summit.",
+        "The visit is expected shortly before a meeting of European leaders in Brussels starting December 17.",
+        "Negotiations concluded earlier this year. The pact would create a market of over two billion people, around a quarter of the global economy."
+      ],
+      "signal": [
+        "Signing is not entry into force; the article does not say when tariff cuts would start, so check ratification steps before assuming trade effects."
+      ],
+      "key_stat": "2B+ people · combined market"
+    },
+    {
+      "id": "ai-78335250d1",
+      "headline": "Nvidia in talks to guarantee credit for Nscale data center used by Anthropic",
+      "hook": "Nvidia is in talks to provide credit guarantees for an Nscale AI data center campus in West Virginia that Anthropic plans to use, a source says.",
+      "points": [
+        "The guarantees would backstop electricity and construction costs for the campus, which will run Nvidia chips.",
+        "Nvidia already invests in Nscale and other AI computing providers.",
+        "The source is anonymous and the talks are private; nothing is finalised."
+      ],
+      "signal": [
+        "If Nvidia backs the debt of customers that buy its chips, it is helping finance its own demand, which ties its sales to its customers' credit."
+      ],
+      "key_stat": "Credit guarantee · talks",
+      "editors_read": "Vendor financing lowers borrowing costs for neocloud builders but moves risk onto Nvidia. It echoes today's wider theme of AI buildouts needing outside capital, as with Microsoft's bond sale."
+    },
+    {
+      "id": "global-economics-5ac7099593",
+      "headline": "ECB President Lagarde to step down on February 7, months before term ends",
+      "hook": "Christine Lagarde will leave the European Central Bank on February 7, 2027, before her term ends in October 2027, opening a contest to succeed her.",
+      "points": [
+        "Her successor is appointed by the European Council. Spain's Pablo Hernandez de Cos and the Netherlands' Klaas Knot are the main contenders, with De Cos favoured by economists polled by Bloomberg.",
+        "The timing lets current EU leaders, including Macron, choose before France's April presidential election. German MEP Markus Ferber warned that departure timed around elections damages trust.",
+        "Executive board member Isabel Schnabel leaves in early January and chief economist Philip Lane in May.",
+        "The ECB held its deposit rate at 2.5% on Thursday after a September hike. Euro-area inflation was 3.8% last month, with energy inflation at 18.8%.",
+        "Markets price about 67% odds of a December hike. Deutsche Bank expects one more, to 2.75%, under Lagarde."
+      ],
+      "signal": [
+        "Three top ECB vacancies at once raise uncertainty over policy in 2027, though Goldman Sachs expects institutional behaviour to stay similar."
+      ],
+      "key_stat": "Feb 7 · Lagarde exit",
+      "editors_read": "The risk is a rate-setting body in transition while inflation is nearly double target. If December brings the expected hike, it is Lagarde's last, and her successor inherits a tighter-for-longer decision."
+    },
+    {
+      "id": "indian-startups-2c709db371",
+      "headline": "Manufacturing startup CapGrid raises Rs 50 crore at Rs 430 crore valuation",
+      "hook": "B2B manufacturing startup CapGrid closed a Rs 50 crore round of primary and secondary sales that values it at Rs 430 crore, up 40%.",
+      "points": [
+        "Hero Enterprise Venture Partners, the investment arm of Hero Enterprise, led the round.",
+        "Existing backers Axilor Ventures, Anicut Capital and Nexus Venture Partners joined, along with angels.",
+        "The company says it will use funds for operations, R&D, new industrial sectors and more domestic customers."
+      ],
+      "signal": [
+        "A secondary component means some existing holders cashed out, so not all Rs 50 crore goes into the business."
+      ],
+      "key_stat": "Rs 50 crore · Rs 430 crore valuation"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-7610575f95",
+          "headline": "US investigated Chinese spy plot aimed at Nvidia CEO, NYT reports",
+          "hook": "US intelligence agencies reportedly watched Megaspeed executive Alice Huang for about a year over fears she was gathering information from Nvidia CEO Jensen Huang for China.",
+          "points": [
+            "Megaspeed is a Singapore AI cloud firm accused of illegally selling Nvidia chips to China. Alice Huang was photographed at business dinners with Jensen Huang.",
+            "Sources told the New York Times the worry was access to Nvidia's plans and his lobbying of the Trump administration to allow more advanced chip sales to China.",
+            "Nvidia denies it, saying such meetings are normal and regional cloud customers get ordinary business information, no trade secrets.",
+            "In 2025 the Commerce Department investigated Megaspeed for helping Chinese firms get around chip export rules."
+          ],
+          "signal": [
+            "The allegations are from anonymous sources and denied by Nvidia. They show how export-control enforcement now reaches into customer relationships."
+          ],
+          "key_stat": "~1 year · surveillance"
+        },
+        {
+          "id": "ai-5ed2fb0334",
+          "headline": "Reddit to require sign-ins for most content as Google AI cuts traffic",
+          "hook": "Reddit CEO Steve Huffman outlined a plan to mandate sign-ins for most content to deter data scraping, after blaming Google's AI for traffic losses.",
+          "points": [
+            "Reuters reports the plan was announced Thursday, aimed at AI scrapers.",
+            "Techaeris reports Reddit will test a fully logged-in experience outside the US this quarter.",
+            "Search referral traffic is falling as AI changes how people find information (summary from limited source text)."
+          ],
+          "signal": [
+            "Logged-in users are measurable and harder to scrape, which strengthens Reddit's case when licensing data to AI firms."
+          ],
+          "key_stat": "Logged-in test · outside US"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-70cae7a87b",
+          "line": "A Victorian survey of 2,221 lawyers found AI use rose from 37% to 55% in a year, but only 26% have cut client fees as a result."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-8b4a4d972e",
+          "headline": "How AI drones are changing the Ukraine war",
+          "hook": "Ukrainian firm The Fourth Law says dozens of military units use its Lupynis TFL-1 drone, which flies itself for the last 500 metres to a target.",
+          "points": [
+            "The drone pairs a cheap first-person-view (FPV) drone with an onboard computer. A pilot picks the target, and after a lock the AI takes over.",
+            "A neural network trained on combat footage recognises vehicles, light armour, tanks and flying objects.",
+            "The company says autonomy makes drones hard to jam and that humans still select targets.",
+            "Founder Yaroslav Azhnyuk argues Russia uses AI drones too, and human decision speed (minutes) cannot match machines (microseconds). Zelenskyy has warned AI could make battlefield decisions as soon as next year."
+          ],
+          "signal": [
+            "If both sides automate terminal guidance, electronic jamming loses value and the next debate moves to autonomous target selection."
+          ],
+          "key_stat": "500 m · autonomous final flight"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-9021bc2b34",
+          "line": "A Greek container ship sank after a drone attack off Bulgaria (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-7fd13d78b5",
+          "headline": "China's 2026 clean-tech exports on track to avoid CO2 equal to Brazil's yearly emissions",
+          "hook": "China's 2026 clean-tech exports will avoid about 450 million tonnes of CO2 a year, nearly 2% of emissions outside China and roughly Brazil's annual fossil emissions.",
+          "points": [
+            "The avoided-emissions impact grew 26% year-on-year in the first three quarters of 2026, after 36% in 2025. Exports of EVs and heavy vehicles grew 61%, wind turbines 45%, batteries 39%, solar 22%.",
+            "Over equipment lifetimes, 2026 exports avoid 8,400 MtCO2, up from 6,800 in 2025 and 5,000 in 2024.",
+            "76% of lifetime avoided emissions are in the global south, which has dirtier grids and sunnier sites. India has the largest, followed by the US.",
+            "Manufacturing in China emitted about 170 MtCO2 in 2025 against 370 MtCO2 avoided abroad, a six-month payback.",
+            "Solar exports to the US rose 13% despite tariffs, suggesting demand is resilient."
+          ],
+          "signal": [
+            "Cutting reliance on Chinese supply would require scaling domestic and third-country manufacturing to meet this demand, the author argues."
+          ],
+          "key_stat": "450 MtCO2 · avoided in 2026"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-f155f5e9ed",
+          "line": "India's federal government approved a new support mechanism to speed up floating solar, which stands at roughly 700 MW in 2026; the piece questions the value given ample ground-mounted land."
+        }
+      ]
+    },
+    {
+      "slug": "health-tech",
+      "stories": [],
+      "also": [
+        {
+          "id": "health-tech-e714c95b30",
+          "line": "India's pharma exports rose 4.9% to $16.14 billion in H1 FY27, as Europe (up 9.66%) and other markets offset a decline in shipments to North America."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-c858c664b6",
+          "headline": "India says US trade deal will not hurt its farmers",
+          "hook": "Commerce Minister Piyush Goyal says the India-US framework cuts the US tariff on Indian goods from 50% to 18% with no tariff concessions for US farm products.",
+          "points": [
+            "Indian agricultural exports will enter the US at zero duty, including spices, tea, coffee, coconut oil, cashews, mango, banana and pineapple.",
+            "Tariffs also go to zero on generic pharmaceuticals, gems and diamonds, and aircraft parts.",
+            "Goyal says the 18% rate is lower than rates for neighbouring countries and will help labour-intensive sectors such as textiles, leather, toys and jewellery."
+          ],
+          "signal": [
+            "These are the minister's claims; the article gives no detail on the deal text, so the no-concessions claim is untested."
+          ],
+          "key_stat": "50% → 18% · US tariff"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-bd7074d0a9",
+          "headline": "Freshworks buys AI startup Robusta to diagnose IT outages",
+          "hook": "Freshworks acquired Israel-based Robusta Dev for an undisclosed sum to add AI root-cause analysis for IT outages to its Freshservice platform.",
+          "points": [
+            "Robusta's AI agents analyse monitoring data, infrastructure information and recent code or configuration changes to find the cause of an outage and recommend fixes.",
+            "Engineers approve actions before changes reach production systems.",
+            "Robusta's CEO says its tech makes investigating huge volumes of alerts affordable by cutting token costs.",
+            "It follows the agreed Torii deal and the December FireHydrant purchase, which coordinates outage response.",
+            "Freshworks reported Q2 revenue up 16% to $237.4 million and a GAAP net profit of $3.2 million."
+          ],
+          "signal": [
+            "Three deals in a short span suggest Freshworks is assembling an AI-IT operations stack by acquisition rather than building it."
+          ],
+          "key_stat": "Undisclosed · acquisition"
+        },
+        {
+          "id": "indian-startups-b06106be81",
+          "headline": "Jumbo Series A rounds hide a squeeze on seed startups",
+          "hook": "US Series A rounds fell about 28% to 272 in the third quarter from 377 a year earlier, even as 114 Series A megarounds of $100M+ closed globally this year.",
+          "points": [
+            "More than 70% of those $100M+ rounds went to AI companies. US seed rounds held up better, at 984 versus 1,059.",
+            "The median US seed round is about $3 million, 3x its 2018 level, yet only 16% of the 2024 seed cohort has moved past seed, against 55% or more through 2020.",
+            "One VC says Series A investors now expect $2-3 million in annual recurring revenue (ARR), sometimes $4 million. Seed to A takes over two years.",
+            "The author, a seed investor, says a repeatable sales process matters more than founder-led revenue."
+          ],
+          "signal": [
+            "If the revenue bar holds, founders should plan seed runway to reach it with six months to spare."
+          ],
+          "key_stat": "272 · US Series A rounds in Q3"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-1c5628c5ca",
+          "headline": "Former Navy chief says India is far from ready for AI-driven warfare",
+          "hook": "Admiral Arun Prakash says India lacks the structure to rebuild its military around drones and AI, noting that theatre commands took 6 years after the government's order.",
+          "points": [
+            "Reacting to General David Petraeus's call for drone swarms and weekly software procurement cycles, Prakash cites slow reform, with political attention weak on national security.",
+            "India is about to spend tens of billions on carriers, submarines and 114 Rafale jets, while AMCA is 10-15 years away. He asks whether AI should get the money instead.",
+            "He says India lacks a Maven-type system, has no published National Security Strategy, and Kaveri engine delays hurt aerospace.",
+            "China built a carrier in 2-3 years against India's 16, he says, and India needs 10-15 years of peace to catch up.",
+            "He insists a human must stay in the loop for lethal decisions."
+          ],
+          "signal": [
+            "This is one commentator's view, but it frames a real budget choice: legacy platforms against software and autonomy."
+          ],
+          "key_stat": "6 years · theatre command delay"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-deep-tech-ff0456baf6",
+          "line": "Y Combinator published 11 Requests for Startups for Winter 2027, covering AI, robotics, insurance, fintech and government services, favouring firms tackling practical limits on AI adoption."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-7995ecec87",
+          "headline": "DoorDash to buy Instacart for $17 billion",
+          "hook": "DoorDash will buy Instacart for about $17 billion, paying $65 per share in cash and stock, a 26% premium to Instacart's price before the first media reports.",
+          "points": [
+            "Instacart's share of US delivery-platform spending fell from 26% to 18% in five years, while DoorDash's rose from 44% to 59%, per Consumer Edge. Uber Eats held just under 20%.",
+            "Instacart (338 million orders last year, 600,000 contractor shoppers) keeps its brand and app. Customers gain access to 50,000 more stores.",
+            "Slower orders, cost pressure and scrutiny of gig-worker treatment have driven a wave of delivery mergers.",
+            "The deal has raised antitrust concerns. DoorDash shares rose 3% on the day, while Instacart fell nearly 2%."
+          ],
+          "signal": [
+            "If regulators allow it, DoorDash controls most US delivery spending; unclear is the future of Instacart's Walmart delivery, which DoorDash stopped offering in 2022."
+          ],
+          "key_stat": "$17B · $65 per share"
+        },
+        {
+          "id": "global-economics-d467e21932",
+          "headline": "Microsoft plans to raise at least $25 billion in first US bond sale in over nine years",
+          "hook": "Microsoft is seeking at least $25 billion in its first US investment-grade bond sale since 2017, in up to 10 tranches maturing from 2 to 40 years.",
+          "points": [
+            "Proceeds are for general corporate purposes, including capital expenditure. The size may change with demand.",
+            "Microsoft is one of only two US firms with top AAA ratings, alongside Johnson & Johnson. Its 2017 sale raised $17 billion.",
+            "It is the first blue-chip hyperscaler bond since Alphabet priced $25 billion on Aug. 6.",
+            "The longest note, due 2066, was initially talked at up to 1.35 percentage points over Treasuries."
+          ],
+          "signal": [
+            "Demand for this deal will test whether bond investors will keep funding AI buildouts as sustainability worries grow."
+          ],
+          "key_stat": "$25B+ · first since 2017"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-7bc29a3b31",
+          "line": "The Fed held rates at 3.75-4.00% on a 10-2 vote, with two members wanting a hike. September inflation was 3.7%, and the midterms are days away."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-62256a287b",
+          "headline": "Finance ministry estimates India's economy grew 7.35% in July-September",
+          "hook": "India's economy grew an estimated 7.35% in July-September, down from 7.8% in April-June, the Finance Ministry's nowcasting model says.",
+          "points": [
+            "The ministry's September review had projected about 7.3% for the quarter.",
+            "Gross GST collections grew about 15%, versus about 8.4% in the previous quarter. Domestic auto sales rose about 25% year-on-year.",
+            "Industrial output, electricity use and port traffic were also stronger, and PMI readings recovered in September.",
+            "The RBI forecasts 7.1% for FY27 and the IMF 7.0%. Headwinds include energy prices, geopolitical tension and tighter global finance."
+          ],
+          "signal": [
+            "This is a model estimate, not official data; the real GDP number will come later."
+          ],
+          "key_stat": "7.35% · Q2 FY27 estimate"
+        },
+        {
+          "id": "india-4ba13133b8",
+          "headline": "Finance ministry sees economy sustaining growth through FY27",
+          "hook": "The finance ministry's monthly review expects 7.35% growth in July-September and says trade deals and healthy credit growth will support exports and consumption.",
+          "points": [
+            "Strong exports and a steady services surplus cushioned the trade balance, and capital inflows financed the wider current account deficit in April-August.",
+            "The industrial outlook is supported by firm orders and credit, but energy prices and supply chains remain cost risks.",
+            "Most global agencies estimate 6.9-7.1% for the year."
+          ],
+          "signal": [
+            "The ministry itself flags higher crude oil as the main swing factor."
+          ],
+          "key_stat": "6.9-7.1% · agency FY27 range"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-89ced9fa4b",
+          "headline": "Binance says $2.54 billion in funds frozen after possible security breach",
+          "hook": "Binance said at least $2.54 billion in funds are frozen after a \"potential security issue\", and it suspended all deposits and withdrawals as a precaution.",
+          "points": [
+            "Bitcoin fell about 5%, dropping below $77,000.",
+            "Binance says user funds are safe. It is working with law enforcement.",
+            "Founder Changpeng Zhao, who left as CEO in 2023, said it \"does look like a hack\" and expects users to be fully covered.",
+            "If confirmed, it would exceed the $1.5 billion Lazarus Group theft in 2025 as the largest crypto theft. Hackers stole $2.87 billion in 2025 overall."
+          ],
+          "signal": [
+            "The key unknowns are whether this is a hack and whether Binance can cover losses; the cause is unconfirmed."
+          ],
+          "key_stat": "$2.54B · frozen"
+        },
+        {
+          "id": "world-04ed07ca0f",
+          "headline": "US economy grows 3.4% in third quarter, beating forecasts",
+          "hook": "US GDP grew at a 3.4% annualised rate in the third quarter, beating the 3.2% economists expected, as consumers and AI investment outweighed higher oil prices.",
+          "points": [
+            "Consumer spending, over two-thirds of the economy, rose 3.8%, the same as the second quarter. Layoffs are historically low, but households are saving less.",
+            "Growth is well above the roughly 2% pace some Fed officials see as non-inflationary. The Fed held rates at 3.75-4%, and economists expect a December hike.",
+            "Some economists doubt the figure is a true picture, since AI spending is a large driver and the payoff is uncertain.",
+            "Petrol is above $4 a gallon, so economists expect consumer spending to slow."
+          ],
+          "signal": [
+            "Strong growth strengthens the case for the hike economists expect in December."
+          ],
+          "key_stat": "3.4% · Q3 annualised growth"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "other-interests",
+      "stories": [],
+      "also": [
+        {
+          "id": "other-interests-77266474e3",
+          "line": "Science Magazine reports that AI-written papers are prompting debate over who gets credit and responsibility, and the rules on authorship may need a rewrite."
+        },
+        {
+          "id": "other-interests-d3bef6e8cf",
+          "line": "A new analysis suggests removing quantum mechanics' probabilistic nature is even harder than researchers anticipated."
+        }
+      ]
+    },
+    {
+      "slug": "work-careers",
+      "stories": [],
+      "also": [
+        {
+          "id": "work-careers-eb36ce1012",
+          "line": "Indian job seekers in the US are looking beyond tech amid H-1B uncertainty (source unreachable — headline only)."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-a9bf4c9f3e",
+      "name": "Supabase x Cyberwave Builders Meetup",
+      "when": "Sat 14 Nov 2026, 11:00 AM-3:30 PM; entry closes 11:30 AM",
+      "summary": "Free open-build day for Physical AI: build with robots in simulation, with lunch and mentors, and a route into a four-week online Cyberwave program that ships real robots. Bring a laptop with Python 3.10+. Seats are limited and registrations are reviewed. Delhi NCR."
+    },
+    {
+      "id": "opportunities-97e850fe9c",
+      "name": "Green Global Fellowship 2027",
+      "when": "Apply by Thu 7 Jan",
+      "summary": "Sustainability fellowship for emerging leaders, for the February 2027 cohort, with a 5-7 minute application, no experience needed, and a conditional $1,000 grand prize for one fellow. Online/global."
+    }
+  ]
+}
