@@ -1,0 +1,786 @@
+{
+  "date": "2026-10-31",
+  "edition": 138,
+  "colophon": "89 sources scanned · 88 ok · 1 failed",
+  "lead": {
+    "id": "ai-670b2e9048",
+    "headline": "OpenAI cuts its funding target by $10bn as tech anxieties mount",
+    "summary": "",
+    "signal": [
+      "Separately today, Nasdaq fell more than 3% and Alphabet had its worst day on record on doubts about AI returns. If investors keep demanding payback, AI labs that depend on outside capital face a tighter funding market."
+    ],
+    "badge": "",
+    "takeaway": "",
+    "why": "",
+    "source": "Financial Times",
+    "url": "https://www.ft.com/content/7a3ad950-1b3b-4d9e-8c15-65a61ae6180f?syn-25a6b1a6=1",
+    "image": null,
+    "developing": true,
+    "hook": "OpenAI has ==cut its funding target by $10bn==, according to the Financial Times headline (source unreachable — headline only).",
+    "editors_read": "The article text was behind a paywall, so only the headline is confirmed: the target was cut by $10bn. The likely mechanism is that investors now ask when AI spending pays back, a worry visible in today's Nasdaq and Alphabet moves. If that holds, labs with the largest compute commitments carry the most risk, while companies with cash-generating businesses can keep spending."
+  },
+  "frontpage": [
+    {
+      "id": "ai-c6608a9a56",
+      "headline": "Tech sell-off wipes nearly ==$1tn off== the Nasdaq in a week after weak earnings",
+      "summary": "",
+      "signal": [
+        "The market is now punishing AI spending that has no near-term profit attached, even when profits beat forecasts, as with Intel.",
+        "If spending forecasts keep rising while returns stay unproven, more big tech stocks may fall on earnings days."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "AI (artificial intelligence) | The Guardian",
+      "url": "https://www.theguardian.com/technology/2026/oct/30/tech-stocks-drop-earnings-report",
+      "image": "https://i.guim.co.uk/img/media/7a052dd1015720ea8d19c722dd7b8bcd0586aab3/452_0_4515_3613/master/4515.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=930dcdd08e3b30fddc8297bec9bfddfc",
+      "developing": true,
+      "hook": "The Nasdaq fell more than 3% on Friday, taking nearly $1tn off its value in one week and about $2tn in a month.",
+      "points": [
+        "The S&P 500 fell more than 1% and was on track to erase its October gain, even though it hit a record high earlier in the month.",
+        "Intel fell nearly 30%, near its worst day since 1974. Its profit beat forecasts, but its guidance for the final three months of the year fell far short.",
+        "Alphabet fell more than 12% on Thursday, losing $500bn in value, its worst day on record, after saying it burned more cash in summer than in spring on AI spending.",
+        "Meta, Alphabet and Amazon all raised spending forecasts. Amazon fell 1.8% on weaker profit and higher-than-expected spending.",
+        "Nvidia fell 3.1%, the biggest drag on the S&P 500. Chip stocks are also under pressure on worries that high interest rates may slow data centre building."
+      ],
+      "key_stat": "Nasdaq −3% · ~$1tn lost in a week",
+      "editors_read": "The mechanism is simple: hyperscalers (the largest cloud companies) are spending faster than their AI revenue grows, and investors have shifted from rewarding spending to demanding payback. If rates stay high, financing data centres gets costlier, which hurts chip suppliers too. For a reader moving into AI roles, expect more pressure on AI teams to show measurable returns rather than pilots."
+    },
+    {
+      "id": "deep-tech-9ef714d908",
+      "headline": "Isro launches NVS-03 to restore NavIC's positioning service",
+      "summary": "",
+      "signal": [
+        "If NVS-03 reaches final orbit and is commissioned, India regains standalone positioning. NVS-04 and NVS-05 are in an advanced stage to build out the constellation."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "The Times of India",
+      "url": "https://timesofindia.indiatimes.com/india/isros-gslv-f18/nvs-03-mission-successful-next-generation-navigation-satellite-placed-in-orbit-navic-constellation-gets-a-boost/articleshow/135374721.cms",
+      "image": "https://static.toiimg.com/thumb/msid-135376098,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
+      "developing": true,
+      "hook": "Isro launched the ==2,250kg NVS-03 satellite== on GSLV-F18 to bring NavIC back to the four working satellites it needs for standalone positioning.",
+      "points": [
+        "NavIC had only three working satellites against the minimum four, according to the space minister in July. Timing service still worked, but standalone positioning did not.",
+        "NVS-02, launched in January 2025, never reached its final orbit because an electrical signal failed to reach a pyro valve in its fuel line.",
+        "NVS-03 is now in a transfer orbit and must fire its own engines over the next few days to reach geostationary orbit. That is the step NVS-02 failed.",
+        "It adds an L1 signal to the existing L5 and S-band signals, which should improve compatibility with other navigation systems and widen civilian use. It carries an indigenous atomic clock alongside procured ones.",
+        "The launch came 56 days after the previous GSLV flight, the shortest gap yet. This was the 20th GSLV flight: 14 successes, 4 failures, 2 partial failures. __Isro plans five more launches this financial year.__"
+      ],
+      "key_stat": "3 → 4 satellites needed · NavIC",
+      "editors_read": "The launch is the easy half. NVS-02 reached the same transfer orbit and then failed, so NavIC is restored only once NVS-03 completes its manoeuvres. A fast launch cadence matters because a four-satellite constellation has no spare, so any single failure again removes standalone positioning."
+    },
+    {
+      "id": "ai-2dbab42d67",
+      "headline": "MeitY proposes a consent-based framework to share data for training AI models",
+      "summary": "",
+      "signal": [
+        "If the framework works, small players could access datasets that only large firms hold today. That would need banks and hospitals to want to share, and the draft does not say what they gain.",
+        "Separately today, TRAI's AI-in-telecom draft guidelines are open for comment until November 27, so AI rules are arriving sector by sector."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Inc42",
+      "url": "https://inc42.com/buzz/meity-floats-new-privacy-led-framework-to-unlock-data-for-training-ai-models/",
+      "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/10/soc-14.jpg",
+      "developing": true,
+      "hook": "MeitY proposed DEPA for AI training, a framework to let startups and researchers train models on India-specific datasets without ever receiving the raw data.",
+      "points": [
+        "Data providers (banks, hospitals, government agencies) register anonymised, encrypted datasets. Consumers request access, and an electronic contract checks the request against sharing rules before granting it.",
+        "Training happens inside confidential clean rooms (secure environments where parties collaborate without seeing each other's data), using differential privacy so individuals cannot be identified.",
+        "Trained models would face independent checks for bias, fairness, security, safety and explainability before pilot deployment, with continuing monitoring afterwards.",
+        "It builds on the existing DEPA used by Account Aggregator, was drafted with iSPIRT, and aims to comply with the DPDP Act."
+      ],
+      "key_stat": "Consent-based DEPA for AI training"
+    },
+    {
+      "id": "work-careers-d9ed32790d",
+      "headline": "Fewer IIT and IIM graduates are founding startups even as total startups surge",
+      "summary": "",
+      "signal": [
+        "The new founders are coming from outside the elite institutes, so formal credentials matter less for founding, while credentialed talent is going into AI jobs.",
+        "If investors keep prioritising unit economics, volume alone will not raise the number of lasting companies."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "The Economic Times",
+      "url": "https://m.economictimes.com/industry/services/education/iit-and-iim-graduates-shun-startups-as-ai-jobs-gain-appeal-amid-rising-startup-activity-in-india/articleshow/135376436.cms",
+      "image": "https://img.etimg.com/thumb/msid-135376525,width-1200,height-900,imgsize-477188,overlay-etcareers/articleshow.jpg",
+      "developing": false,
+      "hook": "Only 79 IIT and 20 IIM alumni founded tech startups from January to August 2026, against 307 and 71 in all of 2025, while total tech startups founded rose.",
+      "points": [
+        "Tracxn counts 6,353 tech startups founded through August 2026, against 3,969 in all of 2025. Its data tracks only incorporation year, so there is no like-for-like Jan–Aug 2025 figure and 2026 counts may rise.",
+        "India had 196,704 tech startups as of August 2026. Of these, 6,147 had at least one IIT founder and 2,102 had at least one IIM founder.",
+        "Kedaara Capital's Saakshi Gera says startups are rising because AI and no-code tools cut the cost of launching, and layoffs make founding a fallback. She says top graduates are choosing safer AI-adjacent jobs.",
+        "Tracxn's Neha Singh says IIT founders outnumber IIM founders partly because the IIT alumni base is larger and technical founders start early."
+      ],
+      "key_stat": "6,353 startups in 8 months vs 3,969 in 2025"
+    },
+    {
+      "id": "ai-9e1171f2fe",
+      "headline": "Claude agent chose and delivered a gene therapy to a mouse, then refused to continue mid-surgery",
+      "summary": "",
+      "signal": [
+        "Agents in lab workflows will need human approval at each irreversible step, plus clear rules for when the agent stops. A refusal mid-procedure is a real operating cost."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making/",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/10/claude_mouse_op.png",
+      "developing": false,
+      "hook": "An AI agent on Claude Sonnet 5 picked the drug, brain region and coordinates for epilepsy surgery on a mouse and ran the procedure, with no human making those decisions.",
+      "points": [
+        "The team gave it 19 candidate gene therapies, an epilepsy mouse model and a motorised surgical rig with cameras. Its only instruction was to reduce the mouse's seizures.",
+        "It derived coordinates by averaging values from three papers, set injection volume and speed, and made 32 camera observations during surgery. A vet approved every irreversible step and held an emergency stop.",
+        "After a dropped connection it found its target outside the rig's range and refused to proceed through three attempts. It was right: manual adjustments had thrown off the control system, and the CEO fixed the code by hand.",
+        "Opus 5.5 and Opus 5 both declined the live procedure. The mouse recovered. Exin Therapeutics' CEO says it is the first time an agent both chose and delivered a treatment; the results are not peer-reviewed."
+      ],
+      "key_stat": "32 observations · 0 human treatment decisions"
+    },
+    {
+      "id": "global-economics-281af7b770",
+      "headline": "Cursor says a fake Claude Code extension reached up to 5,000 users",
+      "summary": "",
+      "signal": [
+        "Extension marketplaces are an attack route into developers' machines. Teams should install only vetted extensions and keep versions pinned and current.",
+        "Cursor's own count is the only one so far; the story is still developing."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/cursor-says-up-5000-users-affected-by-tampered-claude-code-extension-2026-10-30/",
+      "image": null,
+      "developing": true,
+      "hook": "A tampered Claude Code extension sat in Cursor's marketplace for about eleven hours on Thursday, affecting at most 5,000 users, Cursor says.",
+      "points": [
+        "It tried to collect hostname, username, operating system and public IP address, and to set up remote access for the attacker. The remote access likely would not work on most machines because it needs admin privileges.",
+        "Anthropic did not develop it. Cursor took its whole marketplace offline, worked with providers to neutralise the malware, and reinstated it after confirming no further risk.",
+        "Cursor says no other extensions or SpaceX products such as Grok were affected. It asks all users to update to Claude Code for VS Code version 2.1.314.",
+        "SpaceX acquired Cursor for $60 billion in August."
+      ],
+      "key_stat": "≤5,000 users · ~11 hours"
+    },
+    {
+      "id": "india-deep-tech-a2aa24467b",
+      "headline": "Underwater robotics startup Coratia ==raises ₹18 crore to deliver== its ₹66 crore Navy contract",
+      "summary": "",
+      "signal": [
+        "The Navy contract is described as the first large-scale induction of indigenous underwater robots. If delivery goes well, it gives Coratia a reference for industrial and infrastructure buyers.",
+        "Funds are small relative to the contract, so execution and working capital are the risks."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Indian Startup News",
+      "url": "https://indianstartupnews.com/funding/underwater-robotics-startup-coratia-raises-rs-18-crore-as-it-builds-robots-for-the-indian-navy-12765764",
+      "image": "https://img-cdn.publive.online/fit-in/1200x675/indianstartupnews/media/media_files/2026/10/30/underwater-robotics-startup-coratia-raises-rs-18-crore-as-it-builds-robots-for-the-indian-navy-2026-10-30-14-25-39.png",
+      "developing": false,
+      "hook": "Odisha's Coratia Technologies raised ₹18 crore in a bridge round led by MGF Kavachh to execute its ₹66 crore Indian Navy contract.",
+      "points": [
+        "The new money equals roughly 27% of the Navy contract's value. MGF Kavachh previously backed Coratia's ₹17 crore pre-Series A in 2025; the two rounds total about ₹35 crore.",
+        "Under the iDEX contract (signed September 2025), Coratia supplies three platforms: Jalasimha and Jaladuta underwater remotely operated vehicles, and the Navya autonomous surface vehicle.",
+        "They do sonar mapping, seabed surveys, hull cleaning, minor salvage and inspection of submerged infrastructure, with AI-based real-time data processing. Jalasimha has reached TRL-9, the highest technology readiness level.",
+        "Customers beyond the Navy include Indian Oil, Indian Railways, Tata Steel, Hindalco, SAIL and Jindal Steel and Power. The company has about 32 employees, according to reports."
+      ],
+      "key_stat": "₹18 Cr · bridge round"
+    },
+    {
+      "id": "ai-135f70cd39",
+      "headline": "Google's ==first orbital data centre satellite== is online and answering prompts",
+      "summary": "",
+      "signal": [
+        "The economics rest on Starship becoming fully and rapidly reusable. If it does not, orbital compute stays costlier than ground data centres.",
+        "Separately today, Alphabet fell sharply on AI-spending worries, which could pressure long-horizon projects like this."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/DSC_0298.jpg?resize=1200,800",
+      "developing": false,
+      "hook": "Google's Suncatcher prototype, carrying four TPUs and generating up to 1 kW of power, is online and ran its first prompt: a haiku from Gemma 4.",
+      "points": [
+        "Power limits it to running one TPU at a time, for about 20 minutes. That complicates space-to-ground communication.",
+        "The test campaign will check how the chips handle thermal stress and radiation. Radiation can cause bit flips (stored values changing), which can corrupt data without triggering monitoring tools.",
+        "Ground tests suggest radiation matters little for inference (running a model) and more for training one. Orbit will show whether that holds.",
+        "If the TPUs work, two more satellites follow in 2027 with higher power and inter-satellite optical links.",
+        "Suncatcher researchers estimate SpaceX must fly Starship 1,800 times to get the cost cuts its earlier rockets achieved."
+      ],
+      "key_stat": "4 TPUs · 1 kW · one runs at a time"
+    }
+  ],
+  "sections": [
+    {
+      "name": "AI",
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-60ba719a05",
+          "headline": "Blackstone now expects Anthropic to get a 'junk' credit rating after its IPO",
+          "summary": "",
+          "signal": [
+            "If the rating lands in junk, Anthropic's compute commitments cost more to finance, which raises pressure to show revenue growth."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "AI News & Artificial Intelligence | TechCrunch",
+          "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+          "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2282033342.jpg?w=1024",
+          "developing": false,
+          "hook": "Blackstone told investors it expects Anthropic to land a double-B rating, the top tier of 'junk', after its IPO, the FT reports.",
+          "points": [
+            "Blackstone anchored a recent $63 billion deal to finance Anthropic's chips. It had previously said Anthropic __would reach investment grade before 2027__.",
+            "A junk rating means lenders see higher risk, so borrowing costs more and is harder to raise.",
+            "The lab has signed large compute deals over the past 12 months, which has worried investors. Anthropic officially filed to go public earlier this week.",
+            "Anthropic and Blackstone declined to comment. The rating is a prediction, not a decision."
+          ],
+          "key_stat": "Double-B · top 'junk' tier"
+        },
+        {
+          "id": "ai-5e5403d863",
+          "headline": "Baseten in talks to raise funds that would more than double its value to about ==$30 billion==",
+          "summary": "",
+          "signal": [
+            "Investors are still paying large premiums for AI infrastructure startups, even as public tech stocks fall."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Bloomberg Technology",
+          "url": "https://www.bloomberg.com/news/articles/2026-10-30/baseten-set-for-30-billion-valuation-with-new-funding",
+          "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iWUBj3yFlTDM/v1/1200x800.jpg",
+          "developing": false,
+          "hook": "AI startup Baseten is set to raise funding that would more than double its valuation to about $30 billion, according to people familiar.",
+          "points": [
+            "The round has two tranches: the first values Baseten at $26 billion, the second at $30 billion.",
+            "Sources asked not to be named (summary from limited source text)."
+          ],
+          "key_stat": "$26B → $30B · two tranches"
+        },
+        {
+          "id": "ai-b289104f9d",
+          "headline": "Companies that cut jobs for AI are asking workers to come back",
+          "summary": "",
+          "signal": [
+            "Cutting staff for AI savings can backfire when the people carrying context leave. Roles combining business knowledge with AI skills look safest.",
+            "Survey figures are self-reported with a 5% margin of error."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/make-it/2026/10/30/ai-rebounding-employees.html",
+          "image": "https://image.cnbcfm.com/api/v1/image/108475135-1793200666292-gettyimages-881838322-img_0772.jpeg?v=1793200679&amp;w=1920&amp;h=1080",
+          "developing": false,
+          "hook": "Nearly 1 in 5 US workers surveyed say they were laid off or replaced by AI and then asked to return, according to SHL.",
+          "points": [
+            "Employers cited AI as the main reason for almost 40% of job cuts announced in May 2026, per Challenger, Gray & Christmas. A March Orgvue report found 32% of firms that cut for AI have had to rehire.",
+            "SHL surveyed over 1,000 US and over 1,000 UK workers in June–July. Only 6.6% of US workers would refuse to return under any circumstances.",
+            "Returners want terms: almost half want a significant pay rise, 43% written job-security guarantees, 40% full transparency on AI use, and 30% an apology from leadership.",
+            "Harvard's Joseph Fuller says firms treated AI like any software rollout, funding it by layoffs, yet AI works best alongside staff who know the business. SHL's Lucy Beaumont says trust damage lowers returnees' productivity and engagement."
+          ],
+          "key_stat": "~1 in 5 · laid off then asked back"
+        }
+      ],
+      "also": [
+        {
+          "line": "Australia's plan to loosen copyright for AI training may breach the constitution's 'just terms' rule on acquiring property, senators and music groups warn, risking compensation claims from rights holders worldwide.",
+          "source": "AI (artificial intelligence) | The Guardian",
+          "url": "https://www.theguardian.com/law/2026/oct/31/experts-warn-ai-copyright-changes-could-breach-australian-constitution-and-spark-huge-compensation-rights-case"
+        }
+      ]
+    },
+    {
+      "name": "Deep Tech",
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-f1a16550a8",
+          "headline": "Europe starts funding offensive and defensive capabilities in orbit",
+          "summary": "",
+          "signal": [
+            "Governments are buying space systems that can act on other satellites. If this continues, startups in rendezvous and proximity operations (RPO) gain defence customers."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Payload",
+          "url": "https://payloadspace.com/europe-begins-funding-offensive-in-space-capabilities/",
+          "image": "https://payloadspace.com/wp-content/uploads/2026/10/CG-Image-of-ADRAS-J-Approaching-Debris-2-1-200x200.jpg",
+          "developing": false,
+          "hook": "Astroscale UK won a £15M (€18M) UK Ministry of Defence contract to lead LEDA, a new secretive in-space defence programme.",
+          "points": [
+            "The European Defence Fund picked French startup OSMOS X to lead a study on responding to threats in orbit. Its tactical-capture project builds effectors that can grab enemy spacecraft and attach jammers or propulsion.",
+            "Shield Space launched a UK coalition to pitch a space-based carrier-strike platform. Blackswan Space sent an open letter urging more funding for space control.",
+            "The push follows a Russian spy satellite coming close to an ICEYE satellite over Ukraine this month. Company officials say the build-up predates it and has only now turned from strategy into action.",
+            "Astroscale's 2021 docking demo was with a cooperative target. Keeping pace with an adversary that can manoeuvre away is a harder mission, and operators need training."
+          ],
+          "key_stat": "£15M · LEDA contract"
+        }
+      ]
+    },
+    {
+      "name": "Startups & Venture",
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-88aebe2e12",
+          "headline": "Don't wait for an Indian AI law: courts and regulators already assign liability",
+          "summary": "",
+          "signal": [
+            "Buyers should ask AI vendors whether model versions are logged and exportable, where inference runs, and what happens to inputs. Vendors who cannot answer pass risk to the buyer.",
+            "This is an opinion piece by a Zoho executive."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "YourStory RSS Feed",
+          "url": "https://yourstory.com/2026/10/waiting-for-an-ai-law-is-a-poor-compliance-strategy",
+          "image": "https://images.yourstory.com/cs/2/11718bd02d6d11e9aa979329348d4c3e/AIChain1600x900-1793352516374.jpg",
+          "developing": false,
+          "hook": "Zoho's Ramprakash Ramamoorthy argues Indian companies face AI liability now from courts and sectoral regulators, not from a future statute.",
+          "points": [
+            "On July 2, 2026, the Supreme Court quashed NCLT and NCLAT orders that relied on AI-generated citations attributed to the court, and asked the Bar Council to set disciplinary norms.",
+            "RBI gave regulated entities until June 30 to submit frontier-AI cyber risk gap assessments, signed by the board rather than the CISO. Its June 24 draft model-risk guidance puts risk on the user of a vendor's model.",
+            "The DPDP Act takes full effect on May 13, 2027 and applies wherever an AI system handles personal data, including vendors' processing.",
+            "For each consequential AI decision, firms must show the model, data, retrieval step, human reviewer and whether the record survives six months. Logging this is cheap if designed in, hard to rebuild later."
+          ],
+          "key_stat": "DPDP Act in force May 13, 2027"
+        },
+        {
+          "id": "indian-startups-4a2b55d83c",
+          "headline": "SEBI clears Atomberg's IPO: ==₹450 crore fresh issue== plus an investor sale",
+          "summary": "",
+          "signal": [
+            "Revenue is growing faster than profit: the IPO will test whether public investors accept widening losses for growth."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/buzz/sebi-greenlights-atombergs-%e2%82%b9450-cr-ipo/",
+          "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/10/Atomberg-Financials-ftr.png",
+          "developing": false,
+          "hook": "SEBI cleared Atomberg's IPO, a fresh issue of up to ₹450 crore plus an offer for sale of up to 7.65 crore shares by existing investors.",
+          "points": [
+            "Use of the fresh issue: ₹90 crore to repay borrowings, ₹150 crore for brand awareness and performance marketing, ₹100 crore for R&D, the rest for general purposes. Price band and timeline are not announced.",
+            "FY26 revenue rose 34.8% to ₹1,293.77 crore from ₹959.51 crore, but the net loss widened 26.8% to ₹148.9 crore from ₹117.4 crore. Adjusted EBITDA fell to ₹37.12 crore from ₹51.35 crore.",
+            "A91 Partners, a backer since 2019, has already sold shares worth about ₹445 crore and keeps 21%. Temasek and Inflexor also plan to sell in the IPO.",
+            "Tier II and smaller cities gave 49.57% of offline consumer appliance revenue. It has 46,932 retail touchpoints across about 1,600 cities and towns."
+          ],
+          "key_stat": "₹450 Cr fresh issue · FY26 revenue ₹1,294 Cr"
+        }
+      ]
+    },
+    {
+      "name": "Economy & Markets",
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-cec6368ec5",
+          "headline": "Chip stocks fall as China's memory profits and Amazon's spending add to AI worries",
+          "summary": "",
+          "signal": [
+            "If memory prices stay high, buyers of chips pay more, while Chinese memory makers gain."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "mint - markets",
+          "url": "https://www.livemint.com/market/stock-market-news/chip-stocks-crash-intel-plunges-30-amd-drops-12-nvidia-and-broadcom-also-slide-whats-driving-the-selloff-11793380373861.html",
+          "image": "https://www.livemint.com/lm-img/img/2026/10/30/1600x900/logo/Semiconductor_Selloff_1793382947732_Jp18_1793382956728_6AKM_63142a4b-dadf-4604-9beb-90484d3fb96b_KMh7.png",
+          "developing": false,
+          "hook": "Intel fell 30% on Friday, with AMD and Qualcomm each down 12%, as chip stocks sold off after weak earnings from Amazon and Intel.",
+          "points": [
+            "Intel warned it would burn cash this year and forecast weak fourth-quarter revenue and profit. PC chips, about half of its revenue, are expected to fall more than 20% sequentially, after a 5% drop last quarter.",
+            "China's ChangXin Memory (CXMT) reported third-quarter revenue of 118.71 billion yuan ($16.7 billion), up more than sevenfold year on year, and net profit of 54.4 billion yuan ($8.17 billion), versus a loss a year earlier. It credits higher memory prices amid tight supply.",
+            "Amazon spent over $77 billion on property and equipment in the third quarter, above expectations, and forecasts $220 billion of capex this year.",
+            "Alphabet fell 13% on Thursday, its biggest drop ever, on worries that AI threatens its search and ad business."
+          ],
+          "key_stat": "Intel −30% · AMD −12% · Qualcomm −12%"
+        }
+      ]
+    },
+    {
+      "name": "World & Geopolitics",
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-6a6621c65b",
+          "headline": "AI is finding security flaws faster than volunteer open-source teams can fix them",
+          "summary": "",
+          "signal": [
+            "Finding bugs now outpaces fixing them. If maintainers stay unfunded, attackers get a longer window to exploit flaws."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Al Jazeera – Breaking News, World News and Video from Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/10/30/why-ai-could-threaten-much-of-the-worlds-digital-infrastructure?traffic_source=rss",
+          "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/reuters_6ae25f86-1793220486.jpg?resize=1920%2C1440",
+          "developing": false,
+          "hook": "AI tools found PHP2Shell, critical flaws hidden for over a decade in PHP, which runs about ==70% of websites==, forcing emergency patches this month.",
+          "points": [
+            "Google found over 1,000 bugs in its latest Chrome update, more than in the previous two dozen combined. Mozilla found over 400 in April, against a prior record of 76 in a month. Apache's volunteers report roughly 10 times the usual issues.",
+            "AI scans cost money for tokens, and humans must still check for false positives. The PHP Foundation, set up in 2021, runs on a meagre budget.",
+            "Anthropic's Project Glasswing offered $100m in credits and found over 23,000 vulnerabilities across more than 1,000 open-source projects in a month. Alpha-Omega spends about $7m a year.",
+            "Apache's Jarek Potiuk says companies that depend on free software could do more, such as paying staff to maintain projects."
+          ],
+          "key_stat": "PHP runs ~70% of websites"
+        }
+      ],
+      "also": [
+        {
+          "line": "Russian independent newspaper Novaya Gazeta, co-led by Nobel laureate Dmitry Muratov, will close next month, citing loss of its newsroom, donation platforms and legal right to publish.",
+          "source": "World news | The Guardian",
+          "url": "https://www.theguardian.com/world/2026/oct/30/novaya-gazeta-russia-independent-newspaper-to-close"
+        }
+      ]
+    },
+    {
+      "name": "Climate & Energy",
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-b0e33595b1",
+          "headline": "Power Grid expects higher capex and asks cable makers to expand",
+          "summary": "",
+          "signal": [
+            "Underground and submarine cables are named growth areas. If Power Grid's capex rises as signalled, order books for cable and equipment makers grow with it."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/industry/indias-renewable-energy-push-data-centre-growth-why-power-grid-wants-cable-and-wire-makers-to-ramp-up-production-11793366715763.html",
+          "image": "https://www.livemint.com/lm-img/img/2026/10/30/1600x900/logo/powergrid_1793370070188_4n20_1793370133457_hhFP_e208240e-6c7d-4f96-b8c0-3d10e0585329_nsKc.jpg",
+          "developing": false,
+          "hook": "Power Grid Corporation expects capital spending this year to exceed last year's ==₹40,000 crore==, and chairman Vamsi Rama Mohan Burra asked cable makers to add capacity.",
+          "points": [
+            "In May it projected ₹37,000 crore for this year, but Burra signalled the guidance could be raised, as it was last year.",
+            "Drivers are renewable capacity, urbanisation and data centres. Burra said power without transmission cannot be sold: renewables build quickly, but transmission is slowed by land and right-of-way issues.",
+            "Last year India added about 5,000 circuit km of lines and 72,000 MVA of transformation capacity.",
+            "The Green Energy Corridor-III programme involves about ₹1.86 lakh crore. The wires and cables industry is worth over ₹1 lakh crore, and some makers get up to a third of demand from transmission."
+          ],
+          "key_stat": "Capex > ₹40,000 Cr"
+        }
+      ],
+      "also": [
+        {
+          "line": "India needs over 350 GWh of energy storage capacity by FY32 to meet renewable targets, says CareEdge (source unreachable — headline only).",
+          "source": "Moneycontrol.com",
+          "url": "https://www.moneycontrol.com/news/business/india-needs-to-build-over-350-gwh-of-energy-storage-capacity-by-fy32-to-meet-renewable-targets-careedge-14064594.html"
+        }
+      ]
+    },
+    {
+      "name": "Health Tech",
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-1f1ebf7ee5",
+          "headline": "Anthropic's drug R&D chief Nathan Frey discusses biopharma partners and pipeline",
+          "summary": "",
+          "signal": [
+            "Anthropic buying a biotech startup shows frontier AI labs moving into drug discovery directly."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Endpoints News",
+          "url": "https://endpoints.news/anthropics-nathan-frey-on-biopharma-partners-ma-and-pipeline/",
+          "image": "https://endpoints.news/wp-content/uploads/2026/10/Nathan-Frey-Anthropic-AI-Day-social.jpg",
+          "developing": false,
+          "hook": "Nathan Frey, a former Genentech machine-learning scientist, now leads drug discovery at Anthropic after it acquired his startup Coefficient Bio this spring.",
+          "points": [
+            "He spoke at Endpoints AI day, in an interview covering partners, M&A, pipeline and the limits of Claude's taste (summary from limited source text)."
+          ],
+          "key_stat": "Coefficient Bio acquired this spring"
+        }
+      ],
+      "also": [
+        {
+          "line": "How homegrown drugmaker Eris took on pharma giants in India's weight loss drug race (source unreachable — headline only).",
+          "source": "Moneycontrol.com",
+          "url": "https://www.moneycontrol.com/news/business/how-homegrown-drugmaker-eris-took-on-pharma-giants-in-india-s-semaglutide-race-14064315.html"
+        }
+      ]
+    },
+    {
+      "name": "Agritech",
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-5046458235",
+          "headline": "Weak monsoon delays India's wheat sowing and raises 2026-27 price risk",
+          "summary": "",
+          "signal": [
+            "Prices have limited downside while sowing lags. A fast sowing recovery in November would cap the rise."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "CMB News",
+          "url": "https://commodity-board.com/india-s-weak-monsoon-knocks-wheat-sowing-off-track-lifting-price-risks",
+          "image": "https://imagedelivery.net/36XlR1UZca9aYAsKLMcK3A/d5f98118-5146-4d7c-db4f-7b08f76d4e00/og",
+          "developing": false,
+          "hook": "India had sown only 11,000 hectares of wheat by October 23, against 27,000 a year earlier, after a monsoon 13% below average.",
+          "points": [
+            "It was the weakest monsoon since 2015, leaving low soil moisture and reservoirs. Punjab (38% rainfall deficit) and Rajasthan (22%) make up about 31% of wheat area.",
+            "Wheat needs several irrigations after sowing. The gap is small against about 33.6 million hectares of typical area, but is an early signal of stress.",
+            "Last season's harvest was a record 120.7 million tonnes and the ministry targets 121 million tonnes. Wholesale prices are mostly ₹2,600–₹2,900 per quintal, modestly above the support price.",
+            "If delays persist into mid-November, imports or tighter stock controls may follow. __Sowing pace over the next 4–6 weeks decides the outlook.__"
+          ],
+          "key_stat": "11,000 ha vs 27,000 ha a year ago"
+        }
+      ],
+      "also": [
+        {
+          "line": "USDA projects India's milk output to grow 2% to 226.5 million tonnes in 2027, down from 2.5% in 2026, as El Nino drought limits feed and fodder.",
+          "source": "BusinessLine",
+          "url": "https://www.thehindubusinessline.com/economy/agri-business/drought-to-slow-indias-milk-production-growth-to-2-in-2027-says-usda/article71645521.ece"
+        }
+      ]
+    },
+    {
+      "name": "India",
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-74f31c20dd",
+          "headline": "India's China+1 dilemma: reducing dependence on China may need Chinese partners",
+          "summary": "",
+          "signal": [
+            "If approvals stay slow, Indian manufacturers wanting Chinese technology partners face long waits."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Diplomat – Asia-Pacific Current Affairs Magazine",
+          "url": "https://thediplomat.com/2026/10/indias-china1-dilemma-it-may-need-china-to-depend-less-on-china/",
+          "image": null,
+          "developing": false,
+          "hook": "India took nearly 19 months to approve a smartphone joint venture between Dixon (51%) and Vivo India (49%), cleared on July 8.",
+          "points": [
+            "The partnership was announced in December 2024. The Diplomat says the delay reflects the scrutiny Chinese money faces in India.",
+            "Its argument: building local manufacturing capability may need more Chinese involvement, not less, even in sectors held up as success stories.",
+            "Whether the deal adds assembly capacity or builds Indian technology and suppliers remains to be seen. The authors say India's terms matter more than whether Chinese firms take part."
+          ],
+          "key_stat": "19 months · Dixon–Vivo approval"
+        }
+      ],
+      "also": [
+        {
+          "line": "India's finance ministry estimates 7.35% GDP growth for July–September, up slightly from an earlier 7.3% estimate, after 7.8% growth in April–June.",
+          "source": "The Pamphlet",
+          "url": "https://thepamphlet.in/indias-economy-set-to-grow-7-35-in-july-september-says-finance-ministry/"
+        }
+      ]
+    },
+    {
+      "name": "Work & Careers",
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-bfd07d6e46",
+          "headline": "India's GCCs are hiring for AI as tech firms worry about layoffs",
+          "summary": "",
+          "signal": [
+            "AI skills are becoming a baseline hiring requirement. Employer-provided training lags what workers want, so self-driven upskilling carries weight."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Deccan Herald",
+          "url": "https://www.deccanherald.com/business/indias-gccs-embrace-ai-shift-even-as-tech-sector-fears-job-losses-4201696",
+          "image": "https://media.assettype.com/deccanherald%2F2026-10-30%2Frzhp52vr%2Fd950e4c8-fad2-4892-b991-72ada020cef8.png?rect=0%2C0%2C1672%2C878&amp;w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop",
+          "developing": false,
+          "hook": "Nearly two-thirds of new GCC roles in India require AI skills, and demand for AI talent is up about 45% year on year, ANSR says.",
+          "points": [
+            "ANSR's analysis covered over 5,000 live openings and over 20,000 roles hired. In the last three months, GCCs hired over 2,400 AI specialists and over 120 global leaders, including global heads of AI.",
+            "About 80% of ANSR's portfolio customers are building AI Centres of Excellence. GCCs (global capability centres, captive offices of multinationals) increasingly build products and deploy AI.",
+            "In a survey of 1,118 professionals, 71% want hands-on AI upskilling but only 29% get it from employers. 79% would decline an offer without a clear career path.",
+            "Hyderabad has over 515 GCCs employing over three lakh people. 'Nano GCCs' set up by mid-market and PE-backed firms are a new feature."
+          ],
+          "key_stat": "~2/3 of new GCC roles need AI skills"
+        }
+      ]
+    },
+    {
+      "name": "Other Interests",
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-05f38e9dee",
+          "headline": "REA lets AI agents reverse engineer software, challenging trade-secret protection",
+          "summary": "",
+          "signal": [
+            "Software makers lose lead time if rivals can reconstruct products cheaply. Moats based on obscurity weaken."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Scientific American",
+          "url": "https://www.scientificamerican.com/article/an-exclusive-conversation-with-the-developer-of-rea-the-viral-ai-reverse-engineering-tool/",
+          "image": "https://static.scientificamerican.com/dam/asset/0d00b657-4e17-4972-a4bf-a57cc0e4ca1b/reverseengineeredcomputer.jpg?m=1793285097.344&w=1200",
+          "developing": false,
+          "hook": "Reverse Engineer Anything (REA), an open-source tool that lets AI agents decompile and rebuild programs, has over 400,000 GitHub stars.",
+          "points": [
+            "Compiled software was protected by tedium. REA orchestrates tools such as Ghidra so AI agents do the work, which took experts months by hand. The limit is now the cost of tokens.",
+            "Copyright protects code, not the algorithms and ideas it implements. Cornell Tech's James Grimmelmann says this could pose a crisis for trade secret and copyright law.",
+            "Risks: AI can also break digital rights management and protected firmware. Joey Castillo worries about amateurs modifying devices they don't understand.",
+            "Some users report OpenAI and Anthropic blocking REA use. An OpenAI researcher called the block mostly accidental. Castillo has an open-weight fallback, GLM-5.3."
+          ],
+          "key_stat": "400,000+ GitHub stars"
+        }
+      ]
+    },
+    {
+      "name": "Weekend Longform",
+      "slug": "longform",
+      "stories": [
+        {
+          "id": "longform-47e0ed2b86",
+          "headline": "The Internet Might Need to Be Rebuilt From Scratch",
+          "summary": "",
+          "signal": [
+            "Worth 20 minutes for a clear explanation of why AI changes security economics, and what rewriting code implies for companies' risk."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Atlantic",
+          "url": "https://www.theatlantic.com/podcasts/2026/10/is-it-time-to-rebuild-the-internet/689218/?utm_source=feed",
+          "image": null,
+          "developing": false,
+          "hook": "Security chief Alex Stamos says AI agents can now automate every step of an attack, and old code may need rewriting in safer languages.",
+          "points": [
+            "Stamos, security chief at Cognition and a former Facebook security chief, says AI, including open-weight models on commodity hardware, removes the human bottleneck in attacks. Some call this month 'Black October'.",
+            "Skills once held by maybe 150–200 people, such as turning a patch into exploit code, are now within a teenager's reach, he says.",
+            "He says the internet is not collapsing, but old code in C and C++ is unsafe against AI bug-finders. Patches take time to roll out, so attackers get a window.",
+            "He thinks complex code bases will need rewriting. Excerpt is truncated: the later argument is not covered here."
+          ],
+          "key_stat": "PHP: ~70% of websites"
+        },
+        {
+          "id": "longform-9eab603604",
+          "headline": "In praise of the dilettante",
+          "summary": "",
+          "signal": [
+            "Worth 20 minutes for a generalist: it argues against pressure to specialise early, and sets out when breadth works and when it does not."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Aeon | a world of ideas",
+          "url": "https://aeon.co/essays/why-the-dilettante-is-the-anti-hero-of-our-over-optimised-age",
+          "image": "https://images.aeonmedia.co/images/b943b6cc-6d15-4809-b176-165891129bc0/essay-par17520.jpg?width=1200&amp;quality=75&amp;format=auto",
+          "developing": false,
+          "hook": "An Aeon essay argues that the dilettante, someone with wide interests and narrow expertise, is a defensible way of living, not a failure.",
+          "points": [
+            "The word began in Baroque Italy meaning someone pursuing an interest for 'delight'. The negative sense is more recent, built on a 'deficiency' model.",
+            "The author separates the dilettante from the dabbler: the dilettante can go deep without making one interest their identity.",
+            "He grants Goethe and Schiller's criticism that dilettantes can skip steps, but argues freedom of movement across practices is a strength.",
+            "Dilettantes can bridge experts and laypeople, as with a no-drop cycling group."
+          ],
+          "key_stat": "21-minute listen"
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "name": "Morgan Stanley Sustainable Finance Summer Fellowship 2027 (paid)",
+      "when": "apply by Fri 13 Nov",
+      "kind": "fellowship",
+      "summary": "10-week summer fellowship (early June to mid-August) for current graduate students on sustainability or impact teams, such as capital markets and private credit. Base pay is $135,000 a year. Requires in-person work in New York City.",
+      "source": "Opportunity Desk",
+      "url": "https://opportunitydesk.org/2026/10/30/morgan-stanley-sustainable-finance-fellowship-program-2027/"
+    },
+    {
+      "name": "The Booth Exchange: Chicago Women in Business (virtual)",
+      "when": "Mon 16 Nov",
+      "kind": "mba",
+      "summary": "Virtual information session where current Chicago Booth MBA students discuss academics, recruiting and leadership, for women applying to or exploring an MBA. Online.",
+      "source": "Chicago Booth",
+      "url": "https://apply.chicagobooth.edu/register/?id=1732809f-ea4a-4901-9946-bd59d6f4cd38"
+    }
+  ],
+  "markets": {
+    "generated_at": "2026-10-31T00:56:05.594561+00:00",
+    "as_of": "2026-10-31T00:56:00+00:00",
+    "quotes": [
+      {
+        "label": "Nifty 50",
+        "value": 23053.1,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-10-30T10:01:11+00:00",
+        "closed": true
+      },
+      {
+        "label": "Sensex",
+        "value": 74459.53,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-10-30T10:02:30+00:00",
+        "closed": true
+      },
+      {
+        "label": "USD/INR",
+        "value": 94.94,
+        "unit": "₹",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-10-30T22:08:10+00:00",
+        "closed": true
+      },
+      {
+        "label": "Brent Crude",
+        "value": 112.33,
+        "unit": "$/bbl",
+        "change_pct": 1.38,
+        "usd": true,
+        "as_of": "2026-10-30T20:59:57+00:00",
+        "closed": false
+      },
+      {
+        "label": "Bitcoin",
+        "value": 77335.03,
+        "unit": "$",
+        "change_pct": 0.36,
+        "usd": true,
+        "as_of": "2026-10-31T00:56:00+00:00",
+        "closed": false
+      },
+      {
+        "label": "Gold",
+        "value": 118582,
+        "unit": "₹/10g",
+        "change_pct": -3.63,
+        "usd": false,
+        "as_of": "2026-10-30T20:59:59+00:00",
+        "closed": false
+      },
+      {
+        "label": "Silver",
+        "value": 149979,
+        "unit": "₹/kg",
+        "change_pct": -6.2,
+        "usd": false,
+        "as_of": "2026-10-30T20:59:59+00:00",
+        "closed": false
+      }
+    ]
+  }
+}
