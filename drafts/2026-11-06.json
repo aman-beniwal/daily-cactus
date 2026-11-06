@@ -1,0 +1,487 @@
+{
+  "date": "2026-11-06",
+  "lead": {
+    "id": "global-economics-988599723f",
+    "headline": "Nasdaq loses over $2 trillion as Democratic midterm win raises fears for AI data centres",
+    "hook": "The Nasdaq 100 was set to lose more than $2 trillion in market value, down 5.9%, as investors feared a Democratic Congress could stall AI infrastructure buildout.",
+    "points": [
+      "The Philadelphia semiconductor index fell as much as 11.2% to a six-month low. Nvidia dropped 9% and AMD 15%. It was the second straight day of losses.",
+      "Neoclouds (smaller AI data-centre firms) were hit hardest: Nebius fell 15% and CoreWeave 10%. Both are down half or more since the Nasdaq Composite's record on October 6.",
+      "The cause is financing plus politics. Neoclouds have struggled to raise money since US interest rates rose late in summer, and data centres are unpopular locally over power and water strain.",
+      "UBS estimates about 30% of expected US data centre capacity additions in 2028 could be at risk from construction pauses.",
+      "CoreWeave's five-year credit default spreads (the market price of default risk) hit a record. The Nasdaq Composite was on track for a correction, a 10% fall from its peak."
+    ],
+    "signal": [
+      "If permitting slows and borrowing stays costly, leveraged neoclouds are the weakest link; hyperscalers like Amazon (-2.5%) and Alphabet (-2%) fell far less.",
+      "Nikkei and Kospi, both up over 20% this year, may fall on Friday, per analysts."
+    ],
+    "key_stat": "$2T+ · Nasdaq 100 value lost",
+    "editors_read": "The market is repricing AI from promise to cost: the spending needs cheap money and fast permits, and both are now in doubt. Firms that fund buildouts with debt lose first; cash-rich hyperscalers can wait out a slower permitting cycle. Analyst Adam Turnquist says volatility has not yet reached capitulation levels, so more selling is possible.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-084876d438",
+      "headline": "No AI agent scores above 12% on SemiAnalysis' new work benchmark",
+      "hook": "SemiAnalysis's new GDPx benchmark has Claude Opus 5.5 leading at just 12%, ahead of Gemini 4 Carbon (10.9%) and GPT-6 Astra (9.6%).",
+      "points": [
+        "GDPx has 206 tasks across eleven domains, including chip design, law, biology and quant trading. Agents work up to eight hours in real professional software, not just answer prompts.",
+        "Scoring counts the share of individual requirements met, because one wrong spreadsheet value ruins a whole output; by a strict standard no model would finish even one task.",
+        "Gemini 4 Carbon costs $16.29 per task, roughly a third of the price of the leader.",
+        "Failures are stark: 98% of 200 cyber runs broke a behavioural rule, and 70 of 111 quant runs did worse than the reference strategy.",
+        "Critics say tasks are secret, language models grade some domains, and each model runs in its own provider's agent software. One calls it 'more noise than signal'."
+      ],
+      "signal": [
+        "Secret tasks stop labs tuning to the test, but outsiders cannot verify difficulty or grading, so treat the rankings as rough."
+      ],
+      "key_stat": "12% · top GDPx score",
+      "editors_read": "Low scores on long, realistic tasks suggest agents are far from replacing professionals, whatever shorter benchmarks show. Cheaper models close to the leader mean cost per task may decide buying. Sub-domains with about ten tasks each make the gaps between models unreliable.",
+      "developing": false
+    },
+    {
+      "id": "indian-startups-b55461543a",
+      "headline": "CERT-In warns financial firms of AI-driven attacks on payment APIs",
+      "hook": "India's cyber agency CERT-In warned banks, NBFCs and fintechs on November 4 of 'CRAFTY FALCON', an AI-assisted group draining funds through victims' own payment APIs.",
+      "points": [
+        "CERT-In calls it an 'immediate and continuing threat'. Attacks hit merchant settlement APIs of payment aggregators and crypto exchange wallets, where keys were stolen.",
+        "The group uses public AI tools: ARTEX, PentAGI (autonomous AI penetration testing), Cairn and CyberStrikeAI. They run full attack chains and adapt scripts to the target's responses.",
+        "It re-attacks firms that were warned and had remediated, especially where fixes were incomplete, and strikes on holidays and weekends when monitoring is thin.",
+        "Attack IP addresses rotate within hours to days. Detection rules went to affected firms in restricted advisories.",
+        "It follows an October CERT-In warning on agentic AI tools, and I4C reports of AI agents making unauthorised transactions worth crores of rupees."
+      ],
+      "signal": [
+        "Incomplete remediation is the exploitable gap; if attacks run at machine speed, weekend monitoring and API limits matter more than periodic patching."
+      ],
+      "key_stat": "Nov 4 · CERT-In advisory",
+      "editors_read": "Cheap, public offensive AI tools shift the cost balance toward attackers, since one tool can probe many targets at once. Fintechs with thin security teams are the likeliest to be hit. Expect regulators to push stricter API controls and faster incident reporting.",
+      "developing": true
+    },
+    {
+      "id": "climate-energy-1d67bc0259",
+      "headline": "India to require state utilities to add energy storage",
+      "hook": "India will soon require state utilities to install energy storage, Power Secretary Pankaj Agarwal said, to carry surplus daytime solar into evening demand peaks.",
+      "points": [
+        "The size of the mandate and its timeline are not yet decided. Agarwal said more storage-linked clean energy tenders are coming.",
+        "The gap is real: India has over 300 GW of non-fossil capacity but still leans on coal at night. Coal generation rose 25.7% year-on-year in October, its fastest rise in three years.",
+        "Power shortages hit 560 million kWh in September, the highest since August 2023. Hydropower fell 26% on weaker rainfall.",
+        "The Cabinet approved a Rs 14,500-crore viability gap funding scheme (subsidy to make projects bankable) for 92 GWh of storage in FY27-FY31: 60 GWh pumped hydro, 30 GWh batteries, 2 GWh emerging tech. Expected investment is Rs 97,600 crore.",
+        "Battery projects need 40% domestic content. India needs 411 GWh of grid storage by 2031-32, so the scheme covers under a quarter."
+      ],
+      "signal": [
+        "If the mandate and the 40% local-content rule both hold, domestic battery makers get a guaranteed buyer base: utilities."
+      ],
+      "key_stat": "92 GWh · storage backed by Rs 14,500 cr",
+      "editors_read": "A mandate makes utilities buy storage even when subsidies end, which converts a pilot market into a steady one. The 411 GWh need versus 92 GWh funded leaves a large gap for private tenders. Execution risk sits with cash-strapped state utilities.",
+      "developing": true
+    },
+    {
+      "id": "global-economics-0c4c292322",
+      "headline": "China blocks SoftBank's $5.4 billion purchase of ABB Robotics",
+      "hook": "China's foreign investment security review prohibited SoftBank's $5.4 billion acquisition of ABB's robotics division, ABB said, the second major deal Beijing has blocked this year.",
+      "points": [
+        "The Financial Times reports regulators feared robotics data would go overseas to train AI models, including OpenAI's, in which SoftBank has a near-$65 billion stake. Reports show no evidence of an actual transfer.",
+        "China is ABB's biggest robotics market, about 30% of its robot business. ABB's global robotics headquarters is in Shanghai, which gave Beijing leverage over a foreign-to-foreign deal.",
+        "In April China blocked Meta's $2 billion purchase of AI startup Manus. SoftBank shares fell about 7% in Tokyo.",
+        "The unit has over 7,000 staff and supplies robots to firms like BMW. ABB says it remains in close dialogue with SoftBank; no revised structure has been announced."
+      ],
+      "signal": [
+        "Cross-border AI and robotics deals with China-based operations now carry data-control risk, not just antitrust risk.",
+        "Investors wanted ABB's profits to reassure them about SoftBank's heavy AI commitments; that comfort is gone."
+      ],
+      "key_stat": "$5.4B · deal blocked",
+      "editors_read": "Beijing is treating operational data as a strategic asset, so deals are judged by where data flows, not who owns the factory. Buyers will need to ring-fence China operations or avoid such targets. SoftBank must now show its AI spending can stand without ABB's earnings.",
+      "developing": true
+    },
+    {
+      "id": "india-deep-tech-222b9dbc27",
+      "headline": "Shield AI to buy radar maker Echodyne for $5.3 billion",
+      "hook": "Shield AI agreed to buy radar startup Echodyne for $5.3 billion: $4.8 billion at closing and $500 million tied to undisclosed performance targets.",
+      "points": [
+        "Echodyne's solid-state radar (MESA technology) detects much smaller targets than traditional radar, including compact drones seen in Ukraine. It won a $250 million US counter-drone contract a couple of months ago.",
+        "Shield AI makes V-Bat and X-Bat VTOL drones and Hivemind, software that pilots unmanned vehicles. It wants drones that sense their surroundings better.",
+        "Funding comes from its cash and a $2.5 billion Series H led by Blackstone and JPMorgan Chase, announced the same day.",
+        "Echodyne stays a standalone unit in Shield's mission systems business; its CEO stays, with no layoffs or relocations. CEO Gary Steele says more acquisitions may follow."
+      ],
+      "signal": [
+        "If sensing and autonomy bundle into one supplier, defence buyers get fewer integration steps; smaller radar and drone firms may be pushed to sell or partner."
+      ],
+      "key_stat": "$5.3B · acquisition",
+      "editors_read": "Counter-drone demand is turning radar from a component into a strategic asset. Shield AI is building a full stack of software, platforms and sensors. The large Series H gives it room to keep buying.",
+      "developing": false
+    },
+    {
+      "id": "climate-energy-e03bb00576",
+      "headline": "China's CO2 emissions fell 3.1% in Q3, the biggest drop since 2022 Covid lockdowns",
+      "hook": "China's CO2 emissions fell 3.1% in the third quarter of 2026, the largest quarterly drop since the 2022 lockdowns, putting the year to date down 0.5%.",
+      "points": [
+        "Coal use fell 3% and oil 4% year-on-year. The Hormuz crisis hit oil demand, and coal-power generation fell 3.3% as demand growth slowed and less wind and solar was wasted.",
+        "Solar, wind and nuclear added 110 TWh, more than twice the growth in electricity demand and equal to Germany's total output over the period.",
+        "Transport oil use fell 9%. EVs reached a record 67% of passenger car sales and 50% of heavy trucks in September.",
+        "Cement and steel emissions fell as construction contracted. Coal-to-chemicals growth slowed because high coal prices cut profits.",
+        "The 'flat or falling' trend has lasted over two years since March 2024. Mild weather and weaker GDP growth explain part of the drop."
+      ],
+      "signal": [
+        "If clean power keeps outgrowing demand, fossil use falls structurally; but a stimulus push on energy-heavy sectors could reverse it."
+      ],
+      "key_stat": "-3.1% · Q3 CO2 y/y",
+      "editors_read": "Part of this drop is cyclical (weather, construction slump, oil shock), so it may not repeat. The durable part is EV share and clean power outgrowing demand. New coal plants running fewer hours squeezes their profits, which weakens the case for building more.",
+      "developing": false
+    },
+    {
+      "id": "work-careers-41dac2eae6",
+      "headline": "Goldman Sachs restricts AI coding tools to engineers and strats",
+      "hook": "Goldman Sachs has barred traders, bankers and other non-engineering staff from AI coding tools like Anthropic's Claude Code, limiting access to engineers and strats, Bloomberg reported.",
+      "points": [
+        "Strats are quantitative engineering and analytics specialists. Traders had used the tools to monitor data, build financial models and make graphics.",
+        "Goldman cites productivity and risk management. A spokesperson says staff experiment first, then tools go to those 'best suited' for the long term.",
+        "The move appears to contradict CIO Marco Argenti's July praise of non-technical staff building software prototypes for engineers to refine."
+      ],
+      "signal": [
+        "Banks may be choosing control over breadth: code written outside engineering review is a risk surface, so access may follow review capacity."
+      ],
+      "key_stat": "Engineers and strats only · access",
+      "developing": false
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-0659182f46",
+          "headline": "Meta buys Conductor, which runs multiple AI coding agents at once",
+          "hook": "Meta is acquiring Conductor, a startup that lets developers control several AI coding agents at the same time; no price was disclosed.",
+          "points": [
+            "Conductor's CEO confirmed the deal in a blog post. Conductor Cloud shuts down on November 20, and the desktop app stops getting new models in early 2027.",
+            "The logic: AI models are easily swapped, so big firms buy the tooling around them to lock in developers.",
+            "Claude Code passed a $2.5 billion annualised revenue run rate in February, per Anthropic. Anthropic bought Stainless in May.",
+            "On the same day OpenAI announced plans to buy Pierre Computer. SpaceX closed a $60 billion Cursor acquisition in August."
+          ],
+          "signal": [
+            "If models stay interchangeable, the developer workflow layer becomes the contested asset, and independent coding-tool startups face a shrinking list of buyers."
+          ],
+          "key_stat": "Undisclosed · Meta-Conductor"
+        },
+        {
+          "id": "ai-6dad7a604d",
+          "headline": "Dropbox buys Tigris Data for $350 million to sell AI storage",
+          "hook": "Dropbox will pay $350 million for Tigris Data, its largest acquisition since its 2007 founding, to enter storage infrastructure for AI developers.",
+          "points": [
+            "Tigris runs localised data storage that places data closer to the users and compute that need it. It was founded by former Uber engineers and raised about $31.9 million.",
+            "Dropbox launched DBX Agent Cloud, starting with standalone object storage compatible with Amazon S3 tools. Rollout is for eligible US, UK and Australia customers, broader in 2027.",
+            "Dropbox says it targets a different audience from its file-sharing users. The deal is expected to close in Q4 2026, with no planned headcount cuts. It cut 9% of staff last month, per WSJ.",
+            "Previous largest purchase was HelloSign at $230 million in 2019."
+          ],
+          "signal": [
+            "If developers adopt it, Dropbox gains a usage-based revenue line beyond seat subscriptions, but it competes with entrenched cloud providers on price."
+          ],
+          "key_stat": "$350M · largest Dropbox deal"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-c2788911aa",
+          "line": "Axiom Math, a $1.6 billion startup, aims to build a verified foundation for AI maths, after OpenAI released 719 manuscripts claiming solutions and even computer checks can slip."
+        },
+        {
+          "id": "ai-43a97b7998",
+          "line": "Delhi High Court issued an interim order restraining AI deepfakes and impersonation of actor Kriti Sanon, protecting her personality rights while clarifying free speech limits."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-452ada200f",
+          "headline": "Agility Robotics lists on Nasdaq via SPAC at $2.5 billion valuation",
+          "hook": "Humanoid robot maker Agility Robotics began trading on Nasdaq as AGLT on November 5 at a $2.5 billion pre-money valuation, with about $465 million gross capital raised.",
+          "points": [
+            "It merged with SPAC (a listed shell company) Churchill Capital Corp XI. The $465 million includes a $201 million PIPE (private placement) led by Foxconn and $100 million raised earlier.",
+            "Digit robots have logged over 65,000 hours at customers such as GXO, Toyota Canada and Schaeffler, and moved over 100,000 totes at a GXO site. GXO adds two sites from early 2027.",
+            "It claims over $300 million in committed Digit 5 orders, tied to a 1,000-robot, three-year deal with one customer that SEC filings call a related party. Orders are conditional.",
+            "Revenue was about $1.8 million in 2025 against a $138.1 million net loss; first-half 2026 revenue was about $174,000 versus $625,000 a year earlier.",
+            "A pre-merger going-concern warning (doubt it could keep operating) predates the new capital. Digit 5 early-access deliveries are targeted for H1 2027."
+          ],
+          "signal": [
+            "Small revenue against heavy losses means the new cash buys time; if conditional orders convert into deliveries in 2027, the story holds."
+          ],
+          "key_stat": "$2.5B · pre-money valuation"
+        },
+        {
+          "id": "deep-tech-faa46b91a5",
+          "headline": "China's Hua Hong plans big silicon photonics expansion in 2027",
+          "hook": "Hua Hong Grace, China's second-largest contract chipmaker, reported Q3 net profit up 147% to $123.4 million and plans to add significant silicon photonics capacity in 2027.",
+          "points": [
+            "Revenue hit a record $987.1 million, up nearly 20%. Excluding newly acquired Huali Microelectronics it was $803.4 million, above guidance of $770-780 million.",
+            "Silicon photonics (chips for AI optical modules) and power management chips are the two areas for 'significantly more capacity'.",
+            "Utilisation was 102.9% in the quarter. Much of next year's expansion is already booked, and Fab 9B in Wuxi began receiving equipment in mid-September.",
+            "Chairman Bai Peng expects rising demand and prices to continue 'for some time'; rival SMIC is also at full capacity."
+          ],
+          "signal": [
+            "If supply stays tight, foundry pricing power persists; Hua Hong's optics bet depends on AI data centre spending holding."
+          ],
+          "key_stat": "+147% · Q3 net profit"
+        },
+        {
+          "id": "deep-tech-7f77597ae4",
+          "headline": "Laza Medical raises up to $160 million led by GE HealthCare",
+          "hook": "Laza Medical raised up to $160 million in a Series B led by GE HealthCare, to build AI-powered robotic imaging for cath labs.",
+          "points": [
+            "Other investors include Unorthodox Ventures, PA MedTech and AMED. It raised $36 million in December 2023, also with GE HealthCare.",
+            "The Laza Medical System is in development for structural heart, electrophysiology and diagnostic procedures, with AI giving a real-time heart view and echocardiography-based guidance.",
+            "Laza is a Shifamed portfolio company; founder Amr Salahieh chairs it."
+          ],
+          "signal": [
+            "A strategic investor like GE HealthCare suggests integration with its imaging systems; the product is still in development."
+          ],
+          "key_stat": "$160M · Series B"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "indian-startups-63bfec5390",
+          "headline": "Hyderabad's Cosmoserve raises $6 million to clear space debris",
+          "hook": "Cosmoserve Space raised $6 million in a seed round led by Japan's Rebright Partners, bringing its total to over $9 million, and targets commercial operations by 2028.",
+          "points": [
+            "Its first demo, Mission Embrace on Skyroot's Vikram-1 in July 2026, failed: the robotic capture petals did not deploy. It blames the thermal release mechanism and cold, and plans Embrace-2 in the coming months.",
+            "Its Dual Spacecraft Architecture uses two spacecraft to service many satellites; it estimates servicing cost falls from about $10 million to under $1 million per satellite.",
+            "It has letters of intent from four operators (one US, one Europe, two India) and wants one paid customer before commercial operations.",
+            "Base 1, a Hyderabad facility costing about ₹6 crore, simulates microgravity and space visuals. About 60% of components are sourced locally."
+          ],
+          "signal": [
+            "Regulation requiring dead satellites be removed is the demand driver; the next test is whether Embrace-2 works."
+          ],
+          "key_stat": "$6M · seed round"
+        },
+        {
+          "id": "india-deep-tech-b4dda4ff48",
+          "headline": "Zipline raises $1.5 billion at $21.5 billion value, adds 300 Walmart sites",
+          "hook": "Zipline raised $1.5 billion at a $21.5 billion post-money valuation, up from $7.6 billion in January, and will add 300 Walmart drone delivery sites.",
+          "points": [
+            "Paradigm, WCM and Layer Global led the round. Money goes to US manufacturing and hiring.",
+            "Zipline and Walmart run 21 sites in Texas and Arkansas now, carrying up to 8 pounds. Walmart's drone program has made over 2 million deliveries.",
+            "Zipline says median October orders arrived in 19 minutes versus over 30 for traditional delivery, and it made over 1 million Dallas-Fort Worth deliveries this year.",
+            "Uber targets 1 million deliveries a day with Zipline by 2029."
+          ],
+          "signal": [
+            "Valuation nearly tripled in under a year; it depends on scaling from 21 sites to hundreds without safety or cost setbacks."
+          ],
+          "key_stat": "$21.5B · post-money valuation"
+        }
+      ],
+      "also": [
+        {
+          "id": "beyond-your-beat-701fe06d4c",
+          "line": "India is in final talks to sell the Philippines BrahMos supersonic missiles in a deal Reuters puts at $700-800 million, as Manila seeks about 60 more missiles."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-2f69e45160",
+          "headline": "Biomass chemicals startup altM raises $10.3 million Series A",
+          "hook": "Bengaluru's altM raised $10.3 million in a Series A led by Rainmatter and Mela Ventures to move from pilot to commercial production of chemicals from farm residue.",
+          "points": [
+            "It converts sugarcane bagasse and rice straw into industrial chemicals using cellulose, hemicellulose and lignin from one feedstock, replacing fossil-derived inputs.",
+            "Since its $3.5 million seed in 2023 it has taken six molecules to demonstration scale, three of which are chosen for pilot plants.",
+            "First products: a lignin-derived SPF booster, a cellulose-based rheology modifier (thickener) and bio-derived ferulic acid for cosmetics.",
+            "Funds go to manufacturing, R&D, customer qualification and hiring. Rivals include Scimplifi, Covvalent, Atomgrid and Tulon Materials."
+          ],
+          "signal": [
+            "Customer qualification is the gate; if buyers approve products at matching cost and performance, orders can follow."
+          ],
+          "key_stat": "$10.3M · Series A"
+        },
+        {
+          "id": "indian-startups-3b6549ab26",
+          "headline": "Scripbox moves to convert to public company ahead of IPO",
+          "hook": "Wealthtech firm Scripbox's board approved converting to a public limited company, a step toward an IPO of fresh shares plus an offer for sale by existing holders.",
+          "points": [
+            "Filings seen by Entrackr show the name changing to Scripbox Wealth Managers Limited.",
+            "In FY25 it turned profitable: net profit Rs 12.7 crore on operating revenue up 27% to Rs 107.2 crore. FY26 results are not yet disclosed.",
+            "About six months ago it planned to raise up to Rs 170 crore: Rs 60 crore equity and Rs 110 crore debt. In June it bought Bluechip Capital's mutual fund distribution business.",
+            "It has raised over $70 million from investors including Accel, LetsVenture and DMI."
+          ],
+          "signal": [
+            "Profit on about Rs 107 crore revenue is a small base; FY26 numbers will shape any IPO pricing."
+          ],
+          "key_stat": "Rs 107.2 cr · FY25 revenue"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-f2a9a7c105",
+          "line": "Bengaluru startup Aina launched an AI ring with agents, voice and gesture controls at Rs 47,000, with an early-bird price of Rs 37,700."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-37addf8c27",
+          "headline": "IEA: renewables could save India $240 billion in coal and gas imports by 2030",
+          "hook": "The IEA says India's renewables could save nearly $240 billion in cumulative coal and gas import spending by 2030, reaching about $35 billion a year.",
+          "points": [
+            "The $35 billion annual saving would exceed India's actual non-coking coal and gas import bill in FY2024-25. It assumes fuel prices stay near 2024-25 levels.",
+            "Solar gives about 60% of savings and wind almost 30%. Renewables already saved over $100 billion from 2011 to 2025.",
+            "Without capacity added since 2010, 2025 coal imports would be about 110 million tonnes higher, and import dependence of generation would exceed 30%, about twice the actual level.",
+            "By 2030 renewable capacity reaches about 530 GW (solar over 350 GW), providing 35% of generation, nearly double current output."
+          ],
+          "signal": [
+            "The IEA warns the gains need transmission, storage and flexibility investment; without them, the savings shrink."
+          ],
+          "key_stat": "$240B · import savings by 2030"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-b52c21410b",
+          "headline": "Tech billionaires face a hostile Congress after Democratic midterm win",
+          "hook": "Democrats won decisive control of Congress and governorships in Texas, Ohio and Georgia, and Elon Musk's $450 million in Republican giving bought little.",
+          "points": [
+            "Democratic governors-elect in Texas, Ohio and Georgia pledged pauses on hyperscale data centre construction. Letters to preserve records for investigations have already gone to Nvidia and Amazon.",
+            "Likely targets: Musk's DOGE conduct, the SpaceX-xAI merger and xAI's $200 million military contract. Zuckerberg may face hearings again.",
+            "Sen. Jon Ossoff pledged to bring 'big tech to heel'. Sam Altman tweeted that people should not cede control of the future to superintelligence.",
+            "The Guardian argues voters were angry about data centres, surveillance cameras and billionaires' political money, and that tech has little to say on affordability."
+          ],
+          "signal": [
+            "Separately today, chip stocks fell sharply; state-level moratoriums are the fastest route from this politics to AI capex."
+          ],
+          "key_stat": "$450M · Musk Republican spending"
+        },
+        {
+          "id": "global-economics-60e85553bc",
+          "headline": "Chip stocks extend sell-off as AMD falls 17% and Nasdaq 100 drops up to 6.4%",
+          "hook": "US chip stocks fell 9-17% on Thursday: AMD -17%, Arm -15%, Qualcomm -14%, Micron -13%, as the PHLX semiconductor index dropped 11%.",
+          "points": [
+            "Nvidia fell 9%, its biggest drop since April 2025. The S&P 500 fell 4%, the Nasdaq 100 as much as 6.4% and the Dow 3%.",
+            "Company-specific hits added to the political fear: Qualcomm's profit forecast and Arm's revenue guidance disappointed; Micron paused a Taiwan plant amid labour disputes.",
+            "Investors fear a Democratic Congress will tighten AI infrastructure rules. Democrats won governorships in Ohio, Georgia and Texas, states with big planned data centre investment.",
+            "Trump said the Iran war and surging gasoline prices affected the midterm results."
+          ],
+          "signal": [
+            "State rules may bite faster than federal ones; if permits slow, chip demand forecasts tied to data centres face cuts."
+          ],
+          "key_stat": "-11% · PHLX semiconductor index"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "beyond-your-beat-0bf3d3f838",
+          "headline": "Iran reports more tankers hit in Strait of Hormuz after US vote",
+          "hook": "Iran reported more tankers damaged in the Strait of Hormuz on Thursday, with one account saying its navy hit seven oil tankers, signalling shipping stays at risk while the Gulf war continues.",
+          "points": [
+            "Accounts differ: one report says three more tankers were damaged, another that Iran said it hit seven.",
+            "Earlier, Iran's Revolutionary Guards claimed a supertanker caught fire after hitting a mine south of the strait; such claims remain unconfirmed.",
+            "Coverage links the attacks to a global energy crisis driving inflation."
+          ],
+          "signal": [
+            "If attacks continue, shipping and insurance costs for Gulf oil stay high, feeding fuel prices and inflation."
+          ],
+          "key_stat": "7 tankers · Iran's claim"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-7a0a6519e1",
+          "headline": "Apple cuts employee AI token budgets",
+          "hook": "Apple has cut the daily AI spending cap for some engineers from $300 to $200, and may go as low as $100, Bloomberg reports.",
+          "points": [
+            "Other departments are capped at $100 a day; Apple is weighing $25 for some teams. Tokens are units of AI usage.",
+            "Apple still pushes staff to use AI for efficiency. Many tech firms are struggling to justify AI spend as productivity gains fall short of expectations.",
+            "Some employees thought few used the $300 limit; others read the cut as cost-cutting that could precede layoffs.",
+            "New CEO John Ternus reportedly backs reducing management layers."
+          ],
+          "signal": [
+            "Per-employee AI budgets are becoming a managed cost line; expect usage to be tied to measurable output."
+          ],
+          "key_stat": "$300 to $200 · daily cap"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-1bbdc0d831",
+          "headline": "Health systems weigh blocking or buying free clinician chatbots",
+          "hook": "Monument Health blocked OpenEvidence after finding one doctor stored over 100 patient records in the free AI tool, as hundreds of thousands of doctors use such chatbots.",
+          "points": [
+            "Tools like OpenEvidence, Doximity Ask and ChatGPT for Clinicians claim HIPAA compliance, letting users share protected health data after signing an agreement.",
+            "Monument's CIO Patrick Woodard told the clinician the practice had to end.",
+            "The headline frames the choice for health systems: block these tools or buy in."
+          ],
+          "signal": [
+            "Compliance claims by vendors do not remove the hospital's risk; expect enterprise contracts to replace individual use."
+          ],
+          "key_stat": "100+ records · stored by one doctor"
+        }
+      ],
+      "also": [
+        {
+          "id": "health-tech-6c3693c985",
+          "line": "A National University of Singapore review of 57 studies (2023-2025) finds AI in pharma research concentrated almost entirely at the early, computational stage of drug development."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [],
+      "also": [
+        {
+          "id": "agritech-d88045e583",
+          "line": "India's Mahindra & Mahindra cuts its tractor industry demand forecast on a weak monsoon (source unreachable — headline only)"
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [],
+      "also": [
+        {
+          "id": "other-interests-70f5575282",
+          "line": "Microplastics may be changing the colour of the sea around the Great Pacific Garbage Patch, about 1.6 million sq km holding nearly 80,000 tonnes of plastic."
+        },
+        {
+          "id": "other-interests-bf6bfc937e",
+          "line": "A hair from a 2,800-year-old Siberian tomb gives the earliest definitive evidence of cannabis used as a psychoactive drug; domestication in China may date back 12,000 years."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-1b6c3ea85e",
+      "name": "Homingo Hack Days",
+      "when": "Register by 15 Nov; build 21 Nov-6 Dec 2026",
+      "summary": "Free online AI hackathon for anyone in India, solo or teams of 2-4, in Agents, Automation or LLM app tracks. Rs 5,000 for the winner. Register on Homingo's site, not just Unstop. Online."
+    },
+    {
+      "id": "opportunities-a4dc514b1c",
+      "name": "EvoHacks II",
+      "when": "21 Nov",
+      "summary": "Devpost hackathon open to web, mobile, AI, games and hardware projects; the theme is revealed only at the event. Prizes and feedback from industry judges. Online."
+    }
+  ]
+}
