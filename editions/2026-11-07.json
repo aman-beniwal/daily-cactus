@@ -1,0 +1,737 @@
+{
+  "date": "2026-11-07",
+  "edition": 145,
+  "colophon": "89 sources scanned · 88 ok · 1 failed",
+  "lead": {
+    "id": "ai-d275be2a12",
+    "headline": "AI spending stalls even as usage rises, just as Anthropic nears its IPO",
+    "summary": "",
+    "signal": [
+      "If AI becomes a buyer's market, model makers' revenue grows slower than usage, and the IPO valuations assumed hypergrowth.",
+      "Because almost all spend comes from venture-backed tech firms, a slowdown there would hit every model company at once."
+    ],
+    "badge": "",
+    "takeaway": "",
+    "why": "",
+    "source": "AI News & Artificial Intelligence | TechCrunch",
+    "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+    "image": "https://techcrunch.com/wp-content/uploads/2026/11/ara-stripe-5.png?resize=1200,779",
+    "developing": true,
+    "hook": "Ramp's data shows ==companies' token spend grew just 1.5% across August and September==, against 42% in July alone, even though usage kept rising.",
+    "points": [
+      "Price cuts are the main cause. In September OpenAI halved API prices for GPT-6 Sol and GPT-6 Luna. Anthropic then cut prices on Fable 5.1 and Opus 5.5, which it said in a filing trimmed revenue growth by about $600M.",
+      "Customers are also getting thriftier. They set defaults that block costly models on long tasks, cap per-employee budgets, and route simple work to cheaper models. Meta, Nvidia and open-model makers add price pressure.",
+      "Spend is concentrated. The top 1% of firms nearly hit $10,000 per employee at their summer peak, then dipped slightly. The top 10% spend $600-$1,000 and the median firm $12-$15 per employee per month, so their growth cannot fill the gap.",
+      "Ramp's economist doubts doctors' offices or car dealers will ever spend like coding-heavy firms. October rebounded: token spend rose 8.9% from September 23 to October 23.",
+      "Bloomberg reports Anthropic's potential IPO valuation fell from about $2 trillion in early October to $1.2-1.3 trillion, with a high-yield (\"junk\") credit rating expected. OpenAI cut its proposed valuation to $1.25 trillion from $1.4 trillion."
+    ],
+    "key_stat": "+1.5% token spend, Aug-Sep (vs +42% in July)",
+    "editors_read": "The pattern is cheaper units, not weaker demand: usage up, price per unit down, buyers getting smarter. That squeezes revenue per token faster than volume can compensate unless a new use case as strong as coding appears. Separately today, OpenAI closed $11B of a smaller round at a lower valuation and Anthropic's IPO is meeting resistance, so investors are already repricing this thesis. For anyone buying AI in a company, it means leverage in negotiating prices and routing work to cheaper models."
+  },
+  "frontpage": [
+    {
+      "id": "ai-ae94959362",
+      "headline": "Anthropic's IPO meets resistance as investors balk at a $1.5 trillion valuation",
+      "summary": "",
+      "signal": [
+        "A delay would likely hurt confidence across AI stocks, since Anthropic is the largest test of public-market appetite."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/anthropics-1-5-trillion-ipo-hits-resistance-as-investors-balk-at-valuation/",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/10/claude_hiking.png",
+      "developing": false,
+      "hook": "Anthropic's IPO is ==under pressure as investors push back on a $1.5 trillion valuation==, down from up to $2 trillion in September.",
+      "points": [
+        "Reuters reports backers doubt the roadshow (investor presentations) can start next week as scheduled. One investor reportedly floated just $1 trillion.",
+        "Investors want a bigger discount because Anthropic still loses money and burns cash scaling AI infrastructure. They are also waiting for October revenue numbers, which are missing from the updated S-1 filing.",
+        "Midterm ballot initiatives targeting data center expansion passed in several states, triggering the sharpest tech selloff in a year. The Wall Street Journal also reports IPO investors are skeptical.",
+        "If AI stocks stay under pressure, Anthropic could delay an offering some estimates put at up to $100B."
+      ],
+      "key_stat": "$1.5T target vs up to $2T in Sept",
+      "editors_read": "The missing October revenue is the crux: buyers will not pay for growth they cannot see. Separately today, Ramp data shows AI spend flattening, which explains why investors are asking for it. Expect either a lower price or a delay; a delay is worse for sentiment than a discount."
+    },
+    {
+      "id": "ai-453e1a62fd",
+      "headline": "CERT-In issues AI security audit rules with four risk tiers and human oversight",
+      "summary": "",
+      "signal": [
+        "Any company running AI agents in India now needs an inventory of its AI systems, a risk tier for each, and a vendor audit trail.",
+        "Separately today, the RBI is pressing banks and NBFCs on API security audits, so compliance work is likely to grow."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "MEDIANAMA",
+      "url": "https://www.medianama.com/2026/11/223-lowdown-cert-in-ai-security-auditing-guidelines/",
+      "image": null,
+      "developing": false,
+      "hook": "CERT-In's new AI Security Auditing Guidelines, released November 4, ==make audit frequency depend on a four-tier risk rating== for any AI system serving Indian users or data.",
+      "points": [
+        "Scope: AI systems built, bought, deployed or run by organisations in India, plus systems that process Indian data or serve Indian users. Nine audit domains run from governance and data privacy to supply-chain assurance.",
+        "Tiers are Low, Moderate, High and Critical. Moderate systems get annual independent audits by CERT-In-empanelled auditors. High risk may be audited every six months. Critical needs empanelled audits plus continuous monitoring.",
+        "Human oversight must fit the risk: human-in-the-loop (a human approves before action), on-the-loop (supervises and can override) or over-the-loop (periodic review). Affected people must be able to contest AI-assisted decisions.",
+        "Moderate findings need a remediation plan within 30 business days and implementation within 60 days. A re-audit is required after an unsatisfactory opinion or two or more Critical findings within three months.",
+        "Extra checks apply to generative AI, RAG (retrieval-augmented generation), agentic AI and multimodal systems: prompt injection, least-privilege tool access and content provenance (C2PA)."
+      ],
+      "key_stat": "4 risk tiers · 9 audit domains"
+    },
+    {
+      "id": "indian-startups-29404c9a8e",
+      "headline": "Stockal investors say US holdings were sold and swapped into a Chinese microcap",
+      "summary": "",
+      "signal": [
+        "Cross-border investing splits duties across app, trade execution and custody. If valid credentials alone could trigger large trades, blame likely falls on missing transaction-level authentication.",
+        "Stockal's investors include HDFC Securities, whose partnership ended July 2024; it is not named in the FIR."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Inc42 Media",
+      "url": "https://inc42.com/features/stockals-us-trading-row-missing-consent-a-chinese-microcap-and-unanswered-questions/",
+      "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/11/ftr-21.jpg",
+      "developing": false,
+      "hook": "Nearly 30 Stockal investors allege their US stock holdings were ==sold without consent on October 15 and replaced with shares of Nasdaq-listed Zhibao Technology==, with reported losses above ₹100 Cr.",
+      "points": [
+        "One investor says $3.1M (about ₹29 Cr) of holdings sold within two minutes, then 30.5 lakh Zhibao shares bought within 15 minutes. Inc42 has not verified the ₹100 Cr aggregate. An FIR is reportedly filed in Bengaluru.",
+        "Borderless (Stockal's parent) says US broker DriveWealth flagged suspicious trading in 13 accounts. It says an unauthorised party used valid login credentials on 26 accounts, liquidating large-cap stocks in 13.",
+        "Zhibao fell about 60%, from an average purchase price near $1.05 to $0.42 on October 23, deepening losses.",
+        "DriveWealth says the incident happened on Stockal's app, not its systems. Borderless says it found no platform breach, suggests social engineering using data from another company's breach (unverified), and says no funds were withdrawn."
+      ],
+      "key_stat": "~30 investors · ₹100 Cr+ reported losses"
+    },
+    {
+      "id": "climate-energy-22e7bee5b2",
+      "headline": "India approves ₹145 billion subsidy for 92GWh of grid energy storage",
+      "summary": "",
+      "signal": [
+        "The 40% local-content rule favours domestic battery makers and could raise project costs if supply is thin.",
+        "If storage mandates reach state utilities, demand for storage will no longer depend on subsidies alone."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Energy-Storage.News",
+      "url": "https://www.energy-storage.news/india-approves-viability-gap-funding-to-support-92gwh-of-bess-and-pumped-hydro-energy-storage-capacity/",
+      "image": null,
+      "developing": false,
+      "hook": "The Union Cabinet approved ₹145 billion ($1.5B) of Viability Gap Funding (capital support for projects that are not yet commercially viable) for ==92GWh of new energy storage==.",
+      "points": [
+        "Mix: 60GWh pumped hydro, 30GWh battery storage (BESS) and 2GWh of alternative technologies. The government puts the total investment at about ₹976 billion.",
+        "Domestic content requirement doubles to 40% from 20% set earlier this year, which Modi called a \"unique feature\".",
+        "Scale: India has 5.3GWh of operational battery storage and 185GWh under development. The Central Electricity Authority says about 888GWh of storage is needed by 2035-36.",
+        "A Ministry of Power secretary said state utilities will face mandatory storage requirements, though specifics are \"fluid\". Industry voices say the next step is markets that pay storage for flexibility, not just capital support."
+      ],
+      "key_stat": "₹145bn · 92GWh",
+      "followup": true
+    },
+    {
+      "id": "indian-startups-b8ab5447b7",
+      "headline": "Government clears 12 more electronics component proposals worth over ₹7,500 Cr",
+      "summary": "",
+      "signal": [
+        "Funding materials and equipment targets the supply-chain layers India currently imports, which are the hardest to build."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "YourStory RSS Feed",
+      "url": "https://yourstory.com/2026/11/govt-clears-12-proposals-rs-7500-cr-electronics-components-scheme",
+      "image": "https://images.yourstory.com/cs/2/f3638ff0dcc111ec93bca187955479ef/FeaureImages-06-1688567062556.jpg",
+      "developing": false,
+      "hook": "The government approved 12 more applications worth over ==₹7,500 crore under== the Electronics Components Manufacturing Scheme, IT Secretary S Krishnan said.",
+      "points": [
+        "The round includes projects in materials and capital goods, widening the scheme beyond finished components.",
+        "The scheme aims to build a domestic component base and cut import dependence; the government is pushing upstream segments such as raw materials and manufacturing equipment.",
+        "A Semicon 2.0 web portal was also launched under the Semicon India Programme."
+      ],
+      "key_stat": "12 proposals · ₹7,500 Cr+"
+    },
+    {
+      "id": "world-7fb3576e99",
+      "headline": "TSMC reportedly considers making 3D DRAM memory chips for Nvidia",
+      "summary": "",
+      "signal": [
+        "If TSMC enters, memory makers lose some pricing power, but only if production works at scale, which is years off."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/asia-pacific/tsmc-considers-making-advanced-memory-chips-information-reports-2026-11-06/",
+      "image": null,
+      "developing": false,
+      "hook": "TSMC has begun drawing up plans to make 3D DRAM memory, ==reportedly at Nvidia's request==, sending its US-listed shares up more than 6%.",
+      "points": [
+        "It is weighing new memory factories or buying an existing plant and converting it. The effort is led by Hsu Kuo-chin, a TSMC vice president for advanced packaging who previously ran Micron's regional business.",
+        "3D DRAM stacks memory cells vertically instead of in a single horizontal layer, aiming for more capacity.",
+        "The reason is an AI memory shortage; Nvidia and Apple are seeking more memory sources. Entry would pit TSMC against Samsung, SK Hynix and Micron.",
+        "Going from development to volume production could take years, The Information reported, and memory swings between shortage and oversupply, hitting prices and margins."
+      ],
+      "key_stat": "TSMC ADRs +6% on report"
+    },
+    {
+      "id": "work-careers-21158ad9b5",
+      "headline": "India's GCC tech hiring fell 3.5% in July-September as demand shifted to AI and data",
+      "summary": "",
+      "signal": [
+        "The report says global parents now want India centres to own outcomes, not just add capacity, so hiring is shrinking overall while shifting to AI, data and security roles."
+      ],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Rediff",
+      "url": "https://m.rediff.com/amp/business/report/india-gcc-tech-hiring-slows-in-q2-fy27-demand-for-ai--data-surges/20261106.htm",
+      "image": "https://im.rediff.com/1200-630/news/2023/jul/31jobs.jpg",
+      "developing": false,
+      "hook": "Tech hiring demand at India's global capability centres (GCCs, offshore units of foreign companies) ==fell 3.5% quarter-on-quarter in Q2 FY27==, but AI and data roles grew 14%.",
+      "points": [
+        "Quess Corp's report says AI, data and analytics now make up 19.7% of GCC tech hiring demand, up from 16.7% the previous quarter. Cybersecurity and __risk roles grew 12%__.",
+        "Declines: telecom and networks down 24%, manufacturing and industrial down 9% (the largest sector by share), BFSI down 8%, software and digital engineering down 11%.",
+        "Talent gaps are wide: 38-42% for AI and data, 30-35% for cybersecurity, 31-35% for platform engineering.",
+        "Tier-II cities grew 13% to about 14% share, led by Coimbatore at 30%. Tier-I cities still hold 87-88%, and Bengaluru has 22.6%. Professionals with 4-12 years' experience make up about 55% of demand."
+      ],
+      "key_stat": "-3.5% overall · +14% AI/data"
+    },
+    {
+      "id": "beyond-your-beat-fea47ccd9b",
+      "headline": "UN climate talks open in Turkey amid climate impacts and conflict",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "AP News",
+      "url": "https://apnews.com/article/cop31-turkey-climate-change-fossil-fuels-6ce625b0e3d4ed0ab093df4e5f9c86ad",
+      "image": null,
+      "developing": false,
+      "hook": "UN climate negotiations have begun in Antalya, Turkey, as the world faces worsening climate impacts on top of international conflicts that have rattled livelihoods and economies (summary from limited source text).",
+      "points": [
+        "NBC reports the world has failed to limit global temperature rise to 1.5 degrees Celsius.",
+        "The fallout is being felt globally, from Europe's deadly heat waves to Nepal's devastating flooding."
+      ],
+      "key_stat": "1.5°C limit missed"
+    }
+  ],
+  "sections": [
+    {
+      "name": "AI",
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-a40797809b",
+          "headline": "OpenAI closes $11 billion of funding at a $1.25 trillion valuation",
+          "summary": "",
+          "signal": [
+            "The valuation still rose from March, but the smaller raise shows the funding window has narrowed."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Bloomberg Technology",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-06/openai-completes-11-billion-portion-of-funding-at-1-25-trillion-value",
+          "image": null,
+          "developing": false,
+          "hook": "OpenAI closed about $11B, the first part of a round valuing it at $1.25 trillion, ==well below its original $30B+ goal at $1.4 trillion==.",
+          "points": [
+            "The round __could reach $20B__; the rest is expected in the coming weeks. Coatue and T. Rowe Price joined the first close. Others in the round: SoftBank, Sequoia, Founders Fund, Andreessen Horowitz and a UAE syndicate.",
+            "OpenAI is also working with banks to raise from wealthy individuals and retail investors.",
+            "It scaled back amid a public-market rout in AI stocks, concerns about infrastructure spending and possible data center roadblocks after the US midterms.",
+            "For comparison, its March round raised $122B at $852 billion. Anthropic buyers are now discussing $1.2-1.3 trillion, down from $1.5 trillion."
+          ],
+          "key_stat": "$11B first close · $1.25T"
+        },
+        {
+          "id": "ai-c71b99d867",
+          "headline": "Thinking Machines releases Inkling 2 Small, claiming best Western open-weight model",
+          "summary": "",
+          "signal": [
+            "If the Apache license arrives as promised, firms wanting a fine-tunable base model get a permissively licensed option from a Western lab."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/thinking-machines-inkling-2-small-claims-top-spot-among-western-open-weight-models/",
+          "image": "https://the-decoder.com/wp-content/uploads/2026/07/thinking_machines_inkling_logo.png",
+          "developing": false,
+          "hook": "Thinking Machines' Inkling 2 Small scores 31 on the Artificial Analysis Intelligence Index, ==18 points above its predecessor and roughly level with Gemini 3.8 Flash==, per the company.",
+          "points": [
+            "It is a mixture-of-experts model (only part of the network runs per query): 594B parameters, 17B active. It takes text and images, and thinking depth is adjustable.",
+            "Agentic gains are largest: AutomationBench-AA rose from 5% to 46%; FrontierCode 2.0 from 5% to 25%. Deepseek-V4.1-Flash still leads on most coding tests.",
+            "Cost rises: about 150,000 output tokens per task, four times the predecessor, and $1.18 per task, nearly six times higher. Gemini 3.8 Flash costs $7.77 and Claude Sonnet 5.5 $10.02.",
+            "The hallucination rate falls from 61% to 27%, largely because it answers fewer questions (response rate 77% to 53%).",
+            "It is available now through the Tinker platform. Apache 2.0 weights follow after external safety testing."
+          ],
+          "key_stat": "Index 31 · $1.18/task"
+        },
+        {
+          "id": "ai-a66e37d5ba",
+          "headline": "RBI summons bankers over AI-assisted attacks, orders API security audits",
+          "summary": "",
+          "signal": [
+            "Fintechs and NBFCs relying on bank APIs face audit costs and tighter payout controls by December and February."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "MEDIANAMA",
+          "url": "https://www.medianama.com/2026/11/223-rbi-bankers-ai-cyber-attacks-security-audits/",
+          "image": null,
+          "developing": false,
+          "hook": "The RBI reportedly issued a confidential advisory dated November 3 ==requiring CERT-In-empanelled audits for NBFCs that use bank payment APIs==.",
+          "points": [
+            "Banks must complete the audit before onboarding new NBFC clients; existing clients have until February 3, 2027. Banks must audit annually and after any major cyber incident.",
+            "Safeguards: beneficiary whitelisting and maker-checker or out-of-band confirmation on API debits. New integrations must comply before going live; existing ones by December 3, 2026.",
+            "Per-transaction and daily limits apply immediately; velocity limits come within one month. Banks must watch for spikes, sub-limit transactions and odd-hour activity.",
+            "A banker said individual frauds ranged from Rs 3 crore to Rs 15 crore, but attack attempts worry banks more.",
+            "CERT-In's November 4 advisory names threat actor \"CRAFTY FALCON\", which tested fund flows with Rs 1 transfers and bypassed IP allow-listing via shared third-party IP pools."
+          ],
+          "key_stat": "Deadlines: Dec 3, 2026 · Feb 3, 2027"
+        },
+        {
+          "id": "ai-35bf191231",
+          "headline": "TRAI recommends India-based network control and traffic monitoring for satellite providers",
+          "summary": "",
+          "signal": [
+            "Global satellite operators would need India-based control centres and government-visible gateways to sell capacity here."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "MEDIANAMA",
+          "url": "https://www.medianama.com/2026/11/223-trai-india-network-control-traffic-monitoring-satellite-providers/",
+          "image": null,
+          "developing": false,
+          "hook": "TRAI's November 5 recommendations propose a new Satellite Communication Network provider category and ==require network control facilities to be located in India==.",
+          "points": [
+            "These providers would supply capacity to eligible telecom operators rather than serve users directly.",
+            "They must prevent use for surveillance or electronic warfare and report attempts by unregistered terminals. TRAI prescribes no detection technology.",
+            "Providers must give the government gateway locations and technical details before building, and run interference tests as directed.",
+            "They must offer real-time traffic monitoring, with limits on routing through foreign gateways or mirroring Indian traffic abroad. Terminals cannot talk directly via satellite without passing a gateway."
+          ],
+          "key_stat": "New SCN provider category"
+        },
+        {
+          "id": "ai-2bb48ea4a7",
+          "headline": "Democrats plan a flood of AI bills once they control Congress",
+          "summary": "",
+          "signal": [
+            "Separately today, data-center ballot measures hurt AI stocks; federal bills on power costs and testing would add to that pressure if passed."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/business/media-telecom/democrats-planning-flood-ai-bills-when-they-take-control-congress-2026-11-06/",
+          "image": null,
+          "developing": false,
+          "hook": "Democrats plan a wave of legislation on AI systems and data-center development when they take control of Congress in January (summary from limited source text).",
+          "points": [
+            "Planned bills cover data-center power costs, independent model testing and liability.",
+            "Rep. Ansari's bill targets superintelligence with 20-year prison penalties and a compute threshold, challenging years of voluntary industry pledges.",
+            "Democratic majorities will cause headaches for President Trump but also challenges for their own party."
+          ]
+        }
+      ],
+      "also": [
+        {
+          "line": "Palo Alto Networks is in talks to buy Clutch Security, which secures AI agents' access to company systems, for $500M cash plus milestone payouts; Clutch has nearly $10M ARR.",
+          "source": "AI News & Artificial Intelligence | TechCrunch",
+          "url": "https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/"
+        },
+        {
+          "line": "Data center operator Groq is trying to double its valuation to $8 billion in about three months, with an executive criticising rivals' reliance on debt markets.",
+          "source": "Bloomberg Technology",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-06/neocloud-groq-aims-to-double-value-to-8-billion-amid-ai-selloff"
+        }
+      ]
+    },
+    {
+      "name": "India Deep Tech",
+      "slug": "india-deep-tech",
+      "stories": [],
+      "also": [
+        {
+          "line": "Government approved an extra two-year engagement for the 75% of Agniveers not selected for regular service after four years, creating a path to regular soldier status after six.",
+          "source": "Defence BREAKING NEWS | Defence LATEST NEWS | Defence NEWS TODAY | Defence LIVE UPDATES | Defence TRENDING NEWS | – ThePrint",
+          "url": "https://theprint.in/defence/big-change-in-agnipath-scheme-govt-grants-2-yr-extension-to-the-75-agniveers-not-selected-for-service/3090641/"
+        }
+      ]
+    },
+    {
+      "name": "Startups & Venture",
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-a9517bd536",
+          "headline": "MakeMyTrip buys majority stake in ride-pooling app Quick Ride",
+          "summary": "",
+          "signal": [
+            "Profit is falling while MakeMyTrip keeps buying adjacent businesses, so these bets must start earning to justify the strategy."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/buzz/makemytrip-acquires-majority-stake-in-quick-ride-to-enter-ride-pooling/",
+          "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/11/MakeMyTrip-Feature1.png",
+          "developing": false,
+          "hook": "MakeMyTrip acquired a majority stake in Quick Ride's ride-pooling business for an undisclosed amount, ==adding daily commute pooling to its ground transport portfolio==.",
+          "points": [
+            "The brand and pooling business moved to a new entity, Co Ride Mobility. Founders stay on to lead it. The EV taxi business stays in the old entity, iDisha Info Labs.",
+            "Quick Ride, founded by KNM Rao, connects commuters going the same way. It serves corporates including Wipro, TCS, Infosys, IBM and Cognizant in eight cities, and has raised over $14M.",
+            "It will sit under redBus and Savaari in ground transport. The CEO says it gives a presence in high-frequency intra-city commutes alongside intercity travel.",
+            "Earlier deals: Savaari, Happay, Flamingo Transworld and a minority stake in Atlys. Q1 FY27 net profit fell 65% to $9.1M from $25.8M; revenue rose 6% to $285.6M."
+          ],
+          "key_stat": "Undisclosed · Q1 profit -65%"
+        }
+      ],
+      "also": [
+        {
+          "line": "Angel One overtook Zerodha to become India's second-largest broker in October, adding about 2.43 lakh active clients; Groww leads with over 1.37 crore, and total clients rose 1.33% to 4.67 crore.",
+          "source": "Entrackr : Latest Posts",
+          "url": "https://entrackr.com/news/angel-one-overtakes-zerodha-to-become-second-largest-broker-groww-adds-over-3-lakh-clients-in-october-12788879"
+        }
+      ]
+    },
+    {
+      "name": "Deep Tech",
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-d9c54b5db0",
+          "headline": "CesiumAstro ==raises $730M== at a $4.5B+ valuation to build a 737-satellite network",
+          "summary": "",
+          "signal": [
+            "The launch plan for 737 satellites is unresolved, so the 350-by-2032 target depends on partnerships not yet announced."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Payload",
+          "url": "https://payloadspace.com/cesiumastro-raises-730m-reaches-valuation-above-4-5b/",
+          "image": "https://payloadspace.com/wp-content/uploads/2026/11/IMG_5633-200x200.jpg",
+          "developing": false,
+          "hook": "CesiumAstro closed a $730M Series D at a valuation above $4.5 billion to fund Synchronicity, a planned 737-satellite constellation.",
+          "points": [
+            "Janus Henderson led $630M of equity; EXIM and JPMorgan provided $100M of debt. Total capital announced in 2026 passes $1.2B.",
+            "Its first satellite, Element-1, launched in October, built in two and a half years, according to the CEO. It is first of eight planned spacecraft, with launches secured for 2028-2029.",
+            "The goal is 350 satellites in orbit by 2032, but how they reach orbit is undecided. Satellites carry onboard compute and use Ku-, Ka- and V-band frequencies.",
+            "It bought Jariet Technologies (RF chips), 1Aardvark (mission software) and Vidrovr (AI signal analysis), and says more deals are coming.",
+            "It __will spend $500M over five years on Austin__ manufacturing and add 550 jobs by 2030."
+          ],
+          "key_stat": "$730M Series D · $4.5B+"
+        },
+        {
+          "id": "world-e84861761e",
+          "headline": "AI demand makes chip packaging a bottleneck and the next semiconductor battleground",
+          "summary": "",
+          "signal": [
+            "Packaging capacity, not chip design, may set how fast AI hardware ships, and benefits non-TSMC suppliers if panel-level technology proves viable."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/asia-pacific/ai-boom-turns-chip-packaging-into-next-battleground-semiconductors-2026-11-06/",
+          "image": null,
+          "developing": false,
+          "hook": "Revenue from advanced chip packaging is forecast to ==overtake traditional packaging for the first time in 2026==, with capital spending near $28 billion, says Yole Group.",
+          "points": [
+            "Advanced packaging joins processors and memory in one unit so they work as a system. It matters as shrinking transistors gets costlier. Pat Gelsinger estimates it could become half of a chip's value.",
+            "TSMC dominates CoWoS (chip-on-wafer-on-substrate), but its capacity limits push designers elsewhere. Nvidia is reportedly financing CoWoS expansion at SPIL (part of ASE) with billions of dollars.",
+            "Powertech is betting on panel-level packaging (larger rectangular panels rather than round wafers) with AMD and Broadcom, and plans a $400M Singapore joint venture with Broadcom, with production possibly in 2028. TSMC is developing its own panel technology, CoPoS.",
+            "AMD announced over $10B of investments across Taiwan's chip industry, including with ASE, SPIL and Powertech."
+          ],
+          "key_stat": "~$28B packaging capex, 2026"
+        }
+      ],
+      "also": [
+        {
+          "line": "Pentagon Taps Robotics Startup in Push for Cheap Attack Drones (source unreachable — headline only)",
+          "source": "Bloomberg.com",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-06/pentagon-taps-robotics-startup-in-push-for-cheap-attack-drones"
+        }
+      ]
+    },
+    {
+      "name": "Climate & Energy",
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-4f5a31921c",
+          "headline": "China's proposed solar tech export curbs expose gaps in India's manufacturing push",
+          "summary": "",
+          "signal": [
+            "If China curbs equipment and technology exports, India's module and cell plans slow unless local inputs materialise."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Mercomindia.com RSS feed",
+          "url": "https://www.mercomindia.com/chinas-proposed-tech-export-curbs-test-indias-solar-manufacturing-push",
+          "image": "https://mercomindia.s3.ap-south-1.amazonaws.com/wp-content/uploads/2026/11/solar-panel-manufacturing-1.jpg",
+          "developing": false,
+          "hook": "A Frontline analysis says China's proposed curbs on solar technology exports expose India's reliance on Chinese inputs, even for new domestic plants.",
+          "points": [
+            "China supplies nearly 17% of India's imports. Bilateral trade hit a record $155.6B in 2025, with China's surplus against India at $116B.",
+            "India's new Visakhapatnam ingot-wafer facility, launched in April, still depends on Chinese-dominated polysilicon, cell equipment and rare-earth magnets, so dependency is relocated rather than removed.",
+            "China's side is strained too: by late 2025 all of its 8 largest panel and wafer makers were loss-making, and a plan to idle a third of polysilicon capacity was blocked by the regulator.",
+            "The IMF estimates China's industrial policy costs about 4.4% of GDP a year, possibly 7-8% with all support."
+          ]
+        }
+      ],
+      "also": [
+        {
+          "line": "India Plans Mandatory Energy Storage Rules for Power Retailers (source unreachable — headline only)",
+          "source": "Bloomberg.com",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-05/india-plans-mandatory-energy-storage-rules-for-power-retailers"
+        }
+      ]
+    },
+    {
+      "name": "World & Geopolitics",
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-a08266eeb6",
+          "headline": "Trump names hardliner Stephen Miller chief of staff after midterm defeat",
+          "summary": "",
+          "signal": [
+            "With Congress opposed, the administration will likely lean harder on executive power."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/us/trump-says-stephen-miller-become-chief-staff-2026-11-06/",
+          "image": null,
+          "developing": false,
+          "hook": "Trump named Stephen Miller chief of staff, replacing Susie Wiles from Monday, ==days after Republicans lost control of Congress==.",
+          "points": [
+            "Miller, 41, was deputy chief of staff and architect of the immigration crackdown, including a target of 3,000 arrests a day, and of the 2025 federal workforce cuts.",
+            "A White House official said the move signals Trump is \"not changing course\". Several officials say it could mean a more confrontational approach.",
+            "Democrats take the House and Senate in January and are expected to launch investigations. Incoming speaker Hakeem Jeffries called Miller a \"reckless extremist\".",
+            "Wiles, who ran a more disciplined operation, moves to Trump's political operation. Trump went through four chiefs of staff in his first term."
+          ],
+          "key_stat": "Effective Monday, Nov 9"
+        }
+      ]
+    },
+    {
+      "name": "Work & Careers",
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-2626185acf",
+          "headline": "ServiceNow lays off staff in US, UK and India as AI restructuring costs rise",
+          "summary": "",
+          "signal": [
+            "The same-headcount pledge means cuts in some functions are offset by AI hiring, so roles shift rather than just shrink."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "People Matters - HR News",
+          "url": "https://www.peoplematters.in/news/strategic-hr/servicenow-layoffs-hit-uk-us-and-india-as-company-restructures-workforce-53222",
+          "image": "https://asset.peoplematters.in/images/971f68d8-47df-462e-ac13-6fc4d3f4bbb8.png",
+          "developing": false,
+          "hook": "ServiceNow launched another layoff round without disclosing numbers, as third-quarter severance costs ==hit $87M against== $24M a year earlier.",
+          "points": [
+            "Nine-month severance and related costs were $167M against $53M last year. The company says it __aims to end 2026 with the same headcount it__ started with.",
+            "The CFO said sales operations headcount is \"down significantly\" while quota-carrying sales staff rose by double digits. ServiceNow claims AI efficiencies are worth over $1B annualised.",
+            "The shares have fallen more than 30% this year, including about 27% the day after third-quarter results. Fourth-quarter growth guidance of 18.5% was below the 19.8% analysts expected.",
+            "Affected functions in India, the UK and the US have not been specified."
+          ],
+          "key_stat": "$87M Q3 severance (vs $24M)"
+        }
+      ]
+    },
+    {
+      "name": "Other Interests",
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-0da0cf05b7",
+          "headline": "AI agents design and run robot-powered labs, preprint claims",
+          "summary": "",
+          "signal": [
+            "If it holds up outside demos, lab setup, usually trial and error, gets faster and needs less supervision."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Nature",
+          "url": "https://www.nature.com/articles/d41586-026-03587-x",
+          "image": "https://media.nature.com/lw1200/magazine-assets/d41586-026-03587-x/d41586-026-03587-x_53944604.jpg",
+          "developing": false,
+          "hook": "A preprint describes ==AI agents that turn a scientist's research plan into robot protocols, test them in a virtual lab, then run them in the real one==.",
+          "points": [
+            "The agents can also design a whole lab, using the virtual version to place instruments and robots.",
+            "In a test, they wrote over 200 commands for a robotic arm to measure optical properties of nanocrystals, after simulating the steps.",
+            "An MIT bioengineer calls it \"very cool\" but says the cameras and sensors the agents need could cost more than manual setup. The paper is on arXiv and not yet peer reviewed."
+          ]
+        },
+        {
+          "id": "other-interests-8f6b8825c3",
+          "headline": "A hidden soil-and-air feedback loop makes extreme heatwaves about 10% hotter",
+          "summary": "",
+          "signal": [
+            "Planning that relies on current model projections may understate peak heat for grids, transport and crops."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "New Scientist",
+          "url": "https://www.newscientist.com/article/2597676-an-unexpected-feedback-loop-may-be-driving-mega-heatwaves/?utm_campaign=RSS|NSNS&utm_content=home&utm_medium=RSS&utm_source=NSNS",
+          "image": "https://www.newscientist.com/wp-content/uploads/2026/11/SEI_319534708.jpg",
+          "developing": false,
+          "hook": "New research finds a three-way feedback between dry soil, high pressure and extreme heat ==makes the most extreme heatwaves 10% hotter than they otherwise would be==.",
+          "points": [
+            "Known: high pressure lets more sunlight reach the ground, and dry soil loses evaporative cooling. New: dry soil also helps sustain the high-pressure system, so each amplifies the others.",
+            "Models do not fully capture this, which may explain why events such as the UK passing 40°C in 2022 and the 2021 Pacific Northwest heatwave beat projections.",
+            "Europe, Russia, North America, parts of South America and Australia will trigger the loop more often as warming continues.",
+            "Researchers say models need updating and governments should prepare for more intense heatwaves."
+          ],
+          "key_stat": "+10% peak heat"
+        }
+      ]
+    },
+    {
+      "name": "Weekend Longform",
+      "slug": "longform",
+      "stories": [
+        {
+          "id": "longform-ccdb6712fb",
+          "headline": "Democrats have no coherent plan for AI",
+          "summary": "",
+          "signal": [
+            "Worth reading since Democrats take Congress in January, and the debate over what AI policy they pursue is now live."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Atlantic",
+          "url": "https://www.theatlantic.com/ideas/2026/11/democrats-ai-midterms-regulation/689320/?utm_source=feed",
+          "image": null,
+          "developing": false,
+          "hook": "The Atlantic argues that running on the AI backlash was easy, but getting policy specifics right will be much harder (summary from limited source text).",
+          "points": [
+            "The snippet gives only this thesis; the argument's details are in the full article."
+          ]
+        },
+        {
+          "id": "longform-31049809d2",
+          "headline": "Lab-grown meat was supposed to save the world. What happened?",
+          "summary": "",
+          "signal": [
+            "Worth 20 minutes as a case study of hype outrunning unit economics: the demo succeeded while cost, scale, regulation and politics, not the science, decided the outcome. The author, a long-time vegetarian, goes to North Carolina hoping to taste it."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The long read | The Guardian",
+          "url": "https://www.theguardian.com/news/ng-interactive/2026/nov/05/lab-grown-meat-save-the-world-food-revolution-climate-crisis-food-system",
+          "image": "https://i.guim.co.uk/img/media/a1292f3dafefc6c5dc841f4478b8ed984982142d/287_0_2839_2272/master/2839.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9b6fb6a07514f03dda7ef53f06a84bd3",
+          "developing": false,
+          "hook": "Cultivated meat drew about $3bn and 140 companies after a 2013 demo burger, yet is now sold at just one store in the world.",
+          "points": [
+            "The 2013 burger cost €250,000 and tasted \"somewhere between a Boca Burger and McDonald's\". RethinkX predicted a 70% drop in US beef demand by 2030.",
+            "Costs, energy needs, scale, inspections and a skilled-labour gap blocked output. Investment peaked in 2021 and fell to $177m in 2023. Seven US states moved to ban or restrict it.",
+            "Only Huber's Butchery in Singapore sells it. Bezos gave $30m to NC State in 2024, and Believer Meats built the world's largest plant in North Carolina and got an FDA \"no questions\" letter in September 2025."
+          ]
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "name": "Supabase x Cyberwave Builders Meetup",
+      "when": "Sat 14 Nov",
+      "kind": "ai-event",
+      "summary": "Free open-build day for Physical AI: build with robots or in simulation, with lunch and mentors. It leads to a four-week online program that ships real robots. Registration is reviewed, seats are limited, and you need a laptop with Python 3.10+. Delhi NCR.",
+      "source": "Luma (New Delhi)",
+      "url": "https://lu.ma/builders-delhi"
+    },
+    {
+      "name": "Green Global Fellowship 2027",
+      "when": "apply by Thu 7 Jan",
+      "kind": "fellowship",
+      "summary": "Action-oriented sustainability fellowship for emerging leaders, with no prior experience needed and a 5-7 minute application. One fellow may get a US$1,000 post-fellowship award. Online/global.",
+      "source": "Opportunity Desk",
+      "url": "https://opportunitydesk.org/2026/10/29/green-global-fellowship-2027/"
+    }
+  ],
+  "markets": {
+    "generated_at": "2026-11-07T01:02:21.743097+00:00",
+    "as_of": "2026-11-07T01:02:17+00:00",
+    "quotes": [
+      {
+        "label": "Nifty 50",
+        "value": 25030.35,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-11-06T10:01:22+00:00",
+        "closed": true
+      },
+      {
+        "label": "Sensex",
+        "value": 81028.02,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-11-06T10:02:33+00:00",
+        "closed": true
+      },
+      {
+        "label": "USD/INR",
+        "value": 93.89,
+        "unit": "₹",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-11-06T21:36:46+00:00",
+        "closed": true
+      },
+      {
+        "label": "Brent Crude",
+        "value": 97.76,
+        "unit": "$/bbl",
+        "change_pct": -0.54,
+        "usd": true,
+        "as_of": "2026-11-06T21:59:44+00:00",
+        "closed": false
+      },
+      {
+        "label": "Bitcoin",
+        "value": 75885.93,
+        "unit": "$",
+        "change_pct": -0.17,
+        "usd": true,
+        "as_of": "2026-11-07T01:02:17+00:00",
+        "closed": false
+      },
+      {
+        "label": "Gold",
+        "value": 123152,
+        "unit": "₹/10g",
+        "change_pct": -0.83,
+        "usd": false,
+        "as_of": "2026-11-06T21:59:59+00:00",
+        "closed": false
+      },
+      {
+        "label": "Silver",
+        "value": 156872,
+        "unit": "₹/kg",
+        "change_pct": -0.79,
+        "usd": false,
+        "as_of": "2026-11-06T21:59:59+00:00",
+        "closed": false
+      }
+    ]
+  }
+}
