@@ -214,7 +214,8 @@ sections:
       - https://psyche.co/feed                                       # [VERIFIED 9 Nov 2026] Psyche, mind and psychology essays, ~7/wk
       - https://www.sciencedaily.com/rss/mind_brain/neuroscience.xml # [VERIFIED 9 Nov 2026] ScienceDaily neuroscience (press-release rewrites), ~12/wk
       - https://www.sciencedaily.com/rss/top/science.xml             # [VERIFIED 9 Nov 2026] ScienceDaily top science, ~48/wk (MAX_PER_FEED caps it)
-      - https://neurosciencenews.com/feed/                           # [VERIFIED 9 Nov 2026] Neuroscience News, mostly university press releases, ~12/wk
+      # dropped 9 Nov 2026 trial: fetch_feeds got malformed XML (bot page?); also mostly press releases
+      # - https://neurosciencenews.com/feed/                           # [VERIFIED 9 Nov 2026] Neuroscience News, mostly university press releases, ~12/wk
       - https://elifesciences.org/rss/subject/neuroscience.xml       # [VERIFIED 9 Nov 2026] eLife neuroscience, journal TOC, ~10/wk
       # moved from Other Interests (v10):
       - https://www.science.org/rss/news_current.xml     # [VERIFIED 23 Sep 2026] Science magazine news

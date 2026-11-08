@@ -77,7 +77,9 @@ class LimitError(RuntimeError):
     """The subscription's usage window is exhausted (retry after reset)."""
 
 
-MAX_FULL_CARDS = 35   # v10: soft 24-30 in prompts/editor.md; 35 is the ceiling
+MAX_FULL_CARDS = 35   # v10: hard ceiling
+SOFT_FULL_CARDS = 30  # v10: cards past this need composite >= STRONG_COMP
+STRONG_COMP = 10      # composite = S+N+C+Fit/2, max 14
 MAX_FRONT = 8
 MAX_ALSO = 2          # per section (v8.3: 20-30 one-liners pulled the reader into clicking)
 MAX_ALSO_TOTAL = 10
@@ -336,8 +338,17 @@ def validate_selection(sel: dict, digest: dict) -> dict:
         placed.update(also)
         if stories or also:
             sections.append({"slug": s.get("slug"), "stories": stories, "also": also})
-    # reading budget: drop the lowest-scored section stories first
+    # reading budget: drop the lowest-scored section stories first.
+    # v10: past SOFT_FULL_CARDS, a section card must score >= STRONG_COMP
+    # (the editor went straight to 35 on the first trial, 9 Nov 2026).
     full = [lead] + front + [i for s in sections for i in s["stories"]]
+    if len(full) > SOFT_FULL_CARDS:
+        ranked = sorted((i for s in sections for i in s["stories"]), key=comp, reverse=True)
+        room = SOFT_FULL_CARDS - 1 - len(front)
+        weak = {i for i in ranked[max(room, 0):] if comp(i) < STRONG_COMP}
+        for s in sections:
+            s["stories"] = [i for i in s["stories"] if i not in weak]
+        full = [lead] + front + [i for s in sections for i in s["stories"]]
     over = len(full) - MAX_FULL_CARDS
     if over > 0:
         cut = set(sorted((i for s in sections for i in s["stories"]), key=comp)[:over])
@@ -608,6 +619,12 @@ def validate_draft(draft: dict, sel: dict) -> dict:
             pt.pop("force", None)
         pats.append(pt)
     draft["patterns"] = pats[:5]
+    # one thread, one force: a card tagged with today's pattern takes its force
+    for card in sm.cards(draft):
+        pt = next((x for x in draft["patterns"] if card.get("evidence_of")
+                   and same_pattern(x["name"], card["evidence_of"]) and x.get("force")), None)
+        if pt:
+            card["force"] = pt["force"]
     return draft
 
 

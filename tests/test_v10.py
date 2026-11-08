@@ -64,3 +64,13 @@ def test_validate_draft_money_patterns_forces():
     assert "force" not in out["lead"] and "evidence_of" not in out["lead"]
     assert out["sections"][0]["stories"][0]["force"] == "capital"
     assert len(out["patterns"]) == 1 and out["patterns"][0]["evidence"] == ["C", "R1"]
+
+
+def test_soft_budget_needs_strong_cards_past_30():
+    ids = [f"s{i}" for i in range(40)]
+    digest = {"date": "2026-11-09", "sections": [{"slug": "world", "stories": [{"id": i, "title": i} for i in ids]}]}
+    scores = {i: ([4, 4, 4, 2, ""] if n < 32 else [2, 2, 2, 2, ""]) for n, i in enumerate(ids)}
+    raw = {"lead": "s0", "frontpage": [], "sections": [{"slug": "world", "stories": ids}], "scores": scores}
+    sel = nr.validate_selection(raw, digest)
+    full = 1 + sum(len(x["stories"]) for x in sel["sections"])
+    assert full == 32           # 32 strong cards kept, the 8 weak ones past 30 dropped

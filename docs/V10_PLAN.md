@@ -51,8 +51,8 @@ is going, not every round. Cross-domain thinking needs cached patterns.
       14 days' patterns so names repeat and it can say "4th sign in 2 weeks".
 - [x] C5 Renderer: show the block, roll-up and per-card tag; old editions still render.
 ### D. Check
-- [ ] D1 Unit tests pass; renderer shows legacy 2026-06-18 + a new edition.
-- [ ] D2 Trial run (`--mode trial`, writes to `trial/`) on today's digest; compare.
+- [x] D1 Unit tests pass; renderer shows legacy 2026-06-18 + a new edition.
+- [x] D2 Trial run (`--mode trial`, writes to `trial/`) on today's digest; compare.
 - [ ] D3 Report to Aman; merge only on his OK; review after one week.
 
 ## Later (not now)
@@ -71,3 +71,13 @@ is going, not every round. Cross-domain thinking needs cached patterns.
   assemble_edition build_story must pass evidence_of/force + top-level patterns/money,
   newsroom.yml only commits selections/ feeds/selected/ drafts/ -> store pattern memory under drafts/ or
   derive it from drafts/*.json to avoid a workflow change (which raises the GUARD alarm)).
+- 9 Nov trial (today's real news, local run): editor picked 35 cards (ceiling) incl. 6 below its own bar
+  -> code now enforces SOFT_FULL_CARDS=30 / STRONG_COMP=10 (this day would land ~30). Front page wide
+  (grid storage, AI-safety centre, Aramco attack, Maoists, FPIs, hiring, COP31, AI maths proof).
+  Funding cards: 1 (Zipline $1.5B); money roll-up 1 row; 0 Indian-startup cards (watch this).
+  5 patterns, 22 tagged cards. Writer output ~38k tokens (was 11-14k) and 264s: watch usage.
+  Local token totals include ~155k of local CLI overhead (user's own Claude config), so the
+  "spike" alert from that run is not representative of GitHub runs.
+  Renderer checked: blocks render, no horizontal scroll, 2026-06-24 legacy JSON renders
+  (2026-06-18 exists only as archive HTML). Card force now follows its pattern's force.
+  Feed fixes: neurosciencenews.com dropped (malformed XML); nature.com/nature.rss fails (bot wall), left as-is.
