@@ -60,7 +60,7 @@ LOG = ROOT / "feeds" / "newsroom_log.jsonl"
 # --- usage guard (v8.2) -----------------------------------------------------
 # Hard ceilings per call: a runaway input (a bug, a huge page) is refused
 # BEFORE it is sent, so one bad day can't eat the weekly allowance.
-MAX_INPUT_CHARS = {"editor": 160_000, "writer": 260_000}   # ~40k / ~65k tokens
+MAX_INPUT_CHARS = {"editor": 160_000, "writer": 340_000}   # ~40k / ~85k tokens (v10: up to 35 cards)
 SPIKE_FACTOR = 2.0          # today vs the median of the last 7 runs
 SPIKE_FLOOR_TOKENS = 90_000 # never alarm below this (normal day ~60k)
 ALERT_FILE = ROOT / "newsroom_alert.txt"   # the workflow turns this into an issue
@@ -77,7 +77,7 @@ class LimitError(RuntimeError):
     """The subscription's usage window is exhausted (retry after reset)."""
 
 
-MAX_FULL_CARDS = 24
+MAX_FULL_CARDS = 35   # v10: soft 24-30 in prompts/editor.md; 35 is the ceiling
 MAX_FRONT = 8
 MAX_ALSO = 2          # per section (v8.3: 20-30 one-liners pulled the reader into clicking)
 MAX_ALSO_TOTAL = 10
@@ -303,7 +303,7 @@ def code_ranked_selection(digest: dict) -> dict:
 
 def validate_selection(sel: dict, digest: dict) -> dict:
     """Enforce the rules in code, whatever the model returned: known ids only,
-    one lead, front <= 8, no front/section repeats, <= 24 full cards, rails and
+    one lead, front <= 8, no front/section repeats, <= 35 full cards, rails and
     opportunities capped. Trims the lowest-scored picks first."""
     known = {s["id"]: sec["slug"] for sec in digest.get("sections", []) for s in sec.get("stories", [])}
     whens = {s["id"]: s["when"] for sec in digest.get("sections", []) for s in sec.get("stories", [])
@@ -312,7 +312,12 @@ def validate_selection(sel: dict, digest: dict) -> dict:
 
     def comp(i):
         v = scores.get(i)
-        return sum(x for x in v[:4] if isinstance(x, (int, float))) if isinstance(v, list) else 0
+        # v10: Fit counts half (Scale + Novelty + Consequence + Fit/2), so a big
+        # off-beat story can beat a small on-beat one (prompts/editor.md).
+        if not isinstance(v, list):
+            return 0
+        n = [x if isinstance(x, (int, float)) else 0 for x in v[:4]] + [0, 0, 0, 0]
+        return n[0] + n[1] + n[2] + n[3] / 2
 
     def ok(i):
         return isinstance(i, str) and i in known

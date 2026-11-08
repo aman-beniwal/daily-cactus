@@ -125,10 +125,12 @@ INTEREST_TIERS = [
                    r"chips?", r"fab", r"semicon", r"osat", r"drones?", r"uavs?",
                    r"defence[- ]tech", r"defense[- ]tech", r"robotics?", r"humanoids?",
                    r"quantum", r"deep ?tech", r"ideaforge", r"tonbo"])),
-    (1.3, word_re([r"startups?", r"founders?", r"unicorns?", r"funding",
-                   r"series [a-f]", r"seed round", r"raises?", r"raised",
-                   r"valuation", r"ipo", r"venture", r"vcs?", r"acquires?",
-                   r"acquisition", r"layoffs?", r"d2c", r"quick commerce"])),
+    # v10 (9 Nov 2026): funding words (funding/raises/series/valuation/VC) no
+    # longer earn an interest bonus. They flooded the shortlist (2-3 funding
+    # cards a paper in mid-Oct, 8-9 in Nov). A single round is an L1 data point;
+    # rounds are now flagged `routine funding round` (format_flags) and rolled up.
+    (1.0, word_re([r"startups?", r"founders?", r"acquires?", r"acquisition",
+                   r"layoffs?", r"d2c", r"quick commerce"])),
     (1.2, word_re([r"india", r"indian", r"indias", r"bharat", r"modi", r"rbi",
                    r"sebi", r"meity", r"niti aayog", r"upi", r"ondc", r"aadhaar",
                    r"digital public", r"bengaluru", r"bangalore", r"jaipur",
@@ -697,6 +699,16 @@ FILING_RX = re.compile(r"\b(?:allots?|allotment of|esos|esop allotment|record da
                        r"board meeting|intimation|outcome of board|trading window|"
                        r"postal ballot|agm notice|joins .{3,40} (?:to lead|as (?:head|chief|vp|"
                        r"director))|appoints? .{3,40} as)\b", re.I)
+# v10: one company's raise. Flagged and demoted (not dropped): the editor gives a
+# round its own card only when it shows a shift (sector record, new category,
+# strategic/state investor, down round); the rest feed the writer's roll-up.
+ROUND_RX = re.compile(
+    r"\b(?:raises?|raised|raising|secures?|secured|bags?|bagged|lands?|closes?|"
+    r"closed|nets?|picks up|gets|receives?)\b.{0,70}?"
+    r"(?:\bfunding\b|\bround\b|\bseries [a-f]\b|\bseed\b|\bpre-seed\b|"
+    r"[$€£₹]\s?\d|\brs\.?\s?\d|\binr\s?\d|\d\s?(?:crore|cr|million|mn|bn|billion)\b)"
+    r"|\b(?:series [a-f]|seed|pre-seed|pre-series [a-f]|bridge|funding) round\b"
+    r"|\bin (?:fresh |new )?funding\b", re.I)
 AI_SUMMARY_RX = re.compile(r"summari[sz]ed by ai|ai-generated summary|"
                            r"may make mistakes", re.I)
 JUNK_TEXT_RX = re.compile(
@@ -720,13 +732,16 @@ def format_flags(entry) -> list:
         out.append("routine corporate filing / people move")
     if AI_SUMMARY_RX.search(text):
         out.append("machine-summarised copy")
+    if ROUND_RX.search(title):
+        out.append("routine funding round (one company's raise: L1 data point)")
     return out
 
 
 def format_penalty(flags: list) -> float:
     p = 0.0
     for f in flags:
-        p -= 2.5 if f.startswith("roundup") else 1.5 if f.startswith("opinion") else 3.0
+        p -= (2.5 if f.startswith("roundup") else 1.5 if f.startswith("opinion")
+              else 2.0 if f.startswith("routine funding") else 3.0)
     return p
 
 
