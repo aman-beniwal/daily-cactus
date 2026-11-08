@@ -1,0 +1,451 @@
+/* The Daily Cactus — "Cactus Craft" renderer stylesheet.
+   Committed once; the daily routine never touches this file.
+   Palette, textures and motifs per DESIGN_DIRECTION.md (LOCKED 13 Jul 2026)
+   and the approved reference render cactus-craft-v2.html.
+
+   Dark mode: deliberately NONE. This is a paper-and-pencil world — a dark
+   variant would fight the kraft/cream metaphor, so we don't ship one. */
+
+:root{
+  --kraft:#EFE5CF; --card:#FBF6EA; --ink:#26221B; --faded:#75695A;
+  --rule:#DECFAF; --red:#C4432B; --graphite:#4E463C;
+  --stone:#CBC5B6;             /* #19 Stone — the "Developing" tag */
+  --hl:rgba(234,205,124,.7);   /* marigold highlight (#EACD7C) */
+
+  /* muted section palette — black-text-safe, per the brand kit mapping */
+  --clay:#D9A38C;      /* AI            (#1 Clay Rose) */
+  --slate:#A8C0D6;     /* Deep Tech     (#13 Sky Slate) */
+  --leaf:#BEC17E;      /* Climate & Energy (#8 Olive) */
+  --rose:#95C4B3;      /* Health Tech   (#11 Sea Glass) */
+  --olive:#AABE8E;     /* Agritech      (#9 Sage) */
+  --marigold:#EEBE97;  /* Indian Startups (#3 Apricot) */
+  --teal:#9EB4CE;      /* India Deep Tech (#14 Denim Mist) */
+  --steel:#E3C067;     /* Global Economics (#4 Ochre) */
+  --saffron:#EACD7C;   /* India         (#5 Marigold) */
+  --horizon:#E6D6A8;   /* World         (#6 Wheat) */
+  --violet:#CBC5B6;    /* Other Interests / Beyond Your Beat (#19 Stone) */
+  --sea:#C1C5C2;       /* Opportunities (#20 Fog) */
+
+  --riso-green:#1E4A2E;
+  --brown:#6B4A2E;         /* Editor's Read + links */
+  --sig:var(--graphite);   /* The Signal: one colour page-wide (was per-section) */
+
+  /* SHADOW CONVENTION — the light source is the top-left corner sun, so EVERY
+     shadow on the page falls to the bottom-right (positive x, positive y). Keep
+     this angle constant everywhere; use these tokens rather than ad-hoc offsets. */
+  --shadow-card:3px 7px 18px rgba(38,34,27,.10), 1px 2px 3px rgba(38,34,27,.06);
+  --shadow-logo:3px 4px 3px rgba(38,34,27,.30);
+
+  /* Classic system faces — Georgia for text, American Typewriter for chrome. */
+  --serif:Georgia,"Times New Roman",serif;
+  --body:Georgia,"Times New Roman",serif;
+  --stamp:"American Typewriter","Courier New",monospace;
+}
+
+*{box-sizing:border-box}
+html{background:var(--kraft)}
+/* Minimal: a flat kraft ground (no texture image) — cleaner and more premium.
+   A thin brown rule sits at the very top and very bottom of the page; these are
+   in the flow (they scroll with the page), not a fixed frame, and there are no
+   side lines. */
+body{margin:0;color:var(--ink);font-family:var(--body);line-height:1.55;
+  background:var(--kraft);border-top:1.5px solid var(--brown);
+  border-bottom:1.5px solid var(--brown)}
+a{color:inherit}
+/* Fluid paper width; story text follows its card's content width. */
+.wrap{max-width:min(2200px,96vw);margin:0 auto;padding:32px clamp(16px,2vw,40px) 96px}
+
+/* decorative corner sun: the file is already oriented disc-in-top-left with the
+   rays fanning down-right into the page (EXIF orientation baked in), so it needs
+   NO rotation. Absolute so it scrolls away with the masthead; never blocks clicks. */
+.corner-sun{position:absolute;top:0;left:0;width:clamp(74px,8vw,118px);height:auto;
+  z-index:1;pointer-events:none;user-select:none}
+@media(max-width:699px){.corner-sun{width:clamp(53px,16vw,83px)}}
+
+/* ---------- masthead: large riso wordmark + cactus beside it ---------- */
+.masthead{text-align:center;margin-bottom:8px}
+.masthead-lockup{display:flex;align-items:center;justify-content:center;
+  gap:clamp(10px,2vw,26px)}
+.wordmark{display:block;flex:0 1 748px;min-width:0;max-width:100%;height:auto}
+.masthead-cactus{width:clamp(44px,6.5vw,74px);height:auto;flex:none;
+  filter:drop-shadow(var(--shadow-logo))}
+.dateline{font-family:var(--stamp);font-size:12px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--faded);margin-top:10px;text-align:center}
+.dateline span{white-space:nowrap}
+
+/* ---------- date picker / controls (kept functional, restyled) ---------- */
+.datebar{display:flex;justify-content:center;align-items:center;gap:10px;
+  padding:6px 0 2px;font-family:var(--stamp);font-size:12px;color:var(--faded);
+  max-width:100%;flex-wrap:wrap}
+.datebar select{font-family:var(--stamp);font-size:12px;background:var(--card);
+  color:var(--ink);border:1px solid var(--rule);border-radius:3px;padding:3px 8px;
+  /* long option labels used to force the select wider than a phone screen. */
+  max-width:min(72vw,420px);text-overflow:ellipsis}
+
+/* ---------- section nav: green menu bar, cream text ---------- */
+nav#nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;
+  padding:11px 16px;margin:12px 0 4px;font-family:var(--stamp);font-size:12px;
+  letter-spacing:1.5px;text-transform:uppercase;position:sticky;top:0;
+  background:var(--riso-green);color:#F4EEDD;border-radius:3px;z-index:5;
+  transition:transform .28s ease}
+/* Auto-hide is MOBILE-ONLY: on desktop the bar stays fixed at the top. On mobile
+   it slides up while scrolling down and returns on scroll up (see app.js). */
+@media(max-width:699px){nav#nav.nav-hidden{transform:translateY(-135%)}}
+@media(prefers-reduced-motion:reduce){nav#nav{transition:none}}
+/* A kraft strip that rides just below the sticky nav, so scrolling article
+   content never butts right up against the bar — keeps the same little gap the
+   page shows at the top. Invisible at rest (kraft on kraft); masks content when
+   the bar is stuck. */
+nav#nav::after{content:"";position:absolute;left:0;right:0;top:100%;height:12px;
+  background:var(--kraft);pointer-events:none}
+nav#nav a{color:#F4EEDD;text-decoration:none;cursor:pointer;padding-bottom:1px;
+  border-bottom:1px solid transparent}
+nav#nav a:hover,nav#nav a:focus-visible{border-bottom-color:#F4EEDD}
+nav#nav .sep{color:rgba(244,238,221,.5)}   /* separators visible on green */
+@media(max-width:699px){
+  nav#nav{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;
+    white-space:nowrap;gap:10px;padding:8px 12px;scrollbar-width:thin}
+  nav#nav a,nav#nav .sep{flex:none}
+}
+
+/* ---------- markets stat bar ---------- */
+.markets{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;
+  font-family:var(--stamp);font-size:12px;padding:8px 4px;margin:14px 0 8px;
+  border-top:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);color:var(--ink)}
+.markets .q b{font-weight:700}
+.markets .up::after{content:" \25B2";color:#4c7a4c}
+.markets .dn::after{content:" \25BC";color:var(--red)}
+@media(max-width:699px){
+  .markets{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;
+    white-space:nowrap;gap:16px;scrollbar-width:thin}
+  .markets .q,.markets-asof{flex:none}
+}
+.markets-asof{color:var(--faded);font-size:11px}
+
+/* ---------- warm cards on kraft: shadow IS the edge ---------- */
+.card{background:var(--card);border-radius:3px;padding:18px 24px;
+  box-shadow:var(--shadow-card)}   /* bottom-right, per the shadow convention */
+
+/* v6 layout: CSS multi-column instead of CSS grid.
+   CSS grid forces every card in a row to the height of the TALLEST card in
+   that row. Measured on the 21 Jul edition at 1512px: two cards in the same
+   row were 1465px and 1019px tall, leaving 446px of dead paper under the
+   short one — and that repeats down the page. Multi-column packs cards
+   vertically instead, so a short card is followed immediately by the next
+   one and the gaps disappear. Reading order becomes top-to-bottom per column,
+   which is how an actual newspaper reads anyway. */
+/* Fixed-column rows (flexbox). Columns are equal width — 2 on a laptop, 3 on a
+   wide monitor, 1 on a phone. Cards flow left-to-right filling rows; cards in the
+   same row are the SAME height (flex stretch) and the meta bar pins to the card
+   bottom, so a shorter story fills its box instead of leaving a hole. The last
+   incomplete row grows to fill the width, and a lone leftover card (.wide, set by
+   packAll() in app.js) spans the whole width — no wasted trailing space. */
+.pack{display:flex;flex-wrap:wrap;gap:22px;margin-top:24px;align-items:stretch}
+.pack > .story{flex:1 1 calc(50% - 11px);min-width:0;margin:0;
+  display:flex;flex-direction:column}
+@media(min-width:1500px){.pack > .story{flex-basis:calc(33.333% - 15px)}}
+@media(max-width:699px){.pack{gap:18px}.pack > .story{flex-basis:100%}}
+/* push the Read/Ask bar to the bottom edge so short cards read as full */
+.pack > .story .card-collapse{display:flex;flex-direction:column;flex:1 1 auto}
+.pack > .story .meta{margin-top:auto}
+/* Text uses the same available width in every part of a card. */
+.story :is(p,ul.points,.signal,.legacy-why,.legacy-take){max-width:100%;text-wrap:pretty}
+/* The key-stat is inline-block; as a direct flex child it would stretch to full
+   width and its highlight would overflow the text — keep it to its content. */
+.pack > .story .key-stat{align-self:flex-start}
+/* Cap photo height so a card image is a tidy band, never a big square that
+   dominates the column. object-fit:cover on the img crops to fill. */
+.pack > .story .figure{max-height:260px}
+/* A lone leftover card spans the full width — single column, text fills the box. */
+.pack > .story.wide{flex-basis:100%;display:block}
+.pack > .story.wide .card-collapse{display:block}
+.pack > .story.wide.wide-fig .figure{float:right;width:min(38%,380px);max-height:300px;margin:2px 0 14px 28px}
+.pack > .story.wide.wide-fig::after{content:"";display:block;clear:both}
+
+/* "Also up top" — front-page stories that also belong to this section, shown as
+   a compact strip instead of a full duplicate card. */
+.alsotop{margin:14px 0 4px;padding:10px 16px;background:#ffffff88;
+  border:1px solid var(--rule);border-radius:6px;font-size:14px}
+.alsotop b{font-family:var(--stamp);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--faded);display:block;margin-bottom:5px}
+.alsotop .altitem{display:inline-block;margin:0 20px 4px 0}
+.alsotop a{color:var(--brown)}
+
+/* The lead spans the full page width, matching the card rows below it. */
+.lead-wrap{margin:24px 0 0}
+
+/* A lead WITH a photo now FLOATS the photo instead of parking it in a rigid
+   grid column. The grid version reserved a full-height 534px column for a
+   356px-tall photo, so 482px of that column — 57% of the card's height — was
+   permanently empty, while the prose beside it was squeezed to 57ch. Floating
+   lets the text run alongside the photo and then continue underneath it, which
+   is what a newspaper does with a lead image. */
+.story.lead-story{display:block}
+.story.lead-story .figure{float:right;width:min(42%,560px);
+  margin:6px 0 20px 28px;shape-outside:inset(0 round 2px)}
+/* Signal and Editor's Read follow the floated photo at full card width. */
+.story.lead-story .signal{clear:right}
+.story.lead-story .meta{clear:right}
+@media(max-width:899px){
+  .story.lead-story .figure{float:none;width:100%;margin:0 0 16px}
+}
+.story.lead-story.no-figure{display:block}
+
+.story{scroll-margin-top:64px}
+.story h5{font-family:var(--serif);font-size:20px;line-height:1.25;margin:8px 0;
+  text-wrap:balance}
+.story.lead-story h5{font-size:clamp(22px,3vw,26px)}
+.story p{margin:0 0 8px;font-size:15px}
+
+/* v6 bullet summary: a one-line hook, then 3-5 points. The hook carries the
+   number you read at a glance, so it sits a touch larger than the bullets. */
+.story p.hook{font-size:16px;line-height:1.45;margin:0 0 10px}
+.story.lead-story p.hook{font-size:16px}
+.story ul.points{margin:0 0 10px;padding-left:0;list-style:none}
+.story ul.points li{position:relative;padding-left:18px;margin-bottom:6px;
+  font-size:15px;line-height:1.5}
+.story ul.points li::before{content:"";position:absolute;left:2px;top:.62em;
+  width:6px;height:6px;border-radius:50%;background:#000;opacity:1}
+.story .src-flag-line{margin:-4px 0 8px}
+
+/* kicker: always two rows so headlines start at the same height */
+.kicker{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.kicker .row1{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.kicker .row2{font-family:var(--stamp);font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--faded);text-wrap:balance}
+
+/* Section tag: muted colour, BLACK text, flat (no hard shadow — minimal). */
+.tab{display:inline-block;font-family:var(--stamp);font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;color:#000;padding:4px 14px 3px;border-radius:3px;
+  background:var(--tabc,var(--clay))}
+.badge-dev{display:inline-block;font-family:var(--stamp);font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink);background:var(--stone);padding:3px 10px 2px;
+  border-radius:3px}
+.badge-custom{display:inline-block;font-family:var(--stamp);font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink);border:1.2px solid var(--faded);padding:2px 9px}
+
+.key-stat{display:inline-block;font-family:var(--stamp);font-size:11px;letter-spacing:1px;
+  color:var(--ink);background:var(--hl);padding:2px 10px;border-radius:1px 5px 2px 4px;
+  mix-blend-mode:multiply;margin:2px 0 8px}
+
+/* ---------- photos: clean framed image (tape corners removed, minimal) ---------- */
+.figure{background:#EFE7D2;border-radius:3px;aspect-ratio:3/2;display:flex;
+  align-items:center;justify-content:center;position:relative;overflow:hidden;
+  box-shadow:0 1px 2px rgba(78,64,40,.10);margin-bottom:12px}
+.figure img{width:100%;height:100%;object-fit:cover;display:block}
+.figure small{position:absolute;bottom:8px;right:10px;font-family:var(--stamp);
+  font-size:11px;color:var(--faded);letter-spacing:1px}
+.story:not(.lead-story) .figure{margin-top:-2px}
+
+/* ---------- The Signal: quiet, left bar, no tint ---------- */
+/* 3.4: The Signal is ONE colour across the whole page (graphite), not tinted
+   per section. Editor's Read stays the single red accent (see .signal.editors). */
+.signal{font-size:15px;padding:2px 0 2px 14px;margin:8px 0;
+  border-left:3px solid var(--sig)}
+.signal b{font-family:var(--stamp);font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;display:block;margin-bottom:4px;color:var(--sig)}
+.signal ul{margin:0;padding-left:18px}
+.signal li{margin-bottom:4px}
+.signal li::marker{color:#000}   /* 3.5: black bullets */
+/* Editor's Read: the ONE brown voice per card — override --sig so its bar +
+   label are espresso brown while every plain Signal stays graphite. */
+.signal.editors{--sig:var(--brown);background:color-mix(in srgb,var(--brown) 8%,#FFFDF6);
+  padding:8px 14px;border-radius:2px;border-left-width:3px}
+/* legacy takeaway/why fallback — same single-colour treatment as .signal */
+.legacy-take{font-size:15px;margin:6px 0}
+.legacy-take b{color:var(--sig);font-family:var(--stamp);font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase}
+.legacy-why{font-size:15px;padding:8px 14px;margin:6px 0;border-left:3px solid var(--sig);
+  background:color-mix(in srgb,var(--sig) 6%,#FFFDF6)}
+.legacy-why b{font-family:var(--stamp);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--sig);display:block;margin-bottom:2px}
+
+.meta{font-family:var(--stamp);font-size:11px;color:var(--faded);display:flex;gap:16px;
+  align-items:center;margin-top:8px;flex-wrap:wrap}
+.thumbs{display:inline-flex;gap:8px}
+.thumbs button{background:none;border:1.2px solid var(--faded);border-radius:50%;
+  width:28px;height:28px;cursor:pointer;color:var(--graphite);display:inline-flex;
+  align-items:center;justify-content:center;padding:0}
+.thumbs button svg{width:15px;height:15px}
+.thumbs button:hover{background:var(--hl);border-color:var(--ink)}
+.thumbs button:focus-visible{outline:2.5px solid var(--red);outline-offset:2px}
+.thumbs button.sent{opacity:.4;cursor:default}
+.thumbs button.sent:hover{background:none;border-color:var(--faded)}
+
+/* Ask AI — sits in the card's meta row, deliberately quiet: it's a tool, not
+   a call to action, and must never outweigh "Read the original". */
+.ask-ai{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ask-ai .ask-lab{text-transform:uppercase;letter-spacing:2px;opacity:.75}
+.ask-ai a,.ask-ai button{font-family:var(--stamp);font-size:11px;letter-spacing:.5px;
+  color:var(--graphite);text-decoration:none;background:none;cursor:pointer;
+  border:1.2px solid var(--faded);border-radius:3px;padding:3px 8px 2px}
+.ask-ai a:hover,.ask-ai button:hover{background:var(--hl);border-color:var(--ink);
+  color:var(--ink)}
+.ask-ai a:focus-visible,.ask-ai button:focus-visible{outline:2.5px solid var(--red);
+  outline-offset:2px}
+
+/* vote bar — only appears once something is saved on this device */
+.votebar{font-family:var(--stamp);font-size:11px;letter-spacing:1px;
+  color:var(--faded);text-align:center;margin:22px 0 0;display:flex;gap:10px;
+  justify-content:center;align-items:center;flex-wrap:wrap}
+.votebar:empty{display:none}
+.votebar button{font-family:var(--stamp);font-size:11px;letter-spacing:1px;
+  color:var(--graphite);background:none;border:1.2px solid var(--faded);
+  border-radius:3px;padding:3px 9px 2px;cursor:pointer}
+.votebar button:hover{background:var(--hl);border-color:var(--ink);color:var(--ink)}
+
+/* pencil devices */
+/* <mark> ships with a UA yellow background and black text — both must go, or
+   they fight the marker-pen gradient below. */
+mark.hl{color:inherit}
+.hl{background:
+    linear-gradient(100deg,transparent 0,var(--hl) 5%,var(--hl) 92%,transparent 100%),
+    linear-gradient(97deg,transparent 2%,var(--hl) 9%,var(--hl) 88%,transparent 96%);
+  mix-blend-mode:multiply;padding:0 3px;border-radius:1px 4px 2px 3px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* Pencil squiggle removed (minimal direction). Links = brown, plain thin
+   underline. Emphasis (.ul, the __marked__ phrase) = a quiet solid underline. */
+a.sk{color:var(--brown);text-decoration:underline;text-decoration-thickness:1px;
+  text-underline-offset:2px}
+a.sk:hover{text-decoration-thickness:1.5px}
+.ul{text-decoration:underline;text-decoration-color:rgba(38,34,27,.5);
+  text-decoration-thickness:1px;text-underline-offset:2px}
+
+.lead-badge{position:relative;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--red);font-weight:700;padding:3px 6px;font-family:var(--stamp);
+  font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.lead-badge svg{position:absolute;inset:-7px -10px;width:calc(100% + 20px);height:calc(100% + 14px);
+  overflow:visible}
+
+/* ---------- section heads: chip + pencil rule ---------- */
+/* Big section heading in a solid colour box (section's own colour, black text),
+   with a thin brown rule beside it. */
+.sec-head{display:flex;align-items:center;gap:16px;margin:64px 0 10px}
+.sec-title{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.05;text-wrap:balance;
+  color:#000;margin:0;white-space:nowrap;background:var(--tabc,var(--riso-green));
+  padding:4px 16px 6px;border-radius:4px}
+.sec-head .sec-rule{flex:1;height:1.5px;background:var(--brown)}
+@media(max-width:480px){.sec-title{font-size:24px;padding:3px 12px 5px}}
+
+/* ---------- frontpage/section cross-reference (Fix 6) ---------- */
+.story.crossref{grid-column:1/-1;display:flex;gap:10px;align-items:baseline;
+  flex-wrap:wrap;padding:12px 24px;font-size:15px;opacity:.85}
+.story.crossref .crossref-headline{font-family:var(--serif);font-style:italic}
+
+/* ---------- "Also worth knowing" rail ---------- */
+.also-rail{grid-column:1/-1;margin-top:28px;font-size:15px}
+.also-rail h6{font-family:var(--stamp);font-size:11px;letter-spacing:2px;color:var(--faded);
+  text-transform:uppercase;margin:0 0 6px}
+.also-rail ul{margin:0;padding-left:18px}
+.also-rail li{margin-bottom:5px}   /* v8.3: full width (74ch cap wrapped mid-page) */
+.also-rail li::marker{color:#000}
+
+/* ---------- The 2-minute brief ---------- */
+.brief-card{margin-top:24px}
+.brief-card h4{font-family:var(--stamp);font-size:13px;letter-spacing:2.5px;
+  text-transform:uppercase;margin:0 0 8px}
+/* The brief is 8-12 short one-liners. On a wide screen a single 76ch column
+   left ~770px empty beside it, so it flows into 2 (then 3) columns instead —
+   fills the width AND makes the whole brief scannable in fewer eye-sweeps.
+   break-inside:avoid keeps an item from splitting across a column. */
+.brief-card ol{margin:0;padding-left:22px;max-width:76ch}
+@media(min-width:1200px){
+  .brief-card ol{max-width:none;columns:2;column-gap:48px}
+}
+@media(min-width:1900px){
+  .brief-card ol{columns:3;column-gap:52px}
+}
+.brief-card li{margin-bottom:8px;font-size:15px;break-inside:avoid}
+.brief-card li::marker{font-family:var(--stamp);color:#000}
+
+/* ---------- opportunities ---------- */
+.opp{display:flex;gap:16px;align-items:baseline;padding:13px 24px;margin-top:16px;font-size:15px;
+  flex-wrap:wrap}
+.opp .when{font-family:var(--stamp);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  white-space:nowrap;color:var(--sea);font-weight:700}
+
+/* ---------- colophon ---------- */
+.colo{text-align:center;font-family:var(--stamp);font-size:11px;color:var(--faded);
+  margin-top:48px;padding-top:16px;border-top:1.5px solid var(--rule)}
+.colo svg{width:14px;height:18px;vertical-align:-4px;margin-left:6px}
+.colo-logo{height:26px;width:auto;vertical-align:-8px;margin-left:8px;
+  filter:drop-shadow(var(--shadow-logo))}
+
+/* ---------- states ---------- */
+.status{text-align:center;padding:64px 20px;font-family:var(--stamp);color:var(--faded)}
+
+/* 3.7: smooth scrolling for nav jumps / anchors. */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ---------- 3.2: mobile accordion (single column, tap headline area to open) ----
+   Desktop (>=700px): toggle hidden, content always visible. Below 700px each
+   card keeps its headline, key stat, and hook visible; "Read more" expands the rest.
+   max-height (px) transition is used because it is reliable across browsers. */
+.card-toggle{display:none}
+.card-collapse{overflow:hidden;max-height:none}
+/* Lead collapse: display:contents on desktop keeps the photo float;
+   mobile uses an accordion. */
+.lead-collapse{display:contents}
+@media(max-width:699px){
+  .card-toggle{display:flex;align-items:center;gap:6px;width:100%;margin:10px 0 2px;
+    background:none;border:none;border-top:1px solid var(--rule);padding-top:10px;
+    font-family:var(--stamp);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--faded);cursor:pointer;text-align:left}
+  .card-toggle::after{content:"\25BE";margin-left:auto;transition:transform .2s}
+  .card-toggle:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  .card-toggle-bottom{margin-top:14px}
+  .card-toggle .ct-less{display:none}
+  .story.open .card-toggle .ct-more{display:none}
+  .story.open .card-toggle .ct-less{display:inline}
+  .story.open .card-toggle::after{transform:rotate(180deg)}
+  .card-collapse,.lead-collapse{max-height:0;transition:max-height .35s ease}
+  .lead-collapse{display:block;overflow:hidden}
+  .story.open .card-collapse,.lead-story.open .lead-collapse{max-height:6000px}
+}
+@media(max-width:699px) and (prefers-reduced-motion:reduce){.card-collapse,.lead-collapse{transition:none}}
+
+/* ---------- mobile 375px ---------- */
+@media(max-width:480px){
+  .wrap{padding:20px 14px 72px}
+  .markets{gap:14px}
+  .card{padding:14px 16px}
+  nav#nav{gap:8px}
+  .story h5{font-size:19px}
+  .story.lead-story h5{font-size:22px}
+}
+
+/* P6: provenance flag on thin/unreachable stories — an editorial aside, not
+   body prose. Muted + italic so it reads as a note about the source. */
+.src-flag{font-style:italic;color:var(--faded);font-size:.92em;white-space:nowrap}
+@media(max-width:520px){.src-flag{white-space:normal}}
+
+/* v9: unsent votes piling up */
+#votebar.nudge{background:var(--hl);padding:4px 10px;border-radius:4px}
+
+/* ---------- v10: L2/L3 layer ---------- */
+.evidence-tag{font-size:13px;color:var(--graphite);margin:8px 0 2px;line-height:1.4}
+.evidence-tag b{font-family:var(--stamp);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--faded);margin-right:4px}
+.force-chip{display:inline-block;font-family:var(--stamp);font-size:10px;letter-spacing:1.5px;
+  text-transform:uppercase;padding:1px 6px;border:1px solid var(--rule);border-radius:3px;
+  color:var(--graphite);background:var(--kraft);margin:0 6px 0 2px;vertical-align:1px}
+.patterns-card,.money-card{padding:16px 18px;margin:0 0 22px}
+.patterns-card h4,.money-card h4{font-family:var(--stamp);font-size:12px;letter-spacing:2.5px;
+  text-transform:uppercase;margin:0 0 10px;color:var(--ink)}
+.patterns-card ol{margin:0;padding-left:20px}
+.patterns-card li{margin-bottom:12px}
+.patterns-card li:last-child{margin-bottom:0}
+.patterns-card .pat-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 6px}
+.patterns-card .pat-head b{font-size:16px}
+.patterns-card .streak{font-size:12px;color:var(--faded)}
+.patterns-card p{margin:3px 0;font-size:15px}
+.patterns-card .pat-ev{font-size:13px;color:var(--faded)}
+.money-scroll{overflow-x:auto}
+.money-card table{border-collapse:collapse;width:100%;font-size:14px}
+.money-card th{font-family:var(--stamp);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--faded);text-align:left;border-bottom:1px solid var(--rule);padding:4px 8px 4px 0}
+.money-card td{border-bottom:1px solid var(--rule);padding:6px 8px 6px 0;vertical-align:top}
+.money-card .m-amt{white-space:nowrap;font-weight:600}
+.money-card .m-co{white-space:nowrap}
+@media (max-width:640px){.money-card .m-line{min-width:180px}}
