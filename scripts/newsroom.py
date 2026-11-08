@@ -477,7 +477,7 @@ def same_pattern(a: str, b: str) -> bool:
     return ka == kb or len(ka & kb) / len(ka | kb) >= 0.6
 
 
-def recent_patterns(drafts_dir: pathlib.Path, date: str, days: int = PATTERN_DAYS) -> list:
+def recent_patterns(drafts_dir, date: str, days: int = PATTERN_DAYS) -> list:
     """Pattern memory, derived from the committed drafts (no extra state file, so
     no workflow change). Returns [{name, force, days: [dates], line}], newest first."""
     try:
@@ -485,7 +485,10 @@ def recent_patterns(drafts_dir: pathlib.Path, date: str, days: int = PATTERN_DAY
     except ValueError:
         return []
     out = []
-    for f in sorted(drafts_dir.glob("20*.json"), reverse=True):
+    dirs = drafts_dir if isinstance(drafts_dir, (list, tuple)) else [drafts_dir]
+    files = sorted((f for d in dirs for f in pathlib.Path(d).glob("20*.json")),
+                   key=lambda f: f.stem, reverse=True)
+    for f in files:
         try:
             d = datetime.date.fromisoformat(f.stem)
         except ValueError:
@@ -709,8 +712,8 @@ def main():
     # 3 — writing
     drafts = base / "drafts"
     drafts.mkdir(parents=True, exist_ok=True)
-    # pattern memory always reads the LIVE drafts (a trial has little history)
-    recent = recent_patterns(ROOT / "drafts", date)
+    # pattern memory: this mode's drafts, plus the live ones in trial mode
+    recent = recent_patterns(list(dict.fromkeys([drafts, ROOT / "drafts"])), date)
     try:
         draft = call_with_retry("writer", (PROMPTS / "writer.md").read_text(),
                                 writer_input(sel, selected, recent), a.writer_model, a.writer_effort, date=date)
