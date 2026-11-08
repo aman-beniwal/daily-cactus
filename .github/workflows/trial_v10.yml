@@ -1,0 +1,119 @@
+name: Trial v10 — side-by-side test paper
+
+# Added 9 Nov 2026 (docs/V10_PLAN.md). Runs the v10 code from the
+# `v10-editor-patterns` branch every morning, AFTER the live paper, and
+# publishes its paper ONLY under /v10/ on gh-pages (keep_files: the live site
+# is never touched). Read it at:
+#   https://aman-beniwal.github.io/daily-cactus/v10/?trial=YYYY-MM-DD
+# Remove this file when v10 is merged into main (or abandoned).
+
+on:
+  schedule:
+    - cron: '30 3 * * *'      # 09:00 IST; GitHub may start it later
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: trial-v10
+  cancel-in-progress: false
+
+jobs:
+  trial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      HAS_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+      BRANCH: v10-editor-patterns
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v10-editor-patterns
+
+      - name: Checkout published editions (cross-day memory)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: existing_editions
+
+      - name: Forget today's LIVE paper (so the trial can pick today's big stories too)
+        run: rm -f "existing_editions/editions/$(TZ=Asia/Kolkata date +%F).json"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install
+        run: |
+          pip install feedparser pyyaml trafilatura readability-lxml certifi
+          npm install -g @anthropic-ai/claude-code@2.1.289   # same pinned version as newsroom.yml
+
+      - name: Fetch + rank (v10 code)
+        env:
+          EDITIONS_DIR: existing_editions/editions
+        run: |
+          python scripts/fetch_feeds.py
+          python scripts/fetch_opportunities.py || echo "fetch_opportunities failed, continuing"
+          python scripts/build_digest.py
+          python scripts/fetch_markets.py || echo "markets fetch failed, continuing"
+
+      - name: Editor + writer (trial mode)
+        if: env.HAS_TOKEN == 'true'
+        env:
+          RAW_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          EDITIONS_DIR: existing_editions/editions
+          EDITOR_MODEL: ${{ vars.EDITOR_MODEL }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL }}
+          EDITOR_EFFORT: ${{ vars.EDITOR_EFFORT }}
+          WRITER_EFFORT: ${{ vars.WRITER_EFFORT }}
+        run: |
+          CLAUDE_CODE_OAUTH_TOKEN="$(printf '%s' "$RAW_TOKEN" | tr -d '[:space:]')"
+          echo "::add-mask::$CLAUDE_CODE_OAUTH_TOKEN"
+          export CLAUDE_CODE_OAUTH_TOKEN
+          unset RAW_TOKEN
+          set -o pipefail
+          python scripts/newsroom.py --mode trial | tee newsroom.log
+
+      - name: Save the trial selection + draft on the v10 branch
+        if: always() && env.HAS_TOKEN == 'true'
+        run: |
+          git config user.name  "Daily Cactus Bot"
+          git config user.email "bot@dailycactus.local"
+          git add trial/selections trial/drafts
+          git diff --staged --quiet || git commit -m "Trial v10 $(TZ=Asia/Kolkata date +%F)"
+          for i in 1 2 3; do git pull --rebase --autostash -q origin "$BRANCH" && git push origin "HEAD:$BRANCH" && break; sleep 5; done
+
+      - name: Assemble into v10/ only (v10 renderer + trial editions)
+        env:
+          DC_DRAFTS_DIR: trial/drafts
+          DC_SELECTED_DIR: trial/feeds/selected
+          DC_OUT_DIR: trial_site/v10/trial/editions
+          EXISTING_EDITIONS_DIR: /nonexistent
+        run: |
+          python scripts/assemble_edition.py
+          mkdir -p trial_site/v10
+          cp site/index.html site/app.js site/style.css trial_site/v10/
+          cp -R site/assets trial_site/v10/ 2>/dev/null || true
+
+      - name: Deploy v10/ (keep_files; the live site is untouched)
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453   # v4, same pin as newsroom.yml
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./trial_site
+          publish_branch: gh-pages
+          keep_files: true
+          commit_message: "Trial v10 edition"
+
+      - name: Open an issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `[v10 trial] test paper failed: ${new Date().toISOString().slice(0,10)}`,
+              body: 'Only the v10 side-by-side TEST paper failed. The live paper is not affected. See the run log.',
+            });
