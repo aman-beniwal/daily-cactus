@@ -81,3 +81,13 @@ is going, not every round. Cross-domain thinking needs cached patterns.
   Renderer checked: blocks render, no horizontal scroll, 2026-06-24 legacy JSON renders
   (2026-06-18 exists only as archive HTML). Card force now follows its pattern's force.
   Feed fixes: neurosciencenews.com dropped (malformed XML); nature.com/nature.rss fails (bot wall), left as-is.
+
+## Side-by-side trial (from 9 Nov 2026, Aman's call: 2-3 days before merging)
+- `main` gained ONLY `.github/workflows/trial_v10.yml` (commit 699dffb). Daily 09:00 IST it checks
+  out this branch, fetches + ranks with v10 code, runs editor + writer in `--mode trial`, commits
+  `trial/` to this branch, and deploys to gh-pages `/v10/` (keep_files). Live paper untouched.
+- Read it at https://aman-beniwal.github.io/daily-cactus/v10/?trial=YYYY-MM-DD
+- Cost: a second editor + writer call each day on the same subscription.
+- When Aman says merge: (1) `git pull` this branch (the bot commits trial/ to it),
+  (2) merge into main, (3) delete `.github/workflows/trial_v10.yml`, (4) watch the next live run.
+  If abandoned: delete the workflow file from main; the /v10/ pages can stay or be removed.
