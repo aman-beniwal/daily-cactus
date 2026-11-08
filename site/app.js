@@ -31,6 +31,7 @@ const SECTION_COLOR = {
   "global-economics": "steel",
   "india": "saffron",
   "world": "horizon",
+  "science-mind": "teal",
   "other-interests": "violet",
   "beyond-your-beat": "violet",
   "opportunities": "sea",
@@ -442,8 +443,17 @@ function keyStatHTML(s) {
   return s.key_stat ? `<span class="key-stat">${esc(s.key_stat)}</span>` : "";
 }
 
+// v10 L2/L3: "what this is evidence of" tag, above The Signal.
+const FORCE_LABEL = { technology: "Technology", capital: "Capital", geopolitics: "Geopolitics",
+  regulation: "Regulation", demographics: "Demographics", climate: "Climate", discovery: "Discovery" };
+function evidenceTagHTML(s) {
+  if (!s.evidence_of) return "";
+  const f = FORCE_LABEL[s.force] ? `<span class="force-chip">${esc(FORCE_LABEL[s.force])}</span>` : "";
+  return `<div class="evidence-tag"><b>Evidence of</b> ${esc(s.evidence_of)} ${f}</div>`;
+}
+
 function bodyHTML(s, tabVar) {
-  let out = "";
+  let out = evidenceTagHTML(s);
   if (s.signal && s.signal.length) {
     out += `<div class="signal" style="--tabc:var(--${tabVar})"><b>The Signal</b><ul>${
       s.signal.map((b) => `<li>${esc(b)}</li>`).join("")}</ul></div>`;
@@ -490,6 +500,39 @@ function crossRefStripItem(s, anchorId, frontAnchorId) {
     ? ` <a class="sk" href="#${esc(frontAnchorId)}">&uarr; on the front page</a>`
     : ` <span style="opacity:.7">&uarr; on the front page</span>`;
   return `<span class="altitem" id="${esc(anchorId)}">${headline}${jump}</span>`;
+}
+
+// v10: "What's changing" (L2 patterns over today's L1 stories) and the
+// "Where the money went" roll-up. Both optional: older editions lack them.
+// outlet titles arrive as "Headline - Reuters"; drop the trailing outlet name
+const cleanHeadline = (t) => String(t || "").replace(/\s+[-|–]\s+[^-|–]{2,40}$/, "").trim();
+function patternsHTML(patterns, urlAnchors) {
+  if (!Array.isArray(patterns) || !patterns.length) return "";
+  const rows = patterns.map((p) => {
+    const f = FORCE_LABEL[p.force] ? `<span class="force-chip">${esc(FORCE_LABEL[p.force])}</span>` : "";
+    const streak = p.streak > 1 ? `<span class="streak">seen ${esc(p.streak)} of the last 14 days</span>` : "";
+    const ev = (p.evidence || []).map((e) => {
+      const a = e.url && urlAnchors.get(e.url);
+      const t = esc(cleanHeadline(e.title || ""));
+      if (a) return `<a class="sk" href="#${esc(a)}">${t}</a>`;
+      return e.url ? `<a class="sk" href="${esc(e.url)}" target="_blank" rel="noopener">${t}</a>` : t;
+    }).join("<span class=\"sep\"> · </span>");
+    return `<li><div class="pat-head">${f}<b>${esc(p.name)}</b>${streak}</div>` +
+      `<p>${esc(p.line)}</p><div class="pat-ev">Evidence: ${ev}</div></li>`;
+  }).join("");
+  return `<section class="card patterns-card"><h4>What&rsquo;s changing</h4><ol>${rows}</ol></section>`;
+}
+
+function moneyHTML(money) {
+  if (!Array.isArray(money) || !money.length) return "";
+  const rows = money.map((m) => {
+    const name = m.url ? `<a class="sk" href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.company)}</a>` : esc(m.company);
+    return `<tr><td class="m-co">${name}</td><td class="m-amt">${esc(m.amount)}</td>` +
+      `<td class="m-sec">${esc(m.sector)}</td><td class="m-line">${esc(m.line)}</td></tr>`;
+  }).join("");
+  return `<section class="card money-card"><h4>Where the money went</h4>` +
+    `<div class="money-scroll"><table><thead><tr><th>Company</th><th>Amount</th><th>Sector</th><th>What it does</th></tr></thead>` +
+    `<tbody>${rows}</tbody></table></div></section>`;
 }
 
 function alsoRailHTML(also) {
@@ -654,7 +697,7 @@ function briefHTML(brief, urlAnchors) {
 // the end in their original order; Opportunities always renders last, separately.
 const SECTION_ORDER = ["ai", "indian-startups", "deep-tech", "india-deep-tech",
   "climate-energy", "agritech", "health-tech", "global-economics", "india",
-  "world", "work-careers", "other-interests", "beyond-your-beat"];
+  "world", "science-mind", "work-careers", "other-interests", "beyond-your-beat"];
 
 // ---------- main render ----------
 function renderEdition(ed) {
@@ -732,6 +775,7 @@ function renderEdition(ed) {
   // The lead lives OUTSIDE .grid2: .grid2 is a CSS multi-column container now,
   // and multi-column has no equivalent of grid-column:1/-1 for a full-width
   // child. Keeping it separate also lets the lead float its own photo.
+  html += patternsHTML(ed.patterns, urlAnchors);
   if (ed.lead) {
     html += `<div class="lead-wrap">${storyCardHTML(ed.lead, {
       lead: true, slug: "front", sectionName: null,
@@ -744,6 +788,7 @@ function renderEdition(ed) {
     });
     html += `</div>`;
   }
+  html += moneyHTML(ed.money);
 
   (ed.sections || []).forEach((sec, si) => {
     if (!sec.stories || !sec.stories.length) return;

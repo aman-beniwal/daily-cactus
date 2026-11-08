@@ -202,29 +202,25 @@ sections:
       - https://news.google.com/rss/search?q=site:reuters.com+(world+OR+politics)+when:1d&hl=en-US&gl=US&ceid=US:en  # [VERIFIED 24 Sep 2026] Reuters world wire
       # trimmed 24 Sep 2026 (generic query; AP + Reuters wires replace it): https://news.google.com/rss/search?q=world+news+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 
-  - name: "Other Interests"
-    slug: other-interests
-    max_stories: 5
-    window_hours: 336   # 14 days — covers the India-tour query; culture isn't breaking
-                        # and the reader checks the paper only a few days a week.
-    angle: "Music (all kinds), live events, neuroscience, the natural world, books, big ideas. One genuinely interesting thing beats three mediocre ones."
+  - name: "Science & Mind"
+    slug: science-mind
+    max_stories: 6        # v10 (9 Nov 2026): Aman wants top science headlines + neuroscience
+    window_hours: 120     # 5 days; discoveries aren't breaking news
+    angle: "The most fascinating science of the week, Nature/Science-level findings explained plainly, and neuroscience: the brain, the mind, consciousness, memory, mental health research. One remarkable finding beats three incremental ones. University press releases count only when the finding is big and published."
     feeds:
-      # quanta neuroscience tag feed dropped 23 Sep 2026 (0 items in 7 days); main Quanta feed is in Deep Tech.
+      - https://www.thetransmitter.org/feed/                         # [VERIFIED 9 Nov 2026] The Transmitter, neuroscience journalism, ~10/wk
+      - https://knowablemagazine.org/rss                             # [VERIFIED 9 Nov 2026] Knowable, explanatory science, ~3/wk
+      - https://news.mit.edu/rss/topic/neuroscience                  # [VERIFIED 9 Nov 2026] MIT News neuroscience, ~1/wk
+      - https://psyche.co/feed                                       # [VERIFIED 9 Nov 2026] Psyche, mind and psychology essays, ~7/wk
+      - https://www.sciencedaily.com/rss/mind_brain/neuroscience.xml # [VERIFIED 9 Nov 2026] ScienceDaily neuroscience (press-release rewrites), ~12/wk
+      - https://www.sciencedaily.com/rss/top/science.xml             # [VERIFIED 9 Nov 2026] ScienceDaily top science, ~48/wk (MAX_PER_FEED caps it)
+      - https://neurosciencenews.com/feed/                           # [VERIFIED 9 Nov 2026] Neuroscience News, mostly university press releases, ~12/wk
+      - https://elifesciences.org/rss/subject/neuroscience.xml       # [VERIFIED 9 Nov 2026] eLife neuroscience, journal TOC, ~10/wk
+      # moved from Other Interests (v10):
       - https://www.science.org/rss/news_current.xml     # [VERIFIED 23 Sep 2026] Science magazine news
       - https://www.scientificamerican.com/platform/syndication/rss/ # [VERIFIED 24 Sep 2026] Scientific American
-      - https://www.theguardian.com/books/rss                        # [VERIFIED 24 Sep 2026] books
-      - https://www.theguardian.com/music/rss                        # [VERIFIED 24 Sep 2026] music
-      # New Scientist 406s on a full-browser User-Agent but is fine with this
-      # project's bot UA — do NOT "fix" fetch_feeds.py to spoof Chrome or this
-      # feed goes silently dead. Paywalled items ship no content:encoded, but
-      # the body IS in the HTML and trafilatura recovers it, so enrichment
-      # works on them. ?paged=2 verified distinct.
       - https://www.newscientist.com/feed/home/           # [VERIFIED] Jul 2026 — science
       # trimmed 24 Sep 2026 (duplicate page of the same feed): https://www.newscientist.com/feed/home/?paged=2
-      # trimmed 24 Sep 2026 (duplicates the home feed): https://www.newscientist.com/section/news/feed/
-      # trimmed 24 Sep 2026 (Guardian Books is the stronger books desk): https://bookriot.com/feed/
-      # trimmed 24 Sep 2026 (Guardian Music + the music query cover it): https://pitchfork.com/rss/news/
-      # trimmed 24 Sep 2026 (16% pick rate; flooded shortlists): https://news.mongabay.com/feed/
       - https://www.nature.com/nature.rss                 # [FLAKY] Jul 2026 B7 audit — parses fine in
                                                             # isolation (75 entries) but intermittently
                                                             # served corrupted mid-stream (a multi-byte
@@ -237,12 +233,35 @@ sections:
                                                             # the odd remaining miss degrades safely
                                                             # (bozo+0-entries -> skipped, not crashed).
                                                             # Keep — not a dead feed.
+      - https://news.google.com/rss/search?q=(neuroscience+OR+astronomy+OR+archaeology+OR+%22particle+physics%22+OR+cosmology+OR+ecology+OR+%22evolutionary+biology%22+OR+paleontology)+when:4d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] science
+      # NOTE 9 Nov 2026: every nature.com RSS URL returned a bot "Client Challenge"
+      # page to a bot UA in a spot check, so nature.rss may be empty. Check feed_stats.
+      # Skipped 9 Nov: Nature Neuroscience/NRN (bot wall), Neuron & Trends (stale), Science "In brief" (410).
+
+  - name: "Other Interests"
+    slug: other-interests
+    max_stories: 5
+    window_hours: 336   # 14 days — covers the India-tour query; culture isn't breaking
+                        # and the reader checks the paper only a few days a week.
+    angle: "Music (all kinds), live events, the natural world, books, big ideas (science moved to Science & Mind, v10). One genuinely interesting thing beats three mediocre ones."
+    feeds:
+      # quanta neuroscience tag feed dropped 23 Sep 2026 (0 items in 7 days); main Quanta feed is in Deep Tech.
+      - https://www.theguardian.com/books/rss                        # [VERIFIED 24 Sep 2026] books
+      - https://www.theguardian.com/music/rss                        # [VERIFIED 24 Sep 2026] music
+      # New Scientist 406s on a full-browser User-Agent but is fine with this
+      # project's bot UA — do NOT "fix" fetch_feeds.py to spoof Chrome or this
+      # feed goes silently dead. Paywalled items ship no content:encoded, but
+      # the body IS in the HTML and trafilatura recovers it, so enrichment
+      # works on them. ?paged=2 verified distinct.
+      # trimmed 24 Sep 2026 (duplicates the home feed): https://www.newscientist.com/section/news/feed/
+      # trimmed 24 Sep 2026 (Guardian Books is the stronger books desk): https://bookriot.com/feed/
+      # trimmed 24 Sep 2026 (Guardian Music + the music query cover it): https://pitchfork.com/rss/news/
+      # trimmed 24 Sep 2026 (16% pick rate; flooded shortlists): https://news.mongabay.com/feed/
       # General music (artist/album/tour news) — broad, the missing piece.
       - https://news.google.com/rss/search?q=(music+OR+album+OR+concert+OR+tour+OR+festival+OR+%22live+music%22+OR+band)+when:7d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] music
       # Artist-to-India tours/concerts (the "Fred again.. India tour" recall fix).
       - https://news.google.com/rss/search?q=(%22India+tour%22+OR+%22India+concert%22+OR+%22performs+in+India%22+OR+%22coming+to+India%22+OR+%22Delhi+concert%22+OR+%22Mumbai+concert%22+OR+%22Jaipur+festival%22)+when:14d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] India tours
       # Science & ideas (psychology dropped — pop-psych noise).
-      - https://news.google.com/rss/search?q=(neuroscience+OR+astronomy+OR+archaeology+OR+%22particle+physics%22+OR+cosmology+OR+ecology+OR+%22evolutionary+biology%22+OR+paleontology)+when:4d&hl=en-IN&gl=IN&ceid=IN:en  # [GNEWS] science
 
   - name: "Work & Careers"
     slug: work-careers

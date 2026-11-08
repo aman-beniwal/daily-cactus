@@ -525,10 +525,51 @@ def build_story(item, refs, warnings, allow_read=True, text_source=None):
             QUALITY["headline_only_commentary"] += 1
         story["signal"] = []
         story.pop("editors_read", None)
+    # v10 L2/L3 tags (optional; old drafts simply lack them)
+    if str(item.get("evidence_of") or "").strip():
+        story["evidence_of"] = str(item["evidence_of"]).strip()
+    if item.get("force"):
+        story["force"] = str(item["force"]).strip()
     rail = build_also_rail(item.get("also"), refs, warnings)
     if rail:
         story["also"] = rail
     return story
+
+
+def build_patterns(patterns, refs, warnings):
+    """v10 'What's changing' block: evidence ids -> {title, url} from refs."""
+    out = []
+    for pt in patterns or []:
+        if not isinstance(pt, dict) or not pt.get("name") or not pt.get("line"):
+            continue
+        ev = []
+        for i in pt.get("evidence") or []:
+            r = refs.get(i)
+            if r:
+                ev.append({"title": r.get("title", ""), "url": r.get("url")})
+            else:
+                warnings.append(f"pattern evidence id {i!r} unknown — dropped")
+        if not ev:
+            continue
+        row = {"name": str(pt["name"]).strip(), "line": str(pt["line"]).strip(), "evidence": ev}
+        for k in ("force", "streak"):
+            if pt.get(k):
+                row[k] = pt[k]
+        out.append(row)
+    return out
+
+
+def build_money(money, refs, warnings):
+    """v10 'Where the money went' roll-up of funding rounds."""
+    out = []
+    for m in money or []:
+        r = refs.get((m or {}).get("id")) if isinstance(m, dict) else None
+        if not r:
+            warnings.append(f"money id {(m or {}).get('id') if isinstance(m, dict) else m!r} unknown — dropped")
+            continue
+        out.append({k: str(m.get(k) or "").strip() for k in ("company", "amount", "sector", "line")}
+                   | {"url": r.get("url"), "source": r.get("source", "")})
+    return out
 
 
 def build_also_rail(also, refs, warnings):
@@ -681,6 +722,12 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
             edition["brief"] = brief_out
     if markets:
         edition["markets"] = markets   # B5, injected verbatim, optional
+    pats = build_patterns(draft.get("patterns"), refs, warnings)
+    if pats:
+        edition["patterns"] = pats
+    money = build_money(draft.get("money"), refs, warnings)
+    if money:
+        edition["money"] = money
 
     edition, duplicate_drops = sm.dedupe_cards(edition)
     for pair in duplicate_drops:

@@ -282,7 +282,7 @@ def editor_input(digest: dict) -> str:
 
 PRIORITY = ["ai", "indian-startups", "india-deep-tech", "deep-tech", "global-economics",
             "india", "world", "climate-energy", "work-careers", "health-tech", "agritech",
-            "other-interests", "beyond-your-beat"]
+            "science-mind", "other-interests", "beyond-your-beat"]
 
 
 def code_ranked_selection(digest: dict) -> dict:
@@ -449,6 +449,64 @@ def promote_readable_lead(sel: dict, selected: dict) -> None:
             return
 
 
+
+# ---------------------------------------------------------------- v10 patterns (L2/L3)
+FORCES = ("technology", "capital", "geopolitics", "regulation", "demographics", "climate", "discovery")
+PATTERN_DAYS = 14
+
+
+def _pat_key(name: str) -> frozenset:
+    return frozenset(w for w in re.findall(r"[a-z0-9]+", (name or "").lower()) if len(w) > 2)
+
+
+def same_pattern(a: str, b: str) -> bool:
+    ka, kb = _pat_key(a), _pat_key(b)
+    if not ka or not kb:
+        return False
+    return ka == kb or len(ka & kb) / len(ka | kb) >= 0.6
+
+
+def recent_patterns(drafts_dir: pathlib.Path, date: str, days: int = PATTERN_DAYS) -> list:
+    """Pattern memory, derived from the committed drafts (no extra state file, so
+    no workflow change). Returns [{name, force, days: [dates], line}], newest first."""
+    try:
+        today = datetime.date.fromisoformat(date)
+    except ValueError:
+        return []
+    out = []
+    for f in sorted(drafts_dir.glob("20*.json"), reverse=True):
+        try:
+            d = datetime.date.fromisoformat(f.stem)
+        except ValueError:
+            continue
+        if not (today - datetime.timedelta(days=days) <= d < today):
+            continue
+        try:
+            pats = json.loads(f.read_text()).get("patterns") or []
+        except Exception:                                        # noqa: BLE001
+            continue
+        for pt in pats:
+            name = (pt or {}).get("name") if isinstance(pt, dict) else None
+            if not name:
+                continue
+            hit = next((o for o in out if same_pattern(o["name"], name)), None)
+            if hit:
+                if f.stem not in hit["days"]:
+                    hit["days"].append(f.stem)
+            else:
+                out.append({"name": name, "force": pt.get("force", ""), "days": [f.stem],
+                            "line": pt.get("line", "")})
+    return out
+
+
+def patterns_input(recent: list) -> str:
+    if not recent:
+        return ""
+    rows = [f"- {r['name']} [{r['force']}] seen on {len(r['days'])} day(s), last {r['days'][0]}"
+            for r in sorted(recent, key=lambda r: (-len(r["days"]), r["days"][0]))[:25]]
+    return ("RECENT PATTERNS (last 14 days; reuse a name word for word when today's story "
+            "fits it):\n" + "\n".join(rows))
+
 # ---------------------------------------------------------------- writer
 _NAV = re.compile(r"^(?:advertisement|read more|also read|subscribe|sign up|share this|"
                   r"follow us|related:?|recommended|image:|photo:|watch:|listen:)\b", re.I)
@@ -470,10 +528,12 @@ def clean_text(t: str) -> str:
     return "\n".join(out)
 
 
-def writer_input(sel: dict, selected: dict) -> str:
+def writer_input(sel: dict, selected: dict, recent: list | None = None) -> str:
     stories = selected.get("stories") or {}
     parts = [f"DATE: {sel['date']}", "Write every story below in the place given.",
              "Output JSON only."]
+    if recent:
+        parts.append(patterns_input(recent))
 
     def block(role, sid, section=None, extra=""):
         s = stories.get(sid) or {}
@@ -519,7 +579,43 @@ def validate_draft(draft: dict, sel: dict) -> dict:
             secs.append(s)
     draft["sections"] = secs
     draft["opportunities"] = [x for x in draft.get("opportunities") or [] if x.get("id") in allowed]
+    # v10: L2/L3 layer. Keep only known ids and the fixed force list; a funding
+    # round written into `money` must not also appear as a card or one-liner.
+    money = [m for m in draft.get("money") or [] if isinstance(m, dict) and m.get("id") in allowed
+             and m.get("company") and m.get("amount")]
+    money_ids = {m["id"] for m in money}
+    used = {c.get("id") for c in sm.cards(draft)}
+    money = [m for m in money if m["id"] not in used]
+    money_ids = {m["id"] for m in money}
+    for s in draft["sections"]:
+        s["also"] = [x for x in s["also"] if x.get("id") not in money_ids]
+    draft["sections"] = [s for s in draft["sections"] if s["stories"] or s["also"]]
+    draft["money"] = money
+    for card in sm.cards(draft):
+        if card.get("force") not in FORCES:
+            card.pop("force", None)
+        if not str(card.get("evidence_of") or "").strip():
+            card.pop("evidence_of", None)
+    pats = []
+    for pt in draft.get("patterns") or []:
+        if not isinstance(pt, dict) or not pt.get("name") or not pt.get("line"):
+            continue
+        ev = [i for i in dict.fromkeys(pt.get("evidence") or []) if i in allowed]
+        if not ev:
+            continue
+        pt["evidence"] = ev
+        if pt.get("force") not in FORCES:
+            pt.pop("force", None)
+        pats.append(pt)
+    draft["patterns"] = pats[:5]
     return draft
+
+
+def annotate_streaks(draft: dict, recent: list) -> None:
+    """'Seen on N of the last 14 days' (today included) for each pattern."""
+    for pt in draft.get("patterns") or []:
+        hit = next((r for r in recent if same_pattern(r["name"], pt["name"])), None)
+        pt["streak"] = 1 + (len(hit["days"]) if hit else 0)
 
 
 def no_paper(date: str, stage: str, ex: Exception) -> None:
@@ -596,10 +692,13 @@ def main():
     # 3 — writing
     drafts = base / "drafts"
     drafts.mkdir(parents=True, exist_ok=True)
+    # pattern memory always reads the LIVE drafts (a trial has little history)
+    recent = recent_patterns(ROOT / "drafts", date)
     try:
         draft = call_with_retry("writer", (PROMPTS / "writer.md").read_text(),
-                                writer_input(sel, selected), a.writer_model, a.writer_effort, date=date)
+                                writer_input(sel, selected, recent), a.writer_model, a.writer_effort, date=date)
         draft = validate_draft(draft, sel)
+        annotate_streaks(draft, recent)
     except Exception as ex:                                      # noqa: BLE001
         no_paper(date, "writer", ex)
     (drafts / f"{date}.json").write_text(json.dumps(draft, indent=2, ensure_ascii=False))

@@ -10,6 +10,15 @@ He wants to understand each story from the ground up, not be impressed by it. Pl
 - **Reason from fundamentals in signal and editors_read:** incentives, costs, constraints, who pays and who gains, what has to be true next. No narrative adjectives standing in for facts.
 Style illustration only (its details are invented; never reuse them) — weak: "Pixxel's mega-raise signals growing momentum in India's booming spacetech ecosystem." Strong: hook "Pixxel raised $100M to build satellites that sell crop, mining and defence data by the square kilometre." / point "Its edge is hyperspectral imaging (cameras that split light into hundreds of bands), which can tell healthy crops from stressed ones before they look different."
 
+## Three layers: L1 event -> L2 pattern -> L3 force
+He can read at L1 (what happened) but only remembers at L2 (what is changing) and L3 (the force behind it). Every paper must give him all three, kept apart:
+- **L1, the facts**: hook + points. Only what the article says. No interpretation here.
+- **L2, the pattern**: what many events are evidence of, said as a change: "AI data centres are hitting power limits", "capital is moving from consumer apps to hard tech", "India is tightening rules on online money". Not a topic ("AI news") and not one company.
+- **L3, the force** underneath, exactly one of: `technology`, `capital`, `geopolitics`, `regulation`, `demographics`, `climate`, `discovery` (science finding something new).
+- On each card: `evidence_of` = the L2 pattern this story is evidence of (at most 10 words), and `force`. Omit both for a true one-off. Reuse a name from RECENT PATTERNS (in the input) word for word when the story fits it, so the reader sees the same thread grow; start a new name only when none fits.
+- **patterns** (top of the paper, "What's changing"): the 3-5 strongest L2 patterns in today's paper, best first. Each: `name`, `force`, `evidence` (ids of today's stories, cards or one-liners, that support it; at least 2 ids, or 1 if it continues a RECENT PATTERN), and `line`: one or two sentences, at most 40 words, saying what is changing and what follows if it continues. Prefer patterns that cross sections (AI x energy, capital x geopolitics). Each line must rest on today's stories: name which.
+- **money** ("Where the money went"): every ALSO item that is one company's funding round goes HERE instead of its section's `also`: `id`, `company`, `amount` (as written, with currency), `sector` (2-4 words), `line` (at most 20 words: what the company does and who invested). Code adds the links. Then use the rounds as evidence in `patterns` (e.g. where capital is going this week).
+
 ## What to write for each story
 - **headline** — plain language, not the outlet's clickbait.
 - **hook** — ONE sentence, at most 30 words: the single most important fact, leading with its number. Never a restatement of the headline, never scene-setting.
@@ -36,9 +45,11 @@ Style illustration only (its details are invented; never reuse them) — weak: "
 
 ## Output — ONLY this JSON, no prose, no code fence
 {"date": "YYYY-MM-DD",
- "lead": {"id": "...", "headline": "...", "hook": "...", "points": ["..."], "signal": ["..."], "key_stat": "...", "editors_read": "...", "developing": false},
- "frontpage": [{"id": "...", "headline": "...", "hook": "...", "points": [...], "signal": [...], "key_stat": "...", "editors_read": "..."}],
- "sections": [{"slug": "...", "stories": [{"id": "...", "headline": "...", "hook": "...", "points": [...], "signal": [...], "key_stat": "..."}],
+ "patterns": [{"name": "...", "force": "capital", "line": "...", "evidence": ["<id>", "<id>"]}],
+ "money": [{"id": "...", "company": "...", "amount": "...", "sector": "...", "line": "..."}],
+ "lead": {"id": "...", "headline": "...", "hook": "...", "points": ["..."], "signal": ["..."], "key_stat": "...", "editors_read": "...", "evidence_of": "...", "force": "...", "developing": false},
+ "frontpage": [{"id": "...", "headline": "...", "hook": "...", "points": [...], "signal": [...], "key_stat": "...", "editors_read": "...", "evidence_of": "...", "force": "..."}],
+ "sections": [{"slug": "...", "stories": [{"id": "...", "headline": "...", "hook": "...", "points": [...], "signal": [...], "key_stat": "...", "evidence_of": "...", "force": "..."}],
                "also": [{"id": "...", "line": "self-contained: what happened + its number + why it matters, <= 30 words, so there is no reason to click"}]}],
  "opportunities": [{"id": "...", "name": "...", "when": "date/deadline", "summary": "what + why go + city or 'online/global'"}]}
-Rules: copy every `id` exactly; write each story ONCE, in the place the editor gave it (a lead/front story is not repeated in its section); omit a field rather than leave it empty; plain text only except the ==/__ markers; valid JSON.
+Rules: copy every `id` exactly (pattern evidence too); write each story ONCE (a funding-round one-liner goes in `money`, not `also`), in the place the editor gave it (a lead/front story is not repeated in its section); omit a field rather than leave it empty; plain text only except the ==/__ markers; valid JSON.

@@ -1,8 +1,10 @@
 # TASTE — read this along with feeds/digest.json (2 reads total)
 
-> Seeded from owner preferences (HANDOFF.md / V2_PLAN.md), 13 Jul 2026. A weekly
-> job folds 'feedback'-labeled GitHub issues in here — replace stale lines,
-> don't accumulate. Keep this file under 40 lines; it rides every routine turn.
+> Weekly job folds votes into AUTO-FEEDBACK. Keep under 45 lines.
+
+## Curious about lately (Aman edits by hand; these count as beats)
+- Neuroscience and the mind; the week's most fascinating science.
+- General knowledge an informed citizen of India and the world should have.
 
 ## More of
 <!-- AUTO-FEEDBACK:START -->
@@ -18,6 +20,7 @@
 - Headline restatement dressed up as a summary.
 - Padding a thin section just to hit its cap — fewer, honest stories beat filler.
 - Startup "vision" quotes with no product/traction behind them.
+- A card per funding round: rounds are data points; roll them up.
 - Announcements carried only by a press-release wire or a company's own
   channel (PIB, PR Newswire, Business Wire, LinkedIn, a vendor blog). If no
   journalist thought it worth reporting, it isn't news — unless the

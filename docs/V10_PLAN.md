@@ -36,20 +36,20 @@ is going, not every round. Cross-domain thinking needs cached patterns.
       investor, down round); other rounds go to the "Where the money went" roll-up.
 - [x] A5 Flexible size: usual 24-30 cards, up to 35 on a strong day; section sizes are
       a guide, +1-2 allowed for strong stories. One rule the model can follow.
-- [ ] A6 TASTE.md: a short "Curious about lately" list Aman edits by hand.
+- [x] A6 TASTE.md: a short "Curious about lately" list Aman edits by hand.
 ### B. Science + neuroscience
-- [ ] B1 New "Science & Mind" section: top science news + neuroscience; feeds
+- [x] B1 New "Science & Mind" section: top science news + neuroscience; feeds
       live-checked before adding.
 ### C. Writing in layers (L1 -> L2 -> L3)
-- [ ] C1 Writer: each card gets `evidence_of` (L2 pattern, short) + `force` (L3).
+- [x] C1 Writer: each card gets `evidence_of` (L2 pattern, short) + `force` (L3).
       Points stay L1 facts; signal stays the "so what".
-- [ ] C2 Writer: a top-of-paper "What's changing" block: 3-5 L2 patterns, each with
+- [x] C2 Writer: a top-of-paper "What's changing" block: 3-5 L2 patterns, each with
       today's evidence stories and one line on what it means.
-- [ ] C3 Writer: "Where the money went" roll-up (company, amount, sector) under the
+- [x] C3 Writer: "Where the money went" roll-up (company, amount, sector) under the
       capital pattern, instead of one card per round.
-- [ ] C4 Pattern memory: code keeps `feeds/patterns.jsonl`; the writer gets the last
+- [x] C4 Pattern memory: code keeps `feeds/patterns.jsonl`; the writer gets the last
       14 days' patterns so names repeat and it can say "4th sign in 2 weeks".
-- [ ] C5 Renderer: show the block, roll-up and per-card tag; old editions still render.
+- [x] C5 Renderer: show the block, roll-up and per-card tag; old editions still render.
 ### D. Check
 - [ ] D1 Unit tests pass; renderer shows legacy 2026-06-18 + a new edition.
 - [ ] D2 Trial run (`--mode trial`, writes to `trial/`) on today's digest; compare.
@@ -65,7 +65,8 @@ is going, not every round. Cross-domain thinking needs cached patterns.
   (press releases), sciencedaily mind_brain/neuroscience + top/science (cap), news.mit.edu/rss/topic/neuroscience,
   knowablemagazine.org/rss, psyche.co/feed, elifesciences.org/rss/subject/neuroscience.xml.
   ALL nature.com RSS return a bot wall: existing nature.rss likely empty. Neuron/Trends stale.
-- Next: B1 add section to sources.yaml (check per-feed cap support in fetch_feeds.py),
+- DONE 9 Nov: B1 (science-mind section, 13 feeds), A6, C1-C5 (memory derived from drafts/, no workflow change), tests/test_v10.py. 56 tests pass.
+- (old note) Next: B1 add section to sources.yaml (check per-feed cap support in fetch_feeds.py),
   then C1-C5 (writer.md fields, newsroom.py writer_input patterns memory + validate_draft money ids,
   assemble_edition build_story must pass evidence_of/force + top-level patterns/money,
   newsroom.yml only commits selections/ feeds/selected/ drafts/ -> store pattern memory under drafts/ or

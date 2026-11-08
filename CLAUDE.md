@@ -56,3 +56,9 @@ Page 👍/👎 -> "send to GitHub" -> a "feedback batch" issue -> weekly `taste.
 Signal over noise; numbers-first; why it matters > what happened; India lens only
 where real; no hype; thin days stay thin (never pad, never a past-dated event,
 never a repeat of the last 7 days, never the same story twice in one paper).
+**v10 (Nov 2026, `docs/V10_PLAN.md`):** wide, not narrow: Fit counts half
+(composite S+N+C+Fit/2), 4-5 citizen picks a day regardless of beat, 24-30 cards
+(35 max). Funding rounds are L1 data points: no interest bonus, flagged
+`routine funding round`, rolled up in "Where the money went". Every paper shows
+three layers: L1 facts (hook/points), L2 pattern (`evidence_of`, "What's changing"
+block) and L3 force (`force`); pattern memory comes from the last 14 days of `drafts/`.
