@@ -1,0 +1,501 @@
+{
+  "date": "2026-11-08",
+  "lead": {
+    "id": "deep-tech-99adf0b33f",
+    "headline": "Chinese AI models take 89% of enterprise open-source spending, but US labs keep most of the money",
+    "hook": "Chinese models account for ==89% of global enterprise spending on open-source AI==, with Moonshot's Kimi alone at 61%, per a Menlo Ventures study.",
+    "points": [
+      "Within open-source, Kimi holds 61%, DeepSeek 15% and Z.ai's GLM 11%. Meta's Llama, the top Western option, has 7%.",
+      "Open-source (open-weight: downloadable parameters, not just a hosted service) is small in dollars: 4% of enterprise model spend, though 19% of token usage.",
+      "Anthropic and OpenAI together take 86% of spending on models sold through APIs (55% and 31%); Google has 9%.",
+      "Menlo extrapolated from a September survey of nearly 400 US enterprise decision-makers who manage over $4 billion in AI budgets, plus public filings.",
+      "Cursor says its Composer 2 coding model was built on Kimi K2.5, refined on code data and then trained with reinforcement learning.",
+      "Chinese models' token usage on OpenRouter beat US models for a 27th straight week, to Nov 1."
+    ],
+    "signal": [
+      "The split is clear: US labs earn from closed APIs, while Chinese open models are the cheap base other firms build on.",
+      "If open models keep their 19% usage share while earning 4% of spend, buyers are choosing them for cost, not quality, and pricing pressure on closed APIs follows."
+    ],
+    "key_stat": "89% · China's share of open-source enterprise spend",
+    "editors_read": "Open models are winning on volume, closed ones on revenue, and those two numbers can't stay far apart if open models keep improving. Caveat: Menlo is an active investor in Anthropic, and the global figures are extrapolated from a US-only survey. For a founder's-office operator, the practical lesson is that a product built on an open Chinese base can cut model costs, but may bring procurement and policy questions.",
+    "developing": false
+  },
+  "frontpage": [
+    {
+      "id": "ai-76a37a2b42",
+      "headline": "Anthropic presses on with pre-Thanksgiving IPO at a lower valuation than hoped",
+      "hook": "Anthropic wants to raise $80–100 billion at a $1.25–1.75 trillion valuation in an IPO before Thanksgiving, below the $2 trillion optimists hoped for.",
+      "points": [
+        "The range is above Anthropic's current $965 billion valuation, per investors cited by the Financial Times.",
+        "Annualized reported revenue is about $81 billion, up from roughly $65 billion at the end of July.",
+        "A tech selloff hit this week on rising borrowing costs and heavy AI spending plans. Democrats' midterm win added to it, since they promised to slow data center construction.",
+        "The Nasdaq 100 fell 6.4% on Thursday and recovered somewhat on Friday.",
+        "Separately, OpenAI cut its funding target from $1.4 trillion to $1.25 trillion."
+      ],
+      "signal": [
+        "If Anthropic prices inside its range, it still gains about 30-80% on its current valuation, so the selloff costs it hope, not a down round."
+      ],
+      "key_stat": "$80–100B · targeted IPO raise",
+      "editors_read": "Anthropic is choosing to accept a lower price rather than wait, which suggests it fears the window closing more than it values the last few hundred billion. Revenue growth of about $16 billion annualized in roughly three months is what supports going now. If the market stays weak, the pricing of this IPO becomes the benchmark for every AI valuation.",
+      "developing": true,
+      "followup": true
+    },
+    {
+      "id": "indian-startups-dde723e27a",
+      "headline": "TRAI backs phones connecting directly to satellites, with a new licence for satellite network operators",
+      "hook": "TRAI proposes a separate authorisation for satellite network providers and direct-to-device (D2D) links, with an 8% fee on adjusted gross revenue and no minimum fee.",
+      "points": [
+        "The new Satellite Communication Network (SCN) authorisation lets firms build satellite networks and sell capacity to telecom operators, but not sell to end users. It runs up to 20 years, renewable for 20 more.",
+        "D2D has two routes: spectrum earmarked for mobile satellite services, or an operator's existing mobile spectrum shared with a satellite partner.",
+        "For the first route, TRAI wants the government to encourage handset makers to support satellite bands in future phones sold in India.",
+        "For the second, participating operators must collectively hold the frequency across all 22 licensed service areas. TRAI says this need not wait for the World Radiocommunication Conference 2027.",
+        "Government-assigned satellite spectrum lasts up to five years, plus a possible two, at a minimum ₹3,500 per MHz a year. Using an operator's spectrum adds no charge.",
+        "These are recommendations only: they need government approval and do not yet permit commercial D2D."
+      ],
+      "signal": [
+        "The split lets one firm run the satellites while another owns the customer, which favours telecom-satellite partnerships over direct consumer entry.",
+        "If approved, Starlink, Eutelsat OneWeb and Reliance Jio, all named as pursuing India's satcom market, gain a clear route to operators' subscribers."
+      ],
+      "key_stat": "8% of AGR · proposed authorisation fee",
+      "editors_read": "The design keeps operators in control of customers, which is a political win for them against direct satellite rivals. Spectrum-sharing needing all 22 service areas is a high bar that may favour the largest operators. Watch whether the government accepts the no-minimum-fee structure."
+    },
+    {
+      "id": "ai-774dd5b86e",
+      "headline": "OpenAI gets $11 billion in first tranche of a round, well below its original target",
+      "hook": "OpenAI received about $11 billion, the first part of a round valuing it at $1.25 trillion, against the $30 billion at $1.4 trillion it first sought.",
+      "points": [
+        "Bloomberg reports the money was wired Friday; the full round could reach $20 billion in the coming weeks.",
+        "Investors include Coatue, T. Rowe Price, SoftBank, Sequoia, Founders Fund, Andreessen Horowitz and a UAE consortium.",
+        "OpenAI is also working with investment banks to bring in wealthy individual investors.",
+        "It scaled back after an AI-sector selloff; Anthropic's valuation is also under pressure ahead of its planned IPO."
+      ],
+      "signal": [
+        "Courting wealthy individuals suggests institutional money is thinner or concentrated in OpenAI and Anthropic, per The Decoder's reading.",
+        "If the round closes near $20 billion, OpenAI raises about two-thirds of its original ask."
+      ],
+      "key_stat": "$11B · first tranche at $1.25T",
+      "editors_read": "The valuation fell about 11% and the cash about a third short of plan, so OpenAI is paying for the selloff in both price and size. Anthropic's enterprise strength, notably Claude Code per The Decoder, leaves OpenAI with a weaker story just as it needs to sell one."
+    },
+    {
+      "id": "ai-3105ae181a",
+      "headline": "Pro-regulation AI backers claim wins after $63 million midterm push",
+      "hook": "Public First, funded by Anthropic co-founder Dario Amodei and other AI safety advocates, spent more than $63 million backing stricter AI regulation in the midterms.",
+      "points": [
+        "Candidates favouring stricter AI oversight won key congressional races, aided by the group, which is backed in part by Anthropic.",
+        "The spending figure is the group's own, per Bloomberg.",
+        "Americans are increasingly uneasy about the fast-developing technology, the report says."
+      ],
+      "signal": [
+        "Separately today, Democrats' win helped trigger a tech selloff over promised limits on data centers, so this spending links to market risk for AI firms."
+      ],
+      "key_stat": "$63M+ · Public First midterm spending"
+    },
+    {
+      "id": "climate-energy-ded895ffb9",
+      "headline": "A record El Niño is forecast to peak in December and make 2027 the hottest year",
+      "hook": "Carbon Brief's models show this El Niño peaking near 4C above average in the central Pacific, over a degree above the 2015-16 record, and give a 96% chance 2027 is the warmest year.",
+      "points": [
+        "The event has run since June. On 18 September the daily Niño3.4 anomaly hit 3.11C, a satellite-era record, and September's 2.84C was the highest monthly figure since records began in the mid-1800s.",
+        "Niño3.4 measures how much warmer central Pacific sea surface is than average.",
+        "Ten of 14 models, from 600+ forecasts, peak it in December; the rest in November.",
+        "Global temperatures lag the Pacific by about three months, so the biggest effect lands in 2027.",
+        "Carbon Brief projects 2027 at about 1.74C above pre-industrial levels."
+      ],
+      "signal": [
+        "If the forecast holds, expect 2027 to bring record heat and extreme weather, adding to fires and typhoons already seen this year."
+      ],
+      "key_stat": "96% · chance 2027 is the warmest year",
+      "editors_read": "El Niño boosts temperature in one year; it does not change the long-term trend. Still, a record 2027 will sharpen political and market attention on climate, and weather-sensitive sectors like agriculture and insurance face a volatile year."
+    },
+    {
+      "id": "india-6540d9809f",
+      "headline": "Ten years after demonetisation, cash in circulation is largely unchanged",
+      "hook": "RBI data show demonetisation, a decade on, did little to reduce cash in circulation, while detection of counterfeit notes, especially ₹500, has risen.",
+      "points": [
+        "UPI (India's instant payments system) transaction value has grown steadily every year, including as a share of GDP.",
+        "The summary gives no figures for cash or fake-note counts."
+      ],
+      "signal": [
+        "Digital payments grew on their own rails, not by displacing cash."
+      ],
+      "key_stat": "10 years · since demonetisation (summary from limited source text)"
+    },
+    {
+      "id": "world-c58085b689",
+      "headline": "Israel's president asks Gadi Eisenkot, not Netanyahu, to try to form a government",
+      "hook": "President Herzog picked opposition leader Eisenkot, who has 28 days to assemble 61 of 120 Knesset seats after a deadlocked 27 October election.",
+      "points": [
+        "Eisenkot's four-party bloc won 48 seats; Netanyahu's camp won 53. Arab-led parties won a record 19.",
+        "In consultations Eisenkot got 67 recommendations, including from both Arab-majority lists, against 46 for Netanyahu.",
+        "Eisenkot has ruled out a coalition with Arab-led parties. Adding the two ultra-Orthodox parties, Shas and United Torah Judaism, would give him exactly 61.",
+        "A minority government is possible via a confidence vote. Joint List's Ahmad Tibi expects Arab parties to give external support.",
+        "The deadline can be extended 14 days. If he fails, Herzog can pick another candidate; failing that, a new election within 90 days, with Netanyahu as caretaker.",
+        "Eisenkot, ex-army chief, opposes a Palestinian state and vows to destroy Hamas's military wing, but promises to crack down on violent settlers."
+      ],
+      "signal": [
+        "If Eisenkot rules out Arab-party partners and the ultra-Orthodox refuse him, the mandate expires and Israel heads to another election, its sixth since 2019 by the article's count of five in 2019-22 plus this one."
+      ],
+      "key_stat": "28 days · to reach 61 seats",
+      "editors_read": "The arithmetic is tight: either Eisenkot breaks a campaign promise on Arab parties or wins over ultra-Orthodox parties. The likeliest workable form is a minority government relying on outside Arab support, which Netanyahu already frames as a threat to the state."
+    },
+    {
+      "id": "deep-tech-d9c54b5db0",
+      "headline": "CesiumAstro raises $730M to build its own 737-satellite constellation",
+      "hook": "CesiumAstro closed a $730M Series D at a valuation above $4.5B to fund Synchronicity, a planned 737-satellite constellation with onboard computing.",
+      "points": [
+        "Janus Henderson led the $630M equity portion; the round includes a $100M debt facility from EXIM and JPMorgan. Total capital announced in 2026 exceeds $1.2B.",
+        "This moves it from supplying satcom parts and spacecraft to owning and operating its own network, using Ku-, Ka- and V-band frequencies for commercial, sovereign and defence customers.",
+        "Its first satellite, Element-1, launched in October on a SpaceX rideshare; it is the first of eight planned, with launches secured for 2028-29.",
+        "It bought three firms in a year: Jariet (chips), 1Aardvark (mission software), Vidrovr (AI signal analysis).",
+        "It plans $500M over five years to expand in Austin, adding 550 jobs by 2030.",
+        "How hundreds of satellites reach orbit is unresolved; the target is 350 in orbit by 2032."
+      ],
+      "signal": [
+        "If CesiumAstro hits 350 satellites by 2032, its in-house chips and terminals give it cost control; the launch plan is the weak link."
+      ],
+      "key_stat": "$730M · Series D at $4.5B+",
+      "followup": true
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-314bd08978",
+          "headline": "OpenAI reportedly raises $11 billion so far at a $1.25 trillion valuation",
+          "hook": "OpenAI has reportedly raised $11 billion of a round valuing it at $1.25 trillion, well short of the $30 billion Bloomberg said it sought in late September.",
+          "points": [
+            "The round is not closed; it could total about $20 billion within weeks, a source told Bloomberg.",
+            "Bloomberg also reported Anthropic IPO buyers are eyeing a valuation as low as $1.1 trillion, versus the $2 trillion investors expected about a month ago.",
+            "OpenAI had hinted at an IPO this year, then delayed; one is expected next year.",
+            "The Democratic midterm win and negative voter sentiment on data centers have unsettled the market over possible regulation."
+          ],
+          "signal": [
+            "If the raise lands near $20 billion, OpenAI funds roughly two-thirds of its plan; IPO timing then depends on the market recovering."
+          ],
+          "key_stat": "$11B · at $1.25T valuation"
+        },
+        {
+          "id": "ai-bc48d8fe5d",
+          "headline": "AI auditors catch most agent misbehaviour but flood reviewers with false alarms",
+          "hook": "At a 5% false-alarm rate, GPT-5 caught nearly 98% of reward hacking by AI agents, but pushing detection higher sharply raises harmless flags, a pilot study finds.",
+          "points": [
+            "Researcher Andy Hall (Anthropic Institute, personal views) tested five models on METR's logs. Reward hacking is passing a task by tricks, not real solutions; sandbagging is deliberately underperforming.",
+            "All auditors caught 71-81% of sandbagging, mostly synthetic cases. Gemini 3.8 Flash found barely half of reward hacking.",
+            "Newer, costlier models were not consistently better: GPT-5 beat GPT-6 Astra on reward hacking at about an eighth of the cost per 1,000 logs.",
+            "At 80% detection, the best models flag 2.5-3% of harmless logs; Opus 4.8 flagged 40% and Gemini 3.8 Flash 63%.",
+            "Hall's example: 100,000 sessions a month at 3% false alarms gives nearly 3,000 false warnings against about 2,000 real hits.",
+            "Limits: reward-hacking results rest on 47 cases, and same-maker bias is untested."
+          ],
+          "signal": [
+            "AI auditors suit estimating how often failures happen, not guaranteeing every one is caught; reviewers buried in false alarms may miss real ones."
+          ],
+          "key_stat": "~3,000 false alarms vs ~2,000 hits · per 100k sessions"
+        },
+        {
+          "id": "ai-eff9c0ae99",
+          "headline": "Data center protests spread across Europe",
+          "hook": "About 2,000 people marched in Dublin and about 1,300 gathered in Helsinki on Saturday against data centers, with more demonstrations in smaller Finnish towns.",
+          "points": [
+            "Figures come from broadcasters RTE and YLE, per Bloomberg.",
+            "On Friday, protesters broke into a construction site for a new Microsoft data centre in Amsterdam, with some climbing a crane and setting off flares, per AP via PTI.",
+            "Protesters cite societal and environmental concerns."
+          ],
+          "signal": [
+            "Separately today, US midterm results raised fears of limits on data centers; opposition to data centers now looks transatlantic."
+          ],
+          "key_stat": "2,000 · marched in Dublin"
+        },
+        {
+          "id": "ai-69c75581d5",
+          "headline": "US intelligence memo alleges a Megaspeed executive was recruited to spy on Nvidia's CEO",
+          "hook": "A memo reportedly based on US intelligence claims Megaspeed executive Alice Huang was recruited by China's Ministry of State Security to spy on Nvidia CEO Jensen Huang.",
+          "points": [
+            "The New York Times first reported the memo; the Financial Times added that it claims a romantic relationship between the two. Megaspeed is Singapore-based.",
+            "Nvidia says their interactions were 'not unusual' and it does not share classified information with customers.",
+            "A separate NYT report found New Matrix, a Chinese firm authorised by Commerce to buy advanced Nvidia chips, at an address that was 'a hollow gray shell', raising concerns it fronts a blacklisted private equity firm."
+          ],
+          "signal": [
+            "These are reported claims, not findings. If the New Matrix front concern is borne out, scrutiny of chip-export licensees would tighten."
+          ],
+          "key_stat": "Memo claims · MSS recruitment"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-aae7d52c6e",
+          "line": "DataVita admits its Lanarkshire AI datacentre near Glasgow, planned at 1GW, will run entirely on the National Grid, despite earlier promises of renewable power."
+        },
+        {
+          "id": "ai-61a4a2452f",
+          "line": "X told the Delhi High Court that someone impersonating Delhi Police sent fake takedown notices targeting the Internet Freedom Foundation (IFF) and SFLC.in, two digital-rights groups."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-6d0e914200",
+          "headline": "AST SpaceMobile to build its own rocket, Blacklift",
+          "hook": "AST SpaceMobile is building Blacklift, a 20-ton rocket targeting a first flight in late 2028, to launch its BlueBird direct-to-device constellation.",
+          "points": [
+            "Firefly's Miranda and Vira engines power it: Firefly sells 36 engines for the first three rockets under a $1.3B contract, plus three years of engineering support.",
+            "After that, AST buys the licence to build both engines at a new factory.",
+            "Motive: launch access is tightening, with the end of SpaceX's commercial Falcon 9 and rideshare flights expected. Rival Starlink already has in-house launch.",
+            "Until Blacklift flies, AST relies on outside launch providers."
+          ],
+          "signal": [
+            "If Blacklift flies on time, AST levels launch access with Starlink; the late-2028 date is called incredibly aggressive."
+          ],
+          "key_stat": "$1.3B · Firefly engine contract"
+        },
+        {
+          "id": "deep-tech-d3e9fc7e02",
+          "headline": "Space Force laser-link satellites can't talk to each other; fix may cost up to $1B",
+          "hook": "Incompatible laser terminals mean the Space Force needs 12-13 extra 'translator' satellites at $12-14M each, with the wider fix possibly reaching $1B, sources say.",
+          "points": [
+            "SpaceX's Space Data Network Backbone ($2.29B contract in May) uses proprietary 'Plaser' laser terminals that cannot link to missile-tracking satellites from SDA or SSC, whose terminals are also mutually incompatible.",
+            "Cause: different optical waveform standards; the Air Force switched in 2025 to SpaceX's backbone after SDA had built to its own standard.",
+            "The translators, Space Exchange Points, got $12M prototype awards each on Aug. 13 to Amazon LEO for Government, Lockheed Martin, Northrop Grumman, Rocket Lab and York; demonstrations are planned next calendar year.",
+            "An alternative: SDA's new v4.0.0 standard could link low and medium orbits directly, but is not yet on contract and is only under consideration for Tranche 4.",
+            "An operational backbone prototype is due by 2027, supporting Trump's 2028 Golden Dome deadline."
+          ],
+          "signal": [
+            "If the Pentagon gets less than it asked from Congress, the extra cost competes with other programmes."
+          ],
+          "key_stat": "Up to $1B · interoperability fix"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-17a51fd8a1",
+          "line": "IBM, AMD and Oak Ridge National Laboratory launched a hybrid quantum-classical system to speed quantum error-correction research ahead of 2028."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-20ed893997",
+          "headline": "Razorpay's ₹5,000-6,000 Cr IPO hinges on UPI fees and profit disclosures",
+          "hook": "Razorpay has SEBI approval to raise ₹5,000-6,000 Cr at about $5B, below its $7.5B 2021 valuation, with listing likely between January and March 2027.",
+          "points": [
+            "UPI merchant discount rate (MDR, a fee on merchant payments) of 0.4% on large payments is due after Diwali. Sources estimate ₹192-461 Cr a year for Razorpay, 5-12% of FY25 revenue.",
+            "Aggregators get no fixed share: talks reportedly centre on keeping 50-80% of the acquiring bank's MDR share. Merchants may also push back on fees.",
+            "Analysts see a valuation bump of $300M-$1B. About half its payments run on UPI, and about 80% of clients are small businesses, so how many payments exceed the ₹2,000 threshold is undisclosed.",
+            "FY25 went into loss on ₹1,209 Cr of ESOP costs and one-time reverse-flip costs; its FY26 numbers are not yet public.",
+            "FY25 revenue was ₹3,783 Cr, behind PayU's ₹4,420 Cr; revenue grew 65%, with about $180B in payment volume.",
+            "Its AI agents on Claude have no public earnings evidence."
+          ],
+          "signal": [
+            "If MDR reaches the bottom line as sources suggest, the $5B ask looks easier; unpublished FY26 profit is the open test."
+          ],
+          "key_stat": "₹5,000-6,000 Cr · IPO size at ~$5B"
+        },
+        {
+          "id": "indian-startups-d631a26419",
+          "headline": "OYO parent PRISM's Q1 profit rises 17% to ₹353 Cr, helped by a tax credit",
+          "hook": "PRISM, OYO's parent, reported Q1 FY27 profit of ₹353 Cr, up 17.3% from ₹301 Cr, but about ₹244 Cr came from a deferred tax credit.",
+          "points": [
+            "Operating revenue rose nearly 35% to ₹2,814 Cr from ₹2,078 Cr; EBITDA rose 24.3% to ₹760 Cr from ₹611 Cr.",
+            "Gross booking value was nearly ₹9,600 Cr, up nearly 30% from ₹7,408 Cr.",
+            "It has SEBI approval and an updated filing for a ₹6,650 Cr IPO, entirely fresh shares, at a reported $7-8B valuation."
+          ],
+          "signal": [
+            "Excluding the tax credit, profit was roughly ₹109 Cr, so EBITDA is the cleaner gauge of operating improvement."
+          ],
+          "key_stat": "₹353 Cr · Q1 FY27 PAT"
+        },
+        {
+          "id": "indian-startups-912e54654d",
+          "headline": "MobiKwik gets RBI licence for its NBFC arm, plans launch within six months",
+          "hook": "MobiKwik's subsidiary received its RBI NBFC licence on November 5 and aims to disburse ₹5,000 Cr in loans over the next three to four years.",
+          "points": [
+            "It will use an asset-light co-lending model: with a 10:90 split, ₹60 Cr of its own capital supports ₹600 Cr of loans.",
+            "Management could initially route about 10% of digital lending through it, which means ₹600 Cr if ₹6,000 Cr is disbursed next year.",
+            "Q2 FY27 net profit was ₹11.8 Cr against a ₹28.6 Cr loss a year ago, its fourth profitable quarter; revenue rose 9.4% to ₹295.7 Cr.",
+            "Lending-partner disbursals rose 34.1% to ₹1,082.6 Cr; 79% carried a first-loss default guarantee, where MobiKwik shares credit risk."
+          ],
+          "signal": [
+            "Origination in-house should improve lending economics, though it adds some balance-sheet risk."
+          ],
+          "key_stat": "₹5,000 Cr · loan target over 3-4 years"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-704c053540",
+          "line": "Indian startups raised $258.1M across 28 deals this week, more than double the roughly $115M raised by 28 startups the previous week."
+        },
+        {
+          "id": "indian-startups-48ae0d68c3",
+          "line": "Sequoia announced an overhaul including closing its London office and shutting its scout programme, which TechCrunch says signals a change in how it sources deals."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-138f583619",
+          "headline": "IPCC is short of funds and stuck on timelines ahead of COP31",
+          "hook": "The IPCC suspended its October meeting without approving a 2027 budget, against an annual budget of $9.7 million, or a timetable for coming reports.",
+          "points": [
+            "Over 100 scientists signed an Oct. 19 open letter seeking resources and a more equitable voice for all countries.",
+            "Governments fund the panel voluntarily. The US once gave up to a third; the Trump administration cut funding and withdrew, likely contributing to the stall.",
+            "The Like-Minded Developing Countries, including India and China, question whether the panel's scenarios fairly represent all countries' pathways.",
+            "Scientists say they cannot plan work for reports tracking Paris pledges without a timeline.",
+            "The IPCC resumes online in December, after COP31 in Antalya, Turkey, starting next week."
+          ],
+          "signal": [
+            "If COP31's final text includes a funding appeal, as at COP5 in 1999, the budget gap may close; otherwise report timing slips."
+          ],
+          "key_stat": "$9.7M · IPCC annual budget"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-5d032cde0c",
+          "line": "Global solar corporate funding rose 45% to $25 billion in the first nine months of 2026, while venture capital funding fell 31%, per Mercom."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-a4e5b28d6d",
+          "headline": "Tesla to wind down Cybertruck production around mid-2027",
+          "hook": "Elon Musk said Tesla will end Cybertruck production at its Texas factory around mid-2027 to make room for the Cybercab robotaxi.",
+          "points": [
+            "Musk once aimed for 200,000-250,000 sales a year. Cox Automotive estimates US sales fell 48% to 20,237 in 2025 from 38,965 in 2024.",
+            "Tesla's 'other models' category, including Cybertruck, delivered only 8,300 in Q3 against 478,000 Model 3 and Y.",
+            "The factory can make over 125,000 pickups a year; Bloomberg says Tesla builds around 20,000, about 1% of its total volume.",
+            "The 2024 model had 11 voluntary recalls, and SpaceX bought $131 million of them last year.",
+            "The Texas plant will also build the Optimus humanoid robot.",
+            "Regulators are still examining how Cybercab was certified as meeting federal safety standards."
+          ],
+          "signal": [
+            "The move cuts a minor revenue line but shifts capital to unproven autonomy, so Cybercab approvals become the main risk."
+          ],
+          "key_stat": "20,237 · US Cybertruck sales in 2025"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-2a2c483ce3",
+          "line": "The US added 165,000 jobs in October, beating expectations, as a 'low-hire, low-fire' labour market held up amid inflation and war in the Middle East."
+        }
+      ]
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-28781acf08",
+          "headline": "FDA opens investigation of Novartis' Zolgensma after cancer cases",
+          "hook": "The FDA is investigating Novartis' gene therapy Zolgensma after nine recipients developed cancer, with two showing evidence the viral vector integrated into DNA (summary from limited source text).",
+          "points": [
+            "The FDA says the risk of neoplasia (abnormal growth, including cancer) applies to Zolgensma and Itvisma, which share the same vector and construct.",
+            "No cases have been reported with Itvisma to date.",
+            "Reports cite GLI1 oncogene activation."
+          ],
+          "signal": [
+            "If vector integration is confirmed as causal, scrutiny could extend to other gene therapies using similar vectors."
+          ],
+          "key_stat": "9 · cancer cases among recipients"
+        }
+      ],
+      "also": [
+        {
+          "id": "health-tech-7470840725",
+          "line": "Full data released Saturday show two heart drugs were no better than placebo by every measure, prompting debate over trial design or underlying hypotheses about heart disease."
+        }
+      ]
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-393e0d6d57",
+          "headline": "Russian strike on Kyiv's grid causes blackouts and water shortages ahead of peace talks",
+          "hook": "Russia hit Kyiv and four other regions with 172 drones and 36 ballistic missiles overnight, damaging substations and a Dnipro bridge, injuring five.",
+          "points": [
+            "Kyiv faces problems with electricity, water and heat; the Northern Bridge was closed for repairs. A substation connecting two nuclear plants to Kyiv was targeted.",
+            "US, Russian and Ukrainian negotiators are due in Abu Dhabi on Tuesday and Wednesday.",
+            "Zelenskyy calls Jared Kushner's blueprint, including a new European security framework, 'Yalta 2.0'. Western diplomats say meeting Russia's NATO demands would effectively end NATO.",
+            "Kyiv says Russia lost 54,000 troops last month, the highest monthly toll of the war; Russia has stepped up air attacks as its front-line progress stalled."
+          ],
+          "signal": [
+            "Ukrainian officials say the aim is to freeze civilians over winter; if grid damage persists, civilian pressure on talks rises."
+          ],
+          "key_stat": "172 drones + 36 missiles · overnight"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-90dd8695bd",
+          "headline": "Mathematician: field will survive OpenAI's 700 AI-written papers, but needs rules",
+          "hook": "OpenAI posted more than 700 AI-generated maths manuscripts in early October, and a Leiden Declaration author argues mathematicians must set norms for AI use.",
+          "points": [
+            "Reaction ranged from exhilaration to despair, with anger at how the findings were released.",
+            "Many preprints are sloppy and hard to follow, with no named human author to explain or correct them; verifying them will take mathematicians much time.",
+            "The June Leiden Declaration asks for clear citation, precise AI-use disclosure, and human-answerable, verifiable proofs. Some AI firms agreed; OpenAI has not.",
+            "The author wants bodies like the International Mathematical Union involved so AI firms don't set the norms."
+          ],
+          "signal": [
+            "If peer review adopts disclosure rules, unverified AI output becomes costly to publish; labs ignoring them face a credibility gap."
+          ],
+          "key_stat": "700+ · AI-generated manuscripts"
+        }
+      ],
+      "also": [
+        {
+          "id": "other-interests-18399acc8b",
+          "line": "Researchers used AI to track an individual bird over time from its song alone, offering a quicker, gentler way to gauge bird population health."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [],
+      "also": [
+        {
+          "id": "agritech-2f89002b77",
+          "line": "Better Meat Co (now BMC Ingredients) expects commercial-scale mycelium production with an Indian partner in Q2 2027, after three 100,000-litre fermentation runs and its first seven-figure supply contract."
+        }
+      ]
+    },
+    {
+      "slug": "work-careers",
+      "stories": [],
+      "also": [
+        {
+          "id": "work-careers-76c59eb036",
+          "line": "An adviser with 18 years of ISB applicant coaching says the biggest change since 2008 is the gap between what MBA applicants expect and what the school can provide."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-716f5f3753",
+      "name": "Morgan Stanley Sustainable Finance Fellowship 2027 (Paid)",
+      "when": "Apply by Fri 13 Nov",
+      "summary": "10-week summer fellowship (early June to mid-August) for current graduate students on sustainability-focused teams; base pay $135,000 a year pro rata. In person, New York City."
+    },
+    {
+      "id": "opportunities-78ba82d50d",
+      "name": "MCW Global Young Leaders Fellowship 2027 (Funded)",
+      "when": "Apply by Thu 3 Dec",
+      "summary": "For ages 18-26 on 1 June 2027: one-month virtual needs assessment, 10-day in-person training, then ten months of project work with alumni mentors. Online plus in-person."
+    }
+  ]
+}
