@@ -2,55 +2,57 @@
   "date": "2026-11-09",
   "patterns": [
     {
-      "name": "Storage is becoming the bottleneck for clean power",
+      "name": "AI trade is losing political and market support",
+      "force": "capital",
+      "line": "Nvidia fell on the Huang probe, US voters backed data centre limits, and money moved to India (ai-2b527a5d8a, ai-31d2e0d061, ai-0087f7f25a). If limits spread, AI capex growth slows and less-exposed markets gain.",
+      "evidence": [
+        "ai-2b527a5d8a",
+        "ai-31d2e0d061",
+        "ai-0087f7f25a",
+        "india-e2f97fbc3d"
+      ],
+      "streak": 1
+    },
+    {
+      "name": "AI chips are now a national security fight",
+      "force": "geopolitics",
+      "line": "The Nvidia probe centres on suspected Chinese intelligence and chip smuggling (ai-2b527a5d8a). Separately, Trump says he could back AI guardrails if the US does not fall behind China (world-4566ea326f).",
+      "evidence": [
+        "ai-2b527a5d8a",
+        "world-4566ea326f"
+      ],
+      "streak": 1
+    },
+    {
+      "name": "AI lets firms grow revenue with fewer hires",
       "force": "technology",
-      "line": "India's 92 GWh storage subsidy and the IEA's 530 GW forecast both flag storage and transmission as the limit on solar growth. If battery costs keep falling, storage, not panels, sets the pace.",
+      "line": "Indian IT revenue grows 6.1% against 2.3% headcount growth, PhysicsWallah cut staff citing AI, and 52% of Indian CEOs plan some cuts. Entry-level roles are hit first.",
       "evidence": [
-        "climate-energy-69547e43ae",
-        "climate-energy-7b85c05d3f"
-      ],
-      "streak": 1
-    },
-    {
-      "name": "AI spending is straining power, markets and security",
-      "force": "capital",
-      "line": "Anthropic is buying 1.7 GW of gas generators, Gopinath doubts $1 trillion of AI spend can earn its money back, and AI stocks sold off. Capital and power are the constraints.",
-      "evidence": [
-        "global-economics-818b0c3539",
-        "global-economics-02b76fbb99",
-        "ai-8f97d22ce6",
-        "india-e076f6b4eb"
-      ],
-      "streak": 1
-    },
-    {
-      "name": "Money is rotating from AI trades into India",
-      "force": "capital",
-      "line": "Foreign investors put ₹45,970 crore into Indian equities in five sessions as AI stocks fell and oil dropped. India's low AI exposure became an advantage this week.",
-      "evidence": [
-        "ai-8f97d22ce6",
-        "global-economics-02b76fbb99"
-      ],
-      "streak": 1
-    },
-    {
-      "name": "Capital is moving into physical-world robotics",
-      "force": "capital",
-      "line": "Zipline raised $1.5B at $21.5B, nearly triple its January valuation, and Pudu is challenging Tesla in humanoids. Investors are paying up for hardware that works in the real world.",
-      "evidence": [
-        "india-deep-tech-aa62567530",
-        "deep-tech-e7d4c3c102"
-      ],
-      "streak": 1
-    },
-    {
-      "name": "Indian hiring is splitting into specialist and generic",
-      "force": "technology",
-      "line": "Overall hiring is up 14% but software engineering is up 1%, while AI, data and cybersecurity take a bigger share of GCC postings despite falling overall demand. Specialist skills are paid for.",
-      "evidence": [
-        "work-careers-49f98482d8",
-        "work-careers-384d0558e8",
+        "work-careers-b2a0b20a7c",
+        "indian-startups-3db453c4e1",
         "work-careers-4e18535211"
+      ],
+      "streak": 1
+    },
+    {
+      "name": "Climate policy shifts from preventing to managing overshoot",
+      "force": "climate",
+      "line": "The world will pass 1.5 °C, so COP31 turns to limiting overshoot and removing CO2 (science-mind-9152cd2db8, india-3568f0f9f6). A super El Niño adds health and food stress (science-mind-14b548b754).",
+      "evidence": [
+        "science-mind-9152cd2db8",
+        "india-3568f0f9f6",
+        "science-mind-14b548b754"
+      ],
+      "streak": 1
+    },
+    {
+      "name": "India is building energy security through storage and local manufacturing",
+      "force": "geopolitics",
+      "line": "India approved a $1.5B storage scheme with 40% local content, and the IEA sees renewables growth 2.6x faster (climate-energy-b60bb3c081, climate-energy-bebe229e75). Inverter chip imports remain a gap.",
+      "evidence": [
+        "climate-energy-b60bb3c081",
+        "climate-energy-bebe229e75",
+        "climate-energy-68bc97e988"
       ],
       "streak": 1
     }
@@ -60,159 +62,163 @@
       "id": "india-deep-tech-f5975c6316",
       "company": "Cosmoserve Space",
       "amount": "$6 million",
-      "sector": "Indian spacetech, seed",
-      "line": "Hyderabad spacetech startup raised a seed round from Rebright Partners, Aranya Holdings, Naandi Ventures, AUM Ventures and Shakti VC."
+      "sector": "Spacetech, seed",
+      "line": "Hyderabad spacetech startup; investors include Rebright Partners, Aranya Holdings, Naandi Ventures, AUM Ventures and Shakti VC."
     }
   ],
   "lead": {
-    "id": "climate-energy-69547e43ae",
-    "headline": "India clears ₹14,500 crore subsidy to build 92 GWh of grid storage by 2030-31",
-    "hook": "The Cabinet approved a ₹14,500 crore Viability Gap Funding (VGF, a subsidy that closes a project's cost gap) scheme to build ==92 GWh of grid-scale energy storage== by 2030-31.",
+    "id": "ai-2b527a5d8a",
+    "headline": "Nvidia's board opens probe into CEO Jensen Huang over alleged Chinese spy link",
+    "hook": "Nvidia's board opened an independent investigation into whether CEO Jensen Huang was ==targeted by a foreign intelligence effort==, and its shares fell about 5-6% in pre-market trading on Monday.",
     "points": [
-      "Total investment is expected at ₹97,600 crore, so each rupee of subsidy pulls in close to seven rupees. The new capacity equals 170% of today's grid-scale storage.",
-      "The mix is 60 GWh of pumped storage (water pumped uphill, released through turbines), 30 GWh of batteries and 2 GWh of emerging technologies.",
-      "Why now: India's peak demand comes after dark when solar output is zero. Surplus noon power is wasted and coal covers the evening. The Central Electricity Authority says India needs about 411 GWh by 2031-32.",
-      "Battery storage prices found in bidding fell from about ₹10.18 per kWh in 2022-23 to around ₹2.1 per kWh by December 2025, without VGF and assuming two cycles a day.",
-      "All battery projects need 40% domestic content. This creates demand for Indian cells, packs and inverters, alongside the ₹18,100 crore PLI (production-linked incentive) scheme targeting 50 GWh of domestic cell manufacturing.",
-      "Capacity is awarded through competitive bidding, with distribution companies (discoms) eligible. __Execution risk sits in pumped-storage clearances and in meeting the 40% rule while domestic cell capacity is still being built.__"
+      "Huang admitted in a staff memo to an affair with Alice Huang (no relation), a former Megaspeed executive US officials judged a Chinese intelligence asset. China calls the claim a smear.",
+      "Independent directors with outside counsel will run the probe. The board says it has no reason to believe national security or Nvidia secrets were compromised. Huang stays CEO meanwhile.",
+      "Megaspeed, a Singapore data centre firm, bought about $4.8B of Nvidia equipment per the NYT, and has faced smuggling claims. It denies violations.",
+      "Trump called Huang honorable. Republican lawmakers want a closed-door briefing, and a Congress hearing on November 18 was reported.",
+      "Nvidia is down about 22% from its October peak and reports earnings on November 17. __The affair lands one week before results and a Trump-Xi summit.__"
     ],
     "signal": [
-      "If bids keep clearing at falling prices, storage turns solar into evening power and cuts discoms' costly peak purchases.",
-      "The 40% rule is a test: if domestic cell supply lags, projects stall or the rule is diluted."
+      "If the probe finds data leaked, expect tighter scrutiny of Nvidia's overseas customers and China sales.",
+      "Nvidia has no public succession plan, so key-person risk is now a live issue for investors."
     ],
-    "key_stat": "₹14,500 cr · 92 GWh",
-    "editors_read": "Subsidy plus a local-content rule plus a cell-manufacturing incentive is a deliberate attempt to avoid the solar-module pattern, where imports filled the gap. The binding constraint is now cell supply and pumped-storage construction time, not money. Developers of pumped storage and Indian cell makers gain most if bids are timely.",
-    "evidence_of": "Storage is becoming the bottleneck for clean power",
-    "force": "technology",
-    "developing": false
+    "key_stat": "-22% from October peak",
+    "editors_read": "The company's biggest risk is no longer only export rules but its CEO's credibility with both Washington and Beijing. Huang lobbied for China sales (H200), so any finding of compromise strengthens hawks. Markets already fragile on AI spending have less cushion for this.",
+    "evidence_of": "AI chips are now a national security fight",
+    "force": "geopolitics",
+    "developing": true
   },
   "frontpage": [
     {
-      "id": "deep-tech-a097d6e465",
-      "headline": "AI system running an unreleased Anthropic model claims proof of a 2008 quantum conjecture",
-      "hook": "US startup PSI says its AI system, running an unreleased Anthropic model, ==proved the Aaronson-Ambainis conjecture==, open since about 2008, and that Lean (a proof checker) accepted it.",
+      "id": "science-mind-9152cd2db8",
+      "headline": "COP31 opens with 1.5 °C overshoot now accepted as inevitable",
+      "hook": "COP31 in Antalya is the first UN climate meeting after the UN Environment Programme said the world will overshoot 1.5 °C under all plausible emissions paths.",
       "points": [
-        "The proof says that for yes-or-no questions on random, patternless data, an ordinary computer can predict a quantum computer's answer without exponentially more reads of the data.",
-        "PSI says the system produced the proof on day three of a run, then improved its own result twice on related problems. The paper and formal proof are on GitHub.",
-        "Known exponential quantum speedups, such as Shor's factoring, depend on hidden structure in the input. Anyone promising exponential gains on unstructured data must now say where the pattern is.",
-        "Earlier bounds for general polynomials shrank exponentially with degree, too weak to rule out such speedups. The paper is not peer-reviewed, and neither Aaronson nor Ambainis had commented as of 7 November."
+        "UNEP's Limiting Overshoot report says hundreds of billions of tonnes of CO2 must be removed this century, via technology or nature such as reforestation, to bring warming back below 1.5 °C.",
+        "No country has put clearly quantified CO2 removal targets in its UN climate commitments, says Oxford's Steve Smith.",
+        "Scientist Johan Rockström wants COP decisions by majority vote instead of consensus, because a few states can block the rest.",
+        "Projected warming this century has fallen from about 4 °C at Paris in 2015 to 2.6-2.8 °C under current policies."
       ],
       "signal": [
-        "If the proof holds, quantum pitches for messy, unstructured business data lose their strongest argument, a useful filter for hype."
+        "If CO2 removal gets quantified targets, a new industry gets a policy-backed market."
       ],
-      "key_stat": "Open since 2008 · Lean-verified",
-      "editors_read": "The quantum result matters less than the method: a proof a machine checks step by step removes the need to trust the author. Peer review and expert reaction are the next test. Separately today, Anthropic's generator deal shows the same labs are also scaling physical infrastructure.",
-      "evidence_of": "AI is starting to settle open research problems",
-      "force": "discovery"
-    },
-    {
-      "id": "global-economics-f64e763a59",
-      "headline": "Iraq says it has US understandings to export oil through Hormuz",
-      "hook": "Iraq has reached understandings with the United States to allow Iraqi oil exports through the Strait of Hormuz via a shipping lane near Oman, Foreign Minister Fuad Hussein said.",
-      "points": [
-        "Hussein made the remarks in an interview with Al Jazeera, per Reuters coverage.",
-        "The available text gives no volumes, dates or terms of the arrangement."
-      ],
-      "signal": [
-        "If exports flow, it eases supply pressure on oil, a big gain for import-dependent India."
-      ],
-      "key_stat": "Lane near Oman",
-      "editors_read": "Reasoning beyond the text: Iraq depends on Gulf shipping for most of its oil revenue, so a negotiated lane is worth more to Baghdad than any single market move. Details are thin, so treat it as intent, not flow. Separately today, Brent fell about 13% on de-escalation hopes.",
-      "evidence_of": "Oil and the Iran conflict are driving markets",
-      "force": "geopolitics"
-    },
-    {
-      "id": "world-752bfb0c9b",
-      "headline": "Cop31 opens in Turkey with the US absent and an El Niño at record strength",
-      "hook": "Delegates from close to 190 countries open Cop31 in Antalya, Turkey, amid the ==strongest El Niño on record==, with the US sending no delegation for a second year.",
-      "points": [
-        "Turkey hosts, but Australia presides over negotiations after a compromise on rival bids. Australia's Chris Bowen wants a tangible outcome on implementation of emissions cuts and finance.",
-        "Rich and poor countries are expected to clash over who pays for climate impacts. Bowen says only 0.2% of climate finance goes to small island states for adaptation.",
-        "Temperatures have passed the 1.5C Paris limit this year. This summer more than 50,000 people died in Europe's heatwaves, and a Nepal glacier collapse caused over 1,500 deaths.",
-        "On the table: a target for 35% of global final energy to come from electricity by 2035, which faces opposition from some countries.",
-        "Both presiding countries rely on fossil fuels, and Australia is a top coal and LNG exporter. Twenty US Democratic members of Congress are attending."
-      ],
-      "signal": [
-        "If the Iran war keeps fossil fuels expensive, the economic case for electrification strengthens even without US backing."
-      ],
-      "key_stat": "~190 countries · US absent",
-      "editors_read": "Money, not targets, is the fault line. Poorer countries want predictable finance, and the US absence removes the largest past contributor from the room. Expect the electrification target to be the most concrete deliverable, and the most contested.",
-      "evidence_of": "Fossil-fuel shocks are strengthening the case for electrification",
+      "key_stat": "2.6-2.8 °C projected",
+      "editors_read": "Governments are admitting the target failed but have no plan for the fix. Whoever first sets measurable removal targets will shape a new market. Consensus rules mean progress will stay slow.",
+      "evidence_of": "Climate policy shifts from preventing to managing overshoot",
       "force": "climate"
     },
     {
-      "id": "global-economics-a58f097597",
-      "headline": "Bangladesh says it has asked India to extradite Sheikh Hasina",
-      "hook": "Bangladesh's law minister called ousted PM Sheikh Hasina a \"convicted criminal\" and said Dhaka has formally requested her ==extradition from India== under the bilateral treaty.",
+      "id": "world-4566ea326f",
+      "headline": "Trump says AI risks are manageable, open to guardrails",
+      "hook": "Trump told CBS's 60 Minutes that AI risks can be managed and he is open to safeguards (summary from limited source text).",
       "points": [
-        "Hasina fled to India on August 5, 2024 after a mass uprising ended her 15-year rule.",
-        "In November 2025, a tribunal tried her in absentia and sentenced her to death on one charge and life imprisonment on another for crimes against humanity.",
-        "The BNP, led by Tarique Rahman, formed government after February elections.",
-        "India has acknowledged the requests but announced no decision, saying they are being examined.",
-        "Hasina said in August she intended to return in December; Dhaka was \"outraged\" at her press conference."
+        "Crypto Briefing reports he could back guardrails with Democrats, provided rules do not leave the US behind China.",
+        "Indian Express notes he has previously favoured letting tech companies police themselves over sweeping government restrictions."
       ],
       "signal": [
-        "If India holds out, expect continued friction with a government that is now elected, not interim."
+        "Separately today, Democrats' midterm win and local data centre limits raise pressure for rules (ai-0087f7f25a)."
       ],
-      "key_stat": "Death sentence · in absentia",
-      "editors_read": "India has little incentive to hand over a former ally to a government that would execute her, and little incentive to say no loudly. Expect delay framed as process. The cost is a lingering irritant in a border relationship that matters for trade and security.",
-      "evidence_of": "South Asian politics is tangling with neighbour relations",
+      "editors_read": "A shift from his 'let it rip' stance, likely driven by midterm results. The China-race condition suggests any rules will be narrow.",
+      "evidence_of": "AI chips are now a national security fight",
       "force": "geopolitics"
     },
     {
-      "id": "india-cfee062726",
-      "headline": "Delhi PM2.5 passes 50 times WHO limit after Deepavali firecracker ban is ignored",
-      "hook": "PM2.5 hit ==767 micrograms per cubic metre at Anand Vihar== at 11 p.m., about 51 times the WHO's 15 limit, after firecrackers continued past the Supreme Court's 10 p.m. deadline.",
+      "id": "world-8b768a35f7",
+      "headline": "Sheikh Hasina seeks passport, signalling December return to Bangladesh",
+      "hook": "Ousted Bangladesh PM Sheikh Hasina has requested a new passport and ID card, the clearest sign she will return in December despite a death sentence in absentia.",
       "points": [
-        "Akshardham read 760.99 (about 50.7 times the limit) and Jawaharlal Nehru Stadium 702 (about 46.8 times), per DPCC data.",
-        "PM2.5 is fine particles that enter the lungs and bloodstream and cause respiratory and other diseases.",
-        "Delhi's overall air stayed \"very poor\", with parts \"severe\".",
-        "Winter pollution rises on low winds and cooler temperatures, with stubble burning and firecrackers adding to vehicle and dust emissions."
+        "She told Reuters she intends to surrender before a Bangladesh court; aides say the date will be announced after formalities.",
+        "A war crimes court sentenced her to death last November over the 2024 crackdown; the UN estimates up to 1,400 people were killed.",
+        "Bangladesh's foreign and law ministries are checking whether she can legally apply, and Dhaka wants her extradited from India, which has declined.",
+        "She still has support among parts of the population."
       ],
       "signal": [
-        "Bans without enforcement did not hold, so expect the festive spike to compound the seasonal one."
+        "Her return could complicate Bangladesh's efforts to stabilise politics and its economy, and strain India-Bangladesh ties if extradition stays contested."
       ],
-      "key_stat": "767 µg/m³ · 51x WHO",
-      "evidence_of": "Rules on pollution are not being enforced",
-      "force": "regulation"
+      "key_stat": "Death sentence in absentia",
+      "editors_read": "Surrendering to a court rather than being extradited changes the politics for India, which hosts her. Watch whether Dhaka grants the documents."
     },
     {
-      "id": "work-careers-49f98482d8",
-      "headline": "India's hiring is up 14%, but software engineering is up only 1%",
-      "hook": "White-collar hiring rose 14% in October, but ==software engineering and QA hiring rose just 1%==, per the Naukri JobSpeak Index.",
+      "id": "beyond-your-beat-c7f0d9da9c",
+      "headline": "Parliament's monsoon session stays unprorogued for record 88 days",
+      "hook": "Parliament's monsoon session has stayed unprorogued for 88 days since August 13, passing the 2008 record of 87 days.",
       "points": [
-        "The index stood at 2,836 against 2,480 a year earlier, but fell from 3,053 in September. Diwali fell in October 2025, depressing last year's base.",
-        "Growth was in production (39%), automobiles (36%, R&D 53%), AI and machine learning (32%) and global capability centres (18%).",
-        "IT and software services hiring rose 5%. An ICRIER survey of 651 IT firms found close to two-thirds class developers as significantly exposed to AI.",
-        "Professionals with 13 to 16 years and 16+ years of experience each saw 22% growth, against 15% for freshers.",
-        "Hyderabad led metros at 15%; Kolkata was flat."
+        "Not proroguing keeps open a sitting on two days' notice; a fresh session needs at least 14 days.",
+        "Speculation centres on a constitutional amendment tied to the Women's Reservation Bill, raising the Lok Sabha from 543 to up to 850 seats through delimitation.",
+        "A similar amendment failed to get the required numbers in the Lok Sabha on April 17.",
+        "The Constitution sets no time limit, so the delay is not improper."
       ],
       "signal": [
-        "If the pattern holds, AI, data and domain-heavy roles are where the 14% sits, not generic coding.",
-        "The November index in early December is the first clean comparison."
+        "If the government finds the numbers, it can recall Parliament in two days."
       ],
-      "key_stat": "+14% overall · +1% software",
-      "editors_read": "The average hides two markets. Experienced hires are in demand and generic delivery work is not, which favours generalists who pair domain depth with AI fluency over entry-level coders.",
-      "evidence_of": "Indian hiring is splitting into specialist and generic",
+      "key_stat": "88 days",
+      "editors_read": "Keeping the session alive is a tool for speed and surprise. The April failure shows the numbers are the real constraint."
+    },
+    {
+      "id": "india-e2f97fbc3d",
+      "headline": "Foreign funds pile into Indian stocks as AI trade falters",
+      "hook": "Foreign funds bought close to $5 billion of Indian stocks last week, including $3.6 billion in the first four sessions, as the Nifty 50 rose more than 8%.",
+      "points": [
+        "The Nifty slipped in Sunday's ceremonial Diwali session, its first loss in such trading in nine years."
+      ],
+      "signal": [
+        "Separately today, Mint says investors see India as a hedge against AI exposure (ai-31d2e0d061)."
+      ],
+      "key_stat": "~$5B net foreign buying",
+      "editors_read": "India is gaining because it lacks AI stocks, which hurt it earlier. The flow could reverse if AI sentiment recovers.",
+      "evidence_of": "AI trade is losing political and market support",
+      "force": "capital"
+    },
+    {
+      "id": "science-mind-583c6fe172",
+      "headline": "Timed pink noise during sleep boosted brain-fluid flow in a study",
+      "hook": "Short bursts of pink noise timed to sleep slow-wave peaks raised cerebrospinal fluid (CSF) flow versus no-noise control periods, in a Science Translational Medicine study.",
+      "points": [
+        "The glymphatic system flushes brain waste with CSF during sleep; ageing and poor sleep disrupt it.",
+        "Researchers used an algorithm to time noise to slow-wave peaks while participants slept in an MRI machine.",
+        "Timing matters: playing pink noise all night would not give the same effect, says the lead author.",
+        "The team does not know why it works, and has not shown that waste is actually cleared; animal follow-ups are planned."
+      ],
+      "signal": [
+        "If validated, it is a non-invasive therapy for older people and those with sleep disorders, but this is early evidence."
+      ],
+      "key_stat": "Higher CSF flow vs control",
+      "evidence_of": "Science is finding non-drug ways to treat the brain",
+      "force": "discovery"
+    },
+    {
+      "id": "deep-tech-d515f1fe1a",
+      "headline": "DeepSeek's Harness agent framework hits 1.54 million daily users",
+      "hook": "DeepSeek says its Harness AI agent framework reached 1.54 million daily active users less than three months after launch, consuming about 92 trillion tokens a day.",
+      "points": [
+        "A harness is the software that turns a language model into an agent that carries out tasks. OpenAI's Codex and Anthropic's Claude Code are built on theirs.",
+        "Harness launched August 13, with a desktop app on September 29. It has about 35,000 third-party plug-ins; around 60% of active users have built or installed one.",
+        "DeepSeek plans a plug-in marketplace and developer grants, and set up its first product division last month."
+      ],
+      "signal": [
+        "DeepSeek is moving from models toward monetising products, taking the agent contest to US rivals."
+      ],
+      "key_stat": "1.54M daily users",
+      "evidence_of": "Model makers are competing on agent software",
       "force": "technology"
     },
     {
-      "id": "global-economics-818b0c3539",
-      "headline": "Anthropic buys $3.4 billion of gas generator capacity for data centres",
-      "hook": "Anthropic struck a deal worth about $3.4 billion for ==1.7 gigawatts of gas-fired generators== from OnePWR Solutions, the Financial Times reported.",
+      "id": "work-careers-b2a0b20a7c",
+      "headline": "India's outsourcing industry grows revenue faster than headcount",
+      "hook": "Nasscom projects FY2026 tech revenue of $315 billion, up 6.1%, while employment grows only 2.3%, adding about 135,000 workers to 5.95 million.",
       "points": [
-        "It bought the commitments in late September. It did not acquire OnePWR, but the deal included engineering and construction capability to install the units.",
-        "Reuters could not verify the report, and neither company commented.",
-        "Reuters reported in September that Anthropic expects to spend more than $500 billion over 10 years on AI infrastructure.",
-        "Claude demand is pushing the company to secure more computing and power."
+        "AI shortens routine coding, testing and support work: a project needing 20 engineers might need 15. Hourly billing makes this hurt revenue, so firms push for outcome-based pricing.",
+        "The top five IT firms added 16,055 net staff in H1 FY2027 versus 3,097 a year earlier, but hiring is shifting to experienced cloud, cybersecurity and data engineers.",
+        "The ILO says AI has slowed recruitment of younger workers rather than causing mass layoffs.",
+        "India had 2,117 global capability centres in FY2026 employing about 2.36 million and earning $98.4B, but they hire selectively.",
+        "The Philippines cut its 2028 targets to $43.3-50.5B revenue and 1.85-2.14 million workers."
       ],
       "signal": [
-        "If grid connections stay slow, AI labs will build their own power, adding gas demand."
+        "Fewer entry-level jobs is the real risk, since firms need juniors to become future seniors."
       ],
-      "key_stat": "$3.4B · 1.7 GW",
-      "editors_read": "Buying generators directly means the grid queue, not chips, is the delay that matters to Anthropic. Labs that control their own power can ship capacity sooner. The cost is exposure to gas prices and emissions scrutiny.",
-      "evidence_of": "AI spending is straining power, markets and security",
-      "force": "capital"
+      "key_stat": "6.1% revenue vs 2.3% jobs",
+      "editors_read": "Firms keep margins but cut the entry rung that trains talent. Expect pricing to move from hours to outcomes.",
+      "evidence_of": "AI lets firms grow revenue with fewer hires",
+      "force": "technology"
     }
   ],
   "sections": [
@@ -220,197 +226,91 @@
       "slug": "ai",
       "stories": [
         {
-          "id": "ai-c5e0a4cad3",
-          "headline": "Nvidia board opens probe after CEO Jensen Huang admits infidelity",
-          "hook": "Nvidia's board is investigating whether CEO Jensen Huang, 63, was ==targeted by a foreign espionage plot== after he admitted to employees he was unfaithful to his wife.",
+          "id": "ai-0087f7f25a",
+          "headline": "Opinion: anti-AI populism will define US politics",
+          "hook": "Local restrictions on data centres passed in more than 30 localities across nine states, and 41% of planned capacity sits in states with governors-elect backing moratoriums, writes Garrison Lovely.",
           "points": [
-            "The probe will be run by a committee of independent directors with outside counsel. Huang stays CEO pending the results.",
-            "Reports say a former Megaspeed International executive, whom the US government suspects was recruited by a Chinese spy agency, targeted him. Megaspeed is accused of smuggling Nvidia chips to China.",
-            "The board says it has no reason to believe national security or Nvidia secrets were compromised.",
-            "Nvidia has no public succession plan. Its market cap hit nearly $5.8 trillion in October and has slipped below $5 trillion. It reports earnings later this month."
+            "NBC exit polls: 23% of voters called AI and data centres crucial, and Democrats won them 67% to 30%.",
+            "On which party is better on AI, 30% said Democrats, 27% Republicans, 43% neither.",
+            "More than 130 federal and gubernatorial races mentioned tech accountability or AI in ads.",
+            "Musk's near-$500M spending failed: Republicans lost all five Senate races he spent most on.",
+            "Lovely, author of a book arguing for stopping AGI development, urges subpoena-backed hearings and worker-protection laws. This is opinion."
           ],
           "signal": [
-            "If the probe finds a leak, pressure on Nvidia's already limited China licences would rise."
+            "If data centre limits spread, AI capex plans face real local constraints."
           ],
-          "key_stat": "~$5.8T peak, now <$5T",
-          "evidence_of": "AI spending is straining power, markets and security",
+          "key_stat": "41% of planned capacity",
+          "evidence_of": "AI trade is losing political and market support",
           "force": "capital"
         },
         {
-          "id": "ai-8f97d22ce6",
-          "headline": "Foreign investors put ₹46,000 crore into Indian shares in five sessions as AI stocks fall",
-          "hook": "Foreign portfolio investors bought ₹45,970 crore of Indian equities in five sessions, and the ==Nifty 50 rose 8.6%==, its best week since February 2021.",
+          "id": "ai-3fc5b9af98",
+          "headline": "India's MeitY releases three state-backed AI models",
+          "hook": "MeitY, through the IndiaAI Mission, unveiled EKA-1, a 26.3-billion-parameter model supporting all 22 scheduled languages, plus Dhīr 5B and 2B, open-source models that run offline.",
           "points": [
-            "This reverses two months of net selling. The Nifty is still down 4.21% for the year, and the rupee rose 0.6% to 93.91 per dollar, its strongest since April.",
-            "Brent fell about 13% to roughly $98 on hopes of US-Iran de-escalation, the biggest weekly drop since the start of Covid, easing inflation and the current account.",
-            "A tech rout took the Nasdaq down 5.5% on Thursday, on weak Qualcomm results and fears of slowing AI spending. India has little AI exposure, so funds rotated in.",
-            "Watch US CPI data due Tuesday, with a December US rate hike nearly priced in. __A hot reading or Brent back above $100 could end the inflows.__"
+            "EKA-1, from Soket Labs, trained on 7.5 trillion tokens with a 64K-token context window and a mixture-of-experts design (only part of the model runs per query).",
+            "Dhīr models, from ZenteiQ, are open under Apache 2.0 on AIKosh and Hugging Face. The 2B runs in 1.5-2GB of RAM, the article says.",
+            "Both firms used subsidised compute under the ₹10,372-crore mission, including Google Cloud TPUs and C-DAC clusters.",
+            "Their Indic-script tokenizers reduce the token cost that Western models impose on Indian languages, the article says, claiming up to 75% lower latency."
           ],
           "signal": [
-            "India's flows now depend on oil and US rates more than on its own earnings."
+            "Performance claims are the vendors' own; independent benchmarks are needed. Open on-device models could cut API costs for Indian language apps."
           ],
-          "key_stat": "₹45,970 cr · 5 sessions",
-          "evidence_of": "Money is rotating from AI trades into India",
+          "key_stat": "26.3B parameters",
+          "evidence_of": "Countries are funding sovereign AI models",
+          "force": "geopolitics"
+        },
+        {
+          "id": "ai-31d2e0d061",
+          "headline": "What the global AI rout means for India",
+          "hook": "After the Nasdaq fell 5.5% on 5 November, foreign investors bought $1.6 billion of Indian shares, their largest one-day purchase in nearly six years.",
+          "points": [
+            "AI-linked firms are about 16% of MSCI India versus 70-80% in Taiwan and Korea (Goldman). On 6 November the Kospi fell 6% while the Nifty rose about 2%.",
+            "India's own 42 'AI Enablers' fell up to 8%; they had risen about 58% since January and trade at an 85% premium to the market.",
+            "India has about 1.5GW of data centre capacity against about 50GW in the US. Indian-only users make under 13% of operational capacity and about 80% of subsidised GPUs reportedly sit unused (Rhodium).",
+            "Clients want the same IT work 25-30% cheaper (Persistent). AI is about 8% of Infosys revenue, so it must grow 23-35% a year to offset 2-3% annual declines in traditional work.",
+            "India's model builders are small: seven of Goldman's 84 leading private AI firms, worth about $2B of $55B."
+          ],
+          "signal": [
+            "India is a hedge on the way down but not insulated: equipment, IT services and data centre demand all depend on foreign AI spending."
+          ],
+          "key_stat": "$1.6B one-day inflow",
+          "evidence_of": "AI trade is losing political and market support",
           "force": "capital"
-        },
-        {
-          "id": "ai-34520e7f74",
-          "headline": "Apple's new CEO pushes to turn Siri into an autonomous agent",
-          "hook": "Apple's new CEO is pressing software chief Craig Federighi to take a more ambitious AI approach, aiming to turn Siri into an agent that can get things done for users.",
-          "points": [
-            "Bloomberg's newsletter also says Apple is shaking up its development strategy for iOS 28.",
-            "The new MacBook Pro goes on sale (summary from limited source text)."
-          ],
-          "signal": [
-            "If Apple ships an agent, it competes with OpenAI and Anthropic on the device itself."
-          ],
-          "key_stat": "Siri → agent",
-          "evidence_of": "Big platforms are moving from chatbots to AI agents",
-          "force": "technology"
-        },
-        {
-          "id": "ai-08249d244a",
-          "headline": "Fridge hacks, a fake nuclear alert and a $6bn heist raise fears of a hacking surge",
-          "hook": "Three attacks in days, including a ==$6.3bn theft from Binance==, led the UK's cyber chief to say we are in the \"foothills\" of a new hacking landscape.",
-          "points": [
-            "Fridge controllers across Europe were hit, with some units reaching 50C. The fault was old, unpatched equipment and default passwords published in manuals, not AI.",
-            "On 30 October Binance lost $6.3bn, attributed to North Korea. On 1 November hackers sent Kyiv residents a fake nuclear alert via Ukraine's emergency app.",
-            "Since Anthropic released Mythos in April, vulnerabilities found by leading tech companies rose eight-fold. But one expert says the surge in flaws has not become a surge in breaches.",
-            "The NCSC says AI-powered malware is \"highly likely\" to hit UK power stations, airports and hospitals by 2028. Ex-NCSC head Ciaran Martin calls this a bad wave, not unprecedented."
-          ],
-          "signal": [
-            "If AI keeps finding flaws faster than owners patch them, old connected devices become the weak point."
-          ],
-          "key_stat": "8x more vulnerabilities found",
-          "evidence_of": "AI is speeding up discovery of security flaws",
-          "force": "technology"
         }
       ],
       "also": [
         {
-          "id": "ai-cbc9ada65c",
-          "line": "Richard Sutton, who wrote 2019's \"The Bitter Lesson\", argues in a new post that compute alone is not enough for intelligence and AI science is \"far from finished\"."
-        },
-        {
-          "id": "ai-934985cf01",
-          "line": "DeepSeek says its AI agent platform has 1.54 million daily users, as the Chinese firm continues to challenge Anthropic and OpenAI with agent applications."
+          "id": "ai-d0e4ecfbdc",
+          "line": "Cushman & Wakefield projects India's office-using workforce rising from about 38 million in 2025 to 48 million by 2030, adding roughly 1.8 million a year despite AI."
         }
       ]
     },
     {
       "slug": "deep-tech",
-      "stories": [],
-      "also": [
-        {
-          "id": "deep-tech-e7d4c3c102",
-          "line": "China's Pudu Robotics, which makes 80% of its sales abroad, is moving into humanoid robots to compete with Tesla, says founder Felix Zhang Tao."
-        }
-      ]
-    },
-    {
-      "slug": "climate-energy",
       "stories": [
         {
-          "id": "climate-energy-7b85c05d3f",
-          "headline": "IEA: India's renewables to hit 530 GW by 2030",
-          "hook": "The IEA projects India's renewable capacity at ==about 530 GW by 2030==, with solar PV over 80% of the growth, making it the second-largest renewable growth market.",
+          "id": "deep-tech-d1df7096c5",
+          "headline": "China pushes specialised industrial AI beyond language models",
+          "hook": "A Tsinghua professor says language models struggle with structured industrial data, and his team's LimiX model, trained only on synthetic data, cut deployment cost and time by about 90%.",
           "points": [
-            "Capacity has crossed 300 GW, nearly four times a decade ago. By 2030 solar is forecast above 350 GW, wind near 90 GW and hydro 75 GW.",
-            "Annual additions should stay above 50 GW, against 49 GW in 2025, and could reach 70 GW in a faster scenario.",
-            "Renewable generation should nearly double from about 500 TWh in 2025 to 950 TWh, lifting its share from nearly 25% to 35%.",
-            "The IEA names transmission delays, too little storage, land acquisition, project delays and weak discom finances as the constraints. __Fixing them could lift 2026-2030 additions by more than 20%.__"
+            "Cui Peng says LLMs are hard to use for factory sensor and financial records; LimiX is a 'large data model' built with Wenzhun Intelligence.",
+            "He claims accuracy improved by more than 15% on average, including in fusion research.",
+            "Beijing's 'AI plus' plan targets over 70% penetration of AI agents and devices by 2027.",
+            "Huawei says local governments in Zhejiang and Guangdong coordinate AI adoption by industry."
           ],
           "signal": [
-            "Separately today, the ₹14,500 crore storage scheme targets one of these constraints directly."
+            "Results are the researchers' claims. China is competing on deployment through infrastructure, not only on model strength."
           ],
-          "key_stat": "530 GW by 2030",
-          "evidence_of": "Storage is becoming the bottleneck for clean power",
+          "key_stat": "~90% lower cost",
+          "evidence_of": "China is pushing AI into industry",
           "force": "technology"
         }
       ],
       "also": [
         {
-          "id": "climate-energy-452fa40f1b",
-          "line": "US solar maker First Solar is investing another $150 million in India on top of $700 million already invested, nearing $1 billion cumulative; CEO Mark Widmar called for policy clarity."
-        }
-      ]
-    },
-    {
-      "slug": "health-tech",
-      "stories": [
-        {
-          "id": "health-tech-cb7cd608d0",
-          "headline": "Blood test matches MRI-based method for staging liver disease",
-          "hook": "Hepta's LiquidTransformer blood test staged liver damage from MASH (a fatty-liver disease with inflammation and scarring) ==nearly as accurately as magnetic resonance elastography (MRE)==, researchers reported at the AASLD meeting.",
-          "points": [
-            "Staging MASH today needs MRE, mostly at specialist centres, or a liver biopsy. Existing blood tests cannot stage it.",
-            "The test reads DNA circulating in blood. With Madrigal Pharmaceuticals, researchers showed it identified patients eligible for Rezdiffra, the first approved MASH drug.",
-            "Across six presentations it beat second-line options: an ultrasound method and the enhanced liver fibrosis blood test.",
-            "Separately, Ipsen's Iqirvo normalised a liver enzyme (ALP) in 85.3% of 92 primary biliary cholangitis patients at one year, against 23.3% on placebo. An editorial says benefit to long-term outcomes is not yet shown."
-          ],
-          "signal": [
-            "If it is validated further, a blood draw could replace scarce imaging for deciding who gets MASH treatment."
-          ],
-          "key_stat": "Blood test ≈ MRE accuracy",
-          "evidence_of": "Blood tests are replacing imaging for diagnosis",
-          "force": "technology"
-        }
-      ],
-      "also": [
-        {
-          "id": "health-tech-fca2a3b6ae",
-          "line": "India's pharma exports grew 4.9% year-on-year to $16.14 billion in the first half of FY27, helped by shipments to Europe, ASEAN and Latin America despite trade tensions."
-        }
-      ]
-    },
-    {
-      "slug": "agritech",
-      "stories": [
-        {
-          "id": "agritech-4b831b3cc8",
-          "headline": "Fewer monsoon depressions are shifting India's rain south",
-          "hook": "Monsoon depressions over the Bay of Bengal ==fell from 26 in the 1980s to 10 in 2010-2020==, shifting rain away from eastern and central India toward the southern peninsula.",
-          "points": [
-            "Depressions are low-pressure systems that bring days of widespread rain. The sharpest decline is in August, when they usually peak.",
-            "Cause: the equatorial Indian Ocean and western Pacific have warmed more than the northern Bay of Bengal. That weakened the Walker and Hadley circulations, so fewer winds converge over the Bay.",
-            "Rain fell along the usual paths, especially central India and the Gangetic plains, while parts of the peninsula got more.",
-            "The researchers say agriculture, groundwater recharge and water supplies in dependent regions could be affected."
-          ],
-          "signal": [
-            "If the trend continues, crop and water planning in central and eastern India faces less reliable monsoon rain."
-          ],
-          "key_stat": "26 → 10 depressions",
-          "evidence_of": "Climate change is shifting where India's rain falls",
-          "force": "climate"
-        }
-      ],
-      "also": []
-    },
-    {
-      "slug": "indian-startups",
-      "stories": [
-        {
-          "id": "indian-startups-ad82138df5",
-          "headline": "Angel One becomes India's second-largest broker by active clients",
-          "hook": "Angel One has ==69.98 lakh active NSE clients==, 14.97% of the 4.67 crore total, overtaking Zerodha for second place.",
-          "points": [
-            "It added 2.43 lakh active clients in October. Groww leads with 1.37 crore (29.43% share) and added 3.04 lakh.",
-            "Zerodha fell to third with 67.59 lakh, down 32,435 from September, and a 14.46% share.",
-            "Angel One's total client base reached 4.06 crore, up 17.4% year on year. Average daily orders rose 19.6% month on month to 69.7 lakh.",
-            "Its revenue rose 18.7% to ₹1,427 crore and net profit rose 58.2% to ₹335 crore."
-          ],
-          "signal": [
-            "If retail trading volumes keep rising, the active-client gap between the top three narrows to a race."
-          ],
-          "key_stat": "69.98 lakh · #2",
-          "evidence_of": "Retail investing is consolidating among a few brokers",
-          "force": "demographics"
-        }
-      ],
-      "also": [
-        {
-          "id": "indian-startups-a4063ea3c4",
-          "line": "Twenty Indian startups raised $255 million between November 2 and 6, per Inc42: up 96% from $130.3 million the previous week, while deal count fell 38% from 32."
+          "id": "deep-tech-d2265820d7",
+          "line": "Physicists in Poland, Zurich and France observed a supersolid (crystal-like order with frictionless flow) in light-matter particles at room temperature, avoiding extreme cooling; applications like optical computing remain speculative."
         }
       ]
     },
@@ -418,117 +318,163 @@
       "slug": "india-deep-tech",
       "stories": [
         {
-          "id": "india-deep-tech-aa62567530",
-          "headline": "Zipline raises $1.5 billion at $21.5 billion valuation",
-          "hook": "US drone delivery firm Zipline raised ==$1.5 billion at a $21.5 billion valuation==, nearly three times its $7.6 billion valuation from earlier this year.",
+          "id": "india-deep-tech-9d8b20a654",
+          "headline": "Ex-IAF chief calls HAL's rejection of indigenous radar a 'bad decision'",
+          "hook": "Former Air Chief Marshal Bhadauria says HAL erred by buying more Israeli EL/M-2052 radars for the Tejas Mk1A instead of DRDO's Uttam radar.",
           "points": [
-            "Paradigm, WCM Investment Management and Layer Global led. Uber, Tiger Global, J.P. Morgan, Fidelity, ARK and Salesforce Ventures also took part.",
-            "The money goes to US manufacturing and hiring for a nationwide network. Walmart will launch 300 more sites, and Uber targets one million deliveries a day by 2029.",
-            "The CEO says Zipline built much of its technology and manufacturing itself because no drone supply chain existed, and it launched abroad first because beyond-line-of-sight flights were illegal in the US.",
-            "The company claims 150 million autonomous miles with zero safety incidents. Regulatory approvals and noise concerns remain barriers, and Amazon plans to grow from 11 locations to about 500 by year-end."
+            "He says flight-test data shows Uttam gives more range than the radar being integrated, and is ready for induction.",
+            "He suggests HAL chose foreign hardware as it is easier to certify and HAL already co-produces the Israeli radar.",
+            "Mk2 delay is partly due to undercarriage problems; he says HAL project management has been 'disastrous' and defence PSUs spend too little on R&D.",
+            "HAL's AMCA bid failed because one partner missed technical criteria; private bids are now submitted."
           ],
           "signal": [
-            "If the FAA's proposed Part 108 rule lands, routine beyond-line-of-sight flights could replace the waiver process."
+            "Choices like this decide whether indigenous components get production volume."
+          ],
+          "key_stat": "Uttam radar passed over",
+          "evidence_of": "India is shifting defence development toward private industry",
+          "force": "geopolitics"
+        },
+        {
+          "id": "india-deep-tech-72aea9bd4f",
+          "headline": "Zipline raises $1.5B at $21.5B valuation for drone delivery",
+          "hook": "Zipline raised $1.5 billion at a $21.5 billion post-money valuation led by Paradigm, WCM Investment Management and Layer Global.",
+          "points": [
+            "It signed a multi-year Walmart deal for 300 additional delivery sites; Uber targets one million deliveries a day through Zipline by 2029.",
+            "It completed over one million deliveries in Dallas-Fort Worth this year; median October delivery took 19 minutes versus over 30 for traditional delivery.",
+            "The funds go to US manufacturing, hiring and a nationwide network."
+          ],
+          "signal": [
+            "Large retail contracts suggest drone delivery is moving past pilots, though figures are company-reported."
           ],
           "key_stat": "$1.5B · $21.5B valuation",
-          "evidence_of": "Capital is moving into physical-world robotics",
+          "evidence_of": "Capital is flowing to hard-tech logistics",
           "force": "capital"
         }
       ],
       "also": []
     },
     {
-      "slug": "global-economics",
+      "slug": "climate-energy",
       "stories": [
         {
-          "id": "global-economics-02b76fbb99",
-          "headline": "Gita Gopinath expects AI correction, warns of US recession risk",
-          "hook": "Former IMF chief economist Gita Gopinath says ==a market correction in AI is likely==, as companies may struggle to earn back the nearly $1 trillion being invested in 2026.",
+          "id": "climate-energy-bebe229e75",
+          "headline": "India's renewable boom set to be faster than ever, IEA says",
+          "hook": "India's renewable capacity growth in 2025-2031 is likely to be 2.6 times the pace of the prior six years, and India will supply 9% of global additions.",
           "points": [
-            "She cannot say when. She calls the setup a gamble: the AI boom supports growth while tariffs, geopolitics and the US-Iran conflict weigh on it.",
-            "Taiwan and South Korea are growing at about twice their usual pace; Taiwan has raised its 2026 forecast to 11.05%, its fastest since 1987. Gulf economies face downgrades.",
-            "Circular funding is a risk: Nvidia invests in AI labs, which use the money to buy Nvidia chips, so one failure could spread.",
-            "A sharp stock fall could push US growth to zero or slightly negative, though a market-driven recession would likely be short."
+            "India moved from fourth to third in installed renewable capacity and may become second behind China within five years.",
+            "India has 233 GW of solar module capacity, but cells, wafers and polysilicon are almost all imported.",
+            "In China, 90% of major solar makers lose money, over 70 firms have gone bankrupt since 2024, and solar additions fell 55% in nine months.",
+            "The government approved ₹14,500 crore for grid storage; India needs about 411 GWh by March 2032."
           ],
           "signal": [
-            "If AI spending slows, AI-supply-chain economies like Taiwan and Korea are most exposed."
+            "Grid equipment and storage makers may benefit more than generators if transmission is the bottleneck."
           ],
-          "key_stat": "~$1T AI spend in 2026",
-          "evidence_of": "AI spending is straining power, markets and security",
-          "force": "capital"
+          "key_stat": "2.6x growth rate",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
         },
         {
-          "id": "global-economics-5a18b01d8a",
-          "headline": "Zaporizhzhia nuclear plant loses outside power, runs on diesel generators",
-          "hook": "Europe's largest nuclear plant lost its off-site electricity after the Ferosplavna line disconnected, and has ==fuel for about two weeks== of limited emergency generator use, the IAEA says.",
+          "id": "climate-energy-b60bb3c081",
+          "headline": "India approves $1.5B scheme for 92 GWh of grid storage",
+          "hook": "India's cabinet approved a ₹14,500 crore ($1.5B) scheme to build 92 GWh of grid storage over five years, expected to draw about $10B in investment.",
           "points": [
-            "The plant makes no power but needs external supply to keep fuel cool. The cause of the disconnection is unknown.",
-            "The main Dniprovska line was already unavailable as of October 23.",
-            "An IAEA-brokered local ceasefire in early September allowed repairs after an outage from August 20.",
-            "Russian-installed management says the line shut by automatic protection and radiation levels are normal."
+            "The plan: 60 GWh pumped hydro, 30 GWh batteries, 2 GWh emerging technologies; about 170% of existing grid storage.",
+            "Battery projects need 40% domestic content.",
+            "India needs about 411 GWh by 2031-32, but only about 9.1 GWh of battery storage worked by September 2026, under 4% of that.",
+            "Without storage, surplus solar goes unused and coal covers evening demand."
           ],
           "signal": [
-            "If neither line is restored within the fuel window, risk rises; watch for another IAEA-brokered repair pause."
+            "Domestic content rules favour local battery assemblers but could raise costs if cell supply stays imported."
           ],
-          "key_stat": "~2 weeks of diesel",
-          "evidence_of": "War is repeatedly knocking out critical infrastructure",
+          "key_stat": "92 GWh · ₹14,500 crore",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        },
+        {
+          "id": "climate-energy-1c2b6f1d85",
+          "headline": "India has commissioned 8,000 tonnes a year of green hydrogen capacity",
+          "hook": "India had commissioned about 8,000 tonnes of annual green hydrogen capacity by February 2026, against a 2030 target of at least 5 million tonnes.",
+          "points": [
+            "Green hydrogen is made by splitting water with renewable electricity. The mission has a ₹19,744 crore outlay.",
+            "Incentives went to 15 firms for 3,000 MW of electrolyser manufacturing and to production capacity of 8.62 lakh tonnes a year.",
+            "Offtake commitments exceed 5.5 lakh tonnes a year by October 2026.",
+            "Pilots include five steel projects, 70 hydrogen vehicles, and a hydrogen train inaugurated July 17, 2026."
+          ],
+          "signal": [
+            "The gap between 8,000 tonnes and 5 million tonnes depends on cheap renewable power and firm buyers."
+          ],
+          "key_stat": "8,000 t vs 5 Mt target",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        },
+        {
+          "id": "climate-energy-68bc97e988",
+          "headline": "Solar inverter localisation in India faces semiconductor hurdles",
+          "hook": "Industry executives say India's solar inverter makers depend on imported power electronics, especially semiconductors, which complicates proposed domestic-content rules under an ALMM list for inverters.",
+          "points": [
+            "ALMM is the Approved List of Models and Manufacturers.",
+            "Executives warn stricter domestic content requirements could raise costs."
+          ],
+          "signal": [
+            "Local-content rules can raise project costs if chip supply stays imported."
+          ],
+          "evidence_of": "India is building energy security through storage and local manufacturing",
           "force": "geopolitics"
         }
       ],
-      "also": []
+      "also": [
+        {
+          "id": "global-economics-f2d98196ac",
+          "line": "Residential rooftop solar under PM Surya Ghar passed 19 GW in October 2026 (19,189 MW across 65.26 lakh households), led by Uttar Pradesh, Maharashtra and Gujarat."
+        }
+      ]
     },
     {
       "slug": "india",
       "stories": [
         {
-          "id": "india-573395e0c0",
-          "headline": "Modi says armed Maoists are gone, warns of 'dimagi Naxals' in parties and groups",
-          "hook": "Speaking at a CRPF camp in Bastar, PM Modi said armed Maoists have been eliminated but ==\"dimagi Naxals\" (ideological supporters)== have infiltrated parties and organisations.",
+          "id": "india-3568f0f9f6",
+          "headline": "COP31 opens in Turkey; India plans to speak for the Global South",
+          "hook": "COP31 runs 9-20 November in Antalya, with Turkey as host and Australia leading negotiations; India's minister Bhupender Yadav joins in the second week.",
           "points": [
-            "The government declared the country free of Naxalism on March 31, 2026. At the peak, over 230 districts across nearly 20 states were affected, with about 2,000 attacks a year.",
-            "He said no CRPF personnel died in the line of duty over the past year, the first time in 47 years.",
-            "He credited cutting off funding, the counterfeit currency nexus and supply of weapons, and freeing security forces to act.",
-            "He made a similar remark on Independence Day in August; he named no groups."
+            "India will press for climate justice, climate finance and developed-country technology transfer, and opposes new top-down emission targets.",
+            "Copernicus says 2026 is virtually certain to exceed 1.5 °C above pre-industrial levels, in one of the worst El Niño years on record.",
+            "Turkey's voluntary targets include 35% global electrification and 25% lower building energy intensity by 2035."
           ],
           "signal": [
-            "The label has no legal definition, so watch whether it is used to target specific parties or groups."
+            "Expect India to resist any overshoot text that imposes uniform cuts."
           ],
-          "key_stat": "0 CRPF deaths in a year",
-          "evidence_of": "Political rhetoric is shifting from armed to ideological threats",
+          "key_stat": "1.5 °C exceeded in 2026",
+          "evidence_of": "Climate policy shifts from preventing to managing overshoot",
+          "force": "climate"
+        },
+        {
+          "id": "world-8607fab032",
+          "headline": "Delhi tries 'green' fireworks at Diwali",
+          "hook": "India's top court allowed only greener fireworks this weekend, citing air quality, but activists call it greenwash (summary from limited source text).",
+          "points": [
+            "Green fireworks may emit less smoke in controlled tests, but scientists and doctors doubt the real-world difference."
+          ],
+          "signal": [
+            "Real air quality outcomes will test the ruling."
+          ]
+        },
+        {
+          "id": "india-23ef823014",
+          "headline": "Signing FTAs is not enough to lift India's exports",
+          "hook": "Only an estimated 20-30% of India's eligible exports use FTA preferences, versus 60-70% in developed markets, per Bank of America.",
+          "points": [
+            "Exporters face proof-of-origin rules, certification and carbon reporting; the EU deal is awaiting implementation early next year.",
+            "Many components are imported from China, making Indian origin hard to prove.",
+            "MSMEs bear upfront costs for testing and audits before any order; they account for 45% of exports.",
+            "Deficits with South Korea and Japan tripled after older pacts; those deals are under review."
+          ],
+          "signal": [
+            "Gains will go first to firms with compliance systems unless smaller firms get help."
+          ],
+          "key_stat": "20-30% FTA use",
+          "evidence_of": "Trade deals need compliance capacity to pay off",
           "force": "regulation"
-        },
-        {
-          "id": "india-fc4ac84d83",
-          "headline": "Ten years after demonetisation, cash use is where it started",
-          "hook": "Currency held by the public was ==12.1% of GDP in March 2026==, against 11.9% before demonetisation in 2015-16, despite the UPI boom.",
-          "points": [
-            "The move invalidated 86% of currency by value. The RBI's 2017-18 report said ₹15.31 lakh crore of ₹15.42 lakh crore returned (99.3%), undercutting the black-money goal.",
-            "UPI accounted for 85% of payment transactions by volume in 2025 but only 9.5% by value. Smartphones and the pandemic also drove the shift.",
-            "Counterfeits detected per crore notes fell from 70.1 to 13.4, but counterfeit ₹500 notes rose from 0.3 to 20.1.",
-            "Independent estimates put output loss at 1% to 2.5% of GDP in 2016-17. About 85% of Indian workers are in informal enterprises."
-          ],
-          "signal": [
-            "Digital payments won on convenience, not by forcing cash out of the economy."
-          ],
-          "key_stat": "12.1% vs 11.9% of GDP",
-          "evidence_of": "Digital payments grew without displacing cash",
-          "force": "technology"
-        },
-        {
-          "id": "india-e076f6b4eb",
-          "headline": "Microsoft opens fourth India cloud region in Hyderabad",
-          "hook": "Microsoft launched its India South Central cloud region in Hyderabad, its ==fourth in India==, after Pune, Chennai and Mumbai.",
-          "points": [
-            "It is part of Microsoft's previously announced $20.5 billion India investment.",
-            "Microsoft India's president says India generates nearly 20% of the world's data but has only about 3% of data centre capacity.",
-            "India has about 2 GW of data centre capacity, expected to reach 12-14 GW by 2035."
-          ],
-          "signal": [
-            "If that growth materialises, power and land become the constraints on India's AI buildout, as with Anthropic's generator deal elsewhere today."
-          ],
-          "key_stat": "2 GW → 12-14 GW by 2035",
-          "evidence_of": "AI spending is straining power, markets and security",
-          "force": "capital"
         }
       ],
       "also": []
@@ -537,97 +483,142 @@
       "slug": "world",
       "stories": [
         {
-          "id": "world-ba2e08258e",
-          "headline": "Sudan's army detains ICC-wanted ex-ruling party chief Ahmed Haroun",
-          "hook": "Sudan's army detained Ahmed Haroun, chairman of the former ruling National Congress Party, who is ==charged by the ICC with more than 40 counts== of war crimes and crimes against humanity.",
+          "id": "india-11458af0c6",
+          "headline": "Gen Z protests are spreading across the world",
+          "hook": "Researchers have documented at least 25 protests worldwide in which Gen Z (roughly ages 14-29) played a role.",
           "points": [
-            "Two party officials told Reuters of the detention on Sunday.",
-            "Haroun served under ousted strongman Omar al-Bashir."
+            "Serbia's students ousted Vučić's party after 14 years in elections; Lula won in Brazil with youth mobilisation online.",
+            "Organisers use TikTok, X, Discord and VPNs to coordinate and bypass internet shutdowns.",
+            "India's Cockroach movement forced the education minister to resign; authorities detained thousands and shut the internet in October.",
+            "Youth protests often meet harsher repression: Morocco charged over 2,000 people."
           ],
           "signal": [
-            "Whether he is handed to the ICC is not stated (summary from limited source text)."
+            "Breakdown of the social contract is the shared cause, per analysts; repression raises the cost of protest."
           ],
-          "key_stat": "40+ ICC counts",
-          "evidence_of": "Accountability for past regimes is resurfacing",
-          "force": "regulation"
-        },
-        {
-          "id": "world-1e68918cee",
-          "headline": "India's 'Cockroach Janta Party' youth movement targets the election commissioner",
-          "hook": "The Cockroach Janta Party, a youth movement that began as online satire, says it aims to restore accountability, and ==weeks after its May launch the education minister resigned==.",
-          "points": [
-            "It mobilised thousands against exam paper leaks, unemployment and the high cost of living.",
-            "Protesters now want the chief election commissioner out. Opposition parties and the group accuse the commission of manipulating voter lists to favour the BJP; the commission denies it and says it removed dead, duplicate and ineligible voters.",
-            "The BJP accuses demonstrators of sowing chaos. Several CJP leaders, including founder Abhijeet Dipke's guest on the programme, have been arrested."
-          ],
-          "signal": [
-            "Youth jobs and exam integrity are now a political force with a track record of results."
-          ],
-          "key_stat": "Education minister resigned",
-          "evidence_of": "Young Indians are organising politically over jobs and exams",
+          "key_stat": "25+ protests",
+          "evidence_of": "Young people are driving political change",
           "force": "demographics"
         }
       ],
       "also": []
     },
     {
-      "slug": "science-mind",
+      "slug": "global-economics",
       "stories": [
         {
-          "id": "science-mind-6c46f2aa79",
-          "headline": "Cheap 3D-printed, drone-dropped mines are back in Ukraine",
-          "hook": "Antipersonnel mines are returning 29 years after 122 countries signed the Ottawa Treaty, enabled by ==3D printing, microcontrollers and drone delivery==.",
+          "id": "global-economics-20f7b5af6a",
+          "headline": "RBI reportedly queries banks' valuation of bond forward trades",
+          "hook": "The RBI has told some lenders to value bond forward contracts using Level 3 inputs, covering billions of dollars across the industry, people familiar say (summary from limited source text).",
           "points": [
-            "Frontline units can print their own mines in varied shapes that blend into vegetation or look like brick.",
-            "Microcontroller sensors, such as magnetic, Doppler microwave, heat or Bluetooth triggers, replace tripwires. Drones place mines precisely on paths and around trenches, and a UN commission reports Russia drops them to target civilians in Kherson.",
-            "Poland, Finland, Latvia, Lithuania and Estonia are leaving the Ottawa Treaty; Ukraine suspended its implementation.",
-            "Expert Seán Moorhouse expects the technology to spread worldwide and says demining agencies must adapt."
+            "The instruction came in recent in-person audits."
           ],
           "signal": [
-            "Cheap, simple weapons raise decades-long civilian risk in any conflict zone."
-          ],
-          "key_stat": "5 states leaving treaty",
-          "evidence_of": "Cheap tech is reshaping modern warfare",
-          "force": "technology"
-        },
-        {
-          "id": "science-mind-bd171fbe60",
-          "headline": "Sleep disorders linked to changes in attention-related brain regions",
-          "hook": "A meta-analysis of ==57 brain imaging studies== links sleep disorders to reductions in the thalamus, a region central to attention and thinking.",
-          "points": [
-            "Both dyssomnias (insomnia, sleep apnea) and parasomnias (sleepwalking, nightmares) were tied to changes in the pulvinar, a part of the thalamus that directs attention.",
-            "Parasomnias also showed changes in the posterior cingulate cortex, involved in motivation and emotion. No pattern was found exclusive to dyssomnias.",
-            "It shows association only. It cannot say whether poor sleep causes the changes, the reverse, or both."
-          ],
-          "signal": [
-            "Brain markers could someday support earlier diagnosis, but cause is not yet established."
-          ],
-          "key_stat": "57 studies",
-          "evidence_of": "Brain imaging is revealing links across disorders",
-          "force": "discovery"
-        },
-        {
-          "id": "science-mind-ff03b4bafa",
-          "headline": "Experiment shows a space-time limit on tracking electrons",
-          "hook": "Regensburg and Max Planck researchers showed that ==an electron's timing and spatial spread trade off==: pinning down when it moves needs more energy, which spreads its wave packet in space.",
-          "points": [
-            "Laser pulses drove electrons across a few atomic diameters from a metal tip to a silver surface, in an attosecond-scale experiment (an attosecond is a billionth of a billionth of a second).",
-            "Simulations found the electrons lagged the light field by about 500 attoseconds.",
-            "Even so, the wave packets stayed localised enough for atomic spatial resolution and attosecond time resolution.",
-            "The team says the insight could one day let electronics run hundreds of thousands of times faster than CMOS, but this is a long-term goal, not demonstrated."
-          ],
-          "signal": [
-            "The near-term use is lab tools for steering chemical reactions, not faster chips."
-          ],
-          "key_stat": "~500 attosecond lag",
-          "evidence_of": "Experiments are probing quantum limits of electrons",
-          "force": "discovery"
+            "Level 3 valuations rely on unobservable inputs, which can cause bigger swings in reported profits."
+          ]
         }
       ],
       "also": [
         {
-          "id": "science-mind-0e4eeeda0a",
-          "line": "New Journal of Neuroscience research suggests lifelong-blind people hear pitch better because their auditory systems process sounds more consistently, pointing to internal noise as a key factor."
+          "id": "global-economics-bc0367fcd1",
+          "line": "An RBA official says surging AI-related investment will add to demand and put near-term pressure on inflation in Australia."
+        }
+      ]
+    },
+    {
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-14b548b754",
+          "headline": "The super El Niño is also a health shock",
+          "hook": "The University of Chicago's Climate Impact Lab projects 451,000 extra heat-related deaths from the 2026-27 El Niño, mainly in low- and middle-income countries.",
+          "points": [
+            "Eastern Pacific temperatures already exceed the four other very strong El Niños of the past 50 years.",
+            "The 1982-83 and 1997-98 events cost $4.1 trillion and $5.7 trillion in global income.",
+            "It arrives amid wars and fertiliser shortages, raising food-price and malnutrition risks.",
+            "Food shortages may increase wild meat reliance, raising disease risk."
+          ],
+          "signal": [
+            "Local food prices, not global ones, decide how bad this gets."
+          ],
+          "key_stat": "451,000 extra deaths",
+          "evidence_of": "Climate policy shifts from preventing to managing overshoot",
+          "force": "climate"
+        },
+        {
+          "id": "science-mind-25ceb6beb0",
+          "headline": "New CAR-T therapy cleared a childhood brain tumour in every mouse tested",
+          "hook": "UCSF's B-SYNC CAR-T cells completely eliminated diffuse midline glioma, a childhood cancer almost always fatal within a year, in two mouse models.",
+          "points": [
+            "The cells switch on only when they sense brevican, a brain protein, so they stay inactive elsewhere.",
+            "Treated mice rejected new cancer cells about seven weeks later, and cells stayed active beyond 70 days.",
+            "Conventional CAR-T could not control the tumours.",
+            "Human trials could begin as early as April 2027."
+          ],
+          "signal": [
+            "Mouse results often fail in humans; the trial will test safety first."
+          ],
+          "key_stat": "100% in 2 mouse models",
+          "evidence_of": "Science is finding new ways to treat hard cancers",
+          "force": "discovery"
+        },
+        {
+          "id": "science-mind-61164f23e3",
+          "headline": "Stickier ocean 'snow' carries six times more carbon to the deep",
+          "hook": "Highly viscous marine snow can carry more than six times as much carbon to the deep ocean as thinner particles, researchers report in Science.",
+          "points": [
+            "Marine snow removes over 10 gigatons of carbon a year from surface waters, but only about 2 gigatons reach depths where it stays for centuries.",
+            "Bacteria colonise less viscous outer areas and struggle to break down stickier cores.",
+            "New 3D imaging let researchers watch bacteria interact with the particles for the first time."
+          ],
+          "signal": [
+            "Better carbon-cycle models may need viscosity included."
+          ],
+          "key_stat": "6x carbon",
+          "evidence_of": "Science is finding new ways ocean carbon storage works",
+          "force": "discovery"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-d96e11e044",
+          "headline": "MakeMyTrip's India arm gets Sebi nod for IPO",
+          "hook": "MakeMyTrip (India) Ltd received Sebi's final observations on November 6 for an IPO, after filing confidentially in July.",
+          "points": [
+            "The IPO will be a sale of existing shares by parent MakeMyTrip and its subsidiary ibibo Group Holdings (Singapore), so the parent keeps control.",
+            "Proceeds go to the parent for growth, acquisitions and repurchases of securities.",
+            "MakeMyTrip posted a $1.8M Q2 FY27 profit versus a $5.7M loss a year earlier, on revenue of $235.2M, up 11.2%."
+          ],
+          "signal": [
+            "Listing gives MMT India stock to use for hiring."
+          ],
+          "key_stat": "$1.8M profit vs $5.7M loss"
+        },
+        {
+          "id": "indian-startups-3db453c4e1",
+          "headline": "PhysicsWallah cuts staff citing AI and earmarks under $20M for M&A",
+          "hook": "PhysicsWallah's headcount, about 19,100, fell sequentially in Q2 FY27, partly due to AI efficiencies, and management says AI writes about 90% of its code.",
+          "points": [
+            "Employee expenses fell 2.3% year-on-year excluding ESOP costs.",
+            "Q2 revenue was ₹1,242 crore (up 18%) and net profit ₹142 crore, up from ₹70 crore.",
+            "The offline business lost ₹108 crore at EBITDA level in H1 FY27, versus ₹120 crore a year earlier; it runs 370 centres, including 167 Vidyapeeth.",
+            "It is in advanced talks with a couple of online education firms, with under $20M earmarked; M&A will add under 5% to FY27 growth."
+          ],
+          "signal": [
+            "A listed Indian startup is openly linking AI to a smaller workforce."
+          ],
+          "key_stat": "₹142 crore profit",
+          "evidence_of": "AI lets firms grow revenue with fewer hires",
+          "force": "technology"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-0cfd12f59b",
+          "line": "Inc42 says key new-age tech stocks in ecommerce, fintech and logistics improved profitability and topline in Q2 FY27 despite a muted start to the festive season."
         }
       ]
     },
@@ -636,36 +627,19 @@
       "stories": [
         {
           "id": "work-careers-4e18535211",
-          "headline": "52% of Indian CEOs plan some job cuts, 92% expect headcount to grow",
-          "hook": "KPMG's survey of 125 Indian CEOs finds ==52% plan workforce cuts in some areas==, up from 50% in 2025, while 92% expect total headcount to grow over three years.",
+          "headline": "52% of Indian CEOs plan some AI-linked job cuts, yet 92% expect headcount to grow",
+          "hook": "KPMG's survey of 125 Indian CEOs finds 52% plan workforce cuts in some areas, up from 50% in 2025, while 92% expect total headcount to grow over three years.",
           "points": [
-            "78% call AI a top investment priority (79% globally). 62% expect to put 11-20% of budgets into AI, and about 70% expect returns in one to three years.",
-            "86% are reviewing skills required for entry-level roles, against 76% globally. 87% are prioritising retaining and retraining high-potential staff, up from 70%.",
-            "46% say agentic AI (software that carries out tasks with some autonomy) is already having a significant impact, against 55% globally.",
-            "Barriers: ethics (64%) and inconsistent regional AI rules (53% vs 41% globally). Cybersecurity is the top threat to growth, at 38%."
+            "78% rank AI a top investment priority, against 79% globally.",
+            "86% are reviewing skills needed for entry-level jobs, versus 76% globally.",
+            "62% will put 11-20% of budgets into AI, and 70% expect returns in one to three years.",
+            "Top barriers are ethics (64%) and inconsistent regional AI regulation (53%)."
           ],
           "signal": [
-            "Roles get rewritten rather than removed overall; entry-level definitions are the first to change."
+            "Work is being restructured rather than cut overall; entry-level roles are the ones being redefined."
           ],
-          "key_stat": "52% cuts · 92% growth",
-          "evidence_of": "Indian hiring is splitting into specialist and generic",
-          "force": "technology"
-        },
-        {
-          "id": "work-careers-384d0558e8",
-          "headline": "AI, data and cybersecurity make up 30.3% of GCC tech hiring demand",
-          "hook": "AI, data and cybersecurity skills reached ==30.3% of tech hiring demand== at India's global capability centres (GCCs) in July-September, up from 25.8%, even as overall demand fell 3.5%.",
-          "points": [
-            "AI, data and analytics demand grew about 14% quarter on quarter; cybersecurity and risk rose 12%.",
-            "The report estimates talent supply gaps of 38-42% in AI, data and analytics, and 30-35% in cybersecurity.",
-            "Tier-2 cities grew 13% and now hold about 14% of hiring, led by Coimbatore at 30%. Bengaluru is still the largest, at 22.6%.",
-            "India has an estimated 2,250-2,400 GCCs, up 5-6%, and the workforce is projected to reach 2.7-2.8 million by 2030."
-          ],
-          "signal": [
-            "Scarce skills carry the premium; a supply gap that large favours people who can retrain into AI and data."
-          ],
-          "key_stat": "30.3% · up from 25.8%",
-          "evidence_of": "Indian hiring is splitting into specialist and generic",
+          "key_stat": "52% plan cuts",
+          "evidence_of": "AI lets firms grow revenue with fewer hires",
           "force": "technology"
         }
       ],
@@ -677,7 +651,7 @@
       "id": "opportunities-fe037fa30f",
       "name": "Top Business Schools Present: Application Tips (Virtual)",
       "when": "Thursday, November 12, 2026, 6:00-7:00 PM CST",
-      "summary": "Admissions teams from ten MBA programmes, including Booth, Harvard, Stanford, Wharton, Kellogg, MIT Sloan and Columbia, share application tips. Online; link shared on registration."
+      "summary": "Admissions teams from ten MBA programmes (Booth, Harvard, Stanford, Wharton, Kellogg, Columbia and others) share application tips. Online."
     }
   ]
 }
