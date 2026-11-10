@@ -1,0 +1,478 @@
+{
+  "date": "2026-11-10",
+  "lead": {
+    "id": "ai-6e66d0729c",
+    "headline": "Anthropic sends, then retracts, IPO filing showing a $69.3 billion raise",
+    "hook": "Anthropic sent bankers a filing that appeared to show ==an IPO raising up to $69.3 billion==, then emailed that the pricing details were inaccurate, Reuters reported.",
+    "points": [
+      "The retracted filing showed about 867 million shares at $70 to $80 each. At the top of that range the sale comes to the $69.3 billion figure.",
+      "A follow-up email told bankers the pricing details were wrong. Anthropic said it would update the filing later, so no price range is confirmed.",
+      "Reuters drew this from emails to bankers, so the numbers are leaked and unofficial.",
+      "Bloomberg reports that potential investors were discussing valuations of $1.1 trillion to $1.3 trillion. They rethought AI valuations after last week's US midterm elections."
+    ],
+    "signal": [
+      "Pricing is still unsettled. If the corrected filing lands below the leaked range, the post-midterm rethink of AI valuations has reached the largest AI listing."
+    ],
+    "key_stat": "Up to $69.3B · retracted IPO range",
+    "editors_read": "The leak shows the deal is far enough along for bankers to hold draft numbers, but the price is still moving. A $1.1T to $1.3T valuation debate means buyers and sellers disagree by roughly $200 billion, and that gap is what the next filing must close. Separately today, Anthropic launched new models (see front page), which fits a company building its case for investors.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "world-8f11a9c4ef",
+      "headline": "Trump says FBI is looking into Nvidia CEO Jensen Huang's affair with alleged Chinese spy",
+      "hook": "Nvidia shares fell 4.2% on Monday after Trump said the FBI is looking into CEO Jensen Huang's affair with a woman US intelligence suspects of spying for China.",
+      "points": [
+        "Huang admitted the affair with Alice Huang, a former Megaspeed executive, in an email to staff. She is unrelated to him, and Megaspeed is a Singapore data-centre firm. Nvidia's board has opened an independent investigation.",
+        "Trump says Huang told him he had no idea she was a spy. Trump said the FBI is looking into it \"in terms of something else\" and gave no details.",
+        "US intelligence reportedly believes she pushed Huang to lobby for looser chip export controls, which he did publicly. Nvidia says no secrets or national security were compromised. China calls the claims a smear.",
+        "Nvidia stock is down about 11% since last Wednesday. A shareholder class action was filed in San Jose, and House committee chairs asked Huang to give a closed-door briefing on November 18.",
+        "Nvidia's bylaws let a majority of directors remove an officer with or without cause. Huang remains CEO while the board inquiry runs."
+      ],
+      "signal": [
+        "Nvidia's China chip sales were already restricted. If the inquiry shows Beijing shaped Huang's lobbying, pressure for tougher export controls would grow."
+      ],
+      "key_stat": "-4.2% · Nvidia shares on Monday",
+      "editors_read": "The risk has three parts: the board's findings, the FBI and Congress, and the shareholder suit over what Nvidia disclosed. Trump's public backing protects Huang politically, but it does not bind the board or Congress, and Democrats are already asking for briefings. Nvidia is tied financially to OpenAI and others, so a leadership shock would spread beyond one company."
+    },
+    {
+      "id": "ai-1bdb01efc4",
+      "headline": "Anthropic launches Claude Fable 5.2 and Mythos 5.2, cuts prices",
+      "hook": "Anthropic launched Claude Fable 5.2 and Mythos 5.2 at $8 per million input tokens and $40 per million output tokens, down from $10 and $50 for the predecessors.",
+      "points": [
+        "Fable 5.2 is open to all users and blocks risky cybersecurity and biology tasks. Mythos 5.2 removes some of those blocks and is limited to organisations approved through Anthropic's verification programs.",
+        "Anthropic says output is up to 30% faster than Fable 5.1 and Mythos 5.1. A fast mode runs up to 2.5 times quicker at twice the price.",
+        "On Artificial Analysis's Intelligence Index, Fable 5.2 scores 65, five points ahead of Gemini 4 Carbon and 15 ahead of Fable 5.1. Its cost at peak quality is $26.50 per task against $10 for Opus 5.5.",
+        "Anthropic says about 1,000 Fable 5.2 agents formalised the proof of Fermat's Last Theorem in 30 hours, so a computer can check it step by step. An earlier research version took 11 days.",
+        "Anthropic says both models voice suspicion of being tested more than recent models do, which makes real-world behaviour harder to assess. METR estimates Anthropic's internal models speed its AI progress about 2x."
+      ],
+      "signal": [
+        "Lower list prices do not mean lower bills. Fable 5.2 costs far more per task at peak quality, so buyers should compare cost per task, not per token.",
+        "If models keep detecting evaluations, safety results from tests will carry less weight with enterprise buyers."
+      ],
+      "key_stat": "$8 / $40 per million tokens · input / output",
+      "editors_read": "A price cut and a benchmark lead land just as Anthropic prepares to list (see today's lead). That helps its pitch to enterprise buyers, who also get zero data retention support. The METR 2x finding and the evaluation-awareness admission will draw regulator and investor questions on safety testing. Separately, Opus 5.5 remains Anthropic's recommended everyday model, so Fable is a premium tier rather than a default."
+    },
+    {
+      "id": "india-e2f97fbc3d",
+      "headline": "Foreign funds pour nearly $5 billion into Indian stocks in a week",
+      "hook": "Foreign funds were net buyers of close to $5 billion of Indian stocks last week, including Friday's provisional figures, as the Nifty 50 rallied more than 8%.",
+      "points": [
+        "Foreign buyers put in a net $3.6 billion in the first four sessions of the week alone.",
+        "The Nifty 50 slipped in Sunday's ceremonial Diwali session, its first loss in such special trading in nine years.",
+        "Bloomberg's headline links the inflow to a faltering AI trade, but the text available does not explain the link."
+      ],
+      "signal": [
+        "A one-week inflow this large can reverse as fast as it arrived. If foreign buying continues, the rally has more room; if it stalls, an 8% gain has little else holding it up."
+      ],
+      "key_stat": "~$5B · weekly foreign net buying"
+    },
+    {
+      "id": "world-9b6cbbc692",
+      "headline": "Qantas to outsource 850 corporate jobs to Accenture, most moving to India",
+      "hook": "Qantas will outsource 850 Australian corporate jobs to Accenture, with most of the roles moving to India as the airline modernises its IT systems.",
+      "points": [
+        "Cuts begin in mid-2027, starting with finance, procurement, people and marketing roles. The work moves \"mostly\" to teams in India and \"some in Australia\".",
+        "Qantas spends more than AU$1 billion a year on technology and runs more than 1,000 legacy applications that were never designed to work together, CEO Vanessa Hudson said.",
+        "The deal is multi-year. Qantas says Accenture's work will be \"transformed further with automation and AI\" over time.",
+        "Affected staff will be redeployed \"where possible\". Qantas employs about 28,000 people in Australia and 4,000 globally, and is in talks with unions."
+      ],
+      "signal": [
+        "Corporate functions such as finance, HR and procurement are the first to move offshore. If other airlines face the same fuel-cost squeeze, similar Accenture-style deals could follow, which benefits India-based delivery teams."
+      ],
+      "key_stat": "850 jobs · mostly to India"
+    },
+    {
+      "id": "climate-energy-64273cef64",
+      "headline": "India approves Rs 14,500 crore scheme for 92 GWh of grid storage",
+      "hook": "India approved a Rs 14,500 crore ($1.5 billion) scheme to build 92 GWh of grid-scale energy storage by 2030-31, aiming to draw about $10 billion in investment.",
+      "points": [
+        "The 92 GWh splits into 60 GWh of pumped hydro (water pumped uphill, released to make power), 30 GWh of batteries and 2 GWh of emerging technologies.",
+        "Solar output peaks in the day but demand rises in the evening. Storage holds surplus power for then, reducing reliance on coal.",
+        "The new capacity equals about 170% of India's existing grid-scale storage. The government estimates India needs 411 GWh by 2031-32, of which 236 GWh is batteries and 175 GWh pumped hydro.",
+        "Battery projects must meet 40% domestic content. Separately, a $300 million scheme will build four lithium and nickel processing plants."
+      ],
+      "signal": [
+        "__The scheme covers about a fifth of the 411 GWh needed by 2031-32__, so the rest must come from private projects.",
+        "The 40% local-content rule favours Indian battery makers over imports if enforced."
+      ],
+      "key_stat": "92 GWh · Rs 14,500 crore"
+    },
+    {
+      "id": "indian-startups-7c09294031",
+      "headline": "Funding for Indian military drone startups collapses in 2026 after a record 2025",
+      "hook": "Indian military drone startups raised just $4.39 million in 2026 up to October 5, ==97.2% less than in all of 2025==, when funding hit $159.2 million.",
+      "points": [
+        "2025 funding rose 343.1% from 2024 after Operation Sindoor in May 2025, and equalled about 90% of everything raised from 2020 to 2024 combined.",
+        "Funding rounds fell from 27 in 2025 to 11 in 2026 up to October 5. One founder says firms are still absorbing last year's money and no large player raised in 2026.",
+        "Pure-play military tech startups raised $5.22 million in 2026, down 97.7%. Dual-use firms (defence plus civilian markets) raised $48.2 million, down only 15.3%.",
+        "India has 416 of 3,224 tracked military tech firms, second to the US, but only 26% have raised funding. France is at 42% and Turkiye at 38%.",
+        "Experts worry startups cannot cross the \"valley of death\", the stage where a prototype runs out of money before commercial production."
+      ],
+      "signal": [
+        "Dual-use firms held up better, so investors currently favour startups with civilian revenue. If defence orders from the services keep rising, the pure-play gap should close."
+      ],
+      "key_stat": "-97.2% · 2026 vs 2025 funding"
+    },
+    {
+      "id": "climate-energy-e01a30f2fa",
+      "headline": "Global fossil CO2 emissions set to dip 0.4% in 2026 as Iran conflict cuts oil use",
+      "hook": "Global fossil-fuel and cement CO2 emissions are projected to fall about 0.4% in 2026 to 38.2 billion tonnes, mainly because oil emissions drop 1.9%.",
+      "points": [
+        "The Global Carbon Project links the oil fall to the Iran conflict and the closure of the Strait of Hormuz. Petrol and diesel were 10-50% dearer than in 2025 in the US, China and EU.",
+        "The estimate is preliminary: the range runs from a 1.5% fall to a 0.6% rise. Coal emissions rise 0.6%, and India's fossil emissions rise 4.4% while China's fall 0.9%.",
+        "Land-use emissions rise to 5.1 billion tonnes from 4.4 billion, on peat fires and an El Niño. Total emissions hit a record 43.3 billion tonnes, up from 42.8 billion.",
+        "Solar, wind and electric vehicles now offset about two-thirds of the emissions that rising energy demand would add. This is still not enough for a sustained decline.",
+        "__The remaining budget for 1.5C is 150 billion tonnes from the start of 2027, under four years of current emissions__."
+      ],
+      "signal": [
+        "The dip comes from high oil prices, not policy. If prices return to pre-conflict levels, emissions likely rebound, as the authors note."
+      ],
+      "key_stat": "38.2 Gt · fossil CO2, -0.4%"
+    },
+    {
+      "id": "indian-startups-d96e11e044",
+      "headline": "MakeMyTrip's India arm gets Sebi clearance for IPO",
+      "hook": "MakeMyTrip (India) Ltd received Sebi's go-ahead for an IPO on November 6, having filed draft papers through the confidential route in July.",
+      "points": [
+        "The IPO will be a sale of shares by the Nasdaq-listed parent MakeMyTrip and its subsidiary ibibo Group Holdings (Singapore). So the proceeds go to the parent, not to the India arm.",
+        "MakeMyTrip plans to use the money for long-term growth, acquisitions and repurchasing its securities, including convertible securities.",
+        "The parent says listing will raise brand visibility and help the India arm reward staff in a competitive tech hiring market. The arm stays a consolidated subsidiary.",
+        "MakeMyTrip returned to profit in the September 2026 quarter with $1.8 million, against a $5.7 million loss a year earlier. Revenue was $235.2 million, up 11.2%."
+      ],
+      "signal": [
+        "No size or date is set. A clean profit quarter helps, but the proceeds go to the parent, so investors will price the India arm's growth alone."
+      ],
+      "key_stat": "Sebi nod · filed July"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-3ec2e27891",
+          "headline": "The data-centre backlash may be mostly about electricity",
+          "hook": "MIT Technology Review argues the US data-centre backlash is driven by electricity, not culture war: the smallest AI training sites need 300 megawatts and the ideal ones about 6,000.",
+          "points": [
+            "Grid-connected sites, like Virginia's, strain local utilities. Virginia now makes data centres fully pay for new transmission lines, and developers expect rules cutting them off from the grid at peak demand.",
+            "Most new AI sites are rural with no grid, so they bring their own gas turbines. Anthropic reportedly agreed to pay $3.4 billion for gas turbines.",
+            "Turbines and diesel backup release air pollutants. Elon Musk's Memphis turbines violated air quality laws, per the EPA.",
+            "For scale, 6,000 megawatts is the estimated draw of Chicago. The average Virginia data centre draws 54 MW, more than Denver airport.",
+            "Siting will follow low-population places such as the Permian Basin, or abroad: Google said it will spend $15 billion on data-centre projects in Malaysia."
+          ],
+          "signal": [
+            "Insiders say electricity, not opposition, is their binding constraint. If so, power access, not chips, decides who builds AI capacity."
+          ],
+          "key_stat": "300-6,000 MW · per AI site"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-85a7142747",
+          "line": "Meta announced Spaces in its Muse app on November 6. Users describe a tool, dashboard or game and get a customised interactive experience, available wherever Muse is."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-e9d724db37",
+          "headline": "Nvidia faces wide risks after CEO affair, analysts and lawyers say",
+          "hook": "Lawyers and analysts say CEO Jensen Huang's admitted affair threatens his three-decade tenure, Nvidia's China chip trade and the company's autonomy.",
+          "points": [
+            "Huang, 63, told employees he was unfaithful to his wife and pledged full cooperation with Nvidia's inquiry.",
+            "Reports say he was targeted by a Chinese intelligence operation, which Beijing denies.",
+            "Republican chairs of three House committees asked Huang to attend a closed-door briefing on November 18 about his dealings with Alice Huang."
+          ],
+          "signal": [
+            "If Congress finds weak security controls around foreign contacts, export-control fights for Nvidia get harder."
+          ],
+          "key_stat": "Nov 18 · House closed-door briefing"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-a9c3a071a0",
+          "line": "Bopu Semiconductor raises several hundred million yuan for AI data-center photonics (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-a42e59890a",
+          "headline": "India moves its laser anti-drone weapon from trials toward production",
+          "hook": "India's DRDO has finished final trials of a 30-kilowatt laser weapon meant to down drones at up to 5 km, and is seeking an industry partner to build it.",
+          "points": [
+            "Cheap drones can exhaust a defender's missiles. Lasers cost about $1 to $10 of energy per shot in some US estimates, excluding the cost of buying and running the system.",
+            "DRDO completed final trials of the 30 kW system in August 2025. In September it said it would issue an expression of interest within six months to pick a production partner.",
+            "A 2 kW weapon is reported in production with Adani Defence, Astra Microwave and BEL. A 10 kW system for 1.5 to 2 km awaited first production models as of September 2025.",
+            "Fog, dust, smoke and clouds scatter beams, targets need a clear line of sight, and dwell time limits swarm defence. A retired general says the technology is five to 10 years from maturity."
+          ],
+          "signal": [
+            "Expect first use guarding airfields, radars and depots, not replacing missiles. If production partners deliver reliable units, the test is bad weather and prolonged use."
+          ],
+          "key_stat": "30 kW · up to 5 km range"
+        },
+        {
+          "id": "india-deep-tech-9d8b20a654",
+          "headline": "Ex-IAF chief calls HAL's decision to skip Uttam radar on Tejas Mk1A a 'bad decision'",
+          "hook": "Former Air Chief Marshal R.K.S. Bhadauria says HAL chose more Israeli EL/M-2052 radars for the Tejas Mk1A over India's own Uttam AESA radar.",
+          "points": [
+            "Bhadauria says flight-test data show Uttam gives more range than the radar being integrated and is ready for induction. He argues the aircraft is already late, so a delay for Uttam would cost little.",
+            "His explanation: foreign radars are easier to certify and faster, and HAL already co-produces the Israeli one.",
+            "He says delays to the Tejas Mk2 were partly due to landing gear (undercarriage) problems.",
+            "On the fifth-generation AMCA fighter, private-sector bids are in. He says one partner in HAL's proposal did not meet the technical criteria.",
+            "He wants public defence companies to spend about 15% on research and to work three shifts."
+          ],
+          "signal": [
+            "This is one man's view on a podcast, and HAL has not responded in the text. If private-led AMCA contracts run on time, it will strengthen the case for choosing local suppliers."
+          ],
+          "key_stat": "15% · his R&D spend benchmark"
+        },
+        {
+          "id": "global-economics-cbd16250d5",
+          "headline": "Paras Semiconductors partners with US firm BroadPak on advanced chip packaging in India",
+          "hook": "Paras Semiconductors, a subsidiary of Paras Defence and Space Technologies, signed a technology partnership with US-based BroadPak to build an advanced packaging facility in India.",
+          "points": [
+            "The planned OSAT (outsourced chip assembly and test) unit will handle 2.5D/3D packaging, chiplet integration, hybrid bonding, co-packaged optics, and testing.",
+            "Paras gets BroadPak's design, manufacturing and integration intellectual property, plus technology transfer. The firms will also explore joint packaging platforms for AI and high-performance computing and train Indian engineers.",
+            "BroadPak is based in San Jose and was founded in 2007. The facility will serve optical systems, high-performance computing, networking and data centres.",
+            "The release gives no investment amount, location or timeline."
+          ],
+          "signal": [
+            "It is only a technology partnership for now. If funding and a site follow, India gains packaging capability for AI hardware, a step beyond basic assembly."
+          ],
+          "key_stat": "2.5D/3D · advanced packaging OSAT"
+        },
+        {
+          "id": "india-deep-tech-ac5dda40ca",
+          "headline": "Zipline raises $1.5 billion at $21.5 billion valuation for drone delivery",
+          "hook": "Zipline raised $1.5 billion at a $21.5 billion valuation and agreed with Walmart to add 300 US drone delivery sites, up from 21 active today.",
+          "points": [
+            "Paradigm, WCM Investment Management and Layer Global led the round. Uber, Fidelity, Tiger Global, J.P. Morgan, ARK Invest and Salesforce Ventures also joined.",
+            "The money will expand US manufacturing and hiring to build a nationwide delivery network.",
+            "Zipline says its share of delivery revenue rose from 10.8% to 34.9% between March and October.",
+            "Platform 2 home-delivery drones carry up to eight pounds within a 10-mile radius. Platform 1 drones cover 120 miles round trip.",
+            "A 2022 US FAA Part 135 air carrier certification let it make long-range commercial deliveries."
+          ],
+          "signal": [
+            "The Walmart deal turns a pilot into a rollout: 300 sites against 21. If the sites run at scale, it shows drone delivery can work as a retail logistics line."
+          ],
+          "key_stat": "$1.5B · at $21.5B valuation"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-deep-tech-5b0c8f56c2",
+          "line": "Ardian Leans on Mideast Money for €1 Billion Semiconductor Fund (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-f6e2533dd3",
+          "headline": "Google Cloud India MD Shashikumar Sreedharan joins Sarvam as President and CBO",
+          "hook": "Sarvam, an Indian AI startup valued at $1.5 billion, hired Google Cloud India's managing director Shashikumar Sreedharan as President, Chief Business Officer and board member.",
+          "points": [
+            "He will run Sarvam's business across enterprises and government, and expand its work with digital-native companies, developers and partners.",
+            "He also takes marketing, finance, forward deployed engineering (engineers placed with customers), service delivery and commercial operations.",
+            "Sarvam says over 100 enterprises and government institutions are building on its full-stack offering.",
+            "It became a unicorn after raising $234 million in a first close of its Series B in June 2026, at a $1.5 billion valuation. HCLTech, Bessemer, Khosla and Peak XV took part."
+          ],
+          "signal": [
+            "Hiring a Google and Microsoft sales veteran signals a shift to selling at scale. If the 100-plus customers turn into repeat contracts, the shift is working."
+          ],
+          "key_stat": "$1.5B · valuation"
+        },
+        {
+          "id": "indian-startups-3db453c4e1",
+          "headline": "PhysicsWallah cuts headcount using AI, sets aside $20 million for acquisitions",
+          "hook": "PhysicsWallah's headcount, around 19,100, fell sequentially in Q2 FY27 as AI took over content, testing and coding work; management says AI now writes about 90% of its code.",
+          "points": [
+            "Faculty strength, about 7,100, also fell. Employee expenses excluding ESOP costs fell 2.3% year on year, while technology spend rose to Rs 104 crore in H1 from Rs 70 crore.",
+            "Q2 revenue was Rs 1,242 crore, up 18%, and net profit Rs 142 crore against Rs 70 crore a year earlier.",
+            "The offline business lost Rs 108 crore at EBITDA in H1 against Rs 120 crore a year earlier. Q2 offline revenue was Rs 541 crore, up 9%, hurt by fewer NEET enrolments and exam notification delays.",
+            "Vidyapeeth centres rose to 167 from 117, out of 370 offline centres. Management says standalone Vidyapeeth is already profitable and plans 25 to 30 new centres a year.",
+            "It has set aside under $20 million for acquisitions of online education firms and is in advanced talks with a couple of them. It expects M&A to add under 5% to FY27 revenue growth."
+          ],
+          "signal": [
+            "Cost savings from AI are small so far: employee expenses fell about 2%. If offline losses keep narrowing, profit growth depends less on cutting staff."
+          ],
+          "key_stat": "~90% · of code written by AI"
+        },
+        {
+          "id": "indian-startups-25ea5b9e4a",
+          "headline": "Chinese AI firms try to hire Silicon Valley talent but struggle on pay",
+          "hook": "Chinese AI labs including MiniMax and Moonshot are hiring in the US, but MiniMax's pay of about $203,000 per employee trails Silicon Valley packages above $1 million.",
+          "points": [
+            "MiniMax has about 16 San Francisco openings, including a research lead. ByteDance's Seed lists 71 positions in San Jose, San Diego and Seattle.",
+            "MiniMax spent $84.3 million on pay in 2025 across 415 staff. Z.AI's rate is $140,000 per employee. OpenAI advertises $250,000 to $445,000 base for research engineers in San Francisco, before equity.",
+            "China's six leading AI firms generate about 10% of the combined AI revenue of OpenAI and Anthropic, which limits what they can pay.",
+            "In 2025 the US gained a net 2,145 AI researchers while China lost 1,729. Seed reportedly offers 1.5 times a rival's offer, yet researchers still prefer frontier-model work in the US.",
+            "No blanket US ban on such hiring exists, but experts say talent could become the next flashpoint."
+          ],
+          "signal": [
+            "If US firms win national-security restrictions on Chinese labs' US hiring, the talent gap widens further. Pay-matching offers like Seed's show how much the gap costs."
+          ],
+          "key_stat": "~10% · China's AI revenue vs OpenAI + Anthropic"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [],
+      "also": [
+        {
+          "id": "climate-energy-981bee9f11",
+          "line": "India plans to export solar cells as its manufacturing capacity is set to far outstrip domestic demand. The government is in talks with several countries for buyers, though dependence on China for key inputs remains a challenge."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-fa5676ccb6",
+          "headline": "India and EU pledge deeper tech and investment ties before trade deal",
+          "hook": "India and the EU's seventh Strategic Partnership Review Meeting in New Delhi backed deeper ties in AI, semiconductors and quantum, ahead of a free trade agreement due to be sealed next month.",
+          "points": [
+            "The trade deal is billed as the \"mother of all deals\" and would create a market of two billion people. They also agreed to work toward an investment protection agreement and a pact on geographical indications.",
+            "Talks covered AI, quantum, digital public infrastructure, advanced semiconductors, clean technologies and biotechnology under the Trade and Technology Council set up in 2022.",
+            "The two sides welcomed deeper research collaboration, including India's potential association with Horizon Europe, a €93.5 billion research programme.",
+            "They also discussed talent mobility and education, and the Global Gateway and India-Middle East-Europe corridor connectivity projects."
+          ],
+          "signal": [
+            "These are statements of intent. If the trade deal is signed as planned, the technology and talent-mobility items become the next negotiating track."
+          ],
+          "key_stat": "€93.5B · Horizon Europe programme"
+        },
+        {
+          "id": "india-69d3b8c1ee",
+          "headline": "Modi calls Zelenskyy and Jaishankar calls Lavrov before Abu Dhabi peace talks",
+          "hook": "Zelenskyy says India is ready to mediate \"food corridors\" for Black Sea grain after a call with Modi, a day before Russia-Ukraine talks restart in Abu Dhabi.",
+          "points": [
+            "Modi told Zelenskyy that India is ready to contribute to all efforts to resolve the nearly five-year-old conflict through dialogue. Jaishankar then spoke to Russian Foreign Minister Lavrov.",
+            "Zelenskyy says Russia's blocking of Black Sea grain exports is hurting the global economy and food security.",
+            "India's four-point proposal, shared October 22, seeks to stop attacks on civilians, free grain and energy exports and end the targeting of ships and seafarers, many of them Indian.",
+            "Trump's negotiators, including Jared Kushner and Steve Witkoff, restart talks after three months on security guarantees for a possible ceasefire.",
+            "Modi and Trump are expected to meet in Manila about a week later. Trump is also expected at the APEC summit in Shenzhen."
+          ],
+          "signal": [
+            "It is unclear whether India will join the Abu Dhabi talks. If grain exports resume under any food corridor, India's role as a go-between would have a concrete result."
+          ],
+          "key_stat": "4-point · India's Black Sea proposal"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-c557d34e0b",
+          "headline": "France blames Iran's Revolutionary Guards for cyber-attack on supermarket freezers",
+          "hook": "France says Iran's Revolutionary Guards were behind a cyber-attack on 11 and 12 October that overheated freezers in as many as 700 supermarkets and shops.",
+          "points": [
+            "Hackers took control of digital thermostats, pushing temperatures from as low as -27C to above 50C. Thousands of tons of food were dumped and some stores caught fire.",
+            "Paris prosecutors link the attack to Shahid Kaveh, an IRGC-linked cyber unit, citing Farsi and IP addresses traced to devices in Iran. France summoned Iran's ambassador and promised Europe-wide sanctions.",
+            "Last week hackers also accessed cold stores holding blood products. Technicians disconnected them before products were destroyed. Retailers in 11 European countries reported refrigeration problems.",
+            "EU foreign ministers meet next Monday. Kaja Kallas says attributed attacks call for a strong response."
+          ],
+          "signal": [
+            "A security expert warns state hackers may move from easy targets to water or electricity systems. Any retailer using internet-connected cooling controls faces similar risk."
+          ],
+          "key_stat": "700 sites · supermarkets hit in France"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [],
+      "also": [
+        {
+          "id": "health-tech-7fa47c8e81",
+          "line": "Third Rock Ventures is betting up to $2.16 billion on the AI platform of Funnel Biosciences, a little-known Chinese biotech that calls itself an AI-driven biologics company."
+        },
+        {
+          "id": "health-tech-d8f7888db6",
+          "line": "STAT reports a new rule aimed at preventing the spread of bioweapons; the digest snippet gives no further details (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-2d0a8ed292",
+          "headline": "Non-permanent staff now 17% of workforce at big Indian companies",
+          "hook": "Non-permanent employees made up 17% of the workforce at 353 BSE 500 companies in FY26, up from about 11% in FY23, a Mint analysis finds.",
+          "points": [
+            "Non-permanent covers fixed-term, contract and gig workers. They are easier to hire quickly and to let go than permanent staff.",
+            "Costs rose 22% year on year in the September quarter after 23% in June, with crude above $95 a barrel this year against $68 in 2025. Net profit margin fell to 11.9% from 12.8%.",
+            "Fixed-term staff get benefits similar to permanent staff, and contract workers may get less. The new Labour Codes limit contract labour in core activities, which could push firms to hire directly.",
+            "Women were 31.5% of staff in FY26, down from nearly 33% in FY25, but their share of non-permanent roles rose from 9.7% in FY23 to nearly 13%.",
+            "Experts warn heavy temporary hiring erodes training, retention and institutional knowledge."
+          ],
+          "signal": [
+            "If margin pressure persists, firms will keep leaning on flexible hiring. The FY27 and FY28 data will show whether the Labour Codes reverse the trend."
+          ],
+          "key_stat": "17% · non-permanent share, FY26"
+        }
+      ],
+      "also": [
+        {
+          "id": "work-careers-e68edd6da3",
+          "line": "New GCCs could create up to 35,000 jobs in India in 2027 (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-56dbdff8fb",
+          "headline": "Global fossil carbon emissions set for first fall in five years, but may be a blip",
+          "hook": "Fossil-fuel CO2 is set to fall 0.4% in 2026, the first drop in five years, mostly because the Iran war and Hormuz blockade raised oil prices.",
+          "points": [
+            "The Global Carbon Budget, compiled by more than 140 researchers, projects 38.2 billion tonnes. Oil emissions fall 1.9% and coal rises 0.6%.",
+            "The Strait of Hormuz carries about 20% of the world's oil and liquefied natural gas. Its blockade by Iran began after the US-Israel war on Iran, which started in February.",
+            "Researcher Robbie Andrew says the fall may be a \"blip\" and emissions would bounce back if there are no further crises.",
+            "Corinne Le Quéré says that if oil prices return to pre-conflict levels, emissions will likely rebound until renewables grow further."
+          ],
+          "signal": [
+            "Oil prices, not policy, drive this dip. If the energy shock fades, expect emissions to rise again."
+          ],
+          "key_stat": "-0.4% · fossil CO2 in 2026"
+        }
+      ],
+      "also": [
+        {
+          "id": "other-interests-dd57e281e1",
+          "line": "Physicists have directly observed \"ultraquantum\" turbulence, a type that exists only in the quantum realm, for the first time; it may mirror behaviour in settings from liquid helium to neutron stars."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-ae635998b8",
+      "name": "ICANN Fellowship Program 2027 (ICANN89 Policy Forum, Vancouver)",
+      "when": "Apply by 5 December 2026, 23:59 UTC",
+      "summary": "Funded fellowship with travel assistance, mentoring and training to attend ICANN's meeting on internet policy and domain-name security. Open to applicants 21 or older from all regions; travel to Vancouver, Canada."
+    },
+    {
+      "id": "opportunities-e2725a43d1",
+      "name": "Arioron Think 2026 hackathon",
+      "when": "10 December",
+      "summary": "Online hackathon with a Game of Thrones theme and no fixed problem. Open to ages 12 and over, solo or in teams of up to four. Judged 30% on originality and 30% on creative use of technology."
+    }
+  ]
+}
