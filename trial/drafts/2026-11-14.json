@@ -1,0 +1,733 @@
+{
+  "date": "2026-11-14",
+  "patterns": [
+    {
+      "name": "AI chips are now a national security fight",
+      "force": "geopolitics",
+      "line": "Research on Chinese models trained on banned Blackwell chips, Nvidia's CEO exit and scrutiny of the export regulator show chip controls are leaking. If this holds, expect tighter rules on who uses chips; China may answer with rare earths.",
+      "evidence": [
+        "ai-3dc626ea28",
+        "ai-a0492b3344",
+        "deep-tech-bed46def9d",
+        "global-economics-dda96e6058"
+      ],
+      "streak": 4
+    },
+    {
+      "name": "AI trade is losing political and market support",
+      "force": "capital",
+      "line": "87% of Fed survey respondents now name AI a salient risk, up from 50% in spring. Nvidia's startup funding role is now in doubt after Huang's exit, so AI financing may tighten.",
+      "evidence": [
+        "global-economics-c1f4667f7b",
+        "ai-ec577d4c46"
+      ],
+      "streak": 3
+    },
+    {
+      "name": "India is tightening scrutiny of where AI data goes",
+      "force": "regulation",
+      "line": "MeitY questioned home-services apps on filming workers for robot training, and opened Consent Manager registration under the DPDP Act. Rules on data use are hardening before the May 2027 phase.",
+      "evidence": [
+        "indian-startups-21e94d425e",
+        "global-economics-e024f6751c"
+      ],
+      "streak": 2
+    },
+    {
+      "name": "Capital and armies are shifting to cheap autonomous weapons",
+      "force": "capital",
+      "line": "UFORCE raised $700M at a $6B valuation, and drones are the leading killer of civilians in Sudan. Cheap autonomous systems are reshaping both investment and war.",
+      "evidence": [
+        "india-deep-tech-b3b1310418",
+        "deep-tech-53917f3005"
+      ],
+      "streak": 2
+    },
+    {
+      "name": "India is building energy security through storage and local manufacturing",
+      "force": "geopolitics",
+      "line": "India banned black mass exports, approved a ₹68,800 crore transmission corridor and drew 22 bids for 10 GWh of battery cells. Oil-driven import costs push it to keep materials and capacity at home.",
+      "evidence": [
+        "climate-energy-71f8eada76",
+        "climate-energy-85a5e65e5f",
+        "climate-energy-59dfe77eda",
+        "india-c765462d72"
+      ],
+      "streak": 4
+    }
+  ],
+  "money": [
+    {
+      "id": "ai-645e798427",
+      "company": "LangChain",
+      "amount": "$300 million",
+      "sector": "AI agent management",
+      "line": "Raised a Series C at a $3B valuation, led by CapitalG with GIC, DFJ Growth, IVP and Sapphire; valuation more than doubled in a year."
+    },
+    {
+      "id": "india-deep-tech-1be2925a23",
+      "company": "Agile Robots",
+      "amount": "$500 million",
+      "sector": "Robotics",
+      "line": "Series F led by SoftBank at an $8.5B valuation; Nvidia, Hitachi and T.Capital joined. Plans US expansion and more production."
+    }
+  ],
+  "lead": {
+    "id": "india-e23e1e824d",
+    "headline": "India's household inflation crosses 6% as RBI faces more rate hikes",
+    "hook": "India's CPI inflation rose to ==6.09% in October==, up from 5.54% in September, breaching the RBI's 6% upper limit for the first time since October 2024.",
+    "points": [
+      "It is the twelfth straight monthly rise. Food prices and a base effect (comparison with a low level a year ago) drive it; vegetables, pulses and edible oils matter most.",
+      "The RBI targets 4%, with a 2-6% tolerance band. Inflation has stayed above 4% for five months.",
+      "The RBI raised the repo rate (its lending rate to banks) by 25 basis points to 5.5% last month. Economists expect another hike at the 2-4 December meeting.",
+      "The RBI forecasts CPI averaging 6% in October-December, 5.7% in January-March 2027 and 5.6% in April-June 2027.",
+      "Growth is strong: 7.8% in April-June, and BofA expects 7.7% for July-September versus the RBI's 7.2%. Strong demand makes disinflation harder.",
+      "BofA expects __another 75 basis points of hikes over six to nine months__, raising loan EMIs and softening big-ticket demand."
+    ],
+    "signal": [
+      "If food prices and oil stay high, borrowers face costlier home and vehicle loans while deposit rates only partly compensate.",
+      "Risks: oil prices and El Nino-linked crop damage could keep inflation above target longer."
+    ],
+    "key_stat": "6.09% · Oct CPI",
+    "editors_read": "The RBI is hiking into 7%+ growth, so the cost of tightening is lower than usual, but food-driven inflation is not much cured by rate hikes. Expect a hike in December and loan costs to rise through mid-2027. Separately today, October's oil import bill jumped 54%, which feeds the same pressure.",
+    "evidence_of": "India is building energy security through storage and local manufacturing",
+    "force": "geopolitics",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "world-7a0f610916",
+      "headline": "Trump to raise nuclear-arms cuts at first Trump-Xi-Putin meeting",
+      "hook": "Trump will raise nuclear arms reduction at a ==first-ever three-way meeting with Xi and Putin== in Shenzhen on Thursday 19 November, but a US official says no agreement is expected.",
+      "points": [
+        "The meeting is on the sidelines of the APEC forum in Shenzhen. Trump leaves Monday for a four-day Asia trip that includes the Philippines.",
+        "New START, the last US-Russia nuclear treaty, expired in February. Trump rejected Russia's proposal to extend it a year and wants a deal including China.",
+        "China has long refused arms talks, saying the US and Russia, with the biggest arsenals, should talk first. It is hosting a summit focused on trade and has been riled by Trump's push.",
+        "Trump will also raise the Iran war but not Ukraine. Ukraine's Zelenskyy fears a deal behind Kyiv's back."
+      ],
+      "signal": [
+        "With low expectations, success means only starting talks; if China keeps refusing, arms limits stay absent for the first time in over 50 years."
+      ],
+      "key_stat": "0 caps · after New START lapse",
+      "editors_read": "The real test is whether Beijing agrees to any format, even a working group. Without it, US and Russian arsenals remain uncapped, and China's buildup gets no limit.",
+      "evidence_of": "AI chips are now a national security fight",
+      "force": "geopolitics"
+    },
+    {
+      "id": "ai-3dc626ea28",
+      "headline": "Chinese AI models appear trained on export-banned Nvidia Blackwell chips",
+      "hook": "Analysis of model weights suggests China's leading open models, including DeepSeek V4 and Moonshot's Kimi K3, ==were trained on banned Blackwell GPUs==, researcher Will DePue claims.",
+      "points": [
+        "DePue studied weights from DeepSeek, Moonshot, MiniMax and Ant Group; they still carry fingerprints of the chip setup used in training.",
+        "Epoch AI estimates about two million advanced chips reached China in 2024-25 via hidden-destination schemes. About 275,000 went to Malaysia, where offshore data centres rent compute to Chinese firms, which may not break the law.",
+        "Nvidia's CEO Jensen Huang left after admitting an affair with an executive of Megaspeed, a company implicated in chip smuggling. Nvidia faces possible liability if investigators confirm smuggling.",
+        "Commerce Secretary Lutnick could reportedly lose his job over lax oversight.",
+        "About 600,000 H200 chips are reportedly stockpiled in Hong Kong, not yet cleared for import into China."
+      ],
+      "signal": [
+        "If lawmakers target who uses chips, not just where they sit, offshore rental loopholes close."
+      ],
+      "key_stat": "~2M chips · smuggled in 2024-25",
+      "editors_read": "Export controls restrict hardware location, not use. This evidence gives hawks a case to control usage, which would raise compliance costs for cloud providers and Nvidia.",
+      "evidence_of": "AI chips are now a national security fight",
+      "force": "geopolitics"
+    },
+    {
+      "id": "global-economics-dda96e6058",
+      "headline": "Nvidia board approaches Arm's CEO as it searches for Huang's successor",
+      "hook": "Nvidia's board has approached Arm CEO Rene Haas about succeeding Jensen Huang, the FT reports, while Arm shares fell over 5% and Nvidia's over 3%.",
+      "points": [
+        "Huang stepped down Thursday after revelations of extramarital affairs, one involving a suspected Chinese spy. CFO Colette Kress is interim CEO.",
+        "Haas spent seven years at Nvidia before joining Arm in 2013, and became Arm CEO in 2022. He is one of several candidates; no offer is assured.",
+        "Other names floated by analysts include Ian Buck, Lisa Su, Matt Murphy, Johny Srouji and Sanjay Mehrotra. Trump floated Tim Cook.",
+        "Another report says some employees want Huang back. Reuters could not verify the FT report."
+      ],
+      "signal": [
+        "Analysts expect a more institutional style than Huang's hands-on role in roadmaps and China diplomacy, which matters as lawmakers push tighter export curbs."
+      ],
+      "key_stat": "-3% · Nvidia shares",
+      "editors_read": "The pick signals priorities: an engineer means product continuity, a finance or outside executive means a more cautious investor and a lower-profile China stance.",
+      "evidence_of": "AI chips are now a national security fight",
+      "force": "geopolitics"
+    },
+    {
+      "id": "india-c765462d72",
+      "headline": "India's October exports hit a record $49.47 billion; trade deficit near $40 billion",
+      "hook": "India's merchandise exports hit a record ==$49.47 billion in October==, up 45% from $34.11 billion a year earlier, but imports of $89.35 billion left a $39.88 billion deficit.",
+      "points": [
+        "Petroleum product exports rose 140% to $8.89 billion; electronics rose 62% to $6.64 billion; engineering goods rose 36%.",
+        "Excluding petroleum and gems and jewellery, exports rose nearly 32% to $37.38 billion. Exports to the US rose 39.3% to $8.72 billion.",
+        "Imports rose 16%. Petroleum imports jumped 54% to $22.81 billion as Brent hit about $115 in October on the Iran war, before easing to about $92.",
+        "Electronics imports rose nearly 50% to $14.31 billion. Gold imports fell 62% to $5.51 billion.",
+        "The deficit is below October 2025's $42.58 billion but is the highest monthly deficit of 2026."
+      ],
+      "signal": [
+        "India imports about 85% of its crude, so oil spikes erase export gains; falling oil would ease the deficit."
+      ],
+      "key_stat": "$49.47B · record exports",
+      "editors_read": "Part of the export boom is higher-priced refined fuel, not only manufacturing strength. The non-oil number, up 32%, is the cleaner signal.",
+      "evidence_of": "India is building energy security through storage and local manufacturing",
+      "force": "geopolitics"
+    },
+    {
+      "id": "indian-startups-21e94d425e",
+      "headline": "MeitY questions home-services apps over filming workers to train robots",
+      "hook": "MeitY summoned Pronto, Snabbit and Urban Company's InstaHelp over ==first-person video of gig workers used to train physical AI==, citing consent, privacy and data-sovereignty concerns.",
+      "points": [
+        "A meeting chaired by MeitY secretary S Krishnan asked for SOPs on collecting, processing and storing the data, and whether it is sold or sent to AI developers abroad.",
+        "Pronto runs an opt-in pilot where workers wear cameras. It says raw footage is deleted after the job and anonymised footage is used for AI training.",
+        "Snabbit tested the tech in a training centre and dropped it. Urban Company says it neither records in homes nor plans to.",
+        "Pronto's founder launched Provision Labs in San Francisco; its link to Pronto's data is unclear.",
+        "Legal experts say video, faces and sensor data can be personal data under the DPDP Act, which requires clear notices."
+      ],
+      "signal": [
+        "If rules limit export of such data, India's cheap-data advantage for foreign robotics firms narrows; local players may benefit."
+      ],
+      "key_stat": "$155M · Indian physical AI, 31 deals",
+      "editors_read": "Gig workers have little bargaining power over consent, so regulators are likely to demand explicit pay and consent terms for data work.",
+      "evidence_of": "India is tightening scrutiny of where AI data goes",
+      "force": "regulation"
+    },
+    {
+      "id": "science-mind-ddf94a746f",
+      "headline": "AI proves quantum computing conjecture open since 2011",
+      "hook": "Anthropic's Fable 5.2 model proved the ==Aaronson-Ambainis conjecture in about four days==, showing quantum computers cannot beat classical ones on a class of random problems.",
+      "points": [
+        "The conjecture, from 2011, says a classical computer can approximate a quantum one on most random inputs without taking much longer. David Turturean of PSI led the team.",
+        "The proof was checked with Lean, proof-checking software. Stanford researchers called it entirely different and substantially more difficult than earlier work.",
+        "Three days after it appeared, another team posted a shorter proof using ChatGPT, which used a piece of the PSI work.",
+        "It rules out one direction for quantum speedups, but Aaronson says it was not a plausible one. Problems like molecule simulation remain open."
+      ],
+      "signal": [
+        "AI is now closing open maths questions; the next step is whether it can pick new questions, which Ambainis says it cannot yet."
+      ],
+      "key_stat": "4 days · to prove",
+      "editors_read": "The practical effect is narrowing where to search for quantum advantage, not killing the field.",
+      "evidence_of": "AI is now solving research-level maths problems",
+      "force": "technology"
+    },
+    {
+      "id": "global-economics-e024f6751c",
+      "headline": "India opens Consent Manager registration under data protection law",
+      "hook": "MeitY opened an online portal for Indian companies to register as Consent Managers under the DPDP Act, with a minimum net worth of ₹2 crore.",
+      "points": [
+        "Consent Managers are registered entities that let people give, review and withdraw consent for data use across companies on one platform.",
+        "Applicants must be Indian companies, with a CA-certified net worth of at least ₹2 crore, and submit 17 documents on governance, finances and technology.",
+        "The Data Protection Board assesses applications and will publish the registered list; no date is given.",
+        "Rights of individuals, company obligations and penalties take effect on 13 May 2027."
+      ],
+      "signal": [
+        "Companies handling personal data have until May 2027 to build consent systems; Consent Managers become a new regulated business."
+      ],
+      "key_stat": "₹2 crore · min net worth",
+      "evidence_of": "India is tightening scrutiny of where AI data goes",
+      "force": "regulation"
+    },
+    {
+      "id": "global-economics-c1f4667f7b",
+      "headline": "Fed survey: AI is the top risk to the financial system",
+      "hook": "==87% of respondents in a Federal Reserve survey== named AI a salient financial risk, up from 50% in spring and ahead of a risk-asset correction at 52%.",
+      "points": [
+        "Three concerns: high stock valuations, cyberattacks by state actors or frontier AI models, and complex AI-related financing.",
+        "Other risks: higher long-term rates (48%), cyberattacks (43%), US fiscal debt (43%), with debt over $40 trillion.",
+        "Hedge fund leverage is the highest since 2013 and concentrated in a few firms; the system is otherwise fairly stable.",
+        "In this month's midterms, 56% of voters said data centres mattered a lot in their choices."
+      ],
+      "signal": [
+        "If AI earnings disappoint, valuations and AI-linked debt could be hit together."
+      ],
+      "key_stat": "87% · cite AI risk",
+      "evidence_of": "AI trade is losing political and market support",
+      "force": "capital"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-ec577d4c46",
+          "headline": "Huang's exit leaves a hole in AI startup funding, investors say",
+          "hook": "Nvidia joined 105 funding rounds this year, often as the largest investor, and investors expect fewer and smaller cheques after Jensen Huang's exit.",
+          "points": [
+            "Investors say Huang personally drove most startup investments; interim CEO Colette Kress is seen as more conservative.",
+            "Nvidia backed CoreWeave, Crusoe, Mistral, Lambda and Black Forest Labs, and wrote $800 million into Reflection AI's $2 billion round.",
+            "It agreed to buy Hugging Face for $13 billion, expected to close in 2027.",
+            "Under Huang, infrastructure startups often raised half their needs from Nvidia at $1 billion-plus valuations, giving other investors comfort.",
+            "Nvidia is expected to back fewer new firms and give smaller cheques to existing ones, lowering valuations."
+          ],
+          "signal": [
+            "Cloud rivals and AMD may fill part of the gap, but are unlikely to fund pre-revenue infrastructure at Nvidia's scale.",
+            "Less Nvidia money could also loosen its lock-in of startups to its chips."
+          ],
+          "key_stat": "105 rounds · Nvidia in 2026",
+          "evidence_of": "AI trade is losing political and market support",
+          "force": "capital"
+        },
+        {
+          "id": "ai-f820b76692",
+          "headline": "Banks shut Chinese and Hong Kong investors out of Anthropic IPO",
+          "hook": "Banks are rejecting or discouraging buy orders from mainland China and Hong Kong in Anthropic's IPO, some citing US ITAR export control rules, Bloomberg reports.",
+          "points": [
+            "Goldman Sachs and Morgan Stanley lead the offering with 20 other banks; pricing is on 18 November and the Nasdaq ticker will be ANT.",
+            "Anthropic declined to comment.",
+            "Its products are not officially available in China; it blocks Chinese-controlled firms and says it exposed distillation attacks by DeepSeek, Moonshot and MiniMax involving about 16 million queries."
+          ],
+          "signal": [
+            "Frontier AI equity is being treated like a controlled technology, a precedent for later listings."
+          ],
+          "key_stat": "Nov 18 · IPO pricing",
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        },
+        {
+          "id": "ai-a0492b3344",
+          "headline": "Nvidia crisis puts the export-control agency under scrutiny",
+          "hook": "Commerce Under Secretary Jeffrey Kessler, who runs US export controls, had considered inviting Jensen Huang to speak at the agency's 10 January conference.",
+          "points": [
+            "Bloomberg says Kessler boasted of his ability to get Huang to attend, though Huang dropped out of the running.",
+            "A BIS spokesperson says no speakers have been invited and planning continues."
+          ],
+          "signal": [
+            "Closeness between regulator and the firm it regulates adds to pressure on Commerce after Huang's exit."
+          ],
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        },
+        {
+          "id": "ai-1c4e572d1e",
+          "headline": "Runway open-sources Praxis-1, a video-trained robot controller",
+          "hook": "Runway released Praxis-1, which turns video AI into a robot controller, with open weights under Apache 2.0, scoring 46.2% on Nvidia's RoboLab-120 benchmark.",
+          "points": [
+            "It takes camera images, text and robot position, predicts how the scene changes and computes movements. Runway calls this a World Action Model.",
+            "It beats FLUX 3 Action (42.9%) among such models but ranks fifth overall; Runway ran the tests itself.",
+            "On a real Franka arm it succeeded 88 of 100 attempts versus 80 for FLUX 3 Action.",
+            "It still needs robot data: about 277 hours for Franka and 1,400-2,600 hours for a dual-arm robot.",
+            "It confuses similar objects and cannot plan long tasks alone; the standard version needs an 80 GB GPU."
+          ],
+          "signal": [
+            "Open weights let robotics startups build on it, but the claim of needing less robot data is unproven."
+          ],
+          "key_stat": "46.2% · RoboLab-120",
+          "evidence_of": "AI is now solving research-level maths problems",
+          "force": "technology"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-75520ce395",
+          "headline": "OpenAI disbands its stand-alone robotics team",
+          "hook": "OpenAI moved its robotics researchers into its main research team, saying its general models such as GPT-6 Astra can now directly control robots.",
+          "points": [
+            "Researchers now report to Chief Research Officer Mark Chen; applied robotics and hardware moved under President Greg Brockman.",
+            "In an Nvidia study, an Astra-powered agent scored 74.8% on a simulated manipulation benchmark versus 51.0% for the best specialised robot models.",
+            "OpenAI wants a humanoid demo in 2027 and says it remains committed to robotics. It is also cutting side projects ahead of a possible early-2027 IPO, with reported losses of $10.9 billion last quarter.",
+            "Robotics startups argue deployment data from real factories remains their edge."
+          ],
+          "signal": [
+            "If general models keep winning, robot-brain startups lose their reason to exist; onboard small models may still be needed for offline use."
+          ],
+          "key_stat": "74.8% vs 51.0% · benchmark",
+          "evidence_of": "AI lets firms grow revenue with fewer hires",
+          "force": "technology"
+        },
+        {
+          "id": "deep-tech-bed46def9d",
+          "headline": "China may tighten rare earth exports if US escalates chip curbs",
+          "hook": "Chinese analysts say Beijing could answer further US chip curbs after Huang's exit with ==tighter rare earth export controls==, though broader trade talks should stay on track.",
+          "points": [
+            "US officials suspect Alice Huang, linked to Megaspeed, of being a Chinese operative; Beijing denies it.",
+            "Analyst Victor Gao says US pressure could force tighter rare earth controls; Wang Yingliang expects sanctions or trade trade-offs instead.",
+            "Xi and Trump meet next week at APEC in Shenzhen; trade talks on tariff cuts, farm purchases and rare earths are expected beforehand.",
+            "China's foreign ministry opposes abuse of export controls."
+          ],
+          "signal": [
+            "If Washington tightens chip rules, rare earths are China's lever; either side escalating hits supply chains globally."
+          ],
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        },
+        {
+          "id": "deep-tech-53917f3005",
+          "headline": "Drones are now the leading killer of civilians in Sudan",
+          "hook": "Drones killed at least 306 people in the first three weeks of October in Sudan, the UN says, making them the leading cause of civilian deaths.",
+          "points": [
+            "On 18 October a double-tap strike on a transport hub in Al-Dibab killed at least 139; a Nyala market strike killed 103 eight days later.",
+            "Drones caused over 80% of conflict-related civilian deaths between January and April, at least 880.",
+            "CIR identified 21 drone models used since 2023, from Belarus, China, Russia, Iran and Turkey; the parties now use larger long-range drones with guided munitions.",
+            "Sudan accuses the UAE of supplying RSF drones launched from Ethiopia; both deny it."
+          ],
+          "signal": [
+            "Cheap drones make attribution hard and civilians targets, a pattern researchers warn could spread."
+          ],
+          "key_stat": "306 deaths · 3 weeks",
+          "evidence_of": "Capital and armies are shifting to cheap autonomous weapons",
+          "force": "capital"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-d72dba43e7",
+          "line": "Physicists filmed electrons crossing forbidden energy gaps in graphene with 100% probability using light pulses; the Nature study may help light-controlled electronics."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-56498a59ce",
+          "headline": "First Tejas Mk1A may reach the IAF in January, before Aero India 2027",
+          "hook": "HAL may hand over the first one or two Tejas Mk1A jets to the IAF in January, nearly two years after the February 2024 target.",
+          "points": [
+            "The ₹36,400 crore order for 83 jets dates from February 2021. Delay came from GE's F404 engine supply: only 14 of 99 engines were delivered by September, the first in March 2025.",
+            "Two requirements tied to the Israeli radar remain; the IAF may relax some conditions and resolve them after first deliveries.",
+            "A second order of 97 jets worth over ₹62,370 crore starts deliveries in FY2027-28.",
+            "The IAF has 29 fighter squadrons against a sanctioned 42, its lowest in 60 years."
+          ],
+          "signal": [
+            "Aero India runs 8-12 February 2027; the IAF chief has made Indian-built fighters his top priority."
+          ],
+          "key_stat": "29 vs 42 · squadrons",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        },
+        {
+          "id": "india-deep-tech-9a270ff76d",
+          "headline": "India funds deeptech but has not said who will buy it",
+          "hook": "Agnikul Cosmos received ₹200 crore from the RDI Fund for a reusable launch vehicle, but who in government will buy it is unanswered.",
+          "points": [
+            "The government has built a large funding pipeline for deeptech.",
+            "The article argues the missing piece is demand inside the system for what is funded.",
+            "The full piece is behind a paywall."
+          ],
+          "signal": [
+            "Without government orders, subsidised startups may lack first customers."
+          ],
+          "key_stat": "₹200 crore · RDI Fund",
+          "evidence_of": "Capital is moving from consumer apps to hard tech",
+          "force": "capital"
+        },
+        {
+          "id": "india-deep-tech-b3b1310418",
+          "headline": "Ukrainian drone maker UFORCE hits $6 billion valuation",
+          "hook": "UFORCE raised $700 million at a ==$6 billion valuation==, up from about $1 billion in March, as investors back battle-tested autonomous weapons.",
+          "points": [
+            "The round was co-led by Valor Equity Partners and the UK's National Wealth Fund; the company makes air, sea and land systems plus AI software.",
+            "Bookings more than doubled in a year from a base of several hundred million dollars, the CEO says.",
+            "Its drones have completed over 300,000 combat flights and its naval vessels helped destroy over a dozen Russian warships, it claims.",
+            "NATO-ally defence startups raised $27.1 billion through September, nearly double all of 2025.",
+            "Funds go to manufacturing in Ukraine and allied countries."
+          ],
+          "signal": [
+            "If cheap autonomous systems keep winning, defence budgets may shift away from crewed aircraft and ships."
+          ],
+          "key_stat": "$700M · $6B valuation",
+          "evidence_of": "Capital and armies are shifting to cheap autonomous weapons",
+          "force": "capital"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-d8a9129161",
+          "headline": "RBI gives Paytm in-principle approval to revive wallets",
+          "hook": "RBI granted Paytm Payments Services Ltd in-principle authorisation to issue wallets, but ==final approval needs a system audit within six months==.",
+          "points": [
+            "PPSL applied on 31 December 2025; approval came on 13 November under the Payment and Settlement Systems Act.",
+            "If the audit report, including cybersecurity, is not filed in six months, the approval lapses with no reconsideration. Ownership changes need prior RBI approval.",
+            "Wallets were crippled after RBI curbs on Paytm Payments Bank in 2024; its licence was cancelled in April 2026.",
+            "Paytm's Q2 profit rose to ₹225 crore from ₹21 crore; revenue rose 28% to ₹2,648 crore. Shares hit a 52-week high of ₹1,958.80, still below the ₹2,150 IPO price."
+          ],
+          "signal": [
+            "The wallet would drive app usage and cross-selling of Postpaid, loans and wealth products, though it adds little revenue itself."
+          ],
+          "key_stat": "6 months · audit deadline",
+          "evidence_of": "India is tightening scrutiny of where AI data goes",
+          "force": "regulation"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-9149cbf528",
+          "line": "12 Indian startups raised $31.3 million this week across two growth and ten early-stage deals, against about $258.1 million from 28 startups the week before."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-34abb19a4e",
+          "headline": "India-US trade deal near, Jaishankar says",
+          "hook": "Jaishankar says India and the US have sorted out the bulk of trade-deal issues and could seal it ==\"soon\"==, with remaining concerns mostly on the American side.",
+          "points": [
+            "Talks began in early 2025. India wants better tariffs than comparable competitor economies.",
+            "Modi may meet Trump at the G20 in Miami on 14-15 December, where a deal could be announced.",
+            "Jaishankar says tariffs were negotiated line by line, and that early Asian FTAs did not deliver expected gains.",
+            "The US is India's biggest market."
+          ],
+          "signal": [
+            "If it closes, Indian exporters get an edge over rivals in the US; delay prolongs tariff uncertainty."
+          ],
+          "key_stat": "Dec 14-15 · G20 Miami"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-71f8eada76",
+          "headline": "India bans export of battery black mass",
+          "hook": "India moved lithium-ion battery black mass from 'Free' to 'Prohibited' exports on 10 November, to feed domestic recyclers that sometimes import it.",
+          "points": [
+            "Black mass is a powder from shredded batteries holding lithium, cobalt, nickel and manganese.",
+            "57 registered recyclers have 5.17 lakh tonnes of annual capacity, but black mass processing capacity is only about 75,500 tonnes.",
+            "The ₹1,500 crore recycling scheme (September 2025) and a ₹2,814 crore processing subsidy (4 November) support the push.",
+            "Some export commitments backed by letters of credit may get transitional relief."
+          ],
+          "signal": [
+            "The ban only helps if recyclers can refine to battery-grade purity at scale."
+          ],
+          "key_stat": "75,500 t · black mass capacity",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        },
+        {
+          "id": "climate-energy-85a5e65e5f",
+          "headline": "India approves 1,150-kV corridor to carry solar power east",
+          "hook": "India's transmission panel approved a ==1,150-kV western-eastern corridor costing about ₹68,800 crore==, the country's highest-voltage system, taking about six years.",
+          "points": [
+            "It would carry more power than today's 765-kV lines with lower losses, using fewer parallel lines.",
+            "Phase I links Chhattisgarh, Odisha and West Bengal, and connects to a 6,000 MW HVDC line from Rajasthan's Bhadla.",
+            "Total length is about 3,750 circuit-km with 66,000 MVA transformation capacity.",
+            "Planners considered 12 GW of green hydrogen and ammonia demand in Odisha but modelled only 3-3.5 GW of loading; they flag the demand as uncertain."
+          ],
+          "signal": [
+            "If green hydrogen demand does not appear, the line may run underused."
+          ],
+          "key_stat": "₹68,800 crore",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        },
+        {
+          "id": "climate-energy-3876aec07a",
+          "headline": "EVs won't slow India's road-fuel demand growth before 2034: BNEF",
+          "hook": "BloombergNEF projects India's road-fuel demand to peak above 2.5 million barrels per day in 2034 despite rising EV adoption.",
+          "points": [
+            "A growing fleet and commercial transport keep fuel demand rising; EV two- and three-wheelers and cars eventually outweigh it.",
+            "EV sales exceeded 2.4 million last year. Apart from three-wheelers, no segment is on track for 2030 electrification targets.",
+            "About $29 billion of charging investment is needed by 2040."
+          ],
+          "signal": [
+            "India supports global oil demand even as China's emissions fall."
+          ],
+          "key_stat": "2034 · fuel demand peak",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-59dfe77eda",
+          "line": "India's heavy industries ministry received 22 bids for 10 GWh of advanced chemistry cell capacity for grid storage under its battery PLI scheme; bidding closed on 10 November."
+        }
+      ]
+    },
+    {
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-9ec33813a9",
+          "headline": "AI model edits other neural networks, MIT preprint finds",
+          "hook": "MIT researchers show OpenAI's GPT-6 Astra can read the internal values of other models, predict what parts do and edit them, including boosting maths ability.",
+          "points": [
+            "It treats networks like files it can read and change, said co-author Rikiya Takehi; the preprint appeared on 2 November.",
+            "It does not mean Astra understands the networks; the analogy is a mechanic who fixes engines without designing them.",
+            "Fazl Barez says it shows interpretability methods can be automated, but the safety benefit is largely untested.",
+            "It is unclear whether Astra goes beyond techniques learned in training."
+          ],
+          "signal": [
+            "If it matures, AI could audit models for errors before real-world tests."
+          ],
+          "evidence_of": "AI is now solving research-level maths problems",
+          "force": "technology"
+        },
+        {
+          "id": "science-mind-6111ca3be9",
+          "headline": "Earth's atmosphere supplied most particles in the May 2024 superstorm",
+          "hook": "About 85% of ring current ions in the May 2024 storm came from Earth's ionosphere, not the Sun, and the magnetic field dropped 40% at 16,000 km.",
+          "points": [
+            "Japan's Arase satellite made the first direct measurements of ring current composition in a storm this strong.",
+            "The storm hit −518 nanotesla, the second-largest disturbance since 1981.",
+            "Heavy oxygen ions from Earth may have intensified the storm close to the planet.",
+            "Forecast models rely on solar wind; the finding suggests they should include Earth's upper atmosphere."
+          ],
+          "signal": [
+            "Better forecasts would protect satellites, GPS and grids; researchers back a proposed two-satellite mission, FACTORS."
+          ],
+          "key_stat": "85% · ions from Earth",
+          "evidence_of": "Science is rewriting storm models",
+          "force": "discovery"
+        }
+      ],
+      "also": [
+        {
+          "id": "science-mind-8a84c07ca8",
+          "line": "Researchers built the first quantum clock using sunlight as a key component, which could track shifts in the sun's velocity or probe processes on its surface."
+        }
+      ]
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-b2fcc6b897",
+          "headline": "Blood-brain barrier selects which proteins reach the brain, mouse study finds",
+          "hook": "Of 861 tagged blood proteins in mice, 92 crossed the blood-brain barrier, suggesting it filters actively and could offer a new Alzheimer's route.",
+          "points": [
+            "Most crossing proteins came from distant organs; liver protein APOA1 helps maintain neuron connections.",
+            "When mice with an Alzheimer's form lost APOA1 import, they showed neural connection loss and behaviour changes.",
+            "Mice engineered to make extra APOA1 showed fewer signs of the disease.",
+            "Placental cell therapy healed all 10 diabetic foot ulcers in six months in an early safety trial; and in a separate study, wildfire smoke in pregnancy was linked to childhood asthma."
+          ],
+          "signal": [
+            "Mouse results only; human trials are needed before any treatment."
+          ],
+          "key_stat": "92 of 861 · proteins crossed",
+          "evidence_of": "Science finds the body's hidden supply lines",
+          "force": "discovery"
+        },
+        {
+          "id": "health-tech-7d5048ffba",
+          "headline": "Drug ads may sway which treatment AI chatbots recommend",
+          "hook": "Across 12 chatbots, models recommended an advertised treatment 47.6% of the time versus 35% with no ad, a Lancet Digital Health study found.",
+          "points": [
+            "The models, including Claude, Gemini and ChatGPT versions, were tested on 33 clinical scenarios; the ads did not instruct them to recommend the drug.",
+            "Models mostly still picked appropriate options, but disclosed the ad only about 30% of the time.",
+            "Shifts varied across models. Drug firms spent over $6 billion on TV ads in 2024; only the US and New Zealand allow such ads among high-income countries."
+          ],
+          "signal": [
+            "If chatbots ingest ads, health advice gets commercial bias unless disclosed."
+          ],
+          "key_stat": "47.6% vs 35%",
+          "evidence_of": "AI answers are becoming ad-influenced",
+          "force": "capital"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-24d6f9ecb3",
+          "headline": "India imports over half its edible oil, NITI Aayog's Lahiri warns",
+          "hook": "India imports over 50% of its edible oil demand, about 17 million tonnes costing roughly $20 billion, NITI Aayog vice-chairman Lahiri said.",
+          "points": [
+            "India consumes 25-27 million tonnes of pulses yearly, nearly a quarter of global demand, with chana and masoor imported from Australia and Canada.",
+            "Lahiri calls supply disruptions or price shocks a 'strategic disaster' risk, as dal and oil underpin daily diets.",
+            "He urges shifting from wheat and paddy to water-saving oilseeds and pulses, and cutting farm wastage."
+          ],
+          "signal": [
+            "Food import dependence is also why price shocks feed into inflation."
+          ],
+          "key_stat": "$20B · edible oil imports",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-5ff5a6295c",
+          "headline": "Microsoft outage puts its AI-era job cuts under scrutiny",
+          "hook": "A major Microsoft outage on Thursday hit businesses and agencies as the company cuts staff while projecting about $190 billion of 2026 capital spending.",
+          "points": [
+            "Cuts include buyout offers to 9,000 US staff in April and 60,000 staff in four countries in October, plus 4,800 layoffs in July.",
+            "The Information reported Azure leaders discussed 20% cost cuts; Microsoft denied it.",
+            "No evidence ties the outage to the layoffs or AI spending.",
+            "The article argues losing experienced staff makes problems harder to fix."
+          ],
+          "signal": [
+            "If firms shrink teams while rebuilding around AI, reliability becomes the test."
+          ],
+          "key_stat": "$190B · 2026 capex",
+          "evidence_of": "AI lets firms grow revenue with fewer hires",
+          "force": "technology"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "longform",
+      "stories": [
+        {
+          "id": "longform-bab44f79de",
+          "headline": "Silicon Valley's Chaos Moment",
+          "hook": "Nvidia, valued at $5.7 trillion last month, lost its CEO this week as Anthropic prepares an IPO; The Atlantic's Charlie Warzel asks what it means to rest an economy on individuals.",
+          "points": [
+            "Nvidia had invested $99 billion in AI companies by July, in a circular model where firms pay for chips and Nvidia funds them.",
+            "Analyst Dan Ives says Nvidia would be worth 25-30% less without Huang.",
+            "Warzel argues the AI race rewards risk-taking and makes CEOs load-bearing figures.",
+            "The second half, with Vox's Sigal Samuel, covers Anthropic's IPO and why AI firms won't slow down."
+          ],
+          "signal": [
+            "Worth 20 minutes for the argument on key-person risk in the AI boom, which links to today's Nvidia stories."
+          ],
+          "key_stat": "$5.7T · Nvidia peak value",
+          "evidence_of": "AI trade is losing political and market support",
+          "force": "capital"
+        },
+        {
+          "id": "longform-ad1844a561",
+          "headline": "Why Sleep Might Not Be as Restorative as We Get Older",
+          "hook": "An MIT study found older adults (60-84) have markedly weaker cerebrospinal fluid pulses during sleep than younger ones (18-39), reducing the brain's nightly wash.",
+          "points": [
+            "Slow brain waves in sleep trigger CSF pulses that flush waste; the study used fMRI, a modified MRI and EEG.",
+            "Older adults also showed weaker blood flow responses to brain activity and weaker blood vessel dilation, which did not explain the whole gap.",
+            "Some older participants matched young adults, and researchers want to know why."
+          ],
+          "signal": [
+            "Short read; useful for understanding why sleep quality and brain health link, though the study does not yet explain causes."
+          ],
+          "evidence_of": "Science finds the body's hidden supply lines",
+          "force": "discovery"
+        }
+      ],
+      "also": []
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-c77e211351",
+      "name": "One Human, Ten AI Agents",
+      "when": "Sun 29 Nov (registration reviewed after 17 Nov)",
+      "summary": "Talk and hands-on workshop by Cluster on building multi-agent AI teams; requires host approval. New Delhi."
+    },
+    {
+      "id": "opportunities-bf9f727911",
+      "name": "NeuroHack Fall 2026",
+      "when": "Sat 5 Dec",
+      "summary": "Hackathon proposing neurotechnology 20 years ahead; get your idea approved first, and present to judges to qualify for prizes. Devpost."
+    },
+    {
+      "id": "opportunities-a627bf58ef",
+      "name": "HackTheCure",
+      "when": "27 Dec 2026 - 3 Jan 2027",
+      "summary": "Global health hackathon with six tracks, for students aged 13-18. Online; register at hackthecure.world."
+    }
+  ]
+}
