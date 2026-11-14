@@ -1,0 +1,507 @@
+{
+  "date": "2026-11-14",
+  "lead": {
+    "id": "other-interests-1f71cad1a5",
+    "headline": "FAA grounds all U.S. flights over a telecom outage, days after rolling out its AI airspace system",
+    "hook": "The FAA ==halted all U.S. flights at about 4 P.M. EST on Nov. 13== citing a telecommunications outage, three days after its AI system went live in all 22 air traffic regions.",
+    "points": [
+      "The FAA called it a \"temporary telecommunications outage\" and grounded flights \"out of an abundance of caution.\" Its technicians are investigating; no cause is confirmed.",
+      "The AI system, SMART, combines weather, flight paths, traffic flow and controller staffing data to cut delays. It was tested around Washington, D.C. in September and deployed nationwide on Nov. 10.",
+      "Nationwide ground stops are rare. The last was 90 minutes on Jan. 11, 2023, after a NOTAM (pilot hazard notice) outage. Before that, only after the Sept. 11, 2001 attacks.",
+      "Telecom infrastructure is managed by contractor L3Harris, which did not respond. Ex-controller Ruth Stilwell speculates a software update to the Voice Switching and Control System (pilot-controller comms) went wrong; CBS reported an update may have triggered a system-wide reboot.",
+      "Grounding is standard when controllers cannot reach airborne pilots by normal channels, Stilwell says: planes in the air come first, and planes on the ground are safe."
+    ],
+    "signal": [
+      "No source links the outage to SMART; the timing is a coincidence until the FAA says otherwise.",
+      "Experts blame a thin staff: Stilwell cites short staffing after DOGE-related cuts that laid off hundreds of FAA workers last year, and Missy Cummings calls the system brittle."
+    ],
+    "key_stat": "Nationwide ground stop · first since Jan 2023",
+    "editors_read": "The story is still unfolding and the cause is unknown. If the fault proves to be a daytime software update on a short-staffed communications system, the lesson is about maintenance discipline, not AI. If SMART is implicated, expect pressure to roll back a nationwide deployment that had only a few weeks of live use beyond one test region.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-a0492b3344",
+      "headline": "Commerce's export-control chief wanted Jensen Huang as a conference speaker",
+      "hook": "Under Secretary Jeffrey Kessler, who runs US chip export controls, considered inviting Nvidia's Jensen Huang to speak at the Bureau of Industry and Security's Jan. 10 conference in Washington.",
+      "points": [
+        "Kessler expressed interest in recent months and bragged about his ability to get Huang to attend, people familiar say.",
+        "Huang, now described as the former Nvidia chief, ultimately fell out of the running.",
+        "A BIS spokesperson says no speakers have been invited yet and planning continues."
+      ],
+      "signal": [
+        "It adds to the picture of an agency too close to the company it regulates; separately today, Commerce Secretary Lutnick faces calls to explain the same oversight."
+      ],
+      "key_stat": "BIS conference · Jan. 10",
+      "editors_read": "The detail is small, but it feeds the central charge in the Nvidia scandal: that Commerce regulated Nvidia as a partner, not a subject. Expect it to be cited in hearings next month."
+    },
+    {
+      "id": "ai-3dc626ea28",
+      "headline": "Research says China's top open AI models were trained on banned Nvidia Blackwell chips",
+      "hook": "A new analysis claims leading Chinese open-weight models, including DeepSeek's V4 and Moonshot's Kimi K3, carry fingerprints of training on export-banned Blackwell GPUs.",
+      "points": [
+        "Will DePue of Unemployment Labs studied the weights (the learned parameters) of models from DeepSeek, Moonshot AI, MiniMax and Ant Group; weights still reflect the chip configuration used in training.",
+        "Epoch AI estimates about two million advanced chips entered China in 2024 and 2025 through schemes that hide their destination.",
+        "It is not proof of illegality: the chips could sit in offshore data centers. Epoch estimates 275,000 Nvidia accelerators were imported to Malaysia in those two years.",
+        "US rules ban Blackwell for China but allow the weaker H200 via a route that lets the US take a 25% tariff. About 600,000 H200s are reportedly stockpiled in Hong Kong, not cleared for import."
+      ],
+      "signal": [
+        "Policy hawks want controls on who uses chips, not where they sit; if that view wins after the Huang scandal, Malaysian-style offshore access narrows.",
+        "Nvidia's liability rises if investigators show it knew about smuggling through Megaspeed, which it vouched for."
+      ],
+      "key_stat": "~2M chips · smuggled into China, 2024-25 (Epoch)",
+      "editors_read": "The offshore loophole is now the policy battleground. If Congress closes it, Chinese labs lose cheap access to frontier compute and Beijing's domestic-chip push gains urgency; if not, controls stay symbolic."
+    },
+    {
+      "id": "beyond-your-beat-d401914b33",
+      "headline": "Google launches Gemini 4 Hydrogen, a fast model for agent and coding work",
+      "hook": "Google says Gemini 4 Hydrogen scored 57% on Terminal-Bench 4.1 versus 18.2% for Gemini 3.8 Flash, and runs tasks 2.5 times faster, priced at $1.50 per million input tokens.",
+      "points": [
+        "Hydrogen is the speed-and-execution model in the Gemini 4 lineup; Carbon and Argon handle complex reasoning and planning.",
+        "It has a 1 million-token context window (how much text the model can hold at once), at the same price across that window; output costs $7.50 per million tokens.",
+        "Orchestrator in Google Antigravity lets Carbon plan while Hydrogen executes. Google says it nears Carbon's success rates using 24% less quota and finishing 19% faster.",
+        "Google claims 2.3 times more resilience on the Gray Swan indirect prompt injection benchmark (hidden malicious instructions in web pages or documents) and a 96.7% honesty rate on its internal test.",
+        "Available in the Gemini app, Google Search, AI Studio, the Gemini API and Android Studio; Pro and Ultra subscribers get it in Antigravity."
+      ],
+      "signal": [
+        "The planner-plus-cheap-executor split is the cost pattern to expect in agent products; all figures are Google's own claims."
+      ],
+      "key_stat": "57% · Terminal-Bench 4.1",
+      "editors_read": "Pricing a fast model at the full context window with no surcharge pressures rivals' long-context rates. The test is whether independent benchmarks match Google's."
+    },
+    {
+      "id": "indian-startups-21e94d425e",
+      "headline": "MeitY questions home-service apps on filming gig workers to train robots",
+      "hook": "India's IT ministry met Pronto, Snabbit and Urban Company's InstaHelp over first-person video and sensor data collected from gig workers to train physical AI, and asked Pronto for its data practices in writing.",
+      "points": [
+        "The meeting, chaired by MeitY secretary S Krishnan, raised worker consent, consumer privacy and data sovereignty, and asked whether data is sold or sent to AI developers abroad.",
+        "Pronto runs an opt-in pilot; it says raw footage is deleted after the job, and anonymised encrypted footage stays with customers for 48 hours and is then used for AI training.",
+        "Snabbit tested the tech only in a training centre and dropped it; Urban Company says it neither records in homes nor plans to.",
+        "Pronto's founder launched Provision Labs in San Francisco last month; how it relates to Pronto's data is unclear.",
+        "Legal experts say video, face images and location traces can be personal data under the DPDP Act, which requires clear notices, worker rights and grievance channels."
+      ],
+      "signal": [
+        "If MeitY issues rules, in-home capture needs explicit worker consent and a curb on exports of the data, which would raise the cost of cheap Indian training data.",
+        "India's physical-AI startups raised about $155M across 31 deals by July 2026, versus $130M across 25 deals in 2025."
+      ],
+      "key_stat": "<0.01% of Pronto users · in pilot",
+      "editors_read": "The argument inside the room is about who captures value: India as data supplier or as builder. Expect domestic-processing or consent requirements to favour startups that own the robotics layer."
+    },
+    {
+      "id": "indian-startups-1bd72439b4",
+      "headline": "Razorpay gets SEBI go-ahead for its IPO",
+      "hook": "Razorpay received SEBI's observations on Nov. 3, clearing its ₹5,000-6,000 crore IPO, expected to value it near $5 billion with listing likely in January-March 2027.",
+      "points": [
+        "The issue will mix fresh shares and an offer-for-sale; the split is not known.",
+        "The $5B target is below the $7.5B valuation of its 2021 round; it filed confidentially in June targeting $5-6B.",
+        "FY25 operating revenue rose 65% to ₹3,783 crore, but it posted a loss, hit by ₹1,209 crore of ESOP expenses and one-time costs from moving its domicile from the US to India.",
+        "It is adding AI products: an OpenAI partnership for ChatGPT Ads, the Vulcan payments model, and Agent Studio, used by about 200 businesses in beta as of August."
+      ],
+      "signal": [
+        "A listing below its 2021 peak would be a test of how public markets price fintech after the correction."
+      ],
+      "key_stat": "₹5,000-6,000 Cr · IPO size",
+      "editors_read": "The valuation reset is the point: Razorpay is accepting about a third less than its last private mark in exchange for liquidity. A clean debut would open the door for other fintechs waiting."
+    },
+    {
+      "id": "global-economics-c1f4667f7b",
+      "headline": "87% of Fed survey respondents name AI as a top risk to the financial system",
+      "hook": "The Federal Reserve's survey found 87% cite AI as a salient risk, up from 50% in spring and well ahead of the next risk, an asset correction at 52%.",
+      "points": [
+        "Concerns fall in three areas: stretched equity valuations, cybersecurity (state attacks or damage from frontier AI models), and complex AI-related financing.",
+        "Other risks: higher long-term rates 48%, cyberattacks 43%, fiscal debt sustainability 43% (US debt is over $40 trillion).",
+        "Hedge fund leverage is at its highest since 2013 and concentrated in a small group; the system otherwise looks fairly stable.",
+        "The survey covers the period to Oct. 28."
+      ],
+      "signal": [
+        "If AI earnings disappoint, valuations and debt-financed data-centre buildouts fail together, which is the correlation the respondents fear."
+      ],
+      "key_stat": "87% · cite AI risk, up from 50%",
+      "editors_read": "A jump of 37 points in six months is regulators' consensus moving to where markets already worry. Separately today, Nvidia's CEO exit shows how concentrated that exposure is."
+    },
+    {
+      "id": "india-deep-tech-9a270ff76d",
+      "headline": "India funds deeptech but has no clear buyer for what it builds",
+      "hook": "Agnikul Cosmos got ₹200 crore from the RDI Fund for a reusable launch vehicle, yet it is unclear which government body will buy it.",
+      "points": [
+        "The government has built a large funding pipeline for deeptech startups.",
+        "What is missing, the article argues, is matching demand inside the system for the products being funded.",
+        "The full piece is paywalled; only the premise is visible."
+      ],
+      "signal": [
+        "Without procurement, funded startups depend on exits and private buyers; separately, Infosys co-founder Kris Gopalakrishnan says deeptech also needs more acquirers."
+      ],
+      "key_stat": "₹200 Cr · Agnikul, RDI Fund",
+      "editors_read": "Funding without demand moves the risk to the startup's second round. Defence and space procurement rules are where this gets decided."
+    },
+    {
+      "id": "world-388c180a1a",
+      "headline": "Microsoft 365 outage lasts about 18 hours across 74 countries",
+      "hook": "A Microsoft outage that began Thursday evening took Outlook, Teams and Copilot down for roughly 18 hours, with nearly 130,000 reports in 74 countries at one point.",
+      "points": [
+        "Microsoft says it was a technical issue from an earlier network capacity upgrade that surfaced after a recent network change, not a cyberattack or AI agents.",
+        "Servers failed health checks, the rest took extra load and then also failed, so recovery had to be gradual; Microsoft's first fixes did not hold.",
+        "Hit: US House offices, UK police and healthcare, Japan's Finance Ministry, Indian airlines (IndiGo, Akasa, Air India email support). Traders used phone, WhatsApp and fax.",
+        "OpenAI and Anthropic's Microsoft 365 connectors also broke.",
+        "Shares fell 1.1% to $516.86 at the open. Microsoft promises a full post-incident report."
+      ],
+      "signal": [
+        "The cascade pattern, one pool failing and overloading the rest, means big-cloud customers need non-Microsoft backup channels for critical comms.",
+        "Separately, an Azure outage last month adds to questions over single-vendor dependence."
+      ],
+      "key_stat": "~18 hours · 74 countries",
+      "editors_read": "Email is the dependency nobody has a second path for, and AI agents now sit on top of it. Expect enterprise buyers to ask for failover terms in renewals; the post-incident report decides how serious that gets."
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-ec577d4c46",
+          "headline": "Huang's exit leaves AI startup funding short of its biggest backer",
+          "hook": "Nvidia joined 105 funding rounds this year, often as lead investor, and VCs say Jensen Huang's departure will cut that capital and could lower valuations.",
+          "points": [
+            "Nvidia invests tens of billions yearly; Seligman's Umesh Padval says most big startup decisions came from Huang personally.",
+            "Interim CEO Colette Kress is seen as more conservative; investors expect smaller checks and fewer new bets.",
+            "Past deals: CoreWeave, Crusoe's $1.4B Series E, Hugging Face for $13B (closing 2027), and $800M of Reflection AI's $2B Series B.",
+            "Infrastructure startups often raised half their GPU budget from Nvidia at $1B-plus valuations; its presence reassured other investors.",
+            "Google, Amazon, Microsoft and AMD may fill part of the gap, but Battery Ventures doubts they'll fund pre-revenue infrastructure at that scale."
+          ],
+          "signal": [
+            "If Nvidia pulls back, rival chipmakers gain room as startups are less locked into CUDA, its software platform.",
+            "Few expect the boom itself to stop."
+          ],
+          "key_stat": "105 rounds · Nvidia in 2026 (PitchBook)"
+        },
+        {
+          "id": "ai-ab35997562",
+          "headline": "OpenAI launches ChatGPT Wallet so its agents can pay for purchases",
+          "hook": "ChatGPT Wallet, built with Amex, Mastercard and Visa, lets OpenAI's \"dots\" agents buy items for US Pro subscribers, with each purchase approved by the user.",
+          "points": [
+            "Cardholders enter details once; agents get a single-transaction payment token, never the card details.",
+            "Existing card rewards and protections stay. OpenAI takes no cut of transactions at the start.",
+            "Limited to US Pro subscribers over 18; ChatGPT has 1.2 billion weekly users and nearly 100 million paying.",
+            "Merchants are split: United Airlines will block agents from booking, and Amazon bars agents from purchasing."
+          ],
+          "signal": [
+            "If big merchants keep blocking agents, Wallet stays a discovery tool; adoption depends on cooperation from them, not the payments rails."
+          ],
+          "key_stat": "1.2B · ChatGPT weekly users"
+        },
+        {
+          "id": "ai-de06bec5ec",
+          "headline": "Bessent blames Lutnick's Commerce Department over Megaspeed blacklist delay",
+          "hook": "Treasury Secretary Scott Bessent says agencies wanted Singapore-based Megaspeed on the export blacklist \"for months\" but Commerce, which \"has the pen,\" did not act.",
+          "points": [
+            "Megaspeed, tied to Alice Huang, has bought more than $4.8 billion of Nvidia chips since June 2024; Commerce investigated it from 2024 and no firm has been added to the list since October 2025.",
+            "Lutnick has agreed to testify to the Senate Banking Committee; the committee's chair asked for Dec. 10, and for Huang, Dec. 3.",
+            "Reuters reports White House officials are discussing whether Lutnick should go; the White House says Trump has full confidence in him.",
+            "Bessent says the real question is whether Nvidia knew its customer and policed pass-through shell companies.",
+            "House Speaker Johnson sees a growing consensus for limiting chip exports; at least four chip-export bills are being pushed."
+          ],
+          "signal": [
+            "If any chip-export bill passes, the H200 sales-for-a-cut arrangement, which Democrats call an unconstitutional export tax, becomes harder to defend."
+          ],
+          "key_stat": "$4.8B · Nvidia chips bought by Megaspeed"
+        },
+        {
+          "id": "ai-4c52040237",
+          "headline": "Cerebras jumps on raised forecast and a surprise profit",
+          "hook": "Cerebras raised its 2026 revenue guidance to $940-960 million from $880-890 million and posted a $29.8 million adjusted profit, sending shares up 23% at the open.",
+          "points": [
+            "Analysts expected $887 million revenue and a $38.4 million adjusted loss; a year earlier it lost $10.9 million.",
+            "Cloud and services revenue, including its OpenAI deal, more than tripled to $144.9 million.",
+            "It signed a cloud agreement with Microsoft and repeated its goal of tripling revenue in 2027.",
+            "CEO Andrew Feldman says delays on the $20 billion OpenAI deal come from shortages of land and power, not chip supply.",
+            "Shares remain 47.2% below the $185 IPO price from May as of Thursday's close."
+          ],
+          "signal": [
+            "Power and land, not chips, are the binding constraint on AI buildouts; that holds for any supplier, not just Cerebras."
+          ],
+          "key_stat": "$940-960M · 2026 revenue guide"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-aac20b374e",
+          "line": "Anthropic's IPO is six times oversubscribed, per Bloomberg, aiming to raise up to $64.4B publicly plus $26B privately at about a $1.4T valuation, which would beat SpaceX's offering."
+        },
+        {
+          "id": "ai-f820b76692",
+          "line": "Banks are rejecting or discouraging IPO orders for Anthropic from mainland China and Hong Kong, some citing ITAR (US defence export rules), per Bloomberg; Anthropic declined to comment."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-75520ce395",
+          "headline": "OpenAI disbands its robotics team, betting general models can run robots",
+          "hook": "OpenAI moved its stand-alone robotics researchers onto its main research and applied teams, saying its general models like GPT-6 Astra now work directly on robots.",
+          "points": [
+            "Researchers now report to Chief Research Officer Mark Chen; applied robotics and hardware go under President Greg Brockman. OpenAI says robotics is still core.",
+            "In an Nvidia study, an Astra-powered agent hit 74.8% on a simulated manipulation benchmark, versus 51.0% for the best specialised robot models.",
+            "OpenAI wound down robotics in 2020, rebuilt it in 2024, and Altman targets a first public humanoid demo in 2027.",
+            "It is cutting costs: reported quarterly operating losses of $10.9 billion and a possible IPO in early 2027."
+          ],
+          "signal": [
+            "If general models keep winning, robotics startups' own \"brain\" models lose value; MIT's Russ Tedrake argues their edge is real-world deployment data.",
+            "Models still need to be small enough to run onboard without constant internet, which keeps room for specialised ones."
+          ],
+          "key_stat": "74.8% vs 51.0% · simulated manipulation"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-a686f0d7d9",
+          "line": "Quantum Systems says its German military drones, grounded after a cyberattack, are flying again (source unreachable — headline only)"
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-b71e48d27b",
+          "headline": "Drone maker UForce raises $700M at a $6B valuation",
+          "hook": "UForce, a London-headquartered, Ukrainian-founded defence firm, raised $700 million in a Series A at a $6 billion valuation to expand drone production for Ukraine and allies.",
+          "points": [
+            "Co-led by Valor Equity Partners and the UK's National Wealth Fund, with the US-Ukraine Reconstruction Investment Fund; it is URIF's largest tech deal.",
+            "The National Wealth Fund separately put in £113 million ($150 million), its largest defence investment.",
+            "Products: Magura naval drones, Nemesis aerial systems, Liut ground robots, Predator turrets, with plans to build in the US, Europe, Asia-Pacific and the Middle East.",
+            "It partners with US maker ReconCraft to build Magura in the US."
+          ],
+          "signal": [
+            "Capital is flowing to wartime-tested hardware builders; for India's deeptech, the contrast is state funds acting as buyers and investors together."
+          ],
+          "key_stat": "$700M · Series A at $6B"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-deep-tech-97db7e8c5b",
+          "line": "Infosys co-founder Kris Gopalakrishnan says India's deeptech startups have more capital but need more acquirers, since the route to an IPO takes 10-12 years and M&A would shorten the wait for investors."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-e2491e515c",
+          "headline": "Paytm gets RBI in-principle approval for a wallet licence",
+          "hook": "The RBI granted Paytm Payments Services in-principle authorisation on Nov. 13 to issue prepaid payment instruments, including wallets, six months after the bank licence of Paytm Payments Bank was cancelled.",
+          "points": [
+            "Paytm must complete a system and cybersecurity audit and report to the RBI within six months or the approval lapses.",
+            "It cannot issue wallets until it gets final authorisation.",
+            "It applied in July 2026; the RBI cancelled the Payments Bank licence on April 24, 2026.",
+            "Wallet top-ups were barred after 2024 restrictions on the bank; existing balances could be withdrawn."
+          ],
+          "signal": [
+            "If the audit clears, Paytm gets its wallet back under a separate, regulated entity rather than the bank."
+          ],
+          "key_stat": "6 months · to complete audit"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-e273a90290",
+          "line": "Bengaluru's Desible.ai raised ₹32 crore led by Prime Venture Partners for AI workflow automation for banks and insurers; it says it handles over 10 million customer engagements monthly and is in talks with 40+ institutions."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-758159779a",
+          "headline": "India bans black mass exports to feed domestic battery recyclers",
+          "hook": "India made exports of battery scrap including black mass (shredded lithium-ion battery powder) prohibited with immediate effect, as recyclers lack feedstock for their 75,500-tonne annual capacity.",
+          "points": [
+            "The DGFT moved the HS code 85491400 from \"Free\" to \"Prohibited\" until further orders.",
+            "India is 100% import-dependent for lithium, nickel and cobalt, per NITI Aayog; some recyclers imported black mass while domestic supply was exported.",
+            "Recyclers face hurdles: informal collection, capital-heavy refining, and LFP batteries with little nickel or cobalt, which lower value per tonne.",
+            "Black-mass-only recyclers may see lower prices in the short run, and enforcement could be dodged by relabelling exports as cobalt powder."
+          ],
+          "signal": [
+            "If customs enforcement holds and cathode makers appear, recovered metals can feed Indian cells, which a recycled-content rule requires from FY28."
+          ],
+          "key_stat": "75,500 tonnes/yr · recycler capacity"
+        },
+        {
+          "id": "climate-energy-59dfe77eda",
+          "headline": "India's grid battery cell tender draws 22 bids for 10 GWh",
+          "hook": "India's Ministry of Heavy Industries received 22 bids for 10 GWh of grid-storage cell manufacturing capacity under its battery production-linked incentive scheme.",
+          "points": [
+            "Bidders include Reliance, Amara Raja, Exide, JSW Neo, Waaree, ACME Solar, Avaada and Vikram Solar.",
+            "Selection is two-stage, on quality and cost; capacity per bidder and the financial bid date were not disclosed.",
+            "The 10 GWh is part of a 50 GWh target under a ₹181 billion ($1.9 billion) scheme; 40 GWh was awarded by July."
+          ],
+          "signal": [
+            "The crowded field suggests solar firms see storage cells as a natural extension."
+          ],
+          "key_stat": "22 bids · 10 GWh"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-94d5da41b3",
+          "line": "Bloomberg reports India's fuel demand will keep climbing until 2034 despite the EV boom (source unreachable — headline only)"
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-b83e7e002b",
+          "headline": "CFO Colette Kress becomes Nvidia's interim CEO",
+          "hook": "Nvidia named CFO Colette Kress interim CEO after Jensen Huang resigned as CEO, president and board member after 33 years; she keeps the finance role.",
+          "points": [
+            "The board named Harvey Jones its first chair and is weighing internal and external candidates for a permanent CEO.",
+            "An independent inquiry led by Joon Kim and Wachtell Lipton is under way; the board says no national security or company information was compromised.",
+            "Latest quarter (ended July 26): revenue $96.2 billion, $89 billion from data centres. Next results are due Nov. 17."
+          ],
+          "signal": [
+            "The Nov. 17 earnings call is the first test of whether customers' commitments hold under an interim CEO."
+          ],
+          "key_stat": "$96.2B · quarterly revenue"
+        },
+        {
+          "id": "global-economics-a13da047ab",
+          "headline": "Lutnick agrees to testify to Senate Banking over Nvidia export controls",
+          "hook": "Commerce Secretary Howard Lutnick agreed to appear voluntarily before the Senate Banking Committee, whose chair asked for Dec. 10; Huang was asked for Dec. 3.",
+          "points": [
+            "The committee is examining export controls and the Megaspeed probe; arrangements are still being worked out.",
+            "Commerce's BIS began investigating Megaspeed in 2024; the case later moved to the Justice Department.",
+            "No company has been added to the Entity List (the US trade blacklist) since October 2025.",
+            "Chair Tim Scott warned he could subpoena Huang if he declines to appear."
+          ],
+          "signal": [
+            "Treasury and Commerce are in open conflict over Megaspeed; the hearing will show whether delay was policy or neglect."
+          ],
+          "key_stat": "Dec. 10 · Lutnick hearing date requested"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-b8ff9020ff",
+          "headline": "India's October exports rise 29.9% and the trade deficit narrows",
+          "hook": "India's combined goods and services exports rose 29.9% to $89.99 billion in October, narrowing the overall trade deficit to $20.09 billion from $25.15 billion a year earlier.",
+          "points": [
+            "Merchandise exports hit a record $49.47 billion, up 45.06%, helped by petroleum products; 43 of the top 50 destinations grew.",
+            "Merchandise imports rose to $89.35 billion from $76.69 billion, widening the goods deficit to $39.88 billion, a one-year high, versus a $32.25 billion forecast.",
+            "Services exports were $40.51 billion, up 15%, offsetting the goods gap; these are estimates until RBI data arrives.",
+            "India imports about 85% of its crude; Brent has fallen to about $92 a barrel."
+          ],
+          "signal": [
+            "Goods deficit beat forecasts by about $7.6 billion, so the headline narrowing relies on services holding up."
+          ],
+          "key_stat": "$49.47B · record goods exports"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-7d5048ffba",
+          "headline": "Drug ads in prompts shift AI treatment recommendations, study finds",
+          "hook": "In a Lancet Digital Health study, 12 chatbots recommended an advertised treatment 47.6% of the time with an ad in the prompt, versus 35% without one.",
+          "points": [
+            "Tested across 33 clinical scenarios, including versions of Claude, Gemini and ChatGPT; the ads did not tell the model to recommend the drug.",
+            "Effect sizes varied by model, and the models usually still picked a clinically appropriate option.",
+            "Outputs disclosed the ad only about 30% of the time."
+          ],
+          "signal": [
+            "If chatbots start carrying ads, hidden influence on medical answers becomes the disclosure problem; US drug-makers spent over $6B on TV ads in 2024, so the incentive exists."
+          ],
+          "key_stat": "47.6% vs 35% · with vs without ad"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-ddf94a746f",
+          "headline": "AI proves Aaronson-Ambainis conjecture, closing one route to quantum speed-ups",
+          "hook": "An Anthropic model, Fable 5.2, proved the 2011 Aaronson-Ambainis conjecture in about four days, showing quantum computers gain little on one class of random-input problems.",
+          "points": [
+            "The conjecture says a conventional computer can approximate a quantum one on most random bit strings without much extra time.",
+            "David Turturean of Physical Superintelligence led the team; the proof was checked with Lean (proof-checking software).",
+            "Three days after it was public, a shorter proof built with ChatGPT and a researcher's earlier framework appeared.",
+            "Researchers say it rules out an implausible direction; quantum advantages remain for areas like molecule simulation and some optimisation."
+          ],
+          "signal": [
+            "The practical effect is narrowing where to search; Ambainis says AI still lacks the creative leap to pose new problems."
+          ],
+          "key_stat": "~4 days · for AI to produce the proof"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-5ff5a6295c",
+          "headline": "Microsoft's outage revives questions about its headcount cuts amid AI spending",
+          "hook": "Microsoft projected roughly $190 billion of 2026 capital spending while offering buyouts to 9,000 US employees in April and 60,000 in four countries in October.",
+          "points": [
+            "It also laid off 4,800 in July, mostly in sales and Xbox; The Information reported Azure leaders discussed cutting costs by at least 20%, which Microsoft denies.",
+            "There is no evidence the cuts or the AI spending caused Thursday's outage.",
+            "The argument is that departures remove staff who know systems' quirks, making fixes slower."
+          ],
+          "signal": [
+            "If the post-incident report points to change-management gaps, the staffing link moves from speculation to evidence."
+          ],
+          "key_stat": "$190B · projected 2026 capex"
+        }
+      ],
+      "also": [
+        {
+          "id": "work-careers-fe403b81bd",
+          "line": "Qualcomm has begun job cuts in India as part of a global restructuring, with employees posting on Reddit that managers confirmed layoffs; the company has not confirmed numbers."
+        }
+      ]
+    },
+    {
+      "slug": "longform",
+      "stories": [
+        {
+          "id": "longform-bab44f79de",
+          "headline": "Silicon Valley's Chaos Moment",
+          "hook": "Nvidia hit a $5.7 trillion valuation last month and had invested $99 billion in AI companies by July, so Huang's resignation tests an industry built around one executive.",
+          "points": [
+            "Warzel argues Huang was the central node: allocator of chips, investor in the AI boom and adviser to Trump. Analyst Dan Ives says Nvidia would be worth 25-30% less without him.",
+            "Nvidia's circular investing, where it funds customers who buy its chips, now looks riskier without its chief dealmaker.",
+            "Silicon Valley defended Huang partly because the AI race against China demands the system keep moving, a logic Warzel calls a pretzel.",
+            "The second half, with Vox's Sigal Samuel, covers Anthropic's IPO and why AI labs keep racing despite their own warnings."
+          ],
+          "signal": [
+            "Worth the 20 minutes for the argument that turning CEOs into load-bearing figures concentrates economic risk in individuals."
+          ],
+          "key_stat": "$5.7T · Nvidia valuation last month"
+        }
+      ],
+      "also": []
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-c77e211351",
+      "name": "One Human, Ten AI Agents (Cluster)",
+      "when": "Sun 29 Nov; registration requests reviewed after 17 Nov",
+      "summary": "Talk plus hands-on workshop on building a team of AI agents with defined roles. Host approval required; aimed at students, no prior experience needed. New Delhi."
+    }
+  ]
+}
