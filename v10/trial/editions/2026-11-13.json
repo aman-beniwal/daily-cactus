@@ -3,66 +3,93 @@
   "edition": 151,
   "colophon": "96 sources scanned · 95 ok · 1 failed",
   "lead": {
-    "id": "science-mind-ddf94a746f",
-    "headline": "AI proves a 2011 quantum computing conjecture",
+    "id": "climate-energy-94d5da41b3",
+    "headline": "India's road-fuel demand to keep rising until 2034 despite EVs",
     "summary": "",
     "signal": [
-      "Lean-style verification is what lets AI proofs be trusted; fields without a verifier will move slower."
+      "Oil import needs keep growing for eight years, so EV adoption alone does not cut near-term import dependence."
     ],
     "badge": "",
     "takeaway": "",
     "why": "",
-    "source": "New Scientist",
-    "url": "https://www.newscientist.com/article/2598418-ai-confirms-a-long-suspected-limit-on-quantum-computers-advantages/?utm_campaign=RSS|NSNS&utm_content=home&utm_medium=RSS&utm_source=NSNS",
-    "image": "https://www.newscientist.com/wp-content/uploads/2026/11/SEI_320282515.jpg",
+    "source": "Bloomberg.com",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-13/india-s-fuel-demand-to-keep-climbing-until-2034-despite-ev-boom",
+    "image": null,
     "developing": false,
-    "hook": "Researchers used Anthropic's Fable 5.2 model to prove the Aaronson-Ambainis conjecture, which says quantum computers cannot beat ordinary ones on a class of random-input problems; the model took about four days.",
+    "hook": "India's road-fuel demand will peak at more than 2.5 million barrels a day in 2034, eight years away, before falling, BloombergNEF's EV outlook says (summary from limited source text).",
     "points": [
-      "The conjecture was set by Scott Aaronson and Andris Ambainis in 2011. Ambainis says he had given up on it.",
-      "David Turturean of start-up Physical Superintelligence led the team. The model refined the proof twice, then Lean proof-checking software verified it.",
-      "Stanford researchers studied it and call it substantially more difficult than prior work, woven together in a novel way.",
-      "It rules out one place to look for quantum speed-ups, but Aaronson says it was not a plausible direction anyway.",
-      "Quantum advantage may remain for shorter or less random inputs, molecule simulation and some optimisation problems."
+      "A growing vehicle fleet and heavier commercial transport use sustain oil demand.",
+      "Rising adoption of electric two-wheelers, three-wheelers and cars should eventually outweigh commercial-vehicle growth and push demand lower."
     ],
-    "key_stat": "4 days · to proof",
-    "evidence_of": "AI is now solving research-level maths problems",
-    "force": "technology"
+    "key_stat": ">2.5m b/d · 2034 peak",
+    "evidence_of": "India is building energy security through storage and local manufacturing",
+    "force": "geopolitics"
   },
   "frontpage": [],
   "sections": [
     {
-      "name": "Health Tech",
-      "slug": "health-tech",
+      "name": "Climate & Energy",
+      "slug": "climate-energy",
       "stories": [
         {
-          "id": "health-tech-8987c4ace9",
-          "headline": "FDA's 2026 warning letters hit Asia hard, BioSpectrum finds",
+          "id": "climate-energy-c206c8da61",
+          "headline": "India's solar makers face consolidation as supply outruns demand",
           "summary": "",
           "signal": [
-            "Public letters within days mean quality gaps become headlines before firms can respond; Indian exporters need records ready."
+            "Survivors will be those that integrate upstream into wafers and have strong balance sheets."
           ],
           "badge": "",
           "takeaway": "",
           "why": "",
-          "source": "BioSpectrum Asia",
-          "url": "https://www.biospectrumasia.com/regulatory/29/28676/fda-warning-letters-2026-lessons-for-india-china-and-asia-pacific-pharma.html",
+          "source": "Mercomindia.com RSS feed",
+          "url": "https://www.mercomindia.com/indias-solar-manufacturing-sector-heading-consolidation-interview",
+          "image": "https://mercomindia.s3.ap-south-1.amazonaws.com/wp-content/uploads/2026/11/Indias-Solar-Manufacturing-Sector-Heading-for-Consolidation-Interview.jpg",
+          "developing": false,
+          "hook": "India has about ==225 GW of module capacity== against annual solar installations of 40-45 GW, and GREW Solar's Hiten Parekh expects aggressive pricing and consolidation to 20-25 major makers.",
+          "points": [
+            "Cell capacity is 38 GW. Parekh expects very aggressive pricing for two to three quarters, after which weaker makers struggle and prices normalise.",
+            "Input costs are up: some raw materials about 2.5 times pre-February levels, and cell prices at least 1.5 times higher in six months, squeezing margins.",
+            "Uncertainty over whether ALMM List II provisions extend beyond December complicates buying; developers are contracting six to eight months ahead.",
+            "US Section 232 barriers and anti-dumping duties have effectively closed direct module exports to the US.",
+            "GREW has 3.5 GW of cell capacity, plans 9 GW, and an 8 GW wafer facility in Madhya Pradesh targeted for 2027-2028."
+          ],
+          "key_stat": "225 GW vs 40-45 GW",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
+        },
+        {
+          "id": "climate-energy-b27b31d51b",
+          "headline": "Renewables saved India over ==$100 billion in fuel== imports, IEA says",
+          "summary": "",
+          "signal": [
+            "Faster transmission, storage and discom finances could lift 2026-30 capacity additions by more than 20%."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "KNN India",
+          "url": "https://knnindia.co.in/news/newsdetails/sectors/renewable-energy-expansion-saved-india-rs-94-lakh-crore-in-fuel-imports-since-2011-iea-report",
           "image": null,
           "developing": false,
-          "hook": "The US FDA posted 513 warning letters between 13 January and 10 November 2026; 59 went to Asia-Pacific firms, 25 to India and 22 to China.",
+          "hook": "India avoided more than $100 billion (Rs 9.4 lakh crore) in coal and gas import costs from 2011 to 2025 through renewables, the IEA's India Renewable Energy Market Report 2026 estimates.",
           "points": [
-            "Of 121 letters on drug manufacturing quality, 45 went to sites in the region.",
-            "The median drug quality letter appeared on fda.gov eight days after it was issued, often before the company's reply was due.",
-            "FDA enforced in coordinated waves, such as compounded GLP-1 marketing and talc products, and import alerts often come before the letter.",
-            "BioSpectrum's whitepaper covers cases including Reliance Life Sciences, Eugia, Intas, Zydus and Dabur."
+            "Without renewable capacity added since 2010, India would have imported about 110 million tonnes more coal in 2025, and electricity import dependence would have been above 30%, nearly twice the actual level.",
+            "Renewable capacity crossed 300 GW in 2026; 50% of installed capacity was non-fossil in 2025, five years ahead of target.",
+            "Renewables made over 500 TWh in 2025, one-fourth of supply; the IEA projects about 950 TWh, 35%, by 2030.",
+            "Solar costs $30-35 per MWh, and 2025 project tariffs were about 40% below the average cost of coal power.",
+            "Gas import dependence is projected to rise from 52% in 2024 to about 71% by 2030.",
+            "__Cumulative savings could reach about $240 billion by 2030__, assuming fuel prices stay near 2024-25 averages."
           ],
-          "key_stat": "25 letters · India"
+          "key_stat": "$100B+ · imports avoided",
+          "evidence_of": "India is building energy security through storage and local manufacturing",
+          "force": "geopolitics"
         }
       ],
       "also": [
         {
-          "line": "STAT's health-tech newsletter reports new documents raising more questions about Medicare's AI prior-authorization experiment (summary from limited source text).",
-          "source": "STAT",
-          "url": "https://www.statnews.com/2026/11/12/new-documents-raise-more-questions-about-medicares-ai-prior-authorization-experiment/?utm_campaign=rss"
+          "line": "PM Surya Ghar, India's main rooftop solar scheme, has reached 67% of its target and is nearing 20 GW, with ₹374.07 billion in subsidies disbursed so far.",
+          "source": "Mercomindia.com RSS feed",
+          "url": "https://www.mercomindia.com/pm-surya-ghar-achieves-67-of-target-nears-20-gw-capacity"
         }
       ]
     },
@@ -70,28 +97,6 @@
       "name": "India Deep Tech",
       "slug": "india-deep-tech",
       "stories": [
-        {
-          "id": "india-deep-tech-9a270ff76d",
-          "headline": "India funds deeptech, but who will buy what it builds?",
-          "summary": "",
-          "signal": [
-            "Without government purchase commitments, funded startups may lack first customers."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "The CapTable",
-          "url": "https://the-captable.com/2026/11/india-is-funding-deeptech-who-will-buy-what-it-builds/",
-          "image": null,
-          "developing": false,
-          "hook": "Agnikul Cosmos received Rs 200 crore from the RDI Fund to build a reusable launch vehicle, but The CapTable says the government has no matching buyer (summary from limited source text).",
-          "points": [
-            "The Government of India has built a large pipeline of deeptech funding.",
-            "The missing piece is demand inside the system for the technology being funded."
-          ],
-          "key_stat": "Rs 200 cr · Agnikul",
-          "force": "capital"
-        },
         {
           "id": "india-deep-tech-b3b1310418",
           "headline": "Ukrainian defence startup UFORCE ==raised $700M== at a $6B valuation",
@@ -119,61 +124,29 @@
           "force": "capital"
         }
       ]
-    },
-    {
-      "name": "Work & Careers",
-      "slug": "work-careers",
-      "stories": [
-        {
-          "id": "work-careers-929c6e1611",
-          "headline": "Moody's: no clear sign yet of AI hitting Indian IT jobs",
-          "summary": "",
-          "signal": [
-            "Absence of evidence now doesn't mean none later; compute and skills are the constraints to watch."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "The Times of India",
-          "url": "https://timesofindia.indiatimes.com/business/india-business/is-ai-putting-indian-it-jobs-at-risk-what-moodys-says-about-the-future-of-work/articleshow/135766484.cms",
-          "image": null,
-          "developing": false,
-          "hook": "Moody's says AI's impact on jobs and productivity is not yet clearly visible in India, even though India and the Philippines are the emerging markets most exposed through IT and BPO.",
-          "points": [
-            "AI could both raise productivity and displace jobs in software, IT and BPO-heavy economies.",
-            "Access to computing power, digital infrastructure and skilled workers will decide how much countries gain.",
-            "Moody's raised India's FY27 GDP growth __forecast to 7% from 6.5%__.",
-            "For China and India, higher interest payments are expected to add more to public debt than budget deficits.",
-            "Its sovereign outlook lists weaker-than-expected AI investment returns as a key risk."
-          ],
-          "key_stat": "7% · FY27 GDP forecast",
-          "evidence_of": "AI lets firms grow revenue with fewer hires",
-          "force": "technology"
-        }
-      ]
     }
   ],
   "opportunities": [
     {
       "name": "One Human, Ten AI Agents",
-      "when": "Sun 29 Nov",
-      "kind": "ai-event",
+      "when": "Sun 29 Nov; registration requests reviewed after 17 November",
+      "kind": null,
       "summary": "Talk plus hands-on workshop by Cluster on agentic AI: build and run a small team of AI agents live. Open to students, requires host approval, New Delhi.",
-      "source": "Luma (New Delhi)",
-      "url": "https://lu.ma/2o05q51x"
+      "source": "",
+      "url": null
     },
     {
       "name": "CSAIC Hack-AI-Thon",
       "when": "Fri 20 Nov",
-      "kind": null,
+      "kind": "ai-event",
       "summary": "Five-day online AI hackathon for school students across India; teams of 1-3 build projects in tracks including AI for Education and AI for Environment (summary from limited source text).",
-      "source": "",
-      "url": null
+      "source": "Devpost",
+      "url": "https://csaic-hackaithon.devpost.com/"
     }
   ],
   "markets": {
-    "generated_at": "2026-11-14T10:49:08.211755+00:00",
-    "as_of": "2026-11-14T10:49:04+00:00",
+    "generated_at": "2026-11-15T11:23:49.190291+00:00",
+    "as_of": "2026-11-15T11:23:46+00:00",
     "quotes": [
       {
         "label": "Nifty 50",
@@ -199,7 +172,7 @@
         "unit": "₹",
         "change_pct": 0.21,
         "usd": false,
-        "as_of": "2026-11-14T03:30:20+00:00",
+        "as_of": "2026-11-15T03:30:19+00:00",
         "closed": false
       },
       {
@@ -213,11 +186,11 @@
       },
       {
         "label": "Bitcoin",
-        "value": 67195.56,
+        "value": 65388.17,
         "unit": "$",
-        "change_pct": -3.0,
+        "change_pct": -2.72,
         "usd": true,
-        "as_of": "2026-11-14T10:49:04+00:00",
+        "as_of": "2026-11-15T11:23:46+00:00",
         "closed": false
       },
       {
@@ -242,16 +215,20 @@
   },
   "patterns": [
     {
-      "name": "AI is now solving research-level maths problems",
-      "line": "An AI model proved a 2011 quantum-computing conjecture in about four days, and Scientific American reports AI moving from maths towards physics. Maths has proof checkers; most sciences lack them, which limits the spread.",
+      "name": "India is building energy security through storage and local manufacturing",
+      "line": "India banned black mass exports to feed its own recyclers, and the IEA says renewables avoided over $100 billion in fuel imports. Solar capacity now outruns demand, so weaker makers face consolidation.",
       "evidence": [
         {
-          "title": "AI confirms a long-suspected limit on quantum computers’ advantages",
-          "url": "https://www.newscientist.com/article/2598418-ai-confirms-a-long-suspected-limit-on-quantum-computers-advantages/?utm_campaign=RSS|NSNS&utm_content=home&utm_medium=RSS&utm_source=NSNS"
+          "title": "Renewable Energy Expansion Saved India Rs 9.4 lakh Crore in Fuel Imports Since 2011: IEA Report",
+          "url": "https://knnindia.co.in/news/newsdetails/sectors/renewable-energy-expansion-saved-india-rs-94-lakh-crore-in-fuel-imports-since-2011-iea-report"
+        },
+        {
+          "title": "India’s Solar Manufacturing Sector Heading for Consolidation: Interview",
+          "url": "https://www.mercomindia.com/indias-solar-manufacturing-sector-heading-consolidation-interview"
         }
       ],
-      "force": "technology",
-      "streak": 1
+      "force": "geopolitics",
+      "streak": 3
     },
     {
       "name": "Capital and armies are shifting to cheap autonomous weapons",
@@ -264,24 +241,6 @@
       ],
       "force": "capital",
       "streak": 1
-    }
-  ],
-  "money": [
-    {
-      "company": "Desible.ai",
-      "amount": "Rs 32 crore",
-      "sector": "BFSI voice-AI automation",
-      "line": "Bengaluru startup automating customer servicing, collections and compliance for banks, NBFCs and insurers; led by Prime Venture Partners, with Invention Engine.",
-      "url": "https://entrackr.com/snippets/desibleai-raises-rs-32-cr-led-by-prime-venture-partners-12805523",
-      "source": "Entrackr : Latest Posts"
-    },
-    {
-      "company": "Agile Robots",
-      "amount": "$500 million",
-      "sector": "Robotics, Series F",
-      "line": "Europe's most valuable robotics startup at $8.5B valuation; round led by SoftBank, with Nvidia, Hitachi and T.Capital. Total funding about $2B.",
-      "url": "https://techfundingnews.com/agile-robots-500m-series-f-softbank-8-5b-valuation/",
-      "source": "Tech Funding News"
     }
   ]
 }
