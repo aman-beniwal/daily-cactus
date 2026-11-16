@@ -2,213 +2,9 @@
   "date": "2026-11-14",
   "edition": 152,
   "colophon": "96 sources scanned · 95 ok · 1 failed",
-  "lead": {
-    "id": "ai-1c4e572d1e",
-    "headline": "Runway open-sources Praxis-1, a video-trained robot controller",
-    "summary": "",
-    "signal": [
-      "Open weights let robotics startups build on it, but the claim of needing less robot data is unproven."
-    ],
-    "badge": "",
-    "takeaway": "",
-    "why": "",
-    "source": "The Decoder",
-    "url": "https://the-decoder.com/runways-open-source-praxis-1-turns-video-ai-into-a-robot-controller/",
-    "image": "https://the-decoder.com/wp-content/uploads/2026/11/Runway-Praxis-1.jpg",
-    "developing": false,
-    "hook": "Runway released Praxis-1, which turns video AI into a robot controller, with open weights under Apache 2.0, scoring 46.2% on Nvidia's RoboLab-120 benchmark.",
-    "points": [
-      "It takes camera images, text and robot position, predicts how the scene changes and computes movements. Runway calls this a World Action Model.",
-      "It beats FLUX 3 Action (42.9%) among such models but ranks fifth overall; Runway ran the tests itself.",
-      "On a real Franka arm it succeeded 88 of 100 attempts versus 80 for FLUX 3 Action.",
-      "It still needs robot data: about 277 hours for Franka and 1,400-2,600 hours for a dual-arm robot.",
-      "It confuses similar objects and cannot plan long tasks alone; the standard version needs an 80 GB GPU."
-    ],
-    "key_stat": "46.2% · RoboLab-120",
-    "evidence_of": "AI is now solving research-level maths problems",
-    "force": "technology"
-  },
+  "lead": null,
   "frontpage": [],
-  "sections": [
-    {
-      "name": "AI",
-      "slug": "ai",
-      "stories": []
-    },
-    {
-      "name": "Deep Tech",
-      "slug": "deep-tech",
-      "stories": [
-        {
-          "id": "deep-tech-bed46def9d",
-          "headline": "China may tighten rare earth exports if US escalates chip curbs",
-          "summary": "",
-          "signal": [
-            "If Washington tightens chip rules, rare earths are China's lever; either side escalating hits supply chains globally."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "Tech - South China Morning Post",
-          "url": "https://www.scmp.com/economy/global-economy/article/3374328/china-could-tighten-rare-earths-exports-if-us-escalates-chip-curbs-over-nvidia-analysts",
-          "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/13/02c0b3af-8849-4914-b961-d2bff254f58c_d4181db0.jpg?itok=_LaitkEp&v=1794556672",
-          "developing": false,
-          "hook": "Chinese analysts say Beijing could answer further US chip curbs after Huang's exit with ==tighter rare earth export controls==, though broader trade talks should stay on track.",
-          "points": [
-            "US officials suspect Alice Huang, linked to Megaspeed, of being a Chinese operative; Beijing denies it.",
-            "Analyst Victor Gao says US pressure could force tighter rare earth controls; Wang Yingliang expects sanctions or trade trade-offs instead.",
-            "Xi and Trump meet next week at APEC in Shenzhen; trade talks on tariff cuts, farm purchases and rare earths are expected beforehand.",
-            "China's foreign ministry opposes abuse of export controls."
-          ],
-          "evidence_of": "AI chips are now a national security fight",
-          "force": "geopolitics"
-        }
-      ]
-    },
-    {
-      "name": "India Deep Tech",
-      "slug": "india-deep-tech",
-      "stories": [
-        {
-          "id": "india-deep-tech-56498a59ce",
-          "headline": "==First Tejas Mk1A may reach== the IAF in January, before Aero India 2027",
-          "summary": "",
-          "signal": [
-            "Aero India runs 8-12 February 2027; the IAF chief has made Indian-built fighters his top priority."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "Defence BREAKING NEWS | Defence LATEST NEWS | Defence NEWS TODAY | Defence LIVE UPDATES | Defence TRENDING NEWS | – ThePrint",
-          "url": "https://theprint.in/defence/exclusive-first-tejas-mk1a-likely-to-be-handed-over-to-iaf-in-january-ahead-of-aero-india-2027/3097570/",
-          "image": null,
-          "developing": false,
-          "hook": "HAL may hand over the first one or two Tejas Mk1A jets to the IAF in January, nearly two years after the February 2024 target.",
-          "points": [
-            "The ₹36,400 crore order for 83 jets dates from February 2021. Delay came from GE's F404 engine supply: only 14 of 99 engines were delivered by September, the first in March 2025.",
-            "Two requirements tied to the Israeli radar remain; the IAF may relax some conditions and resolve them after first deliveries.",
-            "A second order of 97 jets worth over ₹62,370 crore starts deliveries in FY2027-28.",
-            "The IAF has 29 fighter squadrons against a sanctioned 42, its lowest in 60 years."
-          ],
-          "key_stat": "29 vs 42 · squadrons",
-          "evidence_of": "India is building energy security through storage and local manufacturing",
-          "force": "geopolitics"
-        },
-        {
-          "id": "india-deep-tech-b3b1310418",
-          "headline": "Ukrainian drone maker UFORCE hits $6 billion valuation",
-          "summary": "",
-          "signal": [
-            "If cheap autonomous systems keep winning, defence budgets may shift away from crewed aircraft and ships."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/11/12/uforce-defense-tech-drones-warfare-ukraine.html",
-          "image": null,
-          "developing": false,
-          "hook": "UFORCE raised $700 million at a ==$6 billion valuation==, up from about $1 billion in March, as investors back battle-tested autonomous weapons.",
-          "points": [
-            "The round was co-led by Valor Equity Partners and the UK's National Wealth Fund; the company makes air, sea and land systems plus AI software.",
-            "Bookings more than doubled in a year from a base of several hundred million dollars, the CEO says.",
-            "Its drones have completed over 300,000 combat flights and its naval vessels helped destroy over a dozen Russian warships, it claims.",
-            "NATO-ally defence startups raised $27.1 billion through September, nearly double all of 2025.",
-            "Funds go to manufacturing in Ukraine and allied countries."
-          ],
-          "key_stat": "$700M · $6B valuation",
-          "evidence_of": "Capital and armies are shifting to cheap autonomous weapons",
-          "force": "capital"
-        }
-      ]
-    },
-    {
-      "name": "Climate & Energy",
-      "slug": "climate-energy",
-      "stories": [
-        {
-          "id": "climate-energy-85a5e65e5f",
-          "headline": "India approves 1,150-kV corridor to carry solar power east",
-          "summary": "",
-          "signal": [
-            "If green hydrogen demand does not appear, the line may run underused."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "Elets Technomedia",
-          "url": "https://smartcity.eletsonline.com/india-approves-1150-kv-transmission-corridor-to-carry-solar-power-east/",
-          "image": null,
-          "developing": false,
-          "hook": "India's transmission panel approved a ==1,150-kV western-eastern corridor costing about ₹68,800 crore==, the country's highest-voltage system, taking about six years.",
-          "points": [
-            "It __would carry more power than today's 765-kV lines__ with lower losses, using fewer parallel lines.",
-            "Phase I links Chhattisgarh, Odisha and West Bengal, and connects to a 6,000 MW HVDC line from Rajasthan's Bhadla.",
-            "Total length is about 3,750 circuit-km with 66,000 MVA transformation capacity.",
-            "Planners considered 12 GW of green hydrogen and ammonia demand in Odisha but modelled only 3-3.5 GW of loading; they flag the demand as uncertain."
-          ],
-          "key_stat": "₹68,800 crore",
-          "evidence_of": "India is building energy security through storage and local manufacturing",
-          "force": "geopolitics"
-        },
-        {
-          "id": "climate-energy-3876aec07a",
-          "headline": "EVs won't slow India's road-fuel demand growth before 2034: BNEF",
-          "summary": "",
-          "signal": [
-            "India supports global oil demand even as China's emissions fall."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "BioEnergy Times",
-          "url": "https://bioenergytimes.com/ev-adoption-unlikely-to-slow-indias-road-fuel-demand-growth-before-2034-bnef/",
-          "image": null,
-          "developing": false,
-          "hook": "BloombergNEF projects India's road-fuel demand to peak above 2.5 million barrels per day in 2034 despite rising EV adoption.",
-          "points": [
-            "A growing fleet and commercial transport keep fuel demand rising; EV two- and three-wheelers and cars eventually outweigh it.",
-            "EV sales exceeded 2.4 million last year. Apart from three-wheelers, no segment is on track for 2030 electrification targets.",
-            "About $29 billion of charging investment is needed by 2040."
-          ],
-          "key_stat": "2034 · fuel demand peak",
-          "evidence_of": "India is building energy security through storage and local manufacturing",
-          "force": "geopolitics"
-        }
-      ]
-    },
-    {
-      "name": "Science & Mind",
-      "slug": "science-mind",
-      "stories": [
-        {
-          "id": "science-mind-6111ca3be9",
-          "headline": "Earth's atmosphere supplied most particles in the May 2024 superstorm",
-          "summary": "",
-          "signal": [
-            "Better forecasts would protect satellites, GPS and grids; researchers back a proposed two-satellite mission, FACTORS."
-          ],
-          "badge": "",
-          "takeaway": "",
-          "why": "",
-          "source": "All Top News -- ScienceDaily",
-          "url": "https://www.sciencedaily.com/releases/2026/11/261111005905.htm",
-          "image": null,
-          "developing": false,
-          "hook": "About ==85% of ring current ions== in the May 2024 storm came from Earth's ionosphere, not the Sun, and the magnetic field dropped 40% at 16,000 km.",
-          "points": [
-            "Japan's Arase satellite made the first direct measurements of ring current composition in a storm this strong.",
-            "The storm hit −518 nanotesla, the second-largest disturbance since 1981.",
-            "Heavy oxygen ions from Earth may have intensified the storm close to the planet.",
-            "Forecast models rely on solar wind; the finding suggests they should include Earth's upper atmosphere."
-          ],
-          "key_stat": "85% · ions from Earth",
-          "evidence_of": "Science is rewriting storm models",
-          "force": "discovery"
-        }
-      ]
-    }
-  ],
+  "sections": [],
   "opportunities": [
     {
       "name": "One Human, Ten AI Agents",
@@ -236,110 +32,72 @@
     }
   ],
   "markets": {
-    "generated_at": "2026-11-15T11:23:49.190291+00:00",
-    "as_of": "2026-11-15T11:23:46+00:00",
+    "generated_at": "2026-11-16T11:55:24.756306+00:00",
+    "as_of": "2026-11-16T11:55:20+00:00",
     "quotes": [
       {
         "label": "Nifty 50",
-        "value": 25144.3,
+        "value": 25291.1,
         "unit": "",
-        "change_pct": null,
+        "change_pct": 0.58,
         "usd": false,
-        "as_of": "2026-11-13T10:01:20+00:00",
-        "closed": true
+        "as_of": "2026-11-16T10:01:11+00:00",
+        "closed": false
       },
       {
         "label": "Sensex",
-        "value": 81592.45,
+        "value": 82104.79,
         "unit": "",
-        "change_pct": null,
+        "change_pct": 0.63,
         "usd": false,
-        "as_of": "2026-11-13T10:02:31+00:00",
-        "closed": true
+        "as_of": "2026-11-16T10:02:29+00:00",
+        "closed": false
       },
       {
         "label": "USD/INR",
-        "value": 94.24,
+        "value": 93.92,
         "unit": "₹",
-        "change_pct": 0.21,
+        "change_pct": -0.33,
         "usd": false,
-        "as_of": "2026-11-15T03:30:19+00:00",
+        "as_of": "2026-11-16T10:03:39+00:00",
         "closed": false
       },
       {
         "label": "Brent Crude",
-        "value": 95.84,
+        "value": 95.15,
         "unit": "$/bbl",
-        "change_pct": null,
+        "change_pct": -0.72,
         "usd": true,
-        "as_of": "2026-11-13T21:59:30+00:00",
-        "closed": true
+        "as_of": "2026-11-16T11:43:40+00:00",
+        "closed": false
       },
       {
         "label": "Bitcoin",
-        "value": 65388.17,
+        "value": 64509.03,
         "unit": "$",
-        "change_pct": -2.72,
+        "change_pct": -1.24,
         "usd": true,
-        "as_of": "2026-11-15T11:23:46+00:00",
+        "as_of": "2026-11-16T11:55:20+00:00",
         "closed": false
       },
       {
         "label": "Gold",
-        "value": 117750,
+        "value": 117052,
         "unit": "₹/10g",
-        "change_pct": null,
+        "change_pct": -0.26,
         "usd": false,
-        "as_of": "2026-11-13T21:59:59+00:00",
-        "closed": true
+        "as_of": "2026-11-16T11:45:19+00:00",
+        "closed": false
       },
       {
         "label": "Silver",
-        "value": 148831,
+        "value": 144054,
         "unit": "₹/kg",
-        "change_pct": null,
+        "change_pct": -2.88,
         "usd": false,
-        "as_of": "2026-11-13T21:59:59+00:00",
-        "closed": true
+        "as_of": "2026-11-16T11:45:23+00:00",
+        "closed": false
       }
     ]
-  },
-  "patterns": [
-    {
-      "name": "AI chips are now a national security fight",
-      "line": "Research on Chinese models trained on banned Blackwell chips, Nvidia's CEO exit and scrutiny of the export regulator show chip controls are leaking. If this holds, expect tighter rules on who uses chips; China may answer with rare earths.",
-      "evidence": [
-        {
-          "title": "China could tighten rare earths exports if US escalates chip curbs over Nvidia: analysts",
-          "url": "https://www.scmp.com/economy/global-economy/article/3374328/china-could-tighten-rare-earths-exports-if-us-escalates-chip-curbs-over-nvidia-analysts"
-        }
-      ],
-      "force": "geopolitics",
-      "streak": 4
-    },
-    {
-      "name": "Capital and armies are shifting to cheap autonomous weapons",
-      "line": "UFORCE raised $700M at a $6B valuation, and drones are the leading killer of civilians in Sudan. Cheap autonomous systems are reshaping both investment and war.",
-      "evidence": [
-        {
-          "title": "Ukrainian defense tech startup hits $6 billion valuation as investors bet on battle-tested drones",
-          "url": "https://www.cnbc.com/2026/11/12/uforce-defense-tech-drones-warfare-ukraine.html"
-        }
-      ],
-      "force": "capital",
-      "streak": 2
-    },
-    {
-      "name": "India is building energy security through storage and local manufacturing",
-      "line": "India banned black mass exports, approved a ₹68,800 crore transmission corridor and drew 22 bids for 10 GWh of battery cells. Oil-driven import costs push it to keep materials and capacity at home.",
-      "evidence": [
-        {
-          "title": "India approves 1,150-kV Transmission Corridor to carry Solar Power East",
-          "url": "https://smartcity.eletsonline.com/india-approves-1150-kv-transmission-corridor-to-carry-solar-power-east/"
-        }
-      ],
-      "force": "geopolitics",
-      "streak": 4
-    }
-  ]
+  }
 }
