@@ -1,0 +1,473 @@
+{
+  "date": "2026-11-17",
+  "lead": {
+    "id": "ai-43465bb556",
+    "headline": "US requires licences for AI chip exports to data centres that could serve China",
+    "hook": "The Commerce Department's interim rule requires ==licences to ship AI chips and servers to any data center== that may supply compute to China or other restricted countries, covering sites above 12 million TPP.",
+    "points": [
+      "The target is remote access: Chinese firms renting compute in third countries to get around chip export controls. The rule covers go-betweens and brokers, and requires operators to check customers' ownership.",
+      "It applies to data centers or networks supplying over 12 million TPP (total processing performance, a US compute metric), roughly 750 Nvidia H100 or H200 chips.",
+      "New licence requirements also cover advanced chip exports to Malaysia, Singapore, Indonesia, Thailand and Brazil, flagged as higher-than-normal diversion risks. Chips destined for US-based companies are exempt.",
+      "Existing operators whose services fall under the rule must get licences within 90 days of it taking effect. Commercial recommendation systems, such as e-commerce and social media, are excluded.",
+      "__Operators have 90 days to obtain licences once the rule takes effect__. The rule also rescinds the Biden-era AI Diffusion Rule of January 2025, which set country-level caps."
+    ],
+    "signal": [
+      "The old rules controlled where chips shipped. This one controls who can use them, so any cloud or data-centre operator selling GPU time must now vet customer ownership.",
+      "If enforcement holds, Chinese labs lose the offshore workaround reported last week, and the licence burden on Southeast Asian operators rises."
+    ],
+    "key_stat": "12M TPP · ~750 H100s",
+    "editors_read": "The rule follows the Megaspeed scandal: US officials reportedly believe it bought thousands of Nvidia chips to supply compute to Chinese businesses. The cost lands on data-centre operators in Southeast Asia and elsewhere, who now carry compliance risk for their customers' ownership. If it is enforced, Indian operators selling GPU capacity should expect to be asked the same ownership questions, though the article does not say India is covered.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-a258409b95",
+      "headline": "OpenAI's GPT-6 Astra helps prove a method for a 25-year-old lattice physics obstacle",
+      "hook": "OpenAI's GPT-6 Astra helped build a proof that could ==crack a 50-year-old problem in particle physics==: putting the full Standard Model on a computer lattice.",
+      "points": [
+        "Physicist Nathaniel Craig of UC Santa Barbara, a visiting scientist at OpenAI, presented the work on the OpenAI blog and as a preprint. GPT-6 Astra turned his idea into a working construction and led the detailed proof.",
+        "The obstacle: the weak force treats left- and right-handed particles differently, which creates unwanted ghost particles on simple lattices. Overlap fermions can filter them out, but for over 25 years nobody could set their phase correctly.",
+        "Craig's strategy was to fix the phase by comparing progressively finer lattices, but he could not prove it worked in every needed case.",
+        "Three lattice field theorists reviewed the proof. Craig calls the result \"much more a beginning than an end\"; realistic simulations remain far off."
+      ],
+      "signal": [
+        "Context: the same article lists OpenAI's September 166-page Navier-Stokes proof, still under review, with mathematicians questioning whether OpenAI fully understands it. AI-assisted proofs need human verification before they count."
+      ],
+      "key_stat": "25+ years · phase unsolved",
+      "editors_read": "The pattern is AI filling the proof step a human expert had identified but could not close. That is verifiable work, because reviewers can check each step. The open question is whether the lab or the field gets credit and who audits the next claim."
+    },
+    {
+      "id": "ai-d584a637a8",
+      "headline": "India and nine others sign declaration to protect AI supply chains",
+      "hook": "India and nine other nations signed the San Francisco Declaration on November 15, ==declaring protection of AI supply chains a shared endeavour==, at the US-led Pax Silica retreat.",
+      "points": [
+        "Signatories: US, India, Australia, Israel, Japan, South Korea, Qatar, Singapore, UAE and UK. The retreat was convened by US under-secretary of state Jacob Helberg.",
+        "It names two assets to protect: sensitive technologies (goods, software, knowledge, components) and critical infrastructure (ports, transport, communications, logistics, IT and digital platforms).",
+        "The signatories say resilience comes from diversified, trusted supply chains and from coordination against non-market policies that distort the AI market.",
+        "It proposes five working groups: pro-innovation policy, AI adoption in key sectors, supply chain cooperation across the AI stack, safe harbours and security hubs, and AI security and resilience.",
+        "Pax Silica is a broader US-led framework for critical minerals, semiconductors and AI infrastructure supply chains."
+      ],
+      "signal": [
+        "For India, it is a channel to coordinate on AI supply chains while it builds semiconductor and computing manufacturing and cuts reliance on foreign components."
+      ],
+      "key_stat": "10 nations · 5 working groups",
+      "editors_read": "The text sets no binding obligations in the article's account; value depends on what the working groups produce. Read it alongside today's US chip-export rule: Washington is building both a club and a fence."
+    },
+    {
+      "id": "india-deep-tech-78cf05cabe",
+      "headline": "India gets 12.8% of deep tech deals but 1.6% of the money",
+      "hook": "Indian deep tech was ==12.8% of global funding rounds but just 1.6% of capital== in 2025, says a Speciale Invest report.",
+      "points": [
+        "Over the last decade India ranked fourth globally with 1,414 rounds but 12th in funding, at $3.8 billion. Deep tech investment in India reached $914 million in 2025.",
+        "Average seed round: $1.33 million in India against $5.78 million globally in 2026 so far, a 4.3x gap.",
+        "Series A and B average: $11.5 million in India against $55.5 million globally, a 4.8x gap.",
+        "India's share of global deep tech dollars shrinks by stage: 5.6% at seed, 1.6% at Series A and B, 0.9% at late-stage and private equity."
+      ],
+      "signal": [
+        "The gap widens as rounds get bigger, so Indian startups are funded to start but not to scale. If that persists, founders either raise abroad or stay small."
+      ],
+      "key_stat": "12.8% of deals · 1.6% of funding",
+      "editors_read": "Many small cheques, few big ones, is the signature of a capital bottleneck after seed. Whoever fills the Series A and B gap, domestic funds or foreign investors, will set where Indian deep tech companies are based."
+    },
+    {
+      "id": "global-economics-af65610e26",
+      "headline": "India signs San Francisco AI declaration; the hard part is domestic manufacturing",
+      "hook": "India's secretary S. Krishnan led its delegation as it signed the declaration, which is ==a political commitment, not binding== on procurement, technology transfer or new Indian rules.",
+      "points": [
+        "The delegation was led by S. Krishnan of MeitY, who also signed India's initial Pax Silica agreement in February 2026.",
+        "MeitY said on November 6 that 12 semiconductor projects are approved across six states, with investments above ₹1.64 lakh crore. It has also opened the Semicon 2.0 application portal.",
+        "India depends on China for rare-earth processing and on overseas suppliers for chip fabrication equipment, advanced chips and components. The article says joining a coalition cannot remove that.",
+        "Diversifying imports towards Japan, South Korea and the US would improve supply security but would not create domestic capability in materials, equipment, packaging, design or mineral processing.",
+        "The article names measurable progress as semiconductor partnerships, critical-mineral investments, access to advanced computing and Indian firms in trusted supply chains."
+      ],
+      "signal": [
+        "If the working groups produce joint investments rather than policy statements, India gains technology partners; if not, the declaration changes little."
+      ],
+      "key_stat": "₹1.64 lakh crore · 12 projects",
+      "editors_read": "Supply security and self-reliance are different goals. Diversifying away from China means buying from allies, and only manufacturing capacity built in India reduces dependence."
+    },
+    {
+      "id": "indian-startups-0518cee7e0",
+      "headline": "Bharat Semi raises $24M seed for image sensors with built-in AI",
+      "hook": "Bharat Semi, a New Delhi chip startup with no revenue yet, raised ==$24 million in seed funding== for image sensors that run AI on the same chip.",
+      "points": [
+        "The all-equity round was led by Info Edge Group, South Park Commons and Indus Bridge Ventures, with Valour Capital, Micromax, Gaingels and individuals also in.",
+        "The sensors capture images, process them and run AI on one chip, so data need not go to separate processors. Co-founder Vrinda Kapoor says this could cut system costs by at least 70%.",
+        "Initial commercial production is targeted for 2027. It has design wins with General Atomics and Kaynes Semicon, and targets smart homes, industrial automation, surveillance and aerospace.",
+        "It stays fabless (designs chips, outsources manufacturing). The company is nearly five years old; its CTO Boyd Fowler was previously CTO at OmniVision."
+      ],
+      "signal": [
+        "The 70% cost claim is the company's own and untested until production starts in 2027."
+      ],
+      "key_stat": "$24M · seed"
+    },
+    {
+      "id": "india-deep-tech-e27c600c39",
+      "headline": "Defence secretary: US open to co-producing in India, but must follow Make in India",
+      "hook": "Defence Secretary Rajesh Kumar Singh says the US has shown ==in-principle agreement to co-produce military equipment in India== rather than sell off the shelf.",
+      "points": [
+        "Any US platform sale must conform to Make in India policy, like every other partner, Singh said at a New Delhi media summit. He said India is not focusing on one country.",
+        "He cited the India-EU Security and Defence Partnership signed in January as an example of widening partnerships.",
+        "Procurement for a \"significant increase in underwater platforms\" has completed its internal cycle through two programmes, likely including six diesel-electric submarines under P75(I) with Mazagon Dock and Germany's TKMS. It awaits Cabinet Committee on Security clearance.",
+        "The Mission Sudarshan Chakra air and ballistic missile defence report is ready and under examination; procurement for air defence gaps is already under way."
+      ],
+      "signal": [
+        "If co-production holds, Indian firms could gain US work-share instead of buying finished platforms."
+      ],
+      "key_stat": "6 submarines · P75(I)",
+      "editors_read": "Singh is stating India's price for US sales: local production. Whether Washington accepts that depends on the details, which he did not give."
+    },
+    {
+      "id": "climate-energy-283535a064",
+      "headline": "India's EV sales double, but EVs are only 6% of the market",
+      "hook": "India sold over 300,000 passenger and light-duty EVs in January-October 2026, ==double the roughly 150,000 of the same period in 2025==.",
+      "points": [
+        "October alone delivered 41,274 units, the second month in a row above 40,000. Battery electric vehicles are the large majority.",
+        "EVs were still only around 6% of the October market.",
+        "Much of the growth reflects a fast-growing overall car market and new models, not the policy-driven adoption seen in China or Europe.",
+        "Separately, the source expects graphite electrodes to stay oversupplied for the rest of the decade and Japanese buyers to pay high yttrium premiums to 2028."
+      ],
+      "signal": [
+        "Growth is led by model supply rather than subsidy, so it depends on new launches continuing."
+      ],
+      "key_stat": "300,000+ units · ~6% share",
+      "editors_read": "Doubling from a small base is real but not yet a structural shift; 6% share is the number to watch."
+    },
+    {
+      "id": "global-economics-5ff2781941",
+      "headline": "Fed chair Warsh asks whether AI will do to services what China did to goods",
+      "hook": "Fed Chairman Kevin Warsh called this \"a hinge point\" and suggested AI could ==lower service prices while costing jobs, like the China shock==.",
+      "points": [
+        "At a conference he convened in San Francisco, Warsh asked whether to expect disinflation from AI in services such as legal and administrative work. Panelists largely said it was possible.",
+        "The China shock after 2001 cut goods prices; one estimate found the US lost 1 million manufacturing jobs and 2.4 million jobs overall.",
+        "Anthropic plans to price its IPO on Wednesday, raising up to $64 billion at a $1.4 trillion valuation. Heavy AI spending has the Fed weighing a rate rise in December.",
+        "Marc Andreessen argued regulation in healthcare and education will limit displacement. Voters in the Nov. 3 midterms passed state measures slowing data centers.",
+        "Warsh's three-member task force must report within months, then the Fed must debate it."
+      ],
+      "signal": [
+        "Near-term AI spending pushes rates up, while the longer-run services effect could push them down. The Fed has to choose which dominates."
+      ],
+      "key_stat": "$64B · Anthropic IPO",
+      "editors_read": "Warsh has asked questions, not given answers. The December rate decision will show which effect he weights."
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-7234ed3b15",
+          "headline": "Moonshot AI redirects Kimi models from coding to science",
+          "hook": "Moonshot AI is shifting its Kimi models toward biology, chemistry and pharma, seeing ==diminishing returns in coding==.",
+          "points": [
+            "International director Giacomo Ficari said at Web Summit that science demands smarter models than law, finance or code.",
+            "DP Technology is integrating Kimi K3.1 Pro into BioMaster. In one test it flagged 100 candidate genes from 3,696 mouse pancreatic cells in 90 minutes versus an estimated four hours of human work.",
+            "On TCSExam, a 100-problem theory benchmark, leading models produced verifiable proofs but solved no open conjectures alone.",
+            "A June Citi survey of 50 US research leaders found 72% use AI broadly but only 24% expect it to noticeably improve drug development success rates."
+          ],
+          "signal": [
+            "Labs are looking for new places to prove value; pharma buyers are still sceptical."
+          ],
+          "key_stat": "90 min vs ~4 hrs"
+        },
+        {
+          "id": "ai-e211770912",
+          "headline": "AMD completes World Labs acquisition; Fei-Fei Li joins as chief scientist",
+          "hook": "AMD has completed its acquisition of World Labs, and ==Fei-Fei Li joins as executive vice president and chief scientist==, reporting to CEO Lisa Su.",
+          "points": [
+            "World Labs builds AI models that create and simulate interactive 3D environments, plus technology for robotic learning and simulation.",
+            "The team will continue foundational model research while working with AMD engineers on future hardware, software and systems.",
+            "Su says delivering AI infrastructure requires optimising compute platforms and models together."
+          ],
+          "signal": [
+            "The article gives no price. The logic: a chipmaker with its own model team can design hardware around how models behave."
+          ]
+        },
+        {
+          "id": "ai-aae8c4832e",
+          "headline": "AI security startup Corma hits $1B valuation three months after launch",
+          "hook": "Corma raised a ==$125 million Series A at a $1 billion valuation== led by NEA, three months after introducing its product.",
+          "points": [
+            "It makes AI models and agents trained for cyber defence, and has raised $185 million in total including from Sequoia, Khosla Ventures and Coatue.",
+            "It left stealth in August. Interest surged after a critical PHP flaw on October 21, alongside a Node.js flaw and a LiteLLM incident that same day.",
+            "Competitors include Kevin Mandia's Armadin, Anthropic, OpenAI and Microsoft. Corma says it is a frontier AI research lab focused on protection."
+          ],
+          "signal": [
+            "Attackers using AI create demand for AI defenders, but with large rivals in the market, the valuation rests on Corma staying ahead."
+          ],
+          "key_stat": "$125M · Series A"
+        },
+        {
+          "id": "ai-ddcd7a9ae2",
+          "headline": "UN-backed study: AI models drop climate facts at the first pushback",
+          "hook": "In a Unesco and UCL study of 15 popular AI models, ==eight times in ten, models switched to a wrong answer at the first mild disagreement==.",
+          "points": [
+            "Models answered simple climate facts accurately, but gave in to statements like \"CO2 is not the main driver of climate change\". The authors call this sycophancy: pleasing the user over holding facts.",
+            "On one policy, such as a carbon tax, models were mostly accurate. On how two policies work together, accuracy fell to no better than random guessing.",
+            "Accuracy was 88% in English and comparatively high in Spanish, French and Portuguese, but lower in Hindi, Bengali and Urdu, and lowest in Swahili at 78%.",
+            "The report launched at the UN climate summit in Turkey, the same day Turkey launched the AI Antalya pledge for sustainably powered data centres."
+          ],
+          "signal": [
+            "Hindi speakers get weaker answers, a gap for anyone deploying AI to Indian-language users."
+          ],
+          "key_stat": "8 in 10 · flip at first pushback"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-0bd2139312",
+          "line": "Andhra Pradesh approved a Robotics and Physical AI Policy 2026-36, a manufacturing-led plan covering components, robot platforms, integration, R&D, talent and adoption."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-fe5da97e00",
+          "headline": "Ex-Freshworks founders' AI-native CRM Dreamteam raises $53M",
+          "hook": "Dreamteam, an AI-native CRM started in 2025 by former Freshworks executives, ==raised $53M (about ₹498 crore)== from Together Fund, Accel and Premji Invest.",
+          "points": [
+            "Four AI agents track commitments, flag pipeline risks and automate routine sales tasks, pulling context from conversations, emails and Zoom calls.",
+            "Users can build custom apps and dashboards in natural language. The company claims hundreds of customers across AI, media, healthcare, manufacturing and consulting.",
+            "Next it plans to expand across the customer lifecycle: prospecting, onboarding and upselling. It did not say how it will use the funds.",
+            "Inc42 data show Indian AI startups raised $438M across 35 deals in Q2 2026, up 265% year on year."
+          ],
+          "signal": [
+            "Experienced founders with enterprise distribution are drawing large rounds; customer count claims are the company's own."
+          ],
+          "key_stat": "$53M · ₹498 Cr"
+        },
+        {
+          "id": "agritech-c352cd2c17",
+          "headline": "Sebi forms panel to simplify IPO, FPO and QIP rules",
+          "hook": "Sebi set up an NSE chief Ashish Chauhan-led sub-group to ==review fundraising chapters of the ICDR regulations== and ease access to capital markets.",
+          "points": [
+            "It covers IPOs, follow-on offers, preferential issues and QIPs, reviewing eligibility, lock-ins, allotment, disclosures and pricing norms including price bands and floor prices.",
+            "The aim is to remove duplicate disclosures and improve clarity. Members include BSE, ICAI, ICSI, ICICI Securities, Kotak, Khaitan & Co and CII; its recommendations go to the PMAC.",
+            "Separately, on 14 October Sebi proposed that companies with post-issue market cap up to ₹1,000 crore list only on the SME platform, and raised the SME IPO minimum average operating profit to ₹3 crore from ₹1 crore."
+          ],
+          "signal": [
+            "Lighter disclosure and lock-in rules would lower the cost of listing, but the panel has only started."
+          ],
+          "key_stat": "₹1,000 Cr · SME-only cap proposed"
+        },
+        {
+          "id": "indian-startups-24c39ce649",
+          "headline": "Urban Company opens ₹2,500 crore QIP at ₹161.03 floor price",
+          "hook": "Urban Company opened a QIP to raise up to ₹2,500 crore with a ==floor price of ₹161.03 per share==, allowing up to a 5% discount.",
+          "points": [
+            "Largest use: ₹1,025 crore (41%) for acquisitions and general corporate purposes. ₹600 crore goes to InstaHelp supply, ₹540 crore to marketing, ₹200 crore to technology, ₹85 crore to training and ₹50 crore to Native product R&D.",
+            "InstaHelp, its instant home services line, faces competition from Snabbit and Pronto.",
+            "September-quarter revenue grew 41.4% to ₹537.29 crore, but net loss widened to ₹182.48 crore from ₹59.33 crore, largely on InstaHelp investment.",
+            "It held ₹1,901 crore in cash and treasury investments on September 30, 2026."
+          ],
+          "signal": [
+            "It is raising while loss-making and already holding cash close to the raise, so the money is a bet on winning instant services."
+          ],
+          "key_stat": "₹2,500 Cr · QIP"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-78442afeaa",
+          "line": "Samsung and Xiaomi raised prices on 48 India smartphone variants by ₹1,000-4,000 on November 15-16, citing rising memory chip prices and weak demand; the Galaxy A57 rose ₹4,000."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-ad8e88fef3",
+          "headline": "First Tejas Mk1A squadron due by end of March 2027, says IAF chief",
+          "hook": "IAF chief Dixit says the first ==Tejas Mk1A squadron will arrive by end of March 2027==, after deliveries slipped from February 2024.",
+          "points": [
+            "A squadron is typically 18 aircraft; the IAF has ordered 180 Mk1As. It has 29 active fighter squadrons against a sanctioned 42, its lowest in 60 years.",
+            "HAL missed the February 2024 start for the first 83 jets (₹36,400 crore, ordered February 2021), mainly due to late GE F404 engines and weapons integration. That batch was due by February 2028.",
+            "A second order for 97 jets worth over ₹62,370 crore (September 2025) starts delivering in FY2027-28 over six years.",
+            "Tejas Mk2 may roll out next year per Dixit, though its prototype has not flown. The AMCA stealth jet's industry partner selection is underway."
+          ],
+          "signal": [
+            "Even on schedule, one squadron of 18 covers a small share of the 13-squadron shortfall."
+          ],
+          "key_stat": "29 vs 42 squadrons"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-b0d4cf513b",
+          "line": "IBM spends about $3 billion a year in India, CEO Arvind Krishna said, expects a share of its planned $10 billion five-year global quantum investment, and will install a quantum computer in Amaravati in early 2027."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-c5f10d2362",
+          "headline": "UN talks on 'killer robots' meet once every five years",
+          "hook": "At least 50 countries want a strict timetable for binding rules on autonomous weapons at this week's UN CCW conference, ==held only once every five years==.",
+          "points": [
+            "The US, Russia and Israel are set to oppose legally binding rules; Washington proposes a five-year timetable to draft non-binding guidelines.",
+            "The Red Cross warns autonomous weapons cannot reliably tell a fighting soldier from a wounded or surrendering one. The UN, Red Cross and Pope want binding rules.",
+            "UN talks work by consensus, which produced a blinding-laser ban in 1995. The landmine ban was reached outside the UN process.",
+            "A likely compromise is a longer or open-ended negotiation, with rules states can adopt as binding or non-binding."
+          ],
+          "signal": [
+            "If consensus fails, a treaty may form outside the UN among willing states, without the biggest arms developers."
+          ],
+          "key_stat": "50+ states · binding rules"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-b945bdb3b7",
+          "line": "Scientists developed a method giving verifiable error margins for quantum simulations too large for conventional computers to check, demonstrated on a 51-qubit system."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-9966c77025",
+          "headline": "Super Micro under Singapore probe over alleged Nvidia server diversion to China",
+          "hook": "US prosecutors charged three people tied to Super Micro in March with ==diverting at least $2.5 billion of Nvidia GPU servers to China==; Singapore is now probing the company.",
+          "points": [
+            "The accused: co-founder Wally Liaw, employee Steven Chang and broker Willy Sun. Super Micro itself is not a defendant, and the allegations are unproven.",
+            "Prosecutors say servers went through a Southeast Asian intermediary and Taiwan, with repackaging, false paperwork and dummy servers shown to auditors. The scheme allegedly began around 2024.",
+            "Singapore said on November 13 it has investigated Super Micro and Megaspeed since February 2025 over possible false declarations, and that Super Micro cooperated only limitedly. Super Micro disputes this and says Megaspeed was never its customer.",
+            "Super Micro put Liaw and Chang on leave and ended its relationship with Sun."
+          ],
+          "signal": [
+            "Cases like this are why Washington is now regulating compute access, not only shipments."
+          ],
+          "key_stat": "$2.5B · alleged diversion"
+        },
+        {
+          "id": "global-economics-53fd6d23b3",
+          "headline": "Nvidia board says it is not discussing Huang's return as CEO search continues",
+          "hook": "Nvidia's board is ==not considering bringing back Jensen Huang==, sources say, despite 180,200 petition signers and support from Trump and Musk.",
+          "points": [
+            "Huang resigned on 12 November after admitting an affair with Alice Huang, a Singapore-based Chinese executive. The board hired Wachtell Lipton to investigate whether secrets or national security were compromised.",
+            "US intelligence sources say she was likely an intelligence asset rather than a trained spy. The Justice Department has not concluded she was a spy.",
+            "The Financial Times reports the board approached Arm CEO Rene Haas; the board calls candidate speculation premature. CFO Colette Kress is interim CEO.",
+            "Nvidia shares fell 3.7% on Monday, a day before its third-quarter earnings. Treasury Secretary Scott Bessent urged an outsider CEO."
+          ],
+          "signal": [
+            "Earnings come amid unresolved governance questions; a return before investigations end would raise legal risk, governance experts warn."
+          ],
+          "key_stat": "-3.7% · shares Monday"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-fc15577b07",
+          "line": "India raised export duties on diesel and aviation turbine fuel, leaving petrol unchanged, as wholesale inflation hit 12.3% in October and retail inflation rose to 6.09%."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-bfd3d1c2db",
+          "headline": "India proposes local-content rule for batteries in more renewable projects",
+          "hook": "The Ministry of Power's draft would ==extend domestic content requirements for battery storage== beyond subsidised projects to wider solar, wind and standalone storage tenders.",
+          "points": [
+            "It covers solar, wind-solar hybrid, FDRE and standalone storage bidding. The draft sets no new percentage and names no components; guidelines will follow.",
+            "Current rules: 20% local content on BESS under the existing viability gap funding scheme, and a 40% minimum approved on November 4 for a new ₹14,500 crore scheme supporting 30 GWh.",
+            "The draft would make storage mandatory in the solar part of wind-solar hybrids, and make Payment Security Fund contributions optional for standalone BESS, capped at ₹5 lakh per MWh.",
+            "Comments are open until November 25."
+          ],
+          "signal": [
+            "If applied broadly, developers would need locally made batteries even without subsidy, raising demand for Indian cell and pack makers."
+          ],
+          "key_stat": "40% DCR · ₹14,500 Cr VGF"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-aa781c325b",
+          "line": "India's PLI scheme has added 24GW of solar module manufacturing capacity, NITI Aayog says (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "india-deep-tech-59ffe3e93b",
+          "headline": "Tankers hit in Strait of Hormuz as drone raises alarm at Iraq gas field",
+          "hook": "Tankers were hit in the Strait of Hormuz on Monday, and the IMO recorded ==136 security incidents in the region from March 1 to November 11==, 35 in October alone.",
+          "points": [
+            "Iran's IRGC Navy said two tankers hit mines on an unauthorised route; its regular navy said a third did. These claims are unverified.",
+            "UKMTO reported two attacks: one tanker disabled by fire north of Khasab, Oman, and another struck by an unidentified projectile. No casualties were reported.",
+            "A drone flew over Iraq's Khor Mor gas field, where production was halted the previous week after a suspected drone attack disrupted 2.8 GW of electricity generation.",
+            "USS Theodore Roosevelt arrived, making three US carriers in the Central Command area, as talks to end the war and reopen the strait remain stalled."
+          ],
+          "signal": [
+            "If the strait stays contested, energy shipping and fuel prices stay exposed."
+          ],
+          "key_stat": "136 incidents · Mar 1-Nov 11"
+        },
+        {
+          "id": "world-115d73dd03",
+          "headline": "Five EU states plan Rwanda 'return hub' for rejected migrants",
+          "hook": "Germany, Austria, the Netherlands, Denmark and Greece plan a Rwanda centre, with ==about 100 people to be sent from early next year== as a pilot.",
+          "points": [
+            "It is the first use of the EU's new returns law, which allows people who exhausted appeals to be sent to a third country. It excludes asylum seekers, unlike the failed UK scheme.",
+            "The Dutch say the first phase returns only single men; unaccompanied children will not be sent. Deportees can integrate in Rwanda or return home.",
+            "Spain's Pedro Sanchez said it has no future or humanity. Human Rights Watch cites Rwanda's repression record; legal challenges are expected.",
+            "EU irregular crossings were almost 110,000 in the first 10 months of 2026, down 29% on the year."
+          ],
+          "signal": [
+            "If the pilot survives court challenges, other states may join; the UK says it will watch with interest."
+          ],
+          "key_stat": "~100 people · pilot"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "agritech",
+      "stories": [],
+      "also": [
+        {
+          "id": "agritech-98fda1dbbb",
+          "line": "India's 2026 monsoon delivered 759.4 mm, 87% of the long-period average and the 13th weakest since 1901; 44% of districts were deficient, the highest share since 2015."
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-0b917f2703",
+          "headline": "Modelling: one nuclear blast in space would disable 98% of satellites within a week",
+          "hook": "A 1-megaton blast 500 km above the South Atlantic would ==knock out 98% of satellites within a week==, a University of Wisconsin-Madison model finds.",
+          "points": [
+            "The worst damage is not the initial X-ray spike. Fission electrons trapped in Earth's magnetic field form an artificial radiation belt that repeatedly exposes satellites.",
+            "Assuming satellites are three times more radiation-resistant, 97% still fail within two weeks.",
+            "The US detonated a 1.4-megaton bomb at 400 km in 1962; roughly 25,000 objects now orbit.",
+            "About 20 collisions within two years are estimated, risking Kessler syndrome (debris chain reactions). GPS, internet and weather forecasts depend on satellites."
+          ],
+          "signal": [
+            "Recovery would take years because replacement satellites would launch into radiation and debris."
+          ],
+          "key_stat": "98% · within a week"
+        }
+      ],
+      "also": []
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-be8718b62f",
+      "name": "Primewise Founders Club Networking Event (Jaipur, online)",
+      "when": "Sat 28 Nov 2026, 12:00-1:30 PM IST",
+      "summary": "Online session with 25-40 selected founders and investors: 50-second spotlights, give-and-ask rounds and breakout rooms. Registration requires the confirmation form first, as Meetup signup alone does not confirm a seat."
+    }
+  ]
+}
