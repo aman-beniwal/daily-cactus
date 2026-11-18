@@ -1,0 +1,485 @@
+{
+  "date": "2026-11-18",
+  "lead": {
+    "id": "deep-tech-ca2c2127c3",
+    "headline": "Nvidia's revenue doubles to $115.8bn as board rules out Huang's return",
+    "hook": "Nvidia's third-quarter revenue doubled to $115.8bn, beating expectations, and its board said it will not reinstate ousted CEO Jensen Huang.",
+    "points": [
+      "Profit also doubled to $65bn for the quarter to 25 October; data-centre revenue doubled to $107bn. Shares rose 4.8% in after-hours trading.",
+      "Huang resigned last week after revelations of affairs, one with Alice Huang, a former executive of Megaspeed, a Singapore cloud firm under US criminal investigation over chips reaching Chinese firms.",
+      "Hours before results, Huang said he would be \"honoured\" to return. Chair Harvey Jones replied that the board unanimously accepted his resignation and does not intend to reinstate him.",
+      "Interim CEO Colette Kress guided to 13% revenue growth next quarter and 75% next financial year, up from 70%. She said Nvidia has stopped shipping Hopper chips to China.",
+      "The board is searching for a permanent CEO, internal and external, and says it will not rush. Washington also imposed new AI chip export curbs on Monday.",
+      "Huang is due to be questioned by US lawmakers on December 1 over national security concerns."
+    ],
+    "signal": [
+      "Results show orders already booked do not depend on Huang; the open question is product, partnership and investment decisions after he leaves.",
+      "If the new US licence rules hold, Southeast Asian data centres renting chips to China-based firms lose a business line."
+    ],
+    "key_stat": "$115.8bn · Q3 revenue, 2x year on year",
+    "editors_read": "Strong numbers answer the demand question but not the leadership one: committed orders carry for months, while strategy and the investment pace are Kress's and the next CEO's to set. The export rules and congressional scrutiny make China exposure the main risk to Nvidia's growth, not AI demand. Separately today, Nvidia signalled it will be more selective with its investments.",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "world-bfcaf275b2",
+      "headline": "US confirms criminal probe of Nvidia customer Megaspeed over chip exports",
+      "hook": "The US Justice and Commerce departments confirmed they have investigated Singapore-based Megaspeed since 2024 for suspected export-control violations involving Nvidia chips shipped to China.",
+      "points": [
+        "Megaspeed is the biggest buyer of Nvidia chips in South East Asia and is suspected of helping divert advanced chips to China. It launched an internal investigation on Sunday.",
+        "Timeline: Commerce requested Nvidia's records in May 2025; Nvidia put Megaspeed on its 'no sell' list in June 2025; agents then did an on-site check with Singapore police and interviewed then-CEO Alice Huang.",
+        "The Justice Department then took the lead on the criminal case. The agencies said they spoke up to \"address inaccurate information\".",
+        "Treasury Secretary Scott Bessent blamed Commerce, led by Howard Lutnick, for weak oversight of exports. Lutnick is to testify to the Senate Banking Committee next month."
+      ],
+      "signal": [
+        "The case moves the blame from one firm to the export-licensing system itself, which Commerce runs."
+      ],
+      "key_stat": "Probe since 2024",
+      "editors_read": "Washington is showing that the probe predates the scandal, which protects Commerce and shifts focus to who approved shipments. Next: Lutnick's testimony and whether Singapore's own inquiry produces charges. Customers renting chips across borders face more compliance cost either way."
+    },
+    {
+      "id": "ai-3ddd561d3d",
+      "headline": "Isomorphic Labs raises $5B to move AI-designed drugs into clinical trials",
+      "hook": "Alphabet-backed Isomorphic Labs raised a $5 billion Series C, about six months after a $2.1 billion Series B, to take its first drug candidates into clinical trials.",
+      "points": [
+        "Greenoaks and Sequoia Capital co-led; Andreessen Horowitz joined as a new investor, and existing backers including Thrive, GV, MGX and Temasek also invested.",
+        "Isomorphic did not disclose valuation. Bloomberg reported earlier this month it was seeking a $50 billion valuation.",
+        "Its IsoDDE engine uses AI models to design drugs, predict their properties and refine them before scientists pick candidates to make and test.",
+        "The company reports positive preclinical results in oncology and immunology, and has partnerships with Novartis, Eli Lilly and Johnson & Johnson.",
+        "Funds go to its drug-design engine, first therapeutic programmes towards trials and wider types of medicine."
+      ],
+      "signal": [
+        "The test is clinical data: if its candidates succeed in trials, AI drug design gets proof beyond preclinical results."
+      ],
+      "key_stat": "$5B · Series C",
+      "editors_read": "Raising $7.1B in six months before any trial is a bet on the platform, not on a drug. A human trial result is what turns the valuation into evidence; a failure would hit the whole AI drug-discovery pitch. For a generalist, pharma partnerships are the business model to watch."
+    },
+    {
+      "id": "indian-startups-62b087555d",
+      "headline": "Sarvam AI opens Token Factory, hosting global open models on Indian servers",
+      "hook": "Sarvam AI opened Token Factory, one API giving access to its Sarvam 105B and global open-weight models, all run on GPU clusters in India.",
+      "points": [
+        "Hosted models include Google's Gemma 4 31B, DeepSeek V4.1 Flash, GLM 5.3 and Kimi K3.1 Pro. The API is OpenAI-compatible, so developers can switch models easily.",
+        "Pricing is per token: Sarvam 105B costs ₹15 per million input tokens and ₹60 per million output tokens; cached input costs ₹5.",
+        "Sarvam claims it matches or beats leading global providers on speed and cost. In its tests, Sarvam 105B returned the first token in 200 milliseconds.",
+        "It says it serves over 450 billion tokens a day on DeepSeek V4.1 Flash, with 95.7% of prompt tokens served from cache.",
+        "Rivals include OpenAI, which began India-based inference on November 12, Krutrim, Together AI, Fireworks AI, OpenRouter and the big cloud providers."
+      ],
+      "signal": [
+        "Banks and others with data-residency needs get a local option; if it holds up on price, India-hosted inference becomes a baseline expectation."
+      ],
+      "key_stat": "₹15 / ₹60 · per million input / output tokens",
+      "editors_read": "Sarvam is moving from model maker to inference reseller, a lower-margin but steadier business that depends on cache efficiency. Its edge is keeping data in India without routing to overseas APIs. OpenAI's same-week India move shows how fast that edge can narrow."
+    },
+    {
+      "id": "india-deep-tech-c2ed2ed811",
+      "headline": "Bharat Semi raises $24M seed for AI image sensors",
+      "hook": "Bharat Semi raised $24 million (about ₹215 crore) in seed funding to build programmable image sensors that combine capture, processing and AI in one chip.",
+      "points": [
+        "Conventional cameras send data from the sensor to separate processors; Bharat Semi puts these functions on one chip.",
+        "It estimates this could cut imaging system costs by at least 70% against setups using separate sensors, image signal processors and system-on-chip components.",
+        "It reportedly has design wins with US defence firm General Atomics and Kaynes Semicon. Sensors are still in development and it has no revenue.",
+        "It plans initial commercial production in 2027, is fabless (outsources manufacturing) and is exploring US and other markets."
+      ],
+      "signal": [
+        "The 70% saving is the company's estimate; the proof is whether design wins turn into production orders in 2027."
+      ],
+      "key_stat": "$24M · seed round"
+    },
+    {
+      "id": "climate-energy-c53c778baa",
+      "headline": "Amazon to invest $7B more in Indian renewable energy by 2030",
+      "hook": "Amazon will invest an additional $7 billion (about ₹65,393 crore) in India's renewable energy by 2030, on top of $4 billion already contracted.",
+      "points": [
+        "It unveiled four projects totalling 934 MW: a 234 MW wind farm in Karnataka (its largest contracted wind project in Asia), a 200 MW hybrid in Karnataka, 300 MW solar in Madhya Pradesh and 200 MW solar in Rajasthan.",
+        "Developers are Sunsure (two Karnataka projects), Waaree (Madhya Pradesh) and ReNew (Rajasthan), under power purchase agreements.",
+        "Its Indian contracted renewable portfolio will exceed 2 GW, enough for over 3.5 million households a year.",
+        "It supports Amazon's new global goal of cutting the carbon intensity of its electricity by 65% by 2030 against 2019."
+      ],
+      "signal": [
+        "Long-term power purchase agreements give Indian developers guaranteed buyers; large tech and data-centre demand is becoming a main driver of new Indian renewable capacity."
+      ],
+      "key_stat": "$7B · by 2030"
+    },
+    {
+      "id": "work-careers-2b070524e2",
+      "headline": "US proposes biggest green card labour-test overhaul in nearly 20 years",
+      "hook": "The US Department of Labor proposed raising the minimum PERM job-advertising period from 30 to 90 days and barring approvals for two years after related layoffs.",
+      "points": [
+        "PERM is the labour market test required for most EB-2 and EB-3 green cards, showing no qualified US worker is available.",
+        "Employers would submit full documents with every application, including all US applicants' resumes; today these are generally needed only in an audit.",
+        "Schedule A, which exempts nurses, physical therapists and people of exceptional ability from the test, would be eliminated.",
+        "Ads would need to state pay, and recruitment less accessible to US workers would be presumed bad faith.",
+        "In October, the US suspended eight firms, including Infosys, TCS, Wipro, HCL, Cognizant and Microsoft, from PERM. IBM said it would stop most green card sponsorship in Consulting.",
+        "The proposal has a 60-day comment period and takes effect only once finalised."
+      ],
+      "signal": [
+        "If finalised as proposed, sponsoring Indian professionals costs employers more time and paperwork, and layoffs would block filings."
+      ],
+      "key_stat": "30 → 90 days · minimum advertising period",
+      "editors_read": "Longer, costlier sponsorship favours large employers with legal teams and discourages smaller ones. For Indian professionals planning US careers, the timeline and employer willingness to sponsor become the constraints. Final rules may differ after comments."
+    },
+    {
+      "id": "deep-tech-bde2db6342",
+      "headline": "Iran and US trade strikes as Kuwait reports drone attacks",
+      "hook": "Kuwait said it is under drone attack as the US struck Iran's Qeshm island after Iran launched drones at a US radar in Bahrain, the third such attack in five days.",
+      "points": [
+        "Iran's Revolutionary Guard said it targeted the radar at Sheikh Isa air base over alleged US drone airspace violations. US Central Command said the drones were intercepted without damage.",
+        "A US official said the response hit a missile launch site on Qeshm; Iranian media reported five to six explosions there.",
+        "Iran said three tankers hit naval mines in the Strait of Hormuz, which normally carries about a fifth of the world's oil. The US says it cleared the main routes.",
+        "The tanker Tara Gas was hit twice off Oman; 24 of its 25 crew were Indian, and India's ports minister said one Indian sailor is missing.",
+        "A third US carrier arrived in the region. A Trump-Xi-Putin summit on Thursday includes Iran on its agenda."
+      ],
+      "signal": [
+        "Indian crews and oil imports are directly exposed to Hormuz risk; shipping and insurance costs rise if attacks on tankers continue."
+      ],
+      "key_stat": "3 attacks on Bahrain in 5 days",
+      "developing": true
+    },
+    {
+      "id": "agritech-c8ead4dde5",
+      "headline": "ICRA expects India's Q2 growth at 7.5%, down from 7.8%",
+      "hook": "ICRA projects India's July-September GDP growth at 7.5%, a five-quarter low, down from 7.8% in the previous quarter but above the RBI panel's 7.2% forecast.",
+      "points": [
+        "Agriculture is the main drag: growth is seen at 0.2% against 3.6%, as kharif sowing fell 1% and rice acreage fell 3.5% amid weak monsoon rain.",
+        "Industry growth is seen easing to 7.2% from 7.7%, and services to 9.1% from 10%. Overall GVA is projected at 7.2%, with GDP about 0.3 points higher on indirect taxes.",
+        "Manufacturing output rose 8.1%, a series high; motor vehicles grew 22.7%. Mining output fell 3.9%.",
+        "ICRA expects growth to moderate in the second half on deficient rain, rising inflation and input costs, and pegs FY27 growth at 7.1%."
+      ],
+      "signal": [
+        "A weak monsoon hits rural demand and food prices; if inflation rises, growth likely slows in the second half."
+      ],
+      "key_stat": "7.5% · Q2FY27 GDP growth forecast"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-1a2a1d7ac2",
+          "headline": "Nvidia says it will be more selective in its investments",
+          "hook": "Interim CEO Colette Kress said Nvidia will apply \"disciplined\" and \"rigorous\" scrutiny to future investments, after the company put over $100 billion into equity stakes and backing.",
+          "points": [
+            "Nvidia has funded companies across the AI supply chain, including OpenAI, Anthropic, CoreWeave and Marvell.",
+            "The remarks signal a shift from Huang's aggressive investment strategy."
+          ],
+          "signal": [
+            "If Nvidia funds fewer customers, AI startups that depended on its backstops may need other financiers."
+          ],
+          "key_stat": "$100B+ · invested in AI stakes"
+        },
+        {
+          "id": "ai-8a57a94289",
+          "headline": "Google rolls out its Tasks AI assistant free in India",
+          "hook": "Google began rolling out Tasks, an agentic assistant that makes calls, books appointments and completes purchases, free in six markets including India, using its Gemini 4 Hydrogen model.",
+          "points": [
+            "Tasks can call businesses, wait on hold, find appointment slots and add bookings to the calendar, using data from Gmail, Calendar, Maps and payment cards.",
+            "Purchases run on the agent payments protocol (AP2). Google is working with American Express, Mastercard and Visa on tokenised card payments but did not say if this covers India.",
+            "Developers can join its Connected Apps Platform, which could let Indian shopping, fintech and travel brands build integrations.",
+            "Meta, OpenAI, Microsoft and xAI are also launching agent products; India's Emergent launched Wingman."
+          ],
+          "signal": [
+            "Adoption in India depends on supported merchants, payment methods and apps, which Google has not clarified."
+          ],
+          "key_stat": "6 markets · free rollout"
+        },
+        {
+          "id": "ai-9195fb7d09",
+          "headline": "Indian data centres face electrical bottlenecks, Fluke survey finds",
+          "hook": "Only 23% of Indian data centre operators say their electrical infrastructure is fully ready for higher-density AI workloads, a Fluke survey of 1,300 professionals found.",
+          "points": [
+            "75% of Indian operators had electrical or power-system issues in the past year; 31% say power-quality problems cut their ability to run high-density AI workloads.",
+            "79% say grid and power access limits expansion, with an average 13-month wait for new grid connections.",
+            "56% find it harder to hire qualified electricians, and 31% say skill shortages delayed upgrades.",
+            "53% report extensive real-time visibility of electrical systems, ahead of the 45% global average."
+          ],
+          "signal": [
+            "Power and electrical skills, not chips, are limiting AI capacity growth; the survey is by an electrical-test equipment maker with an interest in monitoring."
+          ],
+          "key_stat": "13 months · average wait for grid connection"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-bf79941327",
+          "line": "Modi, Trump, Albanese and Takaichi met at the Quad summit in Manila and announced new initiatives on AI and maritime security (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-1cc4977211",
+          "headline": "China opens Huawei-chip AI cluster built to export tokens",
+          "hook": "China launched its first AI computing cluster on Huawei's Ascend 950DT chips aimed at overseas customers, a 1 billion yuan ($150 million) project in Shantou.",
+          "points": [
+            "It processes foreign users' AI queries locally and sends only the generated tokens abroad, a \"token export\" model. It began operating last week.",
+            "It sits at China Telecom's submarine cable landing station and is run by Guangdong Tianyima Information Industry.",
+            "Each Ascend 950DT card has 144 GB of in-house high-bandwidth memory and 1 petaflop of FP8 compute. A 1,024-card supernode cluster went live in Shanghai in September.",
+            "The project comes as the US tightens limits on Chinese firms' access to chips through overseas data centres, and as Chinese models gain overseas demand on lower prices."
+          ],
+          "signal": [
+            "If it works, China sells AI output instead of hardware, which export controls on chips cannot easily block."
+          ],
+          "key_stat": "1B yuan · Shantou cluster"
+        },
+        {
+          "id": "deep-tech-b85340a45a",
+          "headline": "US details criminal probe of Megaspeed over chip diversion",
+          "hook": "The US Justice Department is leading a criminal investigation into Singapore cloud firm Megaspeed over possible chip export-control violations, the agencies said on Monday.",
+          "points": [
+            "Commerce opened the case in 2024 after spotting suspicious activity; Nvidia added Megaspeed to its 'no sell' list in June 2025, a month after Commerce requested its records.",
+            "Singapore's own investigation into possible false declarations on server purchases began in February 2025 and remains open.",
+            "Megaspeed says it runs a lawful business, has hired outside lawyers, and that Alice Huang left on 30 August 2025."
+          ],
+          "signal": [
+            "Two governments investigating means cross-border chip resellers face scrutiny in more than one jurisdiction."
+          ],
+          "key_stat": "Probe opened 2024"
+        },
+        {
+          "id": "deep-tech-0433d3b1af",
+          "headline": "Google's Gemini 4 Hydrogen targets cheaper robot control",
+          "hook": "Google launched Gemini 4 Hydrogen, a faster model for robotics that scores 58 on the Artificial Analysis Robotics 0.1 benchmark, similar to Argon at lower cost per token.",
+          "points": [
+            "Given a goal in plain language and a camera view, it plans the task, writes control code and adjusts until done; the benchmark uses a real 6-axis arm on eight tabletop tasks.",
+            "It beats Google's Gemini Robotics ER 2 on nearly every axis, and Google recommends ER 2 users try it.",
+            "A new Robotics plugin in Google Antigravity handles setup, MuJoCo simulation, perception and control. Google says an arm was calibrated in about 10 minutes.",
+            "Antigravity requires a paid Google AI Pro or Ultra plan; the model is also in the Gemini API and AI Studio."
+          ],
+          "signal": [
+            "The pitch is cutting robotics integration time to hours; results are Google's own demos and benchmark."
+          ],
+          "key_stat": "58 · Robotics 0.1 score"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-b7842a4338",
+          "line": "GM plans a 20% boost in robotics as factory costs rise, Reuters reported exclusively (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-168a5c8c54",
+          "headline": "India's deeptech funding hit $914M in 2025 but thins out as firms mature",
+          "hook": "Indian deeptech startups raised $914 million in 257 rounds in 2025, 34 times the 2016 level, but got only 1.6% of global deeptech capital, Speciale Invest says.",
+          "points": [
+            "India had 12.8% of global deeptech rounds but 1.6% of the capital. Per 100 seed rounds, India had 23 Series A or B rounds against 105 globally, and one late-stage round against 26.",
+            "Indian Series A and B rounds averaged $11.5 million in January to August 2026, against $55.5 million globally.",
+            "Pilots rarely convert into orders; Speciale urges buyers to agree upfront what a pilot must prove and when they will decide to buy.",
+            "The government's RDI scheme has approved 22 projects worth ₹2,192 crore through the Technology Development Board, mainly via loans and equity.",
+            "Semiconductor and battery firms still depend on overseas fabrication, packaging and imported cells."
+          ],
+          "signal": [
+            "The gap is growth capital and first orders, not seed money; domestic Series B and C funds and plant finance are the proposed fixes."
+          ],
+          "key_stat": "1.6% · India's share of deeptech capital"
+        },
+        {
+          "id": "indian-startups-3dea643657",
+          "headline": "Genesis AI raises $500M Series A at $3.5B valuation",
+          "hook": "Genesis AI, which builds AI models designed to run across many types of robots, raised a $500 million Series A at a $3.5 billion valuation, per Sifted (summary from limited source text).",
+          "points": [
+            "It is one of the largest robotics rounds in Europe this year, according to the report headline and opening line.",
+            "Nvidia is among the backers; the rest of the article text was not readable."
+          ],
+          "signal": [
+            "Large rounds for general robot models show investors pricing in cross-robot AI software."
+          ],
+          "key_stat": "$500M · Series A"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-43e1a03bd6",
+          "line": "Oister Global launched a deep tech fund targeting ₹400 crore plus a ₹200 crore greenshoe, up to ₹600 crore, for growth-stage startups, filling a gap in later-stage Indian funding."
+        },
+        {
+          "id": "indian-startups-8d78b8dffd",
+          "line": "Bengaluru sovereign AI infrastructure startup JohnAIC raised $1.9M pre-seed led by Crane Venture Partners to scale AI server manufacturing (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-ad8e88fef3",
+          "headline": "First Tejas Mk1A squadron due by end of March 2027, IAF chief says",
+          "hook": "IAF chief Ashutosh Dixit said the first squadron of Tejas Mk1A fighters will arrive by end of March 2027, after delays from the original February 2024 start.",
+          "points": [
+            "A squadron is typically 18 aircraft; the IAF has ordered 180 Mk1As: 83 in 2021 for ₹36,400 crore and 97 in September 2025 for over ₹62,370 crore.",
+            "The delay is mainly from late GE F404 engine deliveries, plus weapons integration.",
+            "The IAF has 29 active fighter squadrons against a sanctioned 42, its lowest in 60 years.",
+            "Dixit said Tejas Mk2 may roll out next year; its prototype has not yet flown. AMCA stealth jet partner selection is under way."
+          ],
+          "signal": [
+            "Even on schedule, one squadron barely dents the shortfall of 13 squadrons; engine supply remains the constraint."
+          ],
+          "key_stat": "29 vs 42 · fighter squadrons"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [],
+      "also": [
+        {
+          "id": "climate-energy-768c4d8518",
+          "line": "Petronas arm Gentari unveiled its 870MW Titan green hydrogen and ammonia project in southern India, targeting about 540,000 tonnes of green ammonia a year for export, with investment decision targeted for 2027."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-cbb2177a53",
+          "headline": "Nvidia forms national security board committee as Huang signals return bid",
+          "hook": "Nvidia created a board committee on national security and export controls, as Huang said he would return as CEO if the board decides it is best, after $400 billion in lost market value.",
+          "points": [
+            "The committee is chaired by Suzanne Nora Johnson, with Stephen Neal and John Dabiri; the national security and trade compliance teams will report to it, and it meets at least quarterly.",
+            "Nvidia had no chief compliance officer, per its 2026 proxy statement. Such narrow committees are more common at aerospace and defence firms.",
+            "Nvidia has warned buyers that the proposed Remote Access Security Act could expose it and customers to legal risk by widening oversight of Chinese cloud access to AI chips.",
+            "Huang's daughter Madison Huang helped shape the public defence of Nvidia's Megaspeed ties, the Financial Times reported."
+          ],
+          "signal": [
+            "Governance now answers to regulators first; compliance gaps at a firm this central to US policy are a cost to shareholders."
+          ],
+          "key_stat": "$400B+ · market value lost by Monday"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-ee9428f691",
+          "line": "Gurugram high-frequency trading firm Graviton Research Capital made its two 39-year-old founders billionaires after its Singapore unit's profits rose 166%, Bloomberg reported."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-888d174911",
+          "headline": "Quad leaders plan joint military exercises, AI and minerals cooperation",
+          "hook": "Quad leaders from India, the US, Japan and Australia met in Manila for the first time since 2024 and announced new joint exercises plus work on AI, critical minerals and infrastructure.",
+          "points": [
+            "Australia will deploy P-8A Poseidon and P-3C Orion maritime patrol aircraft in the exercise in early 2027, building on the recent Malabar drills.",
+            "A Quad business forum will be held in 2027.",
+            "Trump said the US could catch up to China in rare earth production within 10 months, helped by Australia, Japan and India.",
+            "Albanese said he would press Trump on ending the Iran war, which has caused a global energy shock; he meets Xi on Friday."
+          ],
+          "signal": [
+            "China will likely criticise the exercises; for India, minerals and AI cooperation matter more than the military optics."
+          ],
+          "key_stat": "First Quad leaders' meeting since 2024"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-430faaeb18",
+          "line": "Commerce Minister Piyush Goyal said India's October exports hit an all-time high of nearly $90 billion, including about $50 billion in merchandise (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-2df6e49f02",
+          "headline": "Ukraine cripples Crimean road bridge two days before Putin-Trump-Xi talks",
+          "hook": "Ukraine collapsed the central road section of the 19-km Crimean bridge using drones and missiles, two people were killed and road traffic is suspended, Russian-installed officials said.",
+          "points": [
+            "Zelenskyy called it a seventh-stage operation over weeks, first suppressing radars and air defences; weapons included Neptune and Flamingo cruise missiles and Destinus Ruta missiles.",
+            "The rail section was attacked but remains standing, with services partly resumed. The $3.6 billion bridge was opened by Putin in 2018.",
+            "Earlier attacks in 2022 (truck bomb) and 2023 (sea drone) did little lasting damage.",
+            "Russia's alternative is a land corridor through occupied Zaporizhzhia and Kherson, which Ukraine is also striking. The Kremlin vows to rebuild it \"better than before\"."
+          ],
+          "signal": [
+            "If the rail line falls next, Crimea depends on one highway Ukraine already targets; the political message lands before Putin meets Trump and Xi on Thursday."
+          ],
+          "key_stat": "19 km · $3.6B bridge"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-0894ae77e4",
+          "headline": "India's rice surplus strains subsidies, storage and trade ties",
+          "hook": "India's rice output hit a record 154 million tons in 2025/26 against 107 million tons of domestic consumption, while federal food subsidies doubled in a decade to ₹2.28 trillion ($24.1 billion).",
+          "points": [
+            "Flood-tolerant Swarna-SUB1 rice, released in 2009, opened up eastern India. Bihar's output rose 182% in 15 years.",
+            "State bonuses on top of the federal minimum support price push farmers away from oilseeds and pulses; India imported $22.7 billion of them in 2025 while rice exports earned $12 billion.",
+            "Government rice stocks reached a record 55.47 million tons, over four times the target; 13.1 million tons of storage is planned.",
+            "Exports doubled to 22.3 million tons, 40% of world trade, selling about $110 a ton below Thai rice; Trump accused India of dumping.",
+            "NITI Aayog projects output at 171 million tons by 2036 against domestic demand of 110 million."
+          ],
+          "signal": [
+            "Cutting subsidies is politically hard after the 2020-21 farm protests, so costs keep rising unless state bonuses are curbed."
+          ],
+          "key_stat": "55.47M tons · record rice stocks"
+        }
+      ],
+      "also": [
+        {
+          "id": "agritech-cde86925d2",
+          "line": "India's 20% ethanol blending push diverts maize, wheat and other cereals, raising poultry feed prices and pushing farmers towards a financial crisis, poultry farmers say (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [
+        {
+          "id": "other-interests-a18ee02857",
+          "headline": "Only nine countries sign COP31 pledge on AI's environmental footprint",
+          "hook": "Just nine countries have signed the voluntary Antalya AI Pledge, launched at COP31, as AI data centre electricity use rose 50% in 2025, per the IEA.",
+          "points": [
+            "Signatories: Andorra, Brazil, Colombia, Luxembourg, Sierra Leone, Somalia, South Korea, Turkey and Uganda.",
+            "It has no binding targets; its four areas include cleaner energy, efficient data centres and impact measurement. \"Low- and zero-emission\" energy still allows fossil gas.",
+            "Analyst Ketan Joshi says it does not address the core problem and warns of greenwashing without stricter regulation.",
+            "Progress will be reviewed at annual UN climate summits until 2030, starting at COP32."
+          ],
+          "signal": [
+            "Without binding rules, grid constraints and cost, not pledges, will shape data centre energy choices."
+          ],
+          "key_stat": "9 countries signed"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-05c3d40e2b",
+          "headline": "STAT Health Tech newsletter from HLTH on CMS's AI roadmap (limited source text)",
+          "hook": "STAT's Health Tech newsletter is reporting from the HLTH conference in Las Vegas on a new AI roadmap from CMS (summary from limited source text).",
+          "points": [
+            "The readable text is only the newsletter intro; details of the CMS roadmap were not available."
+          ],
+          "signal": []
+        }
+      ],
+      "also": []
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-ae635998b8",
+      "name": "ICANN Fellowship Program 2027",
+      "when": "Apply by 5 December 2026, 23:59 UTC",
+      "summary": "Funded fellowship with mentoring, training and travel assistance to attend ICANN89 Policy Forum in Vancouver, Canada; open to applicants 21 or older from all regions interested in internet policy and the Domain Name System."
+    }
+  ]
+}
