@@ -60,7 +60,7 @@ LOG = ROOT / "feeds" / "newsroom_log.jsonl"
 # --- usage guard (v8.2) -----------------------------------------------------
 # Hard ceilings per call: a runaway input (a bug, a huge page) is refused
 # BEFORE it is sent, so one bad day can't eat the weekly allowance.
-MAX_INPUT_CHARS = {"editor": 160_000, "writer": 260_000}   # ~40k / ~65k tokens
+MAX_INPUT_CHARS = {"editor": 160_000, "writer": 340_000}   # ~40k / ~85k tokens (v10: up to 35 cards)
 SPIKE_FACTOR = 2.0          # today vs the median of the last 7 runs
 SPIKE_FLOOR_TOKENS = 90_000 # never alarm below this (normal day ~60k)
 ALERT_FILE = ROOT / "newsroom_alert.txt"   # the workflow turns this into an issue
@@ -77,7 +77,9 @@ class LimitError(RuntimeError):
     """The subscription's usage window is exhausted (retry after reset)."""
 
 
-MAX_FULL_CARDS = 24
+MAX_FULL_CARDS = 35   # v10: hard ceiling
+SOFT_FULL_CARDS = 30  # v10: cards past this need composite >= STRONG_COMP
+STRONG_COMP = 10      # composite = S+N+C+Fit/2, max 14
 MAX_FRONT = 8
 MAX_ALSO = 2          # per section (v8.3: 20-30 one-liners pulled the reader into clicking)
 MAX_ALSO_TOTAL = 10
@@ -282,7 +284,7 @@ def editor_input(digest: dict) -> str:
 
 PRIORITY = ["ai", "indian-startups", "india-deep-tech", "deep-tech", "global-economics",
             "india", "world", "climate-energy", "work-careers", "health-tech", "agritech",
-            "other-interests", "beyond-your-beat"]
+            "science-mind", "other-interests", "beyond-your-beat"]
 
 
 def code_ranked_selection(digest: dict) -> dict:
@@ -303,7 +305,7 @@ def code_ranked_selection(digest: dict) -> dict:
 
 def validate_selection(sel: dict, digest: dict) -> dict:
     """Enforce the rules in code, whatever the model returned: known ids only,
-    one lead, front <= 8, no front/section repeats, <= 24 full cards, rails and
+    one lead, front <= 8, no front/section repeats, <= 35 full cards, rails and
     opportunities capped. Trims the lowest-scored picks first."""
     known = {s["id"]: sec["slug"] for sec in digest.get("sections", []) for s in sec.get("stories", [])}
     whens = {s["id"]: s["when"] for sec in digest.get("sections", []) for s in sec.get("stories", [])
@@ -312,7 +314,12 @@ def validate_selection(sel: dict, digest: dict) -> dict:
 
     def comp(i):
         v = scores.get(i)
-        return sum(x for x in v[:4] if isinstance(x, (int, float))) if isinstance(v, list) else 0
+        # v10: Fit counts half (Scale + Novelty + Consequence + Fit/2), so a big
+        # off-beat story can beat a small on-beat one (prompts/editor.md).
+        if not isinstance(v, list):
+            return 0
+        n = [x if isinstance(x, (int, float)) else 0 for x in v[:4]] + [0, 0, 0, 0]
+        return n[0] + n[1] + n[2] + n[3] / 2
 
     def ok(i):
         return isinstance(i, str) and i in known
@@ -331,8 +338,17 @@ def validate_selection(sel: dict, digest: dict) -> dict:
         placed.update(also)
         if stories or also:
             sections.append({"slug": s.get("slug"), "stories": stories, "also": also})
-    # reading budget: drop the lowest-scored section stories first
+    # reading budget: drop the lowest-scored section stories first.
+    # v10: past SOFT_FULL_CARDS, a section card must score >= STRONG_COMP
+    # (the editor went straight to 35 on the first trial, 9 Nov 2026).
     full = [lead] + front + [i for s in sections for i in s["stories"]]
+    if len(full) > SOFT_FULL_CARDS:
+        ranked = sorted((i for s in sections for i in s["stories"]), key=comp, reverse=True)
+        room = SOFT_FULL_CARDS - 1 - len(front)
+        weak = {i for i in ranked[max(room, 0):] if comp(i) < STRONG_COMP}
+        for s in sections:
+            s["stories"] = [i for i in s["stories"] if i not in weak]
+        full = [lead] + front + [i for s in sections for i in s["stories"]]
     over = len(full) - MAX_FULL_CARDS
     if over > 0:
         cut = set(sorted((i for s in sections for i in s["stories"]), key=comp)[:over])
@@ -444,6 +460,67 @@ def promote_readable_lead(sel: dict, selected: dict) -> None:
             return
 
 
+
+# ---------------------------------------------------------------- v10 patterns (L2/L3)
+FORCES = ("technology", "capital", "geopolitics", "regulation", "demographics", "climate", "discovery")
+PATTERN_DAYS = 14
+
+
+def _pat_key(name: str) -> frozenset:
+    return frozenset(w for w in re.findall(r"[a-z0-9]+", (name or "").lower()) if len(w) > 2)
+
+
+def same_pattern(a: str, b: str) -> bool:
+    ka, kb = _pat_key(a), _pat_key(b)
+    if not ka or not kb:
+        return False
+    return ka == kb or len(ka & kb) / len(ka | kb) >= 0.6
+
+
+def recent_patterns(drafts_dir, date: str, days: int = PATTERN_DAYS) -> list:
+    """Pattern memory, derived from the committed drafts (no extra state file, so
+    no workflow change). Returns [{name, force, days: [dates], line}], newest first."""
+    try:
+        today = datetime.date.fromisoformat(date)
+    except ValueError:
+        return []
+    out = []
+    dirs = drafts_dir if isinstance(drafts_dir, (list, tuple)) else [drafts_dir]
+    files = sorted((f for d in dirs for f in pathlib.Path(d).glob("20*.json")),
+                   key=lambda f: f.stem, reverse=True)
+    for f in files:
+        try:
+            d = datetime.date.fromisoformat(f.stem)
+        except ValueError:
+            continue
+        if not (today - datetime.timedelta(days=days) <= d < today):
+            continue
+        try:
+            pats = json.loads(f.read_text()).get("patterns") or []
+        except Exception:                                        # noqa: BLE001
+            continue
+        for pt in pats:
+            name = (pt or {}).get("name") if isinstance(pt, dict) else None
+            if not name:
+                continue
+            hit = next((o for o in out if same_pattern(o["name"], name)), None)
+            if hit:
+                if f.stem not in hit["days"]:
+                    hit["days"].append(f.stem)
+            else:
+                out.append({"name": name, "force": pt.get("force", ""), "days": [f.stem],
+                            "line": pt.get("line", "")})
+    return out
+
+
+def patterns_input(recent: list) -> str:
+    if not recent:
+        return ""
+    rows = [f"- {r['name']} [{r['force']}] (last {r['days'][0]}; already told: {r.get('line', '')})"
+            for r in sorted(recent, key=lambda r: r["days"][0], reverse=True)[:20]]
+    return ("RECENT PATTERNS (the reader has already been told these; include one today only "
+            "with a real new development, as an update, name word for word):\n" + "\n".join(rows))
+
 # ---------------------------------------------------------------- writer
 _NAV = re.compile(r"^(?:advertisement|read more|also read|subscribe|sign up|share this|"
                   r"follow us|related:?|recommended|image:|photo:|watch:|listen:)\b", re.I)
@@ -465,10 +542,12 @@ def clean_text(t: str) -> str:
     return "\n".join(out)
 
 
-def writer_input(sel: dict, selected: dict) -> str:
+def writer_input(sel: dict, selected: dict, recent: list | None = None) -> str:
     stories = selected.get("stories") or {}
     parts = [f"DATE: {sel['date']}", "Write every story below in the place given.",
              "Output JSON only."]
+    if recent:
+        parts.append(patterns_input(recent))
 
     def block(role, sid, section=None, extra=""):
         s = stories.get(sid) or {}
@@ -494,6 +573,36 @@ def writer_input(sel: dict, selected: dict) -> str:
     return "\n".join(parts)
 
 
+_AI_RX = re.compile(r"\bAI\b|artificial intelligence|\bLLMs?\b|chatbot", re.I)
+MAX_AI_PATTERNS, MAX_UPDATES, MAX_TAKEAWAYS = 2, 2, 4
+
+
+def _headline_key(h: str) -> str:
+    return re.sub(r"[^a-z0-9 ]", "", (h or "").replace("==", "").lower())
+
+
+def drop_duplicate_cards(draft: dict) -> list:
+    """Two cards on the same event in one paper (e.g. a front-page story written
+    again in its section): keep the first, drop the later one."""
+    import difflib
+    seen, dropped = [], []
+
+    def keep(c):
+        k = _headline_key(c.get("headline"))
+        if not k:
+            return True
+        if any(c.get("id") == i or difflib.SequenceMatcher(None, k, o).ratio() >= 0.6 for i, o in seen):
+            dropped.append(c.get("headline", ""))
+            return False
+        seen.append((c.get("id"), k))
+        return True
+    keep(draft["lead"])
+    draft["frontpage"] = [c for c in draft["frontpage"] if keep(c)]
+    for s in draft["sections"]:
+        s["stories"] = [c for c in s["stories"] if keep(c)]
+    return dropped
+
+
 def validate_draft(draft: dict, sel: dict) -> dict:
     allowed = {sel["lead"], *sel["frontpage"], *sel["opportunities"], *sel["longform"]}
     for s in sel["sections"]:
@@ -514,7 +623,88 @@ def validate_draft(draft: dict, sel: dict) -> dict:
             secs.append(s)
     draft["sections"] = secs
     draft["opportunities"] = [x for x in draft.get("opportunities") or [] if x.get("id") in allowed]
+    # v10: L2/L3 layer. Keep only known ids and the fixed force list; a funding
+    # round written into `money` must not also appear as a card or one-liner.
+    money = [m for m in draft.get("money") or [] if isinstance(m, dict) and m.get("id") in allowed
+             and m.get("company") and m.get("amount")]
+    money_ids = {m["id"] for m in money}
+    used = {c.get("id") for c in sm.cards(draft)}
+    money = [m for m in money if m["id"] not in used]
+    money_ids = {m["id"] for m in money}
+    for s in draft["sections"]:
+        s["also"] = [x for x in s["also"] if x.get("id") not in money_ids]
+    draft["sections"] = [s for s in draft["sections"] if s["stories"] or s["also"]]
+    draft["money"] = money
+    # v10.1: cards carry information only. Learning (patterns, takeaways) sits
+    # at the top; a longform card keeps one "why read" signal line.
+    for s in draft["sections"]:
+        for card in s["stories"]:
+            card["_longform"] = s.get("slug") == "longform"
+    for card in sm.cards(draft):
+        for k in ("headline", "hook"):
+            if isinstance(card.get(k), str):
+                card[k] = card[k].replace("==", "")
+        if isinstance(card.get("points"), list):
+            card["points"] = [str(x).replace("==", "") for x in card["points"]]
+        card.pop("editors_read", None)
+        card.pop("evidence_of", None)
+        card.pop("force", None)
+        if not card.pop("_longform", False):
+            card.pop("signal", None)
+    dropped = drop_duplicate_cards(draft)
+    draft["sections"] = [s for s in draft["sections"] if s["stories"] or s["also"]]
+    if dropped:
+        print(f"  dropped {len(dropped)} duplicate card(s): {dropped}")
+    pats, n_ai, n_upd = [], 0, 0
+    for pt in draft.get("patterns") or []:
+        if not isinstance(pt, dict) or not pt.get("name") or not pt.get("line"):
+            continue
+        ev = [i for i in dict.fromkeys(pt.get("evidence") or []) if i in allowed]
+        if not ev:
+            continue
+        is_ai = bool(_AI_RX.search(pt["name"]))
+        upd = bool(pt.get("update"))
+        if (is_ai and n_ai >= MAX_AI_PATTERNS) or (upd and n_upd >= MAX_UPDATES):
+            print(f"  dropped pattern over cap: {pt['name']}")
+            continue
+        n_ai += is_ai
+        n_upd += upd
+        row = {"name": str(pt["name"]).strip(), "line": str(pt["line"]).strip(), "evidence": ev}
+        if pt.get("force") in FORCES:
+            row["force"] = pt["force"]
+        for k in ("why", "watch"):
+            if str(pt.get(k) or "").strip():
+                row[k] = str(pt[k]).strip()
+        if upd:
+            row["update"] = True
+        pats.append(row)
+    draft["patterns"] = pats[:5]
+    # Tags are derived, never guessed: a card is tagged only when a pattern
+    # lists it as evidence (first, i.e. strongest, pattern wins).
+    in_pattern = set()
+    for card in sm.cards(draft):
+        pt = next((x for x in draft["patterns"] if card.get("id") in x["evidence"]), None)
+        if pt:
+            card["evidence_of"] = pt["name"]
+            if pt.get("force"):
+                card["force"] = pt["force"]
+            in_pattern.add(card.get("id"))
+    for pt in draft["patterns"]:
+        in_pattern.update(pt["evidence"])
+    tks = []
+    for tk in draft.get("takeaways") or []:
+        if isinstance(tk, dict) and tk.get("id") in allowed and tk.get("id") not in in_pattern \
+                and str(tk.get("line") or "").strip() and tk["id"] not in {x["id"] for x in tks}:
+            tks.append({"id": tk["id"], "line": str(tk["line"]).strip()})
+    draft["takeaways"] = tks[:MAX_TAKEAWAYS]
     return draft
+
+
+def annotate_streaks(draft: dict, recent: list) -> None:
+    """'Seen on N of the last 14 days' (today included) for each pattern."""
+    for pt in draft.get("patterns") or []:
+        hit = next((r for r in recent if same_pattern(r["name"], pt["name"])), None)
+        pt["streak"] = 1 + (len(hit["days"]) if hit else 0)
 
 
 def no_paper(date: str, stage: str, ex: Exception) -> None:
@@ -591,10 +781,13 @@ def main():
     # 3 — writing
     drafts = base / "drafts"
     drafts.mkdir(parents=True, exist_ok=True)
+    # pattern memory: this mode's drafts, the live ones, and the v10 trial's (carried over at go-live)
+    recent = recent_patterns(list(dict.fromkeys([drafts, ROOT / "drafts", ROOT / "trial" / "drafts"])), date)
     try:
         draft = call_with_retry("writer", (PROMPTS / "writer.md").read_text(),
-                                writer_input(sel, selected), a.writer_model, a.writer_effort, date=date)
+                                writer_input(sel, selected, recent), a.writer_model, a.writer_effort, date=date)
         draft = validate_draft(draft, sel)
+        annotate_streaks(draft, recent)
     except Exception as ex:                                      # noqa: BLE001
         no_paper(date, "writer", ex)
     (drafts / f"{date}.json").write_text(json.dumps(draft, indent=2, ensure_ascii=False))

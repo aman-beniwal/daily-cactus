@@ -366,14 +366,14 @@ def test_v7_editorial():
 def test_v8_newsroom():
     import newsroom as nr
     digest = {"date": "2026-09-23", "sections": [
-        {"slug": "ai", "stories": [{"id": f"ai-{i}", "title": f"t{i}"} for i in range(30)]},
+        {"slug": "ai", "stories": [{"id": f"ai-{i}", "title": f"t{i}"} for i in range(40)]},
         {"slug": "opportunities", "stories": [{"id": "opportunities-1", "title": "x", "when": "on 2026-10-01"}]}]}
     raw = {"lead": "ai-0", "frontpage": [f"ai-{i}" for i in range(1, 12)],
-           "sections": [{"slug": "ai", "stories": [f"ai-{i}" for i in range(0, 30)], "also": ["ai-29", "nope"]}],
-           "opportunities": ["opportunities-1", "ai-5"], "scores": {f"ai-{i}": [1, 1, 1, i % 5, ""] for i in range(30)}}
+           "sections": [{"slug": "ai", "stories": [f"ai-{i}" for i in range(0, 39)], "also": ["ai-39", "nope"]}],
+           "opportunities": ["opportunities-1", "ai-5"], "scores": {f"ai-{i}": [1, 1, 1, i % 5, ""] for i in range(40)}}
     sel = nr.validate_selection(raw, digest)
     full = 1 + len(sel["frontpage"]) + sum(len(x["stories"]) for x in sel["sections"])
-    check("newsroom: <= 24 full cards enforced in code", full <= 24)
+    check("newsroom: <= 35 full cards enforced in code (v10 ceiling)", full <= 35)
     check("newsroom: front page capped at 8", len(sel["frontpage"]) <= 8)
     check("newsroom: lead never repeated in its section",
           all("ai-0" not in x["stories"] for x in sel["sections"]))

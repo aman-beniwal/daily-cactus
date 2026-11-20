@@ -221,3 +221,19 @@ paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
 - **Not done yet:** grounding check is warn-only (enforce after a week of logs);
   `followup` cards are flagged but not specially shown; a few opportunity sources
   failed (10times 403, ProFellow, iVolunteer).
+
+## 10. v10 is live (20 Nov 2026) — plan + history in `docs/V10_PLAN.md`
+- **What changed for the reader:** a wider paper (Science & Mind, India national affairs, fewer
+  funding cards; rounds go to "Where the money went"). Cards are **information only** (no yellow
+  highlight, no Signal, no Editor's Read). All **learning sits at the top**: "What's changing"
+  (numbered patterns: what is changing, why it matters, what to watch, its stories) and
+  "Other takeaways". A card in a pattern shows a small line after its bullets: `² pattern name ↑`.
+  Card footer is an icon bar (Source · ChatGPT · Claude · Copy · 👍 👎).
+- **Repeats:** pattern memory (last 14 days, from `drafts/` and `trial/drafts/`) is used to avoid
+  repeating: an old pattern returns only with a real new development, marked "Update". Code caps
+  updates and AI patterns at 2 each and drops a story written twice in one paper.
+- **Card links to patterns are derived** from each pattern's evidence list (code), never guessed.
+- The side-by-side trial workflow was removed. Old trial papers stay readable at
+  `…/daily-cactus/v10/?trial=YYYY-MM-DD`. Today's (20 Nov) live paper was replaced by the v10 one.
+- **Watch for a week:** the writer renaming an old pattern to dodge the "update" rule; vague
+  catch-all patterns (one slipped through on 20 Nov: "Courts and states press on platform content control").
