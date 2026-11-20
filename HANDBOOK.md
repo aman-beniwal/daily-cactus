@@ -255,6 +255,11 @@ paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
   a thread without an item go in `threads_touched` (counted, not shown).
 - **Sundays:** "The week's threads" (active this week + gone quiet), built by code, no model call.
 - **Masthead tagline:** "The headlines are just the prickles." Part of the nameplate: American
-  Typewriter (brand chrome font) in riso green, starting under the "C" of Cactus, tucked to its
+  Typewriter (brand chrome font) in riso green, starting just right of the "C" of Cactus (62%), just under its
   baseline (one line on desktop, two short lines on phones). CSS: `.wordmark-wrap` / `.tagline`.
+- **The Big Picture is its own section** (20 Nov 2026): a real section heading in brand green
+  (like the menu bar), first in the paper and first in the menu; a plain "Front Page" heading
+  (no colour, brand rule) then marks where the news starts. Papers without a Big Picture
+  (before 9 Nov) keep the old menu. Menu jumps land the heading just below the sticky menu.
+  The tagline is recorded in `BRAND_KIT.html` (Logo section).
 - Watch the first week: do chips look right; does the writer use `thread` ids instead of renaming.
