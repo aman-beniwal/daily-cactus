@@ -312,10 +312,8 @@ def test_emphasis_never_marks_the_same_fact_twice():
              "points": ["It could rise another 12% analysts said."]}
     ae.apply_emphasis(story)
     hl_count = story["headline"].count("==") + story["hook"].count("==")
-    check("exactly one field carries the yellow highlight (2 markers, one pair)",
-          hl_count == 2)
-    check("the highlight landed in the headline, not the hook",
-          "==" in story["headline"] and "==" not in story["hook"])
+    # v10.1 (20 Nov 2026): the yellow highlight is retired; none is ever added.
+    check("no yellow highlight is added (retired in v10.1)", hl_count == 0)
     check("the consequence bullet is underlined", "__" in story["points"][0])
 
 
@@ -328,9 +326,8 @@ def test_old_format_draft_still_yields_bullets_and_marks():
                                        "Exports drove most of the gain."}, refs, [])
     check("bullets are derived from an old-format summary", len(story["points"]) == 2)
     check("the paragraph is cleared so it is not shown twice", story["summary"] == "")
-    check("the headline carries a claim highlight around the raise",
-          "==" in story["headline"] and "$75M" in story["headline"]
-          and story["headline"].index("==") < story["headline"].index("$75M"))
+    check("the headline carries no highlight (retired in v10.1)",
+          "==" not in story["headline"] and "$75M" in story["headline"])
 
 
 # --- v7: editorial layer + copy desk ----------------------------------------
