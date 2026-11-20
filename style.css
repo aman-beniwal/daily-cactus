@@ -515,8 +515,8 @@ html{scroll-behavior:smooth}
    Brand chrome font (American Typewriter) in riso green, like the wordmark. */
 .wordmark-wrap{flex:0 1 748px;min-width:0}
 .wordmark-wrap .wordmark{width:100%;max-width:100%}
-.masthead .tagline{margin:-2.1% 0 0;padding-left:59.67%;text-align:left;white-space:nowrap;
-  font-family:var(--stamp);font-size:clamp(11px,1.65vw,16px);letter-spacing:.2px;
+.masthead .tagline{margin:-1.2% 0 0;padding-left:62%;text-align:left;white-space:nowrap;
+  font-family:var(--stamp);font-size:clamp(12px,1.85vw,18px);letter-spacing:.2px;
   line-height:1.3;color:var(--riso-green)}
 @media(max-width:699px){
   .masthead .tagline .tl2{display:block}   /* two short lines, both under "Cactus" */
@@ -532,3 +532,12 @@ html{scroll-behavior:smooth}
 .week-threads .wt-line{font-size:14px;color:var(--graphite)}
 .week-threads .wt-faded-h{margin:10px 0 0;font-size:13px;font-style:italic;color:var(--faded)}
 .week-threads ul.wt-faded{font-size:14px;color:var(--faded)}
+
+/* The Big Picture / Front Page heads (20 Nov 2026). Big Picture = the paper's own
+   analysis, so it wears the brand green (like the menu bar); Front Page has no
+   colour (brand rule), just the ink heading and the brown rule. */
+.sec-head.bp-head{margin-top:22px}
+.sec-head.bp-head .sec-title{background:var(--riso-green);color:#F4EEDD}
+.sec-head.fp-head{margin-top:40px}
+.sec-head.fp-head .sec-title{background:none;padding-left:0;color:var(--ink)}
+.patterns-card .bp-sub{margin-top:0}

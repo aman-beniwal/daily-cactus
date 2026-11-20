@@ -569,7 +569,7 @@ function patternsHTML(patterns, urlAnchors, takeaways, weekThreads) {
     ? `<div class="takeaways"><h4>Other takeaways</h4><ul>${takeaways.map((t) =>
         `<li>${esc(t.line)} ${t.url ? link(t, "&darr;&nbsp;story") : ""}</li>`).join("")}</ul></div>`
     : "";
-  return `<section class="card patterns-card">${hasP ? `<h4>The Big Picture</h4><p class="bp-sub">What today&rsquo;s news adds up to</p><ol class="pat-list">${rows}</ol>` : ""}${tk}${wk}</section>`;
+  return `<section class="card patterns-card">${hasP ? `<p class="bp-sub">What today&rsquo;s news adds up to</p><ol class="pat-list">${rows}</ol>` : ""}${tk}${wk}</section>`;
 }
 
 function moneyHTML(money) {
@@ -766,7 +766,10 @@ function renderEdition(ed) {
   $("#markets").innerHTML = marketsHTML(ed.markets);
 
   // Nav
-  const navItems = [`<a data-target="top">Front Page</a>`];
+  const hasBigPic = (ed.patterns || []).length || (ed.takeaways || []).length || ed.week_threads;
+  const navItems = hasBigPic
+    ? [`<a data-target="sec-bigpicture">The Big Picture</a>`, `<a data-target="sec-front">Front Page</a>`]
+    : [`<a data-target="top">Front Page</a>`];
   (ed.sections || []).forEach((s) => {
     if (s.stories && s.stories.length) navItems.push(`<a data-target="sec-${esc(s.slug)}">${esc(s.name)}</a>`);
   });
@@ -777,7 +780,12 @@ function renderEdition(ed) {
     a.addEventListener("click", () => {
       const t = a.getAttribute("data-target");
       if (t === "top") window.scrollTo({ top: 0, behavior: "smooth" });
-      else document.getElementById(t)?.scrollIntoView({ behavior: "smooth" });
+      else {
+        // land the heading just below the sticky menu, not hidden under it
+        const el = document.getElementById(t);
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - $("#nav").offsetHeight - 14,
+                                  behavior: "smooth" });
+      }
     }));
 
   setupNavActive();
@@ -828,7 +836,15 @@ function renderEdition(ed) {
   (ed.patterns || []).forEach((p, i) => (p.evidence || []).forEach((e) => {
     if (e && e.url && !PAT_BY_URL.has(e.url)) PAT_BY_URL.set(e.url, { n: i + 1, name: p.name });
   }));
-  html += patternsHTML(ed.patterns, urlAnchors, ed.takeaways, ed.week_threads);
+  const bigPic = patternsHTML(ed.patterns, urlAnchors, ed.takeaways, ed.week_threads);
+  if (bigPic) {
+    // 20 Nov 2026: The Big Picture is its own section, first in the paper and the
+    // menu; a "Front Page" head then marks where the news itself starts.
+    html += `<div class="sec-head bp-head" id="sec-bigpicture"><h2 class="sec-title">The Big Picture</h2><span class="sec-rule"></span></div>`;
+    html += bigPic;
+    if (ed.lead || (ed.frontpage || []).length)
+      html += `<div class="sec-head fp-head" id="sec-front"><h2 class="sec-title">Front Page</h2><span class="sec-rule"></span></div>`;
+  }
   if (ed.lead) {
     html += `<div class="lead-wrap">${storyCardHTML(ed.lead, {
       lead: true, slug: "front", sectionName: null,
@@ -881,12 +897,12 @@ function renderEdition(ed) {
   let secIdx = 0;
   (ed.sections || []).forEach((sec) => {
     if (!sec.stories || !sec.stories.length) return;
-    const heads = document.querySelectorAll(".sec-head");
+    const heads = document.querySelectorAll(".sec-head:not(.bp-head):not(.fp-head)");
     if (heads[secIdx]) heads[secIdx].id = `sec-${sec.slug}`;
     secIdx++;
   });
   if (ed.opportunities && ed.opportunities.length) {
-    const heads = document.querySelectorAll(".sec-head");
+    const heads = document.querySelectorAll(".sec-head:not(.bp-head):not(.fp-head)");
     if (heads[secIdx]) heads[secIdx].id = "sec-opportunities";
   }
 
@@ -1069,7 +1085,7 @@ function setupNavActive() {
   const mark = () => {
     // offsetHeight ignores the hide-on-scroll slide, so the line stays put
     const line = Math.min(nav.offsetHeight + 40, innerHeight * 0.45);
-    let cur = "top";
+    let cur = links.length ? links[0].getAttribute("data-target") : "top";
     for (const a of links) {
       const t = a.getAttribute("data-target");
       if (t === "top") continue;
