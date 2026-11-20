@@ -91,3 +91,19 @@ is going, not every round. Cross-domain thinking needs cached patterns.
 - When Aman says merge: (1) `git pull` this branch (the bot commits trial/ to it),
   (2) merge into main, (3) delete `.github/workflows/trial_v10.yml`, (4) watch the next live run.
   If abandoned: delete the workflow file from main; the /v10/ pages can stay or be removed.
+
+## v10.1 (20 Nov 2026): review fixes + go-live (Aman's OK: build, test, publish, live uses v10 from now)
+Goal: cards = information only; top section = all learning; no repeats; cleaner design.
+- [x] W1 writer.md: no ==highlight==; no signal/editors_read on cards; patterns get `why` (+ optional `watch`);
+      `takeaways` [{id,line}] for big one-off stories; memory option B (old pattern only with a real new
+      development, written as the new bit; >=2 new patterns/day; <=2 AI patterns; no catch-all names).
+- [x] C1 newsroom.py: card evidence_of/force DERIVED from pattern evidence lists (writer no longer tags);
+      strip ==, signal, editors_read from cards; drop same story twice (id or near-identical headline);
+      cap AI patterns at 2; recent-pattern memory gives last line said (so writer knows what's not new).
+- [x] C2 assemble_edition.py: pass through pattern why/watch/update + takeaways.
+- [x] R1 renderer: numbered-list "What's changing" (option 2) + "Other takeaways"; thread line after bullets
+      (superscript n, name, superscript arrow, jumps up); icon-bar footer (Source/ChatGPT/Claude/Copy + thumbs);
+      no highlight; legacy editions still render. Bump ?v=.
+- [x] T1 tests + local render at 375/768/1280 on a v10 edition and a legacy edition.
+- [ ] P1 push branch; run trial end-to-end; check /v10/ at phone/desktop.
+- [ ] P2 merge into main; delete trial_v10.yml; next live run uses v10.

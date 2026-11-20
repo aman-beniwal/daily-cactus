@@ -223,16 +223,25 @@ function askPrompt(s) {
 window.daily.askCopy = function (btn) {
   const card = btn.closest(".story");
   const text = card && card.dataset.askPrompt ? card.dataset.askPrompt : "";
+  const lab = btn.querySelector(".ib-lab") || btn;
   const done = () => {
-    const was = btn.textContent;
-    btn.textContent = "copied";
-    setTimeout(() => { btn.textContent = was; }, 1600);
+    const was = lab.textContent;
+    lab.textContent = "Copied";
+    setTimeout(() => { lab.textContent = was; }, 1600);
   };
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(done, () => {});
   }
 };
 
+// v10.1 icon bar: Source · ChatGPT · Claude · Copy, thumbs on the right.
+const IC = {
+  src: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+  gpt: '<path d="M4 5h16v11H9l-5 4z"/>',
+  cld: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.9 2.9M15.5 15.5l2.9 2.9M18.4 5.6l-2.9 2.9M8.5 15.5l-2.9 2.9"/>',
+  cpy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+};
+const icon = (k) => `<svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg>`;
 function askAIHTML(s) {
   if (!s.url) return "";
   const q = encodeURIComponent(askPrompt(s));
@@ -240,11 +249,16 @@ function askAIHTML(s) {
     ? `claude://claude.ai/new?q=${q}`
     : `https://claude.ai/new?q=${q}`;
   const links = q.length <= ASK_MAX
-    ? `<a href="https://chatgpt.com/?q=${q}&hints=search" target="_blank" rel="noopener">ChatGPT</a>` +
-      `<a href="${claudeHref}" target="_blank" rel="noopener">Claude</a>`
+    ? `<a class="ib" href="https://chatgpt.com/?q=${q}&hints=search" target="_blank" rel="noopener" title="Ask ChatGPT about this story">${icon("gpt")}<span class="ib-lab">ChatGPT</span></a>` +
+      `<a class="ib" href="${claudeHref}" target="_blank" rel="noopener" title="Ask Claude about this story">${icon("cld")}<span class="ib-lab">Claude</span></a>`
     : "";
-  return `<span class="ask-ai"><span class="ask-lab">Ask&nbsp;AI</span>${links}` +
-    `<button type="button" onclick="daily.askCopy(this)">copy</button></span>`;
+  return links + `<button type="button" class="ib" onclick="daily.askCopy(this)" title="Copy a question about this story">${icon("cpy")}<span class="ib-lab">Copy</span></button>`;
+}
+function iconBarHTML(s, id, date) {
+  const src = s.url
+    ? `<a class="ib" href="${esc(s.url)}" target="_blank" rel="noopener" title="Read the original article">${icon("src")}<span class="ib-lab">Source</span></a>`
+    : "";
+  return `<div class="meta iconbar"><div class="ib-left">${src}${askAIHTML(s)}</div>${thumbsHTML(id, s.headline, date)}</div>`;
 }
 
 // ---------- markets bar (B5) ----------
@@ -416,7 +430,7 @@ function hl(text) {
   const safe = esc(String(text == null ? "" : text));
   let n = 0, u = 0;
   return safe
-    .replace(_HL_RE, (w, p) => (++n <= 2 ? `<mark class="hl">${p}</mark>` : p))
+    .replace(_HL_RE, (w, p) => p)   // v10.1: yellow highlight retired (it repeated the headline)
     .replace(_UL_RE, (w, p) => (++u <= 2 ? `<span class="ul">${p}</span>` : p))
     .replace(/_{2,}|={2,}/g, "");
 }
@@ -446,14 +460,17 @@ function keyStatHTML(s) {
 // v10 L2/L3: "what this is evidence of" tag, above The Signal.
 const FORCE_LABEL = { technology: "Technology", capital: "Capital", geopolitics: "Geopolitics",
   regulation: "Regulation", demographics: "Demographics", climate: "Climate", discovery: "Discovery" };
-function evidenceTagHTML(s) {
-  if (!s.evidence_of) return "";
-  const f = FORCE_LABEL[s.force] ? `<span class="force-chip">${esc(FORCE_LABEL[s.force])}</span>` : "";
-  return `<div class="evidence-tag"><b>Evidence of</b> ${esc(s.evidence_of)} ${f}</div>`;
+// v10.1: the card's link to its pattern comes from the pattern's own evidence
+// list (url match), never from a separate per-card tag, so it cannot drift.
+let PAT_BY_URL = new Map();
+function threadHTML(s) {
+  const p = s && s.url && PAT_BY_URL.get(s.url);
+  if (!p) return "";
+  return `<p class="thread"><a href="#pat-${p.n}" title="See this pattern at the top"><sup>${p.n}</sup> ${esc(p.name)} <sup>&uarr;</sup></a></p>`;
 }
 
 function bodyHTML(s, tabVar) {
-  let out = evidenceTagHTML(s);
+  let out = "";
   if (s.signal && s.signal.length) {
     out += `<div class="signal" style="--tabc:var(--${tabVar})"><b>The Signal</b><ul>${
       s.signal.map((b) => `<li>${esc(b)}</li>`).join("")}</ul></div>`;
@@ -465,7 +482,7 @@ function bodyHTML(s, tabVar) {
   if (s.editors_read) {
     out += `<div class="signal editors"><b>Editor&rsquo;s read</b>${esc(s.editors_read)}</div>`;
   }
-  return out;
+  return out + threadHTML(s);
 }
 
 // Fix 6 (RUN_AUDIT_2026-07-17): a story chosen for the front page also lives
@@ -506,21 +523,40 @@ function crossRefStripItem(s, anchorId, frontAnchorId) {
 // "Where the money went" roll-up. Both optional: older editions lack them.
 // outlet titles arrive as "Headline - Reuters"; drop the trailing outlet name
 const cleanHeadline = (t) => String(t || "").replace(/\s+[-|–]\s+[^-|–]{2,40}$/, "").trim();
-function patternsHTML(patterns, urlAnchors) {
-  if (!Array.isArray(patterns) || !patterns.length) return "";
-  const rows = patterns.map((p) => {
-    const f = FORCE_LABEL[p.force] ? `<span class="force-chip">${esc(FORCE_LABEL[p.force])}</span>` : "";
-    const streak = p.streak > 1 ? `<span class="streak">seen ${esc(p.streak)} of the last 14 days</span>` : "";
-    const ev = (p.evidence || []).map((e) => {
-      const a = e.url && urlAnchors.get(e.url);
-      const t = esc(cleanHeadline(e.title || ""));
-      if (a) return `<a class="sk" href="#${esc(a)}">${t}</a>`;
-      return e.url ? `<a class="sk" href="${esc(e.url)}" target="_blank" rel="noopener">${t}</a>` : t;
-    }).join("<span class=\"sep\"> · </span>");
-    return `<li><div class="pat-head">${f}<b>${esc(p.name)}</b>${streak}</div>` +
-      `<p>${esc(p.line)}</p><div class="pat-ev">Evidence: ${ev}</div></li>`;
+const FORCE_COLOR = { technology: "clay", capital: "steel", geopolitics: "slate", regulation: "saffron",
+  demographics: "rose", climate: "leaf", discovery: "teal" };
+function patternsHTML(patterns, urlAnchors, takeaways) {
+  const hasP = Array.isArray(patterns) && patterns.length;
+  const hasT = Array.isArray(takeaways) && takeaways.length;
+  if (!hasP && !hasT) return "";
+  const link = (e, label) => {
+    const a = e.url && urlAnchors.get(e.url);
+    if (a) return `<a class="sk" href="#${esc(a)}">${label}</a>`;
+    return e.url ? `<a class="sk" href="${esc(e.url)}" target="_blank" rel="noopener">${label}</a>` : label;
+  };
+  const rows = (hasP ? patterns : []).map((p, i) => {
+    const n = i + 1;
+    const fc = FORCE_COLOR[p.force];
+    const f = FORCE_LABEL[p.force]
+      ? `<span class="force"><i style="background:var(--${fc})"></i>${esc(FORCE_LABEL[p.force])}</span>` : "";
+    const upd = p.update ? `<span class="pat-upd">Update</span>` : "";
+    const ev = p.evidence || [];
+    const evList = ev.length
+      ? `<details class="pat-ev"><summary>${ev.length} ${ev.length === 1 ? "story" : "stories"} in today&rsquo;s paper</summary><ul>${
+          ev.map((e) => `<li>${link(e, esc(cleanHeadline(e.title || "")))}</li>`).join("")}</ul></details>`
+      : "";
+    return `<li id="pat-${n}"><span class="pat-num">${n}</span><div class="pat-body">` +
+      `<h3>${esc(p.name)}</h3>${f || upd ? `<div class="pat-meta">${f}${upd}</div>` : ""}` +
+      `<p class="pat-line">${esc(p.line)}</p>` +
+      (p.why ? `<p class="pat-why">Why it matters: ${esc(p.why)}</p>` : "") +
+      (p.watch ? `<p class="pat-watch">Watch: ${esc(p.watch)}</p>` : "") +
+      `${evList}</div></li>`;
   }).join("");
-  return `<section class="card patterns-card"><h4>What&rsquo;s changing</h4><ol>${rows}</ol></section>`;
+  const tk = hasT
+    ? `<div class="takeaways"><h4>Other takeaways</h4><ul>${takeaways.map((t) =>
+        `<li>${esc(t.line)} ${t.url ? link(t, "&darr;&nbsp;story") : ""}</li>`).join("")}</ul></div>`
+    : "";
+  return `<section class="card patterns-card">${hasP ? `<h4>What&rsquo;s changing</h4><ol class="pat-list">${rows}</ol>` : ""}${tk}</section>`;
 }
 
 function moneyHTML(money) {
@@ -586,9 +622,7 @@ function storyCardHTML(s, opts) {
   const headlineHTML = url
     ? `<a href="${url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">${hl(s.headline)}</a>`
     : hl(s.headline);
-  const meta = `<div class="meta">${
-      url ? `<a class="sk" href="${url}" target="_blank" rel="noopener">Read the original &rarr;</a>` : ""
-    }${askAIHTML(s)}${thumbsHTML(opts.id, s.headline, opts.date)}</div>`;
+  const meta = iconBarHTML(s, opts.id, opts.date);
 
   // Carried on the card so the "copy" button can lift the exact prompt the
   // Ask-AI links use, without rebuilding it or blowing the URL budget.
@@ -775,7 +809,11 @@ function renderEdition(ed) {
   // The lead lives OUTSIDE .grid2: .grid2 is a CSS multi-column container now,
   // and multi-column has no equivalent of grid-column:1/-1 for a full-width
   // child. Keeping it separate also lets the lead float its own photo.
-  html += patternsHTML(ed.patterns, urlAnchors);
+  PAT_BY_URL = new Map();
+  (ed.patterns || []).forEach((p, i) => (p.evidence || []).forEach((e) => {
+    if (e && e.url && !PAT_BY_URL.has(e.url)) PAT_BY_URL.set(e.url, { n: i + 1, name: p.name });
+  }));
+  html += patternsHTML(ed.patterns, urlAnchors, ed.takeaways);
   if (ed.lead) {
     html += `<div class="lead-wrap">${storyCardHTML(ed.lead, {
       lead: true, slug: "front", sectionName: null,

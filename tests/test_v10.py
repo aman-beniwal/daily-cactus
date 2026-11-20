@@ -74,3 +74,45 @@ def test_soft_budget_needs_strong_cards_past_30():
     sel = nr.validate_selection(raw, digest)
     full = 1 + sum(len(x["stories"]) for x in sel["sections"])
     assert full == 32           # 32 strong cards kept, the 8 weak ones past 30 dropped
+
+
+def test_v101_facts_only_cards_derived_tags_caps_and_dedupe():
+    sel = {"date": "2026-11-21", "lead": "L", "frontpage": ["F1", "F2"], "opportunities": [], "longform": ["LF"],
+           "sections": [{"slug": "climate-energy", "stories": ["S1", "S2"], "also": []},
+                        {"slug": "longform", "stories": ["LF"], "also": []}]}
+    draft = {
+        "lead": {"id": "L", "headline": "Court rules ==genocide==", "hook": "x ==y==", "signal": ["s"],
+                 "editors_read": "er", "evidence_of": "Guessed tag", "force": "geopolitics"},
+        "frontpage": [{"id": "F1", "headline": "Amazon to invest $7 billion in Indian renewables by 2030", "signal": ["s"]},
+                      {"id": "F2", "headline": "Japan to test missiles in India"}],
+        "sections": [{"slug": "climate-energy", "stories": [
+                         {"id": "S1", "headline": "Amazon to invest $7 billion in Indian renewable energy"},
+                         {"id": "S2", "headline": "Wheat area set for steepest fall"}], "also": []},
+                     {"slug": "longform", "stories": [{"id": "LF", "headline": "Long read", "signal": ["why read"]}]}],
+        "patterns": [{"name": "AI chips are a security fight", "force": "geopolitics", "line": "a", "why": "w", "evidence": ["F2"]},
+                     {"name": "AI trade loses support", "force": "capital", "line": "b", "evidence": ["F1"], "update": True},
+                     {"name": "AI power limits", "force": "technology", "line": "c", "evidence": ["S2"]},
+                     {"name": "Weak monsoon hits crops", "force": "climate", "line": "d", "watch": "rabi data", "evidence": ["S2"]}],
+        "takeaways": [{"id": "L", "line": "Enforcement is the test."}, {"id": "F1", "line": "in a pattern"},
+                      {"id": "NOPE", "line": "x"}]}
+    out = nr.validate_draft(draft, sel)
+    lead = out["lead"]
+    assert "==" not in lead["headline"] + lead["hook"]
+    assert not {"signal", "editors_read", "evidence_of", "force"} & set(lead)       # facts only, no guessed tag
+    assert "signal" not in out["frontpage"][0]
+    lf = out["sections"][-1]["stories"][0]
+    assert lf["signal"] == ["why read"]                                             # longform keeps its why-read
+    assert [c["id"] for c in out["sections"][0]["stories"]] == ["S2"]               # S1 duplicate of F1 dropped
+    assert [p["name"] for p in out["patterns"]] == ["AI chips are a security fight", "AI trade loses support",
+                                                    "Weak monsoon hits crops"]       # 3rd AI pattern capped
+    assert out["patterns"][1]["update"] is True and out["patterns"][2]["watch"] == "rabi data"
+    assert out["frontpage"][1]["evidence_of"] == "AI chips are a security fight"     # derived from evidence
+    assert out["sections"][0]["stories"][0]["evidence_of"] == "Weak monsoon hits crops"
+    assert out["takeaways"] == [{"id": "L", "line": "Enforcement is the test."}]
+
+
+def test_v101_memory_says_what_was_already_told(tmp_path):
+    (tmp_path / "2026-11-20.json").write_text(json.dumps(
+        {"patterns": [{"name": "Weak monsoon hits crops", "force": "climate", "line": "Wheat area falls 6%."}]}))
+    txt = nr.patterns_input(nr.recent_patterns(tmp_path, "2026-11-21"))
+    assert "already told: Wheat area falls 6%." in txt and "real new development" in txt

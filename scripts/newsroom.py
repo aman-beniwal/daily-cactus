@@ -516,10 +516,10 @@ def recent_patterns(drafts_dir, date: str, days: int = PATTERN_DAYS) -> list:
 def patterns_input(recent: list) -> str:
     if not recent:
         return ""
-    rows = [f"- {r['name']} [{r['force']}] seen on {len(r['days'])} day(s), last {r['days'][0]}"
-            for r in sorted(recent, key=lambda r: (-len(r["days"]), r["days"][0]))[:25]]
-    return ("RECENT PATTERNS (last 14 days; reuse a name word for word when today's story "
-            "fits it):\n" + "\n".join(rows))
+    rows = [f"- {r['name']} [{r['force']}] (last {r['days'][0]}; already told: {r.get('line', '')})"
+            for r in sorted(recent, key=lambda r: r["days"][0], reverse=True)[:20]]
+    return ("RECENT PATTERNS (the reader has already been told these; include one today only "
+            "with a real new development, as an update, name word for word):\n" + "\n".join(rows))
 
 # ---------------------------------------------------------------- writer
 _NAV = re.compile(r"^(?:advertisement|read more|also read|subscribe|sign up|share this|"
@@ -573,6 +573,36 @@ def writer_input(sel: dict, selected: dict, recent: list | None = None) -> str:
     return "\n".join(parts)
 
 
+_AI_RX = re.compile(r"\bAI\b|artificial intelligence|\bLLMs?\b|chatbot", re.I)
+MAX_AI_PATTERNS, MAX_UPDATES, MAX_TAKEAWAYS = 2, 2, 4
+
+
+def _headline_key(h: str) -> str:
+    return re.sub(r"[^a-z0-9 ]", "", (h or "").replace("==", "").lower())
+
+
+def drop_duplicate_cards(draft: dict) -> list:
+    """Two cards on the same event in one paper (e.g. a front-page story written
+    again in its section): keep the first, drop the later one."""
+    import difflib
+    seen, dropped = [], []
+
+    def keep(c):
+        k = _headline_key(c.get("headline"))
+        if not k:
+            return True
+        if any(c.get("id") == i or difflib.SequenceMatcher(None, k, o).ratio() >= 0.6 for i, o in seen):
+            dropped.append(c.get("headline", ""))
+            return False
+        seen.append((c.get("id"), k))
+        return True
+    keep(draft["lead"])
+    draft["frontpage"] = [c for c in draft["frontpage"] if keep(c)]
+    for s in draft["sections"]:
+        s["stories"] = [c for c in s["stories"] if keep(c)]
+    return dropped
+
+
 def validate_draft(draft: dict, sel: dict) -> dict:
     allowed = {sel["lead"], *sel["frontpage"], *sel["opportunities"], *sel["longform"]}
     for s in sel["sections"]:
@@ -605,29 +635,68 @@ def validate_draft(draft: dict, sel: dict) -> dict:
         s["also"] = [x for x in s["also"] if x.get("id") not in money_ids]
     draft["sections"] = [s for s in draft["sections"] if s["stories"] or s["also"]]
     draft["money"] = money
+    # v10.1: cards carry information only. Learning (patterns, takeaways) sits
+    # at the top; a longform card keeps one "why read" signal line.
+    for s in draft["sections"]:
+        for card in s["stories"]:
+            card["_longform"] = s.get("slug") == "longform"
     for card in sm.cards(draft):
-        if card.get("force") not in FORCES:
-            card.pop("force", None)
-        if not str(card.get("evidence_of") or "").strip():
-            card.pop("evidence_of", None)
-    pats = []
+        for k in ("headline", "hook"):
+            if isinstance(card.get(k), str):
+                card[k] = card[k].replace("==", "")
+        if isinstance(card.get("points"), list):
+            card["points"] = [str(x).replace("==", "") for x in card["points"]]
+        card.pop("editors_read", None)
+        card.pop("evidence_of", None)
+        card.pop("force", None)
+        if not card.pop("_longform", False):
+            card.pop("signal", None)
+    dropped = drop_duplicate_cards(draft)
+    draft["sections"] = [s for s in draft["sections"] if s["stories"] or s["also"]]
+    if dropped:
+        print(f"  dropped {len(dropped)} duplicate card(s): {dropped}")
+    pats, n_ai, n_upd = [], 0, 0
     for pt in draft.get("patterns") or []:
         if not isinstance(pt, dict) or not pt.get("name") or not pt.get("line"):
             continue
         ev = [i for i in dict.fromkeys(pt.get("evidence") or []) if i in allowed]
         if not ev:
             continue
-        pt["evidence"] = ev
-        if pt.get("force") not in FORCES:
-            pt.pop("force", None)
-        pats.append(pt)
+        is_ai = bool(_AI_RX.search(pt["name"]))
+        upd = bool(pt.get("update"))
+        if (is_ai and n_ai >= MAX_AI_PATTERNS) or (upd and n_upd >= MAX_UPDATES):
+            print(f"  dropped pattern over cap: {pt['name']}")
+            continue
+        n_ai += is_ai
+        n_upd += upd
+        row = {"name": str(pt["name"]).strip(), "line": str(pt["line"]).strip(), "evidence": ev}
+        if pt.get("force") in FORCES:
+            row["force"] = pt["force"]
+        for k in ("why", "watch"):
+            if str(pt.get(k) or "").strip():
+                row[k] = str(pt[k]).strip()
+        if upd:
+            row["update"] = True
+        pats.append(row)
     draft["patterns"] = pats[:5]
-    # one thread, one force: a card tagged with today's pattern takes its force
+    # Tags are derived, never guessed: a card is tagged only when a pattern
+    # lists it as evidence (first, i.e. strongest, pattern wins).
+    in_pattern = set()
     for card in sm.cards(draft):
-        pt = next((x for x in draft["patterns"] if card.get("evidence_of")
-                   and same_pattern(x["name"], card["evidence_of"]) and x.get("force")), None)
+        pt = next((x for x in draft["patterns"] if card.get("id") in x["evidence"]), None)
         if pt:
-            card["force"] = pt["force"]
+            card["evidence_of"] = pt["name"]
+            if pt.get("force"):
+                card["force"] = pt["force"]
+            in_pattern.add(card.get("id"))
+    for pt in draft["patterns"]:
+        in_pattern.update(pt["evidence"])
+    tks = []
+    for tk in draft.get("takeaways") or []:
+        if isinstance(tk, dict) and tk.get("id") in allowed and tk.get("id") not in in_pattern \
+                and str(tk.get("line") or "").strip() and tk["id"] not in {x["id"] for x in tks}:
+            tks.append({"id": tk["id"], "line": str(tk["line"]).strip()})
+    draft["takeaways"] = tks[:MAX_TAKEAWAYS]
     return draft
 
 
@@ -712,8 +781,8 @@ def main():
     # 3 — writing
     drafts = base / "drafts"
     drafts.mkdir(parents=True, exist_ok=True)
-    # pattern memory: this mode's drafts, plus the live ones in trial mode
-    recent = recent_patterns(list(dict.fromkeys([drafts, ROOT / "drafts"])), date)
+    # pattern memory: this mode's drafts, the live ones, and the v10 trial's (carried over at go-live)
+    recent = recent_patterns(list(dict.fromkeys([drafts, ROOT / "drafts", ROOT / "trial" / "drafts"])), date)
     try:
         draft = call_with_retry("writer", (PROMPTS / "writer.md").read_text(),
                                 writer_input(sel, selected, recent), a.writer_model, a.writer_effort, date=date)

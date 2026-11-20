@@ -301,6 +301,12 @@ def apply_emphasis(story):
                           "".join(story.get("points") or []))
 
     claim = ""
+    # v10.1 (20 Nov 2026): the yellow highlight is retired. It mostly repeated
+    # the headline. Existing markers are stripped; none are added.
+    story["headline"] = (story.get("headline") or "").replace("==", "")
+    if story.get("hook"):
+        story["hook"] = story["hook"].replace("==", "")
+    already_hl = True
     if not already_hl:
         # Prefer the headline; fall back to the hook. Never both.
         hp = highlight_phrase(story.get("headline", ""))
@@ -546,13 +552,13 @@ def build_patterns(patterns, refs, warnings):
         for i in pt.get("evidence") or []:
             r = refs.get(i)
             if r:
-                ev.append({"title": r.get("title", ""), "url": r.get("url")})
+                ev.append({"id": i, "title": r.get("title", ""), "url": r.get("url")})
             else:
                 warnings.append(f"pattern evidence id {i!r} unknown — dropped")
         if not ev:
             continue
         row = {"name": str(pt["name"]).strip(), "line": str(pt["line"]).strip(), "evidence": ev}
-        for k in ("force", "streak"):
+        for k in ("force", "streak", "why", "watch", "update"):
             if pt.get(k):
                 row[k] = pt[k]
         out.append(row)
@@ -728,6 +734,16 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
     money = build_money(draft.get("money"), refs, warnings)
     if money:
         edition["money"] = money
+    takeaways = []
+    for tk in draft.get("takeaways") or []:
+        r = refs.get((tk or {}).get("id")) if isinstance(tk, dict) else None
+        if r and str(tk.get("line") or "").strip():
+            takeaways.append({"line": str(tk["line"]).strip(), "url": r.get("url"),
+                              "title": r.get("title", "")})
+        else:
+            warnings.append(f"takeaway {tk!r} unknown id or empty — dropped")
+    if takeaways:
+        edition["takeaways"] = takeaways
 
     edition, duplicate_drops = sm.dedupe_cards(edition)
     for pair in duplicate_drops:
