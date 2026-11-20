@@ -254,5 +254,7 @@ paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
   rename; code also attaches a "new" item whose name matches a known thread. Stories that add to
   a thread without an item go in `threads_touched` (counted, not shown).
 - **Sundays:** "The week's threads" (active this week + gone quiet), built by code, no model call.
-- **Masthead tagline:** "The headlines are just the prickles."
+- **Masthead tagline:** "The headlines are just the prickles." Part of the nameplate: American
+  Typewriter (brand chrome font) in riso green, starting under the "C" of Cactus, tucked to its
+  baseline (one line on desktop, two short lines on phones). CSS: `.wordmark-wrap` / `.tagline`.
 - Watch the first week: do chips look right; does the writer use `thread` ids instead of renaming.

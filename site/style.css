@@ -509,10 +509,18 @@ html{scroll-behavior:smooth}
   .pat-body h3{font-size:17.5px}
 }
 
-/* masthead tagline (20 Nov 2026) */
-.masthead .tagline{margin:2px 0 8px;text-align:center;font-family:var(--serif);font-style:italic;
-  font-size:17px;color:var(--graphite);letter-spacing:.2px}
-@media(max-width:480px){.masthead .tagline{font-size:15px}}
+/* masthead tagline (20 Nov 2026): part of the nameplate. It starts exactly under
+   the "C" of Cactus (59.67% into wordmark.png) and tucks up to that word's
+   baseline (margins in % follow the wordmark's width, so it holds at any size).
+   Brand chrome font (American Typewriter) in riso green, like the wordmark. */
+.wordmark-wrap{flex:0 1 748px;min-width:0}
+.wordmark-wrap .wordmark{width:100%;max-width:100%}
+.masthead .tagline{margin:-2.1% 0 0;padding-left:59.67%;text-align:left;white-space:nowrap;
+  font-family:var(--stamp);font-size:clamp(11px,1.65vw,16px);letter-spacing:.2px;
+  line-height:1.3;color:var(--riso-green)}
+@media(max-width:699px){
+  .masthead .tagline .tl2{display:block}   /* two short lines, both under "Cactus" */
+}
 /* v11 threads (20 Nov 2026): status chip, connects line, Sunday week review */
 .pat-upd.th-new{color:var(--leaf,#4c7a4c)}
 .pat-upd.th-building,.pat-upd.th-established{color:var(--ink);border-color:var(--brown)}
