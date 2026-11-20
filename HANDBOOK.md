@@ -237,3 +237,9 @@ paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
   `…/daily-cactus/v10/?trial=YYYY-MM-DD`. Today's (20 Nov) live paper was replaced by the v10 one.
 - **Watch for a week:** the writer renaming an old pattern to dodge the "update" rule; vague
   catch-all patterns (one slipped through on 20 Nov: "Courts and states press on platform content control").
+- **20 Nov 2026, later (renderer only, commit d12a9bb):** the top section is now titled
+  **"The Big Picture"** (subline "What today's news adds up to"); "Other takeaways" kept. The
+  markets strip no longer shows an "as of …" time. The section menu underlines the section on
+  screen. On phones the menu wraps onto several lines (no sideways scroll) and still hides on
+  scroll-down / returns on scroll-up. Open question: a masthead tagline (Aman to choose), and an
+  own three-layer design with cross-day "threads" (proposed, not built).
