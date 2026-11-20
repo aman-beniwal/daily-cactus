@@ -1,0 +1,638 @@
+{
+  "date": "2026-11-20",
+  "patterns": [
+    {
+      "name": "AI chips are now a national security fight",
+      "force": "geopolitics",
+      "line": "US rules now reach cloud rentals and chipmaker orders, and Alibaba says it is training on its own chips. If this holds, Chinese labs face higher costs and the push for domestic chips speeds up.",
+      "evidence": [
+        "ai-55aef2caa9",
+        "world-3a99f6acf2",
+        "world-e17c0b9025",
+        "science-mind-1c5ec89647",
+        "deep-tech-5dd162ab8c"
+      ],
+      "streak": 9
+    },
+    {
+      "name": "AI trade is losing political and market support",
+      "force": "capital",
+      "line": "Anthropic's record IPO opened 17% up while the Nasdaq fell 2.2%, and the ECB and IMF both warn about AI debt and inflation. Money is rotating toward markets with little AI exposure, such as India.",
+      "evidence": [
+        "global-economics-fe85762e5c",
+        "ai-50a5a49960",
+        "global-economics-6f769f0853",
+        "ai-ab107cfc88"
+      ],
+      "streak": 6
+    },
+    {
+      "name": "AI data centres are hitting power limits",
+      "force": "technology",
+      "line": "Meta is reconsidering its 2030 net-zero goal as emissions rose 45%, and the Fed's Goolsbee says AI investment is straining US capacity. Power and cost, not demand, are the binding limits.",
+      "evidence": [
+        "world-9e020bee17",
+        "global-economics-b0ecc5a639",
+        "deep-tech-75fbcd69cc"
+      ],
+      "streak": 2
+    },
+    {
+      "name": "Weak monsoon is hitting India's crops and industry",
+      "force": "climate",
+      "line": "The weakest monsoon in over a decade is cutting wheat sowing and drying out industrial water supply. If it persists, food prices rise and the RBI has less room to ease.",
+      "evidence": [
+        "agritech-506ae6db9c",
+        "agritech-f6f18dda38",
+        "global-economics-6f769f0853"
+      ],
+      "streak": 1
+    }
+  ],
+  "money": [
+    {
+      "id": "india-deep-tech-ca4a954397",
+      "company": "SatSure",
+      "amount": "₹60 crore",
+      "sector": "Space data analytics",
+      "line": "Bengaluru space startup got ₹60 crore ($7M) from a government-backed space fund, part of a ₹200 crore Series B."
+    }
+  ],
+  "lead": {
+    "id": "world-09f257575d",
+    "headline": "UN court rules Myanmar committed genocide against the Rohingya",
+    "hook": "The International Court of Justice ruled 9-6 that Myanmar ==committed genocide against the Rohingya==, the first time the court has found a state responsible for genocide.",
+    "points": [
+      "The 2017 military crackdown in Rakhine state drove more than 700,000 Rohingya into Bangladesh. The court found at least 10,000 were killed.",
+      "Genocide needs proof of intent to destroy a group. The court called that intent the 'only reasonable inference' and rejected Myanmar's claim that it was fighting militants.",
+      "It also found rape and sexual violence were used as acts of genocide, and that limits on Rohingya births, such as two children per family, were discriminatory.",
+      "Myanmar must pay reparations, with the amount set later, and allow safe return, restore property and search for the disappeared.",
+      "The ICJ cannot jail anyone and relies on the UN Security Council to enforce rulings. The UK is expelling Myanmar's defence attaché and wants an urgent Council session; the US said it is studying the decision."
+    ],
+    "signal": [
+      "Enforcement is the open question: if the Security Council stalls, the ruling's effect rests on sanctions and diplomatic pressure.",
+      "The ICJ's reasoning on intent and on rejecting a counter-terrorism defence is a reference point for South Africa's pending case against Israel."
+    ],
+    "key_stat": "9-6 · first state genocide ruling at ICJ",
+    "editors_read": "The legal precedent matters more than the immediate penalty, since Myanmar's military government has little incentive to pay or comply. Watch whether the US, which has been hostile to international courts, sanctions ICJ judges as some predicted.",
+    "evidence_of": "International courts become the arena for state accountability",
+    "force": "geopolitics",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "ai-50a5a49960",
+      "headline": "IMF chief: AI demand will force central banks to raise rates",
+      "hook": "IMF head Kristalina Georgieva says AI hardware demand and the Middle East energy shock will push ==global inflation to 4.7% this year==, calling for tighter monetary policy.",
+      "points": [
+        "AI hardware and related tech now account for more than a tenth of world goods trade, and the share is rising. That demand is lifting consumer prices.",
+        "The Iran war began in February and pushed oil above $100 a barrel. The ECB raised rates in June, the US Fed in September and the Bank of England this month.",
+        "Oil has fallen back in recent weeks after the US midterms and a rise in crude supply, but markets still expect more rate rises next year.",
+        "A day earlier the ECB said AI companies' growing debt has 'historic parallels' with the dotcom and 2008 sub-prime bubbles and could spill into euro-area financial stability."
+      ],
+      "signal": [
+        "If AI keeps boosting growth while energy prices ease, rates may stay high even as oil falls, tightening conditions for borrowers worldwide, including India."
+      ],
+      "key_stat": "4.7% · IMF global inflation estimate",
+      "editors_read": "This turns AI from a growth story into an inflation story: central banks now see it as a source of price pressure they must offset with higher rates. That raises the cost of the debt AI firms use to fund data centres, so the ECB's bubble warning and the IMF's rate warning are linked.",
+      "evidence_of": "AI trade is losing political and market support",
+      "force": "capital"
+    },
+    {
+      "id": "agritech-506ae6db9c",
+      "headline": "India's wheat area set for steepest fall in 26 years",
+      "hook": "India's wheat planting is set to fall about 6% from last year's record 33.6 million hectares, the ==steepest drop since 2000/01==, as farmers switch to less thirsty crops.",
+      "points": [
+        "Monsoon rain was the lowest in over a decade, up to 41% below average in Punjab, Rajasthan, Madhya Pradesh and Maharashtra. Wheat needs four to five irrigations.",
+        "By November 13, 5 million hectares were planted, down 15.3% year on year. Ten industry officials expect 31.58 million hectares, a four-year low.",
+        "Chickpea and rapeseed prices have risen much more than wheat, so they pay better. Punjab and Haryana, with reliable irrigation, should stay steady.",
+        "The government raised the wheat minimum support price just 1% to ₹2,610 per 100 kg, the smallest rise since 2002/03. Traders say a 5-6% rise is usual."
+      ],
+      "signal": [
+        "A severe El Niño could also cut yields, so output may fall by more than the area. India is the world's second-largest wheat producer.",
+        "Lower output would raise prices and complicate the fight against food inflation."
+      ],
+      "key_stat": "-6% · wheat area vs record",
+      "editors_read": "The 1% support price is a policy choice that failed to offset weaker water supply. Separately today, the RBI is expected to raise rates again, and food inflation from wheat would narrow its room to ease.",
+      "evidence_of": "Weak monsoon is hitting India's crops and industry",
+      "force": "climate"
+    },
+    {
+      "id": "global-economics-fe85762e5c",
+      "headline": "Anthropic shares jump 17% after record $107.3 billion IPO",
+      "hook": "Anthropic raised $107.3 billion, the biggest IPO ever, and ==closed 17% above its $83 offer price== at $97.17, a value of about $1.8 trillion.",
+      "points": [
+        "The total is $81.3 billion from the IPO plus $26 billion in a private placement, with Nvidia, Google, Microsoft and AMD among investors. Demand was nearly seven times the shares offered.",
+        "Shares opened as much as 39% above the offer, then pared gains as the Nasdaq fell 2.2%. After hours they were down about 5%.",
+        "Run-rate revenue (annualised from a shorter period) was $81 billion at October 31, up $10 billion from end-September. Q3 operating loss was $567 million.",
+        "Goldman Sachs analysts expect positive annual free cash flow only by 2030, with revenue near $685 billion that year, if it can fend off cheaper open-weight models.",
+        "Worries include Nvidia's role as backstop of the AI sector after its CEO's exit, circular financing, and tougher AI rules after the Democratic midterm win."
+      ],
+      "signal": [
+        "If AI stocks keep falling, Anthropic becomes the market's live gauge of the AI trade, as one strategist put it.",
+        "Insiders hold about 15.5 billion shares under lock-up until after Q3 results next year."
+      ],
+      "key_stat": "$107.3B · largest IPO on record",
+      "editors_read": "The IPO is priced on future revenue while the Nasdaq falls. It lets investors test whether the AI-financing worries are real or overdone.",
+      "evidence_of": "AI trade is losing political and market support",
+      "force": "capital"
+    },
+    {
+      "id": "world-e17c0b9025",
+      "headline": "US approved nearly 900,000 AI chip sales to China in six months",
+      "hook": "The US approved exports of ==879,000 Nvidia and AMD AI chips to China== from December 2025 to May 2026, against 3.4 million sought, the House Foreign Affairs Committee says.",
+      "points": [
+        "Approvals included 75,000 chips for Alibaba, 150,000 for Tencent, 43,000 for Baidu and 4,000 for BYD. All four are on the Pentagon's list of alleged Chinese military-backed companies.",
+        "Over 30% of the chips went to such firms, per former US official Chris McGuire. Chips included Nvidia's H200 and AMD's MI325X.",
+        "Trump allowed H200 sales in December, reversing Biden-era limits. Nvidia says it has since stopped shipping H200s to China; it is unclear how many approvals became shipments.",
+        "The data was released amid scrutiny of ex-Nvidia CEO Jensen Huang's relationship with an alleged Chinese spy. Nvidia fell 3.3% and AMD 7.7%."
+      ],
+      "signal": [
+        "Pressure on the administration to tighten chip policy keeps rising; Nvidia and AMD face revenue risk if licences shrink."
+      ],
+      "key_stat": "879,000 chips · approved of 3.4M sought",
+      "evidence_of": "AI chips are now a national security fight",
+      "force": "geopolitics"
+    },
+    {
+      "id": "india-deep-tech-3bcb77f7a5",
+      "headline": "Japan to test long-range missiles on Indian firing ranges",
+      "hook": "Japan's Self-Defence Forces will ==use an Indian firing range for the first time== next year, agreed at the India-Japan 2+2 talks in Tokyo.",
+      "points": [
+        "A letter of intent covers live-fire training, including the Type-25 surface-to-ship missile, which has a range of roughly 1,000 km.",
+        "India wants early consideration of agreements to co-produce the UNICORN naval antenna, with approval expected by February 2027, and of a reciprocal ship-repair arrangement.",
+        "Ministers also agreed to cooperate on anti-mine measures and discussed underwater tech and space awareness.",
+        "Japan-China ties are tense after PM Takaichi said Japan may defend Taiwan. China has restricted exports to Japan, and Takaichi raised defence spending to 2% of GDP earlier than planned."
+      ],
+      "signal": [
+        "Japan gains test space it lacks at home; India gains a defence-industrial partner under 'Design with Japan and Make in India'.",
+        "If the ship-repair and UNICORN deals close, India-Japan ties move from dialogue to shared industry."
+      ],
+      "key_stat": "~1,000 km · Type-25 missile range",
+      "evidence_of": "India is building energy security through storage and local manufacturing",
+      "force": "geopolitics"
+    },
+    {
+      "id": "india-c1f4be71f5",
+      "headline": "India-UK trade deal hit by dispute over bulk Scotch duty",
+      "hook": "India plans a ==162.5% duty on bulk Scotch whisky==, above the 150% before the deal, instead of the 75% falling to 40% over 10 years that the deal implied.",
+      "points": [
+        "India treats bulk Scotch as a raw material or 'compound alcoholic preparation', so the deal's cuts apply only to bottled Scotch. Distillers say whisky stays whisky in bulk.",
+        "Over 80 containers belonging to Pernod, Diageo and Bacardi are stuck at Indian ports. The UK says ministers are urgently working with India.",
+        "Indian blenders use bulk Scotch for local brands, so higher duty hits them too. Nearly 100 million Indians reach legal drinking age in five years, per HDFC Institutional Research.",
+        "The deal was expected to lift trade by £25.5 billion ($34 billion) a year by 2040."
+      ],
+      "signal": [
+        "Partners such as the EU should read this as a warning that a headline tariff cut does not guarantee real market access."
+      ],
+      "key_stat": "162.5% · planned bulk Scotch duty"
+    },
+    {
+      "id": "global-economics-f1bb91ed34",
+      "headline": "RBI's Tata Sons letter sparks debate on listing powers",
+      "hook": "The RBI told Tata Sons to comply with all rules for Upper Layer NBFCs, ==including listing==, and lawyers disagree on whether it can force a listing.",
+      "points": [
+        "The letter responded to an October 6 Tata Sons query. The RBI said no specific rule was asked about and inferred a listing question from leaked board discussions.",
+        "Lawyer H.P. Ranina says Section 45JA lets the RBI direct how an NBFC manages money, not compel a listing, and calls it overreach that could be challenged in court.",
+        "Others say the RBI already rejected Tata Sons' deregistration request, and as an Upper Layer NBFC it must list. Tata Sons is the only one not compliant.",
+        "Listing needs Tata Sons to become a public company, which needs 75% shareholder approval. Noel Tata opposes listing; Jimmy Tata backs it."
+      ],
+      "signal": [
+        "If shareholders refuse conversion, the RBI and the Companies Act collide, and a court may decide."
+      ],
+      "key_stat": "75% · shareholder vote needed"
+    },
+    {
+      "id": "climate-energy-560c07b7e7",
+      "headline": "India's carbon market is going live, but finance can't see it",
+      "hook": "Carbon credit certificates are about to trade on power exchanges, with 490 industrial units on binding targets, yet ==India lacks accounting and disclosure rules== for them.",
+      "points": [
+        "At about $10 a tonne, buying credits to cover 2026-27 shortfalls would cost the five largest steelmakers about 7% of 2024-25 profits, and SAIL about 15%, Climate Risk Horizons estimated.",
+        "Missing a target means buying certificates at market price; failing to surrender enough means a penalty of twice the average traded price.",
+        "India has no guidance on accounting for credits, tax treatment is unclear, and only targets are public, not verified emissions or shortfalls. Whether credits can be pledged as collateral is unsettled.",
+        "The author urges ICAI accounting guidance, plant-level data, SEBI disclosure, legal clarity on collateral, and RBI factoring of compliance costs into credit decisions."
+      ],
+      "signal": [
+        "Without disclosure, lenders cannot price which borrowers carry carbon risk, which raises financing costs."
+      ],
+      "key_stat": "490 units · binding emission targets"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-55aef2caa9",
+          "headline": "US closes cloud loophole; chip shipments to Chinese firms stall",
+          "hook": "Moonshot AI cancelled a ==$150 million Indonesian cloud contract== after the US required licences for cloud access to AI chips, as TSMC and Samsung paused some shipments.",
+          "points": [
+            "Chinese firms had rented compute in Singapore, Malaysia and Indonesia. Those centres now need a licence at a threshold of roughly 300 modern AI chips; existing operators get 90 days.",
+            "Moonshot had planned to rent Nvidia B300 chips to train Kimi K4 and agreed to prepay about 50% versus the usual 15%. Five lenders are considering leaving a $480 million loan for Aolani, a cloud provider serving ByteDance.",
+            "TSMC and Samsung stopped some shipments to Chinese customers pending licences. Non-AI chip exemptions ended, so smartphone chips for Xiaomi, Oppo and Vivo also need licences.",
+            "The New York Times reports Alibaba was the secret main customer of Megaspeed, which bought over $4 billion of Nvidia chips; Alibaba denies military use of its services."
+          ],
+          "signal": [
+            "Chinese labs face higher training costs; if delays persist, domestic chips gain share."
+          ],
+          "key_stat": "$150M · Moonshot contract cancelled",
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-91e53fb014",
+          "line": "Bloomberg headline says the Nvidia scandal's fallout opens room for India's AI contenders (summary from limited source text)."
+        },
+        {
+          "id": "ai-ab107cfc88",
+          "line": "Anti-AI protesters rallied at the Nasdaq in Times Square and outside Anthropic's San Francisco HQ after its debut, and several were arrested in New York."
+        }
+      ]
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-9e020bee17",
+          "headline": "Meta rethinks 2030 net-zero goal as AI drives emissions up",
+          "hook": "Meta's net emissions rose ==45% in 2025 to 11.8 million tonnes==, and it is reconsidering its 2030 net-zero deadline because of AI data centres.",
+          "points": [
+            "Meta says it is re-evaluating timelines and milestones, since clean energy costs and system changes did not move as it expected when it set the goal in 2020.",
+            "US hyperscale data centres: 403 of the most powerful use about 2% of national electricity, per a Nature Sustainability study.",
+            "The IEA says global data centres used about 415 TWh in 2024, 1.5% of supply, which could nearly double by 2030.",
+            "Google, Walmart, GM, Coca-Cola and Pepsi have also missed or weakened climate targets."
+          ],
+          "signal": [
+            "If AI power demand outpaces clean supply, more tech firms may delay climate goals."
+          ],
+          "key_stat": "+45% · Meta emissions in 2025",
+          "evidence_of": "AI data centres are hitting power limits",
+          "force": "technology"
+        },
+        {
+          "id": "world-3a99f6acf2",
+          "headline": "TSMC tightens China AI chip curbs under new US rules",
+          "hook": "TSMC has told staff to ==halt Chinese orders at 16nm and below== unless customers get US export licences, closing a route to advanced AI chips.",
+          "points": [
+            "Chinese designers are generally limited to older 28nm and 40nm processes, and only without high-bandwidth memory or advanced packaging.",
+            "The new Commerce rules, effective Thursday, end TSMC's ability to check chip designs itself. Advanced Chinese chips are now presumed controlled.",
+            "The US approved designer list includes Nvidia, AMD, Apple, MediaTek and Realtek but no mainland Chinese firms.",
+            "TSMC will also scrutinise parent companies, shareholders, packaging providers and shipping routes, including orders via subsidiaries in Taiwan, the US, Europe, Japan and Southeast Asia."
+          ],
+          "signal": [
+            "Chinese firms building Nvidia alternatives face the biggest hit, since most leading AI chips use 7nm or smaller."
+          ],
+          "key_stat": "16nm · cutoff for licence-free orders",
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        },
+        {
+          "id": "world-f10514ef3f",
+          "headline": "Trump bought up to $265,000 of Nvidia stock in September",
+          "hook": "Trump's disclosure shows he ==bought up to $265,000 of Nvidia== and sold up to $15,000 in September, weeks before reports on Jensen Huang's ties to an alleged Chinese spy.",
+          "points": [
+            "In August he bought up to $1.6 million of Nvidia and sold up to $1 million. In September he also bought up to $315,000 of SpaceX.",
+            "The White House says outside institutions manage the portfolio and copy indexes like the Schwab 1000, and Trump cannot direct trades.",
+            "Officials are weighing chip export rules that affect Nvidia. The New York Times reports Trump was briefed in 2025 on Huang's relationship and chose not to act; he says he was 'amazed'.",
+            "Reuters could not give exact amounts, since disclosures use value ranges."
+          ],
+          "signal": [
+            "Conflict-of-interest questions add pressure on the White House as chip export policy is debated."
+          ],
+          "key_stat": "$265K · maximum Nvidia purchase",
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        }
+      ],
+      "also": [
+        {
+          "id": "world-28fefe16db",
+          "line": "California attorney general Rob Bonta served an investigative subpoena on Nvidia after Jensen Huang's departure as CEO, probing whether the company's or Huang's actions broke state rules (text truncated)."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-6f769f0853",
+          "headline": "Foreign investors return to India as the AI trade weakens",
+          "hook": "Foreign investors bought over ==₹1 trillion of Indian equities in November==, after two months of heavy selling, as conviction in the global AI theme fades.",
+          "points": [
+            "In BofA's Asia fund manager survey, 29% cite India's lack of a direct AI play as a concern, ahead of lack of reforms at 19%, rupee weakness at 14% and valuations at 10%.",
+            "Bank of Baroda expects July-September GDP growth of 7.4%, down from 8.1% a year earlier, with the weak monsoon and West Asia war as drags.",
+            "The rupee hit record lows near 96 per dollar. UBS says the pressure is on capital flows more than the current account, unlike 2013.",
+            "The RBI meets December 2-4 and is expected to raise rates again after a 25 basis point rise in October."
+          ],
+          "signal": [
+            "If AI stocks keep sliding, India gains flows, but the rupee still depends on foreign money staying."
+          ],
+          "key_stat": "₹1 trillion+ · November FPI buying",
+          "evidence_of": "AI trade is losing political and market support",
+          "force": "capital"
+        },
+        {
+          "id": "global-economics-b0ecc5a639",
+          "headline": "Fed's Goolsbee: AI boom could overheat US economy",
+          "hook": "Chicago Fed president Austan Goolsbee says AI investment is a ==risk of overheating the economy== and inflation is not on a path back to 2%.",
+          "points": [
+            "He says the multitrillion-dollar data-centre pipeline strains capacity and adds to 'disturbingly high' inflation, well above the Fed's 2% target.",
+            "He says the Anthropic IPO could become 'macro-relevant' as early holders gain access to liquidity.",
+            "The Fed is expected to raise rates by 0.25 points at its December 8-9 meeting; at least one colleague wants 0.5.",
+            "Midterm ballot initiatives in several states could limit where and how fast data centres get built."
+          ],
+          "signal": [
+            "If AI spending keeps pushing up demand, higher US rates mean tighter global financing."
+          ],
+          "key_stat": "2% · Fed inflation target",
+          "evidence_of": "AI data centres are hitting power limits",
+          "force": "technology"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-21849e6d8b",
+          "line": "TSMC's subsidiary TSMC Partners bought a 0.03% stake in Anthropic for about $500 million at the IPO price, per Focus Taiwan."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-ad8e88fef3",
+          "headline": "First Tejas Mk1A squadron due by end of March 2027",
+          "hook": "IAF chief A.P. Singh... Air Chief Marshal Dixit says the ==first Tejas Mk1A squadron== will be formed within this financial year, by end of March 2027.",
+          "points": [
+            "A squadron is typically 18 aircraft; the IAF has ordered 180 Mk1A jets, and deliveries have been delayed.",
+            "ThePrint reported the first jets could be handed over as soon as January 2027.",
+            "The IAF has 29 active fighter squadrons against a sanctioned 42, its lowest strength in 60 years.",
+            "Dixit said Tejas Mk2 may roll out next year, and work continues on the AMCA stealth fighter."
+          ],
+          "signal": [
+            "The squadron count gap will persist until Mk1A deliveries speed up well beyond the first squadron."
+          ],
+          "key_stat": "29 vs 42 · fighter squadrons"
+        },
+        {
+          "id": "india-deep-tech-e5ed171504",
+          "headline": "Humyn Labs raises $47M to supply robot-training data",
+          "hook": "Bengaluru's Humyn Labs raised ==$47 million== ($26M equity led by Accel, $21M venture debt) to collect real-world video that US firms use to train robots.",
+          "points": [
+            "It records people doing everyday tasks with its own two-camera hardware, then labels the footage so AI can learn from it, across 20-plus countries.",
+            "It has 12 paying customers, about 90% of revenue from the US, $10 million revenue from April to October and $20 million in signed contracts.",
+            "Debt bridges a cash gap: workers are paid daily or weekly while AI labs pay in 30-60 days, and debt dilutes less than equity.",
+            "Recording people at home raises privacy and consent questions."
+          ],
+          "signal": [
+            "India's large workforce is becoming a supply base for physical AI data, so consent practices will shape the business."
+          ],
+          "key_stat": "$47M · Series A",
+          "evidence_of": "India is becoming the data-collection hub for physical AI",
+          "force": "technology"
+        },
+        {
+          "id": "india-deep-tech-ba91e15008",
+          "headline": "India may hit ₹50,000 crore arms export target a year early",
+          "hook": "Defence Secretary Rajesh Kumar Singh says India could reach ==₹50,000 crore in annual defence exports by 2028-29==, a year before the deadline.",
+          "points": [
+            "That is roughly 30% above the ₹38,424 crore in 2025-26. Exports have reached ₹23,479 crore by November in 2026-27.",
+            "Artillery shells have been the 'hero' of exports because of the conflict in Europe. Several BrahMos talks are ongoing, with no buyers named.",
+            "Defence capital outlay is ₹2.19 trillion in 2026-27, up about 22%. Contracts signed so far this year are ₹80,000 crore, versus over ₹2 lakh crore in each of the last two years.",
+            "Singh wants 2-3 aircraft makers, multiple missile and ammunition makers, and hundreds of drone firms."
+          ],
+          "signal": [
+            "If contract signings catch up, private defence manufacturers get more order visibility."
+          ],
+          "key_stat": "₹38,424 crore · 2025-26 defence exports",
+          "evidence_of": "Capital and armies are shifting to cheap autonomous weapons",
+          "force": "technology"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-5dd162ab8c",
+          "headline": "Alibaba says next AI models train on its own chips",
+          "hook": "Alibaba CEO Eddie Wu says its next-generation models are training on in-house chips, as ==cloud revenue grew 53%== to 61 billion yuan.",
+          "points": [
+            "Quarterly revenue rose 10% to 271.5 billion yuan; net income rose 213% to 64.4 billion yuan versus a 24.3 billion yuan forecast.",
+            "Capex was 50.5 billion yuan, down from 67.7 billion last quarter; free cash flow was still a 34.5 billion yuan outflow.",
+            "Wu expects cloud growth of 30-45% next year because of US export rules, then 50%+ from 2028, and may cut its 20 GW data-centre target.",
+            "Kuaishou revenue fell 11.1% and NetEase fell 1.8% the same day."
+          ],
+          "signal": [
+            "Export controls are pushing Chinese firms toward domestic chips even at a cost to growth."
+          ],
+          "key_stat": "+53% · AI cloud revenue",
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        },
+        {
+          "id": "deep-tech-75fbcd69cc",
+          "headline": "Oxmiq's Koduri: Indian teams should design their own AI chips",
+          "hook": "Raja Koduri says custom chips pay off for ==data centres of 100 MW or more==, where a $500 million custom system could save over $2 billion.",
+          "points": [
+            "Oxmiq offers chip designs and tools to Indian teams and is partner to AM Intelligence Labs, Greenko's parent's AI arm, on site selection and compute design.",
+            "AM's first AI factory in Hyderabad is 30 MW with about 9,000 Nvidia Rubin GPUs due in Q1 2027, plus an order for 20,000 more for India and Malaysia.",
+            "Koduri estimates a 1 GW data centre costs about $55 billion, against nearly $10 billion in China; 100 MW costs about $5.5 billion on standard hardware.",
+            "He says India's GPU capacity is under 100 MW but it needs at least 6 GW, so a 60-fold rise.",
+            "India's installed data-centre power was 1.57 GW in August, up from about 375 MW in 2020."
+          ],
+          "signal": [
+            "The claim is Koduri's own estimate; it makes sense only for buyers big enough to afford custom design."
+          ],
+          "key_stat": "60x · India's needed compute growth",
+          "evidence_of": "AI data centres are hitting power limits",
+          "force": "technology",
+          "followup": true
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [],
+      "also": [
+        {
+          "id": "climate-energy-ff2015092c",
+          "line": "Delays in signing power purchase agreements put renewable projects' transmission connectivity at risk, adding financing and commissioning pressure as regulators address unused capacity."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-f6f18dda38",
+          "headline": "Weak monsoon and El Niño strain India's industrial water",
+          "hook": "El Niño-linked water shortages are hitting ==pharmaceuticals and data centres in southern India==, Nikkei reports, raising pressure to conserve and recycle.",
+          "points": [
+            "Shortages could also limit growth in industries such as textiles.",
+            "The shortage is spurring a push for water recycling in industry."
+          ],
+          "signal": [
+            "Water supply is becoming a cost and siting factor for industry, including data centres."
+          ],
+          "evidence_of": "Weak monsoon is hitting India's crops and industry",
+          "force": "climate"
+        }
+      ],
+      "also": [
+        {
+          "id": "agritech-0894ae77e4",
+          "line": "How India became a rice powerhouse, and why it's becoming a problem (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-62acb9c1aa",
+          "headline": "Bihar spends least on health per person, Sikkim most",
+          "hook": "Government health spending was ₹2,959 per person nationally in 2023-24, but ==Bihar spent ₹1,126== and Sikkim ₹16,026.",
+          "points": [
+            "National government health spending was ₹4.1 lakh crore, 43.5% of total health spending and 1.43% of GDP.",
+            "Uttar Pradesh spent ₹1,399; the four poorer states averaged ₹1,651 per person.",
+            "Southern states averaged about ₹2,960; Kerala ₹3,396, Andhra Pradesh ₹3,347, Tamil Nadu ₹2,860, Karnataka ₹2,446.",
+            "Northeastern states averaged about ₹3,501; union territories about ₹7,209, with Chandigarh at ₹24,187.",
+            "Spending differences reflect fiscal capacity, population and terrain, but do not show quality or outcomes."
+          ],
+          "signal": [
+            "Poorer, populous states spend least, so public provision there is thinnest."
+          ],
+          "key_stat": "₹2,959 · per person nationally"
+        }
+      ],
+      "also": [
+        {
+          "id": "health-tech-b5bc2ab500",
+          "line": "Biotechs are racing to build AI models of human cells, hoping to speed drug development and slow aging, but it is unclear if computers can match life's complexity (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-2b675cf3be",
+          "headline": "AI models are dropping hallucinated citations and other flaws",
+          "hook": "A Stanford-led analysis of 50 LLM flaws found nearly half have ==largely disappeared, on average about 16 months== after being published.",
+          "points": [
+            "The latest models rarely or never cite sources that do not exist. The analysis tested 20 models from mid-2024 to late 2026 and is not peer reviewed.",
+            "Some flaws faded quickly: overthinking simple maths stopped after about a month and a half. Stereotyping of Black women lasted over three years.",
+            "Three worsened: flattery of users, favouring AI-written text over human text, and generating random numbers.",
+            "Hallucinated citations in academic papers have risen since 2023, probably because many researchers use older models."
+          ],
+          "signal": [
+            "Judgments about AI limits go stale fast, but old models still in use keep the old problems."
+          ],
+          "key_stat": "~16 months · average flaw lifespan"
+        },
+        {
+          "id": "science-mind-1c5ec89647",
+          "headline": "Forensic analysis suggests Chinese AI models used banned Blackwell chips",
+          "hook": "Researcher Will DePue says six models from four Chinese firms carry ==fingerprints of Nvidia Blackwell chips==, which the US bars from export to China.",
+          "points": [
+            "The firms are DeepSeek, Moonshot AI, MiniMax and Ant Group. Alibaba's Qwen and earlier models match older Hopper chips.",
+            "Untrained weights start from random numbers generated by chip-specific splits; DePue searched six trillion seed and chip-layout combinations to match them.",
+            "It cannot show how the chips were obtained or where they sat. DePue estimates thousands of chips were used. The report is self-published; one expert is convinced, another wants more detail.",
+            "PyTorch is already removing this fingerprinting, and DePue says it is easy to erase."
+          ],
+          "signal": [
+            "If the findings hold, they back claims that export controls leak, though the method may soon stop working."
+          ],
+          "key_stat": "6 models · 4 Chinese firms",
+          "evidence_of": "AI chips are now a national security fight",
+          "force": "geopolitics"
+        },
+        {
+          "id": "science-mind-2c2c80a092",
+          "headline": "AI speeds cyberattacks; defenders struggle to keep up",
+          "hook": "AI agents can search millions of lines of code for flaws, so ==the gap between flaw disclosure and attack has shrunk from weeks to days==, says researcher Steven Murdoch.",
+          "points": [
+            "Attackers set an agent running and return in 20 minutes to dozens of results. Google reports attackers using agents to study software updates and find exploits.",
+            "AI mainly finds familiar flaws; top human researchers still do better at new kinds. AI also found flaws in Java and PHP, though Murdoch says the Java flaw's importance is exaggerated.",
+            "Most breaches still involve human failure; European supermarket freezers were hacked via default passwords like 'admin'.",
+            "Recent outages at Microsoft, air traffic control, JPMorgan and the NSA are probably technical malfunctions, not one attack."
+          ],
+          "signal": [
+            "Defenders face less time to patch, and hasty patches can cause outages themselves."
+          ],
+          "key_stat": "weeks to days · exploit window"
+        },
+        {
+          "id": "science-mind-df488f0a9b",
+          "headline": "Satellite reentries are putting metals into the stratosphere",
+          "hook": "A 2023 study found ==10% of stratospheric aerosol particles carried spacecraft metals==, and reentries are rising as megaconstellations grow.",
+          "points": [
+            "NOAA's Daniel Murphy found excess lithium, aluminium and rocket-alloy metals in samples from a flight over Alaska.",
+            "Trackable low-orbit objects rose from about 13,700 to nearly 25,000 in six years. Starlink exceeds 10,000 satellites and plans up to 42,000.",
+            "A 250 kg satellite could deposit about 30 kg of aluminium oxide nanoparticles that stay aloft 30+ years and might damage ozone. Effects are unproven and models disagree.",
+            "The FCC now requires deorbit within five years; at 50,000 satellites that means a reentry more than once an hour."
+          ],
+          "signal": [
+            "If metals prove harmful, regulators may force costly design changes on satellite operators."
+          ],
+          "key_stat": "10% · aerosol particles with spacecraft metals",
+          "evidence_of": "Climate policy shifts from preventing to managing overshoot",
+          "force": "climate"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-90caded600",
+          "headline": "AI interview and test models rate Indian accents mid-table",
+          "hook": "A University of Washington study found four leading AI models ==rated American and British accents higher== than Indian ones on identical scripts, with Indian speakers mid-ranked.",
+          "points": [
+            "Researchers tested Gemini 2.5 Pro and Flash, GPT-Audio 1.5 and Qwen 3 Omni on five accents: American, British, Indian, Chinese and Nigerian.",
+            "Chinese and Nigerian speakers scored lowest, though the models transcribed their speech accurately while calling it hard to understand.",
+            "Both delivery and content were rated higher for American and British speakers, even with identical content.",
+            "Findings were checked with 52 human speakers; results presented at the EMNLP conference."
+          ],
+          "signal": [
+            "Candidates assessed by AI voice tools may be marked down for accent, so firms using them should check for bias."
+          ],
+          "key_stat": "4 models · 5 accents tested"
+        }
+      ],
+      "also": [
+        {
+          "id": "work-careers-dd1f66b421",
+          "line": "Karnataka hosts 1,088 of India's 2,117 GCCs (51%) and 111,000 AI/ML professionals, 43% of GCC AI talent, per a Zinnov-KDEM report."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [],
+      "also": [
+        {
+          "id": "indian-startups-5c2c6caa18",
+          "line": "Bengaluru accounts for 36.3% of funding raised by India's homegrown AI startups and 71% of AI and deep-tech unicorns founded since 2023, says the Bengaluru Innovation Report 2026."
+        }
+      ]
+    },
+    {
+      "slug": "other-interests",
+      "stories": [],
+      "also": [
+        {
+          "id": "other-interests-73a3587dbf",
+          "line": "The Guardian reviews Ben Dark's Green Kingdom, a natural history of plant life, opening with Ruskin's dislike of botany's 'prurient' reduction of flowers (summary from limited source text)."
+        }
+      ]
+    }
+  ],
+  "opportunities": []
+}
