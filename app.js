@@ -516,10 +516,22 @@ function crossRefStripItem(s, anchorId, frontAnchorId) {
 const cleanHeadline = (t) => String(t || "").replace(/\s+[-|–]\s+[^-|–]{2,40}$/, "").trim();
 const FORCE_COLOR = { technology: "clay", capital: "steel", geopolitics: "slate", regulation: "saffron",
   demographics: "rose", climate: "leaf", discovery: "teal" };
-function patternsHTML(patterns, urlAnchors, takeaways) {
+function weekThreadsHTML(wt) {
+  if (!wt || (!(wt.active || []).length && !(wt.faded || []).length)) return "";
+  const ST = { new: "New", returning: "Returning", building: "Building", established: "Established" };
+  const act = (wt.active || []).map((r) =>
+    `<li><b>${esc(r.name)}</b> <span class="wt-meta">${esc(ST[r.status] || "")} &middot; ${r.days7} of 7 days</span>` +
+    (r.line ? `<br><span class="wt-line">${esc(r.line)}</span>` : "") + `</li>`).join("");
+  const fad = (wt.faded || []).map((r) => `<li>${esc(r.name)} <span class="wt-meta">last seen ${esc(r.last)}</span></li>`).join("");
+  return `<div class="week-threads"><h4>The week&rsquo;s threads</h4>` +
+    `<p class="bp-sub">The storylines that kept coming back this week, and the ones that went quiet</p>` +
+    (act ? `<ul>${act}</ul>` : "") + (fad ? `<p class="wt-faded-h">Gone quiet</p><ul class="wt-faded">${fad}</ul>` : "") + `</div>`;
+}
+function patternsHTML(patterns, urlAnchors, takeaways, weekThreads) {
   const hasP = Array.isArray(patterns) && patterns.length;
   const hasT = Array.isArray(takeaways) && takeaways.length;
-  if (!hasP && !hasT) return "";
+  const wk = weekThreadsHTML(weekThreads);
+  if (!hasP && !hasT && !wk) return "";
   const link = (e, label) => {
     const a = e.url && urlAnchors.get(e.url);
     if (a) return `<a class="sk" href="#${esc(a)}">${label}</a>`;
@@ -530,7 +542,16 @@ function patternsHTML(patterns, urlAnchors, takeaways) {
     const fc = FORCE_COLOR[p.force];
     const f = FORCE_LABEL[p.force]
       ? `<span class="force"><i style="background:var(--${fc})"></i>${esc(FORCE_LABEL[p.force])}</span>` : "";
-    const upd = p.update ? `<span class="pat-upd">Update</span>` : "";
+    // v11 threads: a status chip from code (New / Returning / Building / Established);
+    // editions before 21 Nov 2026 only have `update`.
+    const th = p.thread && p.thread.status ? p.thread : null;
+    const TH = { new: "New", returning: "Returning", building: "Building", established: "Established" };
+    const thTip = th ? (th.status === "new" ? "First time in the paper"
+      : `Seen on ${th.days14} of the last 14 days` + (th.weeks > 1 ? `, in ${th.weeks} of the last 4 weeks` : "")) : "";
+    const thTxt = th ? (th.status === "building" ? `Building &middot; ${th.days14} days in 2 weeks`
+      : th.status === "established" ? `Established &middot; ${th.weeks} weeks` : TH[th.status] || "") : "";
+    const upd = th && thTxt ? `<span class="pat-upd th-${esc(th.status)}" title="${esc(thTip)}">${thTxt}</span>`
+      : p.update ? `<span class="pat-upd">Update</span>` : "";
     const ev = p.evidence || [];
     const evList = ev.length
       ? `<details class="pat-ev"><summary>${ev.length} ${ev.length === 1 ? "story" : "stories"} in today&rsquo;s paper</summary><ul>${
@@ -540,6 +561,7 @@ function patternsHTML(patterns, urlAnchors, takeaways) {
       `<h3>${esc(p.name)}</h3>${f || upd ? `<div class="pat-meta">${f}${upd}</div>` : ""}` +
       `<p class="pat-line">${esc(p.line)}</p>` +
       (p.why ? `<p class="pat-why">Why it matters: ${esc(p.why)}</p>` : "") +
+      (p.connects ? `<p class="pat-connects">Connects to &rarr; ${esc(p.connects)}</p>` : "") +
       (p.watch ? `<p class="pat-watch">Watch: ${esc(p.watch)}</p>` : "") +
       `${evList}</div></li>`;
   }).join("");
@@ -547,7 +569,7 @@ function patternsHTML(patterns, urlAnchors, takeaways) {
     ? `<div class="takeaways"><h4>Other takeaways</h4><ul>${takeaways.map((t) =>
         `<li>${esc(t.line)} ${t.url ? link(t, "&darr;&nbsp;story") : ""}</li>`).join("")}</ul></div>`
     : "";
-  return `<section class="card patterns-card">${hasP ? `<h4>The Big Picture</h4><p class="bp-sub">What today&rsquo;s news adds up to</p><ol class="pat-list">${rows}</ol>` : ""}${tk}</section>`;
+  return `<section class="card patterns-card">${hasP ? `<h4>The Big Picture</h4><p class="bp-sub">What today&rsquo;s news adds up to</p><ol class="pat-list">${rows}</ol>` : ""}${tk}${wk}</section>`;
 }
 
 function moneyHTML(money) {
@@ -806,7 +828,7 @@ function renderEdition(ed) {
   (ed.patterns || []).forEach((p, i) => (p.evidence || []).forEach((e) => {
     if (e && e.url && !PAT_BY_URL.has(e.url)) PAT_BY_URL.set(e.url, { n: i + 1, name: p.name });
   }));
-  html += patternsHTML(ed.patterns, urlAnchors, ed.takeaways);
+  html += patternsHTML(ed.patterns, urlAnchors, ed.takeaways, ed.week_threads);
   if (ed.lead) {
     html += `<div class="lead-wrap">${storyCardHTML(ed.lead, {
       lead: true, slug: "front", sectionName: null,

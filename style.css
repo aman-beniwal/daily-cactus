@@ -508,3 +508,19 @@ html{scroll-behavior:smooth}
   .pat-num{font-size:26px}
   .pat-body h3{font-size:17.5px}
 }
+
+/* masthead tagline (20 Nov 2026) */
+.masthead .tagline{margin:2px 0 8px;text-align:center;font-family:var(--serif);font-style:italic;
+  font-size:17px;color:var(--graphite);letter-spacing:.2px}
+@media(max-width:480px){.masthead .tagline{font-size:15px}}
+/* v11 threads (20 Nov 2026): status chip, connects line, Sunday week review */
+.pat-upd.th-new{color:var(--leaf,#4c7a4c)}
+.pat-upd.th-building,.pat-upd.th-established{color:var(--ink);border-color:var(--brown)}
+.patterns-card p.pat-connects{margin:0 0 5px;font-size:14.5px;color:var(--graphite)}
+.patterns-card .week-threads{margin-top:14px;padding-top:12px;border-top:2px solid var(--ink)}
+.week-threads ul{margin:6px 0 0;padding-left:18px;font-size:15px}
+.week-threads li{margin-bottom:7px}
+.week-threads .wt-meta{font-family:var(--stamp);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--faded)}
+.week-threads .wt-line{font-size:14px;color:var(--graphite)}
+.week-threads .wt-faded-h{margin:10px 0 0;font-size:13px;font-style:italic;color:var(--faded)}
+.week-threads ul.wt-faded{font-size:14px;color:var(--faded)}
