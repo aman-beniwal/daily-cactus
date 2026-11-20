@@ -282,16 +282,7 @@ function marketsHTML(markets) {
     const pctTxt = q.closed ? " closed" : pct == null ? "" : ` ${Math.abs(pct).toFixed(1)}%`;
     return `<span class="q ${dir}">${esc(q.label)} <b>${fmtQuoteValue(q)}${esc(pctTxt)}</b></span>`;
   }).join("");
-  const asOf = markets.as_of || markets.quotes.find((q) => q.as_of)?.as_of;
-  if (!asOf) return quotes;
-  const stamp = new Date(asOf);
-  if (isNaN(stamp)) return `${quotes}<span class="markets-asof">as of ${esc(asOf)}</span>`;
-  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Asia/Kolkata", weekday: "short", day: "numeric", month: "short",
-    ...(String(asOf).includes("T") ? { hour: "2-digit", minute: "2-digit", hour12: false } : {}),
-  }).formatToParts(stamp).map((p) => [p.type, p.value]));
-  const time = parts.hour ? `, ${parts.hour}:${parts.minute} IST` : "";
-  return `${quotes}<span class="markets-asof">as of ${esc(`${parts.weekday} ${parts.day} ${parts.month}${time}`)}</span>`;
+  return quotes;   // 20 Nov 2026: no "as of" time stamp; the paper's date is enough
 }
 
 // ---------- story-card pieces ----------
@@ -556,7 +547,7 @@ function patternsHTML(patterns, urlAnchors, takeaways) {
     ? `<div class="takeaways"><h4>Other takeaways</h4><ul>${takeaways.map((t) =>
         `<li>${esc(t.line)} ${t.url ? link(t, "&darr;&nbsp;story") : ""}</li>`).join("")}</ul></div>`
     : "";
-  return `<section class="card patterns-card">${hasP ? `<h4>What&rsquo;s changing</h4><ol class="pat-list">${rows}</ol>` : ""}${tk}</section>`;
+  return `<section class="card patterns-card">${hasP ? `<h4>The Big Picture</h4><p class="bp-sub">What today&rsquo;s news adds up to</p><ol class="pat-list">${rows}</ol>` : ""}${tk}</section>`;
 }
 
 function moneyHTML(money) {
@@ -766,6 +757,8 @@ function renderEdition(ed) {
       if (t === "top") window.scrollTo({ top: 0, behavior: "smooth" });
       else document.getElementById(t)?.scrollIntoView({ behavior: "smooth" });
     }));
+
+  setupNavActive();
 
   // Pass 1: assign every story's derived id + collect a url -> anchor map for
   // brief links (the brief can't reference the story id directly — that id
@@ -1042,6 +1035,42 @@ function setupNavAutoHide() {
     if (!ticking) { requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
   addEventListener("resize", () => { if (window.innerWidth >= 700) nav.classList.remove("nav-hidden"); });
+}
+
+// Nav underline for the section currently on screen (20 Nov 2026). The
+// section whose head was passed last (under the bar) is "current"; above the
+// first section head it is Front Page. Runs after each render, cheap on scroll.
+function setupNavActive() {
+  const nav = $("#nav");
+  if (!nav) return;
+  const links = [...nav.querySelectorAll("a[data-target]")];
+  const mark = () => {
+    // offsetHeight ignores the hide-on-scroll slide, so the line stays put
+    const line = Math.min(nav.offsetHeight + 40, innerHeight * 0.45);
+    let cur = "top";
+    for (const a of links) {
+      const t = a.getAttribute("data-target");
+      if (t === "top") continue;
+      const el = document.getElementById(t);
+      if (el && el.getBoundingClientRect().top <= line) cur = t;
+    }
+    // at the very bottom the last section can't reach the line: it is current
+    const atEnd = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
+    if (atEnd && scrollY > 0 && links.length > 1) cur = links[links.length - 1].getAttribute("data-target");
+    links.forEach((a) => {
+      const on = a.getAttribute("data-target") === cur;
+      a.classList.toggle("active", on);
+      if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+  };
+  if (!window.daily._navActiveBound) {
+    window.daily._navActiveBound = true;
+    // ~12 position reads per scroll event: cheap, and no frame-timer to stall
+    addEventListener("scroll", () => window.daily._navMark?.(), { passive: true });
+    addEventListener("resize", () => window.daily._navMark?.());
+  }
+  window.daily._navMark = mark;
+  setTimeout(mark, 0);
 }
 
 // keyboard j/k to jump between story cards
