@@ -558,7 +558,7 @@ def build_patterns(patterns, refs, warnings):
         if not ev:
             continue
         row = {"name": str(pt["name"]).strip(), "line": str(pt["line"]).strip(), "evidence": ev}
-        for k in ("force", "streak", "why", "watch", "update"):
+        for k in ("force", "streak", "why", "watch", "update", "connects", "thread"):
             if pt.get(k):
                 row[k] = pt[k]
         out.append(row)
@@ -744,6 +744,11 @@ def assemble_one(draft_path, names, colophon, markets, warnings_out=None):
             warnings.append(f"takeaway {tk!r} unknown id or empty — dropped")
     if takeaways:
         edition["takeaways"] = takeaways
+    # v11: Sunday review of threads (built by code in newsroom.py)
+    wt = draft.get("week_threads")
+    if isinstance(wt, dict) and (wt.get("active") or wt.get("faded")):
+        edition["week_threads"] = {"active": [r for r in wt.get("active") or [] if isinstance(r, dict) and r.get("name")],
+                                   "faded": [r for r in wt.get("faded") or [] if isinstance(r, dict) and r.get("name")]}
 
     edition, duplicate_drops = sm.dedupe_cards(edition)
     for pair in duplicate_drops:

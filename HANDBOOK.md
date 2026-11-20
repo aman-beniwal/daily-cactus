@@ -243,3 +243,16 @@ paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
   screen. On phones the menu wraps onto several lines (no sideways scroll) and still hides on
   scroll-down / returns on scroll-up. Open question: a masthead tagline (Aman to choose), and an
   own three-layer design with cross-day "threads" (proposed, not built).
+
+## 11. v11 threads + tagline (20 Nov 2026) — plan in `docs/V11_THREADS_PLAN.md`
+- **Three layers (our own, not the reel's):** news cards → **The Big Picture** (what today
+  adds up to; a new item needs ≥2 stories; optional "Connects to → Field: …" line) → **threads**
+  (storylines with a stable id). Each Big Picture item shows a chip: New / Returning /
+  Building (≥3 days in 14) / Established (seen in ≥3 of the last 4 weeks).
+- **Memory:** derived from `drafts/` + `trial/drafts/` (60 days); no state file, no workflow
+  change. The writer sees THREADS (id, name, status, last line) and must reuse an id rather than
+  rename; code also attaches a "new" item whose name matches a known thread. Stories that add to
+  a thread without an item go in `threads_touched` (counted, not shown).
+- **Sundays:** "The week's threads" (active this week + gone quiet), built by code, no model call.
+- **Masthead tagline:** "The headlines are just the prickles."
+- Watch the first week: do chips look right; does the writer use `thread` ids instead of renaming.

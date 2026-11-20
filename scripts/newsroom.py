@@ -521,6 +521,165 @@ def patterns_input(recent: list) -> str:
     return ("RECENT PATTERNS (the reader has already been told these; include one today only "
             "with a real new development, as an update, name word for word):\n" + "\n".join(rows))
 
+# ---------------------------------------------------------------- v11 threads (20 Nov 2026)
+# A thread is a long-running storyline with a STABLE id, so a renamed pattern
+# can't fake being new. The ledger is derived from committed drafts (no state
+# file, no workflow change); old patterns without ids are clustered by name.
+THREAD_DAYS = 60
+MAX_THREAD_ROWS = 25
+
+
+def mint_thread_id(name: str, date: str) -> str:
+    words = re.findall(r"[a-z0-9]+", (name or "").lower())[:6]
+    return ("t" + date.replace("-", "") + "-" + "-".join(words))[:64]
+
+
+def _pat_thread_id(pt: dict):
+    t = pt.get("thread")
+    if isinstance(t, dict):
+        t = t.get("id")
+    return str(t).strip() if t else None
+
+
+def thread_ledger(drafts_dir, date: str, days: int = THREAD_DAYS) -> list:
+    """[{id, name, force, days: [dates asc], line, last}] from drafts strictly before `date`."""
+    try:
+        today = datetime.date.fromisoformat(date)
+    except ValueError:
+        return []
+    dirs = drafts_dir if isinstance(drafts_dir, (list, tuple)) else [drafts_dir]
+    by_date = {}
+    for d in dirs:
+        for f in pathlib.Path(d).glob("20*.json"):
+            try:
+                fd = datetime.date.fromisoformat(f.stem)
+            except ValueError:
+                continue
+            if today - datetime.timedelta(days=days) <= fd < today:
+                by_date.setdefault(f.stem, []).append(f)
+    out, idx = [], {}
+
+    def hit(th, day, line=None, name=None, force=None):
+        if day not in th["days"]:
+            th["days"].append(day)
+        if line:
+            th["line"], th["last"] = line, day
+        if name:
+            th["name"] = name
+        if force:
+            th["force"] = force
+
+    for day in sorted(by_date):
+        for f in by_date[day]:
+            try:
+                dr = json.loads(f.read_text())
+            except Exception:                                    # noqa: BLE001
+                continue
+            for pt in dr.get("patterns") or []:
+                if not isinstance(pt, dict) or not pt.get("name"):
+                    continue
+                tid = _pat_thread_id(pt)
+                th = idx.get(tid) if tid else None
+                if th is None and not tid:
+                    th = next((o for o in out if any(same_pattern(n, pt["name"]) for n in o["names"])), None)
+                if th is None:
+                    th = {"id": tid or mint_thread_id(pt["name"], day), "name": pt["name"], "names": [],
+                          "force": pt.get("force", ""), "days": [], "line": "", "last": day}
+                    out.append(th)
+                    idx[th["id"]] = th
+                if pt["name"] not in th["names"]:
+                    th["names"].append(pt["name"])
+                hit(th, day, pt.get("line", ""), pt["name"], pt.get("force"))
+            for tt in dr.get("threads_touched") or []:
+                th = idx.get((tt or {}).get("thread")) if isinstance(tt, dict) else None
+                if th:
+                    hit(th, day)
+    for th in out:
+        th["days"].sort()
+    return out
+
+
+def thread_status(days: list, date: str) -> dict:
+    """Status as of `date`, counting `date` itself as a day seen."""
+    today = datetime.date.fromisoformat(date)
+    seen = sorted({datetime.date.fromisoformat(d) for d in days} | {today})
+    d14 = sum(1 for d in seen if (today - d).days < 14)
+    weeks = len({d.isocalendar()[:2] for d in seen if (today - d).days < 28})
+    if len(seen) == 1:
+        status = "new"
+    elif weeks >= 3:
+        status = "established"
+    elif d14 >= 3:
+        status = "building"
+    else:
+        status = "returning"
+    return {"status": status, "days": len(seen), "days14": d14, "weeks": weeks,
+            "first": seen[0].isoformat()}
+
+
+def threads_input(ledger: list, date: str) -> str:
+    if not ledger:
+        return ""
+    rows = []
+    for th in sorted(ledger, key=lambda t: t["days"][-1], reverse=True)[:MAX_THREAD_ROWS]:
+        st = thread_status(th["days"], th["days"][-1])
+        n = len(th["days"])
+        rows.append(f"- {th['id']} | {th['name']} | {st['status']}, seen on {n} day{'s' if n > 1 else ''} "
+                    f"since {th['days'][0]} | last {th['days'][-1]}: {_clean_line(th.get('line', ''))}")
+    return ("THREADS (ongoing storylines the reader already knows; ids are stable. Continue one by "
+            "putting its id in `thread`; only a real new development earns a Big Picture item):\n"
+            + "\n".join(rows))
+
+
+def annotate_threads(draft: dict, ledger: list, date: str) -> None:
+    """Give every Big Picture item a stable thread id + status; on Sundays add
+    the week's threads review (code only, no model call)."""
+    idx = {t["id"]: t for t in ledger}
+    for pt in draft.get("patterns") or []:
+        tid = pt.pop("thread_id", None) or mint_thread_id(pt["name"], date)
+        th = idx.get(tid)
+        pt["thread"] = {"id": tid, **thread_status(th["days"] if th else [], date)}
+        if th:
+            pt["update"] = True
+        pt.pop("streak", None)
+    if datetime.date.fromisoformat(date).weekday() == 6:
+        draft["week_threads"] = week_threads(ledger, draft, date)
+
+
+_ID_IN_PROSE = re.compile(r"\s*\((?:[a-z][a-z-]*-[0-9a-f]{8,}(?:,\s*)?)+\)|\b[a-z][a-z-]*-[0-9a-f]{10}\b")
+
+
+def _clean_line(t: str) -> str:
+    """Older pattern lines sometimes carried story ids in prose; never show them."""
+    return re.sub(r"\s{2,}", " ", _ID_IN_PROSE.sub("", t or "")).strip()
+
+
+def week_threads(ledger: list, draft: dict, date: str) -> dict:
+    today = datetime.date.fromisoformat(date)
+    seen = {t["id"]: {"name": t["name"], "line": t.get("line", ""), "days": set(t["days"])} for t in ledger}
+    for pt in draft.get("patterns") or []:
+        tid = pt["thread"]["id"]
+        row = seen.setdefault(tid, {"name": pt["name"], "line": "", "days": set()})
+        row["days"].add(date)
+        row["name"], row["line"] = pt["name"], pt.get("line", "")
+    for tt in draft.get("threads_touched") or []:
+        if tt.get("thread") in seen:
+            seen[tt["thread"]]["days"].add(date)
+    age = lambda d: (today - datetime.date.fromisoformat(d)).days
+    active, faded = [], []
+    for tid, r in seen.items():
+        n7 = sum(1 for d in r["days"] if age(d) < 7)
+        prev = sum(1 for d in r["days"] if 7 <= age(d) < 21)
+        if n7:
+            st = thread_status([d for d in r["days"] if d != date], date) if date in r["days"] \
+                else thread_status(sorted(r["days"])[:-1], max(r["days"]))
+            active.append({"name": r["name"], "status": st["status"], "days7": n7, "line": _clean_line(r["line"])})
+        elif prev >= 3:
+            faded.append({"name": r["name"], "last": max(r["days"])})
+    active.sort(key=lambda r: (-r["days7"], r["name"]))
+    return {"active": active[:8], "faded": faded[:5]}
+
+
 # ---------------------------------------------------------------- writer
 _NAV = re.compile(r"^(?:advertisement|read more|also read|subscribe|sign up|share this|"
                   r"follow us|related:?|recommended|image:|photo:|watch:|listen:)\b", re.I)
@@ -542,11 +701,14 @@ def clean_text(t: str) -> str:
     return "\n".join(out)
 
 
-def writer_input(sel: dict, selected: dict, recent: list | None = None) -> str:
+def writer_input(sel: dict, selected: dict, recent: list | None = None,
+                 threads: list | None = None) -> str:
     stories = selected.get("stories") or {}
     parts = [f"DATE: {sel['date']}", "Write every story below in the place given.",
              "Output JSON only."]
-    if recent:
+    if threads:
+        parts.append(threads_input(threads, sel["date"]))
+    elif recent:
         parts.append(patterns_input(recent))
 
     def block(role, sid, section=None, extra=""):
@@ -603,7 +765,7 @@ def drop_duplicate_cards(draft: dict) -> list:
     return dropped
 
 
-def validate_draft(draft: dict, sel: dict) -> dict:
+def validate_draft(draft: dict, sel: dict, ledger: list | None = None) -> dict:
     allowed = {sel["lead"], *sel["frontpage"], *sel["opportunities"], *sel["longform"]}
     for s in sel["sections"]:
         allowed.update(s["stories"]); allowed.update(s["also"])
@@ -662,6 +824,18 @@ def validate_draft(draft: dict, sel: dict) -> dict:
         ev = [i for i in dict.fromkeys(pt.get("evidence") or []) if i in allowed]
         if not ev:
             continue
+        tid = None
+        if ledger is not None:
+            # v11: a stable thread id decides "continuing"; an unknown id is new, and
+            # a "new" item whose name matches a known thread is attached to it
+            tid = _pat_thread_id(pt)
+            if tid not in {t["id"] for t in ledger}:
+                tid = next((t["id"] for t in ledger
+                            if any(same_pattern(n, pt["name"]) for n in t["names"])), None)
+            if not tid and len(ev) < 2:
+                print(f"  dropped new Big Picture item with one story: {pt['name']}")
+                continue
+            pt["update"] = bool(tid)
         is_ai = bool(_AI_RX.search(pt["name"]))
         upd = bool(pt.get("update"))
         if (is_ai and n_ai >= MAX_AI_PATTERNS) or (upd and n_upd >= MAX_UPDATES):
@@ -672,11 +846,13 @@ def validate_draft(draft: dict, sel: dict) -> dict:
         row = {"name": str(pt["name"]).strip(), "line": str(pt["line"]).strip(), "evidence": ev}
         if pt.get("force") in FORCES:
             row["force"] = pt["force"]
-        for k in ("why", "watch"):
+        for k in ("why", "watch", "connects"):
             if str(pt.get(k) or "").strip():
                 row[k] = str(pt[k]).strip()
         if upd:
             row["update"] = True
+        if tid:
+            row["thread_id"] = tid
         pats.append(row)
     draft["patterns"] = pats[:5]
     # Tags are derived, never guessed: a card is tagged only when a pattern
@@ -697,6 +873,20 @@ def validate_draft(draft: dict, sel: dict) -> dict:
                 and str(tk.get("line") or "").strip() and tk["id"] not in {x["id"] for x in tks}:
             tks.append({"id": tk["id"], "line": str(tk["line"]).strip()})
     draft["takeaways"] = tks[:MAX_TAKEAWAYS]
+    # v11: stories that add to a known thread without a Big Picture item (feeds
+    # the thread's day count, not shown on the page)
+    known = {t["id"] for t in ledger or []}
+    featured = {p.get("thread_id") for p in draft["patterns"]}
+    touched = []
+    for tt in draft.get("threads_touched") or []:
+        if isinstance(tt, dict) and tt.get("thread") in known and tt["thread"] not in featured:
+            ev = [i for i in dict.fromkeys(tt.get("evidence") or []) if i in allowed]
+            if ev and tt["thread"] not in {x["thread"] for x in touched}:
+                touched.append({"thread": tt["thread"], "evidence": ev})
+    if touched:
+        draft["threads_touched"] = touched
+    else:
+        draft.pop("threads_touched", None)
     return draft
 
 
@@ -782,12 +972,13 @@ def main():
     drafts = base / "drafts"
     drafts.mkdir(parents=True, exist_ok=True)
     # pattern memory: this mode's drafts, the live ones, and the v10 trial's (carried over at go-live)
-    recent = recent_patterns(list(dict.fromkeys([drafts, ROOT / "drafts", ROOT / "trial" / "drafts"])), date)
+    ledger = thread_ledger(list(dict.fromkeys([drafts, ROOT / "drafts", ROOT / "trial" / "drafts"])), date)
+    print(f"  thread memory: {len(ledger)} threads over {THREAD_DAYS} days")
     try:
         draft = call_with_retry("writer", (PROMPTS / "writer.md").read_text(),
-                                writer_input(sel, selected, recent), a.writer_model, a.writer_effort, date=date)
-        draft = validate_draft(draft, sel)
-        annotate_streaks(draft, recent)
+                                writer_input(sel, selected, threads=ledger), a.writer_model, a.writer_effort, date=date)
+        draft = validate_draft(draft, sel, ledger)
+        annotate_threads(draft, ledger, date)
     except Exception as ex:                                      # noqa: BLE001
         no_paper(date, "writer", ex)
     (drafts / f"{date}.json").write_text(json.dumps(draft, indent=2, ensure_ascii=False))

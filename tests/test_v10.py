@@ -116,3 +116,46 @@ def test_v101_memory_says_what_was_already_told(tmp_path):
         {"patterns": [{"name": "Weak monsoon hits crops", "force": "climate", "line": "Wheat area falls 6%."}]}))
     txt = nr.patterns_input(nr.recent_patterns(tmp_path, "2026-11-21"))
     assert "already told: Wheat area falls 6%." in txt and "real new development" in txt
+
+
+# ---- v11 threads (20 Nov 2026) ----
+def _draft(tmp, date, pats, touched=None):
+    (tmp / f"{date}.json").write_text(json.dumps({"patterns": pats, "threads_touched": touched or []}))
+
+
+def test_thread_ids_survive_renames_and_status_builds(tmp_path):
+    _draft(tmp_path, "2026-11-02", [{"name": "AI chips are a security fight", "line": "a"}])
+    _draft(tmp_path, "2026-11-03", [{"name": "AI chips are a security fight", "line": "b"}])
+    led = nr.thread_ledger(tmp_path, "2026-11-04")
+    tid = led[0]["id"]
+    # a renamed item that carries the id stays the same thread
+    _draft(tmp_path, "2026-11-04", [{"name": "US closes chip export loopholes", "line": "c", "thread": {"id": tid}}])
+    _draft(tmp_path, "2026-11-10", [], touched=[{"thread": tid, "evidence": ["x"]}])
+    led = nr.thread_ledger(tmp_path, "2026-11-17")
+    assert len(led) == 1 and led[0]["days"] == ["2026-11-02", "2026-11-03", "2026-11-04", "2026-11-10"]
+    assert nr.thread_status(led[0]["days"], "2026-11-17")["status"] == "established"   # 3 weeks
+    assert nr.thread_status(["2026-11-15", "2026-11-16"], "2026-11-17")["status"] == "building"
+    assert nr.thread_status(["2026-11-01"], "2026-11-17")["status"] == "returning"
+    assert nr.thread_status([], "2026-11-17")["status"] == "new"
+    assert tid in nr.threads_input(led, "2026-11-17")
+
+
+def test_validate_draft_threads_rules():
+    sel = {"date": "2026-11-22", "lead": "L", "frontpage": ["F1", "F2"], "opportunities": [], "longform": [],
+           "sections": []}
+    led = [{"id": "t1", "name": "AI chips are a security fight", "names": ["AI chips are a security fight"],
+            "days": ["2026-11-20"], "line": "x"}]
+    draft = {"lead": {"id": "L", "headline": "h"}, "frontpage": [{"id": "F1", "headline": "a"}, {"id": "F2", "headline": "b"}],
+             "sections": [], "patterns": [
+                 {"name": "Renamed chips item", "line": "a", "thread": "t1", "evidence": ["F1"], "connects": "Energy: x"},
+                 {"name": "Brand new single-story idea", "line": "b", "evidence": ["F2"]},
+                 {"name": "Brand new two-story idea", "line": "c", "evidence": ["F1", "F2"], "thread": "bogus"}],
+             "threads_touched": [{"thread": "t1", "evidence": ["L"]}, {"thread": "nope", "evidence": ["L"]}]}
+    out = nr.validate_draft(draft, sel, led)
+    assert [p["name"] for p in out["patterns"]] == ["Renamed chips item", "Brand new two-story idea"]
+    assert out["patterns"][0]["thread_id"] == "t1" and out["patterns"][0]["connects"] == "Energy: x"
+    assert "threads_touched" not in out          # t1 is already featured; 'nope' unknown
+    nr.annotate_threads(out, led, "2026-11-22")  # a Sunday
+    assert out["patterns"][0]["thread"]["id"] == "t1" and out["patterns"][0]["update"] is True
+    assert out["patterns"][1]["thread"]["status"] == "new"
+    assert out["week_threads"]["active"]
