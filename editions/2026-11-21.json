@@ -1,0 +1,938 @@
+{
+  "date": "2026-11-21",
+  "edition": 159,
+  "colophon": "96 sources scanned · 95 ok · 1 failed",
+  "lead": {
+    "id": "science-mind-b4458eafcb",
+    "headline": "Independent mathematicians say the AI-built Riemann hypothesis proof is almost certainly sound",
+    "summary": "",
+    "signal": [],
+    "badge": "",
+    "takeaway": "",
+    "why": "",
+    "source": "Scientific American",
+    "url": "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/",
+    "image": "https://static.scientificamerican.com/dam/asset/64e45f50-d1c5-4a9f-ad48-60b52541abcc/riemann-proven.jpg?m=1795211310.647&w=1200",
+    "developing": true,
+    "hook": "Anthropic mathematician Levent Alpöge says Claude proved the Riemann hypothesis, and independent mathematicians now say the proof is almost certainly correct.",
+    "points": [
+      "The hypothesis, posed in 1859, says a hidden pattern governs how prime numbers (divisible only by themselves and 1) are spread out.",
+      "Alpöge wrote the proof in Lean, a programming language; a proof that compiles without errors is usually taken as logically valid.",
+      "MIT's Andrew Sutherland and others compiled it independently without issues. Sutherland says the chance of anything fishy is 'approximately zero'.",
+      "One check remains: a 'comparator run' to confirm the code does not redefine the statement or exploit a Lean bug. It typically takes hours.",
+      "Kevin Buzzard of Imperial College London said the first question is whether the Lean statement matches the real theorem."
+    ],
+    "key_stat": "1859 problem · Lean-verified"
+  },
+  "frontpage": [
+    {
+      "id": "world-041a64125a",
+      "headline": "Russian missiles land in Poland during European military drills nearby",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "World - South China Morning Post",
+      "url": "https://www.scmp.com/news/world/russia-central-asia/article/3375302/russian-missiles-land-poland-europe-holds-military-drills-nearby",
+      "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/21/66884aa7-2b7c-4999-a3ce-4110cc3cf4ab_b5c8aaa1.jpg?itok=OWWRIKOI&v=1795218209",
+      "developing": false,
+      "hook": "Two Russian missiles and a suspected drone came down in Poland on Friday, and NATO chief Mark Rutte called it a 'grave violation' of Polish airspace.",
+      "points": [
+        "A Kh-101 cruise missile landed about 30 miles from the Ukraine border; a likely jet-powered drone hit about 20 miles from it. No injuries or damage were reported.",
+        "One missile crashed about 22 miles from European drills for a possible postwar Ukraine mission; the two-week exercise began Nov. 9. PM Donald Tusk called it an intentional provocation.",
+        "Article 5 (attack on one ally is an attack on all 32) is not automatic and needs a political decision. Poland can invoke Article 4, which gives emergency consultations only.",
+        "The same night Russia hit Ukraine with a major barrage that killed at least eight. Putin says he will treat European troops in Ukraine as legitimate targets.",
+        "UK defence intelligence chief Matthew Jones said Russia does not seek war with NATO but he fears a significant miscalculation."
+      ],
+      "key_stat": "2 missiles + 1 drone · Poland"
+    },
+    {
+      "id": "ai-fd28116146",
+      "headline": "Nasdaq wipes out 2026 gains as AI sell-off hits Anthropic's second day",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "AI (artificial intelligence) | The Guardian",
+      "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+      "image": "https://i.guim.co.uk/img/media/578833ee207aab76c1b6a542f17226703dbd735b/686_0_5336_4269/master/5336.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=a36857abb7bd0660d819105186f898a0",
+      "developing": false,
+      "hook": "The Nasdaq closed 5% below its 1 January level on Friday, erasing all 2026 gains, as about $4tn of market value vanished this week.",
+      "points": [
+        "Anthropic fell 9% to $88.30, near its $83 IPO price, after a 17% jump on day one. Nvidia fell 14%; SanDisk fell 14% and Micron 12%.",
+        "Asian markets had their worst week since 2020. Taiwan fell 6.7%, Kospi 5.5% and Nikkei 5%. SoftBank fell 14.5%.",
+        "An IG analyst says the IPO may be draining liquidity as investors sell other shares to fund purchases of Anthropic.",
+        "Investors question whether AI spending will earn the returns to justify it. Nvidia also fell after California's subpoena.",
+        "Rate-hike fears lifted the dollar to a 19-month high. Bitcoin fell below $60,000 for the first time since early July."
+      ],
+      "key_stat": "Nasdaq -5% YTD · ~$4tn lost",
+      "evidence_of": "AI stocks sell off even after Anthropic's IPO",
+      "force": "capital"
+    },
+    {
+      "id": "ai-9d24760f53",
+      "headline": "Trump threatens a ban and a 'tremendous tax' on US firms building AI data centres abroad",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "BBC",
+      "url": "https://www.bbc.com/news/articles/cmde1lw9y54ko",
+      "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5eb0/live/a9cadc20-e529-11f1-99a1-253766e7ad8b.jpg",
+      "developing": false,
+      "hook": "Donald Trump said he will stop US companies building AI data centres overseas and tax those that do, giving almost no detail.",
+      "points": [
+        "He said 'China will take all of them'. He admitted he had not yet told his own officials.",
+        "It is unclear how it would be enforced. Meta, Google and Anthropic have overseas or Canadian data-centre deals.",
+        "He singled out Google's Finland project (€13bn investment); work on two of its centres was halted last month over forest clearance.",
+        "It follows Monday's licence rule for buying advanced chips, aimed at Chinese firms renting computing power abroad.",
+        "Data centres were a midterm issue: Democrats promising tougher rules won on 3 November. There are about 3,000 US data centres, with 1,500 more planned."
+      ],
+      "key_stat": "'Tremendous tax' · no detail",
+      "evidence_of": "US pushes AI compute to stay inside its borders",
+      "force": "geopolitics"
+    },
+    {
+      "id": "india-ab96d4d314",
+      "headline": "Indian man gets 19 years in US for plot to kill Sikh separatist",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "India | The Guardian",
+      "url": "https://www.theguardian.com/us-news/2026/nov/20/indian-man-sentenced-prison-murder-plot-sikh-separatist",
+      "image": "https://i.guim.co.uk/img/media/9685e16f610038a3820904f81eb1dba749b72664/117_0_2813_2250/master/2813.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=4ff4c4f6c85dba865f89e2e3578574e5",
+      "developing": false,
+      "hook": "Nikhil Gupta, 55, was sentenced to 235 months in a New York federal court for a murder-for-hire plot against Sikh separatist Gurpatwant Singh Pannun.",
+      "points": [
+        "Gupta pleaded guilty in February to murder-for-hire, conspiracy and money-laundering conspiracy. Prosecutors had sought about 24 years.",
+        "He arranged $15,000 in cash with Indian official Vikash Yadav for a 'hitman' who was an undercover US officer. Yadav is charged but not in US custody.",
+        "India denies involvement and says such a plot is against government policy.",
+        "Gupta was arrested in Prague and has been held since extradition in June 2023. He faces deportation after his term.",
+        "Pannun called Gupta 'a foot soldier' of Narendra Modi's government and says he will keep campaigning."
+      ],
+      "key_stat": "235 months · murder-for-hire"
+    },
+    {
+      "id": "india-3ba6ae21d7",
+      "headline": "India's core industry output rises 10.9% in October, fastest in new series",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "ET Government",
+      "url": "https://government.economictimes.indiatimes.com/news/economy/indias-core-infrastructure-output-hits-new-series-high-of-10-9-in-october/136032642",
+      "image": "https://etimg.etb2bimg.com/thumb/msid-136032642,imgsize-642778,width-1200,height=627,overlay-etgovernment,resizemode-75/news/economy/indias-core-infrastructure-output-hits-new-series-high-of-10-9-in-october.jpg",
+      "developing": false,
+      "hook": "Core sector output rose 10.9% in October, against 0.8% a year earlier and 8.2% in September.",
+      "points": [
+        "Iron ore rose 26.4%, coal 23.1%, electricity 21.6% and cement 15.4%. Natural gas fell 7.6%, crude oil 4.1% and fertiliser 12.2%.",
+        "April–October growth was 6%, against 2.3% a year earlier. The new series has a 2022-23 base and adds iron ore as a ninth sector.",
+        "ICRA's Aditi Nayar says a low base from the shifted festive calendar flattered the number. Cement has grown double digits for four months.",
+        "She expects growth to cool to mid-single digits in November because of more holidays."
+      ],
+      "key_stat": "10.9% · core output"
+    },
+    {
+      "id": "beyond-your-beat-914d0c809c",
+      "headline": "Russia fires over 400 drones and 110 missiles at Ukraine in one night",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "The Times of India",
+      "url": "https://timesofindia.indiatimes.com/world/europe/compensating-with-terror-russia-hits-ukraine-with-400-drones-110-missiles-in-one-of-wars-largest-attacks/articleshow/136025133.cms",
+      "image": "https://static.toiimg.com/thumb/msid-136025282,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
+      "developing": false,
+      "hook": "Russia fired more than 400 drones and over 110 missiles, 27 of them ballistic, at Ukraine overnight, one of the war's biggest attacks.",
+      "points": [
+        "Zelenskyy says missiles came in waves 20–30 minutes apart, hampering rescue crews. Targets included Dnipro bridges, railways and power lines linked to nuclear plants.",
+        "Ukraine shot down 79 cruise missiles. Ballistic missiles are much harder to stop and depend on partner supplies.",
+        "He asked partners to speed air defence deliveries, including PAC-2 and PAC-3 missiles, and wants the Pentagon to release expected deliveries.",
+        "He says Putin ordered the attack to offset diplomatic and military setbacks."
+      ],
+      "key_stat": "400+ drones · 110+ missiles"
+    },
+    {
+      "id": "world-ad379fa36e",
+      "headline": "SEC is probing Nvidia's accounting practices, Reuters reports",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/us-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-2026-11-20/",
+      "image": null,
+      "developing": false,
+      "hook": "The US Securities and Exchange Commission is probing Nvidia's accounting practices, according to two people briefed on the matter, Reuters reports (summary from limited source text).",
+      "points": [
+        "Reuters's exclusive by Chris Prentice and Alexandra Alper, dated Nov 20, says the SEC is looking at the company's accounting.",
+        "The snippets do not give details of what is being examined or the scope."
+      ],
+      "key_stat": "SEC probe · Nvidia",
+      "evidence_of": "Nvidia faces probes over China chip diversion and accounting",
+      "force": "regulation"
+    },
+    {
+      "id": "agritech-838b4e2604",
+      "headline": "As drought grips half of India, rural job guarantee work falls by half",
+      "summary": "",
+      "signal": [],
+      "badge": "",
+      "takeaway": "",
+      "why": "",
+      "source": "Counterview",
+      "url": "https://www.counterview.net/2026/11/as-drought-grips-half-of-india-rural.html",
+      "image": "https://blogger.googleusercontent.com/img/a/AVvXsEjHvXHjVVWRv-UL_SoCWAMtUNPawRvz0ZsCR1rT8rcX3Gx3I0Q4m-S3DqxPA3jSAv2YEpxVBh-Wk7nKQkMdu0I6TgMIlJRenn7UK44Bjb2v7-wQgWTxStdt4bnYMVkynrIHtRIQ_vjJd6IfLq-E3nrEsdj373P2XZq1v8aY5fXDt640sukvbuPlbMCdhsvC=w1200-h630-p-k-no-nu",
+      "developing": false,
+      "hook": "Rural job-guarantee work fell nearly 50% in July, to 7.67 crore person-days from 15.33 crore a year earlier, as drought covered 52.5% of India's land.",
+      "points": [
+        "June–September rain was 759.4 mm against an average of 868.6 mm, 12.6% short. Dry or drought land rose from 38.9% to 52.5% in a month.",
+        "On 1 July the scheme moved from MGNREGS to the new VB-Gram G framework. Households getting work fell over 51%; July–September person-days were 284 million against 418 million.",
+        "Work per household fell from 43.2 days in 2025-26 to 17 so far this year. Economists cite pause periods and Aadhaar checks removing duplicates.",
+        "Activists say officials in Rajsamand were told not to accept applications, so unmet demand goes unrecorded. Farmers are selling livestock in distress.",
+        "El Niño is expected to last through February 2027. The author urges suspending pause periods, giving receipts for applications and an independent review."
+      ],
+      "key_stat": "-50% · person-days July",
+      "evidence_of": "El Niño drought hits India's farms and industry",
+      "force": "climate"
+    }
+  ],
+  "sections": [
+    {
+      "name": "AI",
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-01449c61c8",
+          "headline": "METR update: AI keeps improving, but still weak on judgment tasks",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Artificial intelligence – MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/",
+          "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/metr2a.jpg?resize=1200,600",
+          "developing": false,
+          "hook": "METR's updated time-horizon plot finds AI progress still exponential on checkable tasks, but models fall short on judgment-heavy work.",
+          "points": [
+            "The original plot showed the task length frontier models can complete doubling every four months. Task difficulty is measured by how long humans take.",
+            "The update adds longer and more open-ended tasks. In one, models design AI evaluations; none was good enough for METR staff to find useful.",
+            "Models also fell short of humans at scoring philosophical arguments. Opus 5.5 reaches 'borderline above the bar' on evaluation design; a year ago all models were 'clearly below'.",
+            "Reinforcement learning works where success is automatically verifiable, which is why coding and maths are strong. Hard-to-verify tasks resist this.",
+            "Most human completion times are estimates, since paying people for hundred-hour tasks is too costly. Few such tasks are included, so extrapolation is hard."
+          ],
+          "key_stat": "4 months · task length doubling"
+        },
+        {
+          "id": "ai-b2d3378f10",
+          "headline": "Signal blocks screenshots to stop AI agents reading private chats",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/signal-blocks-screenshots-on-ios-27-and-android-to-stop-ai-agents-from-reading-private-chats/",
+          "image": "https://the-decoder.com/wp-content/uploads/2026/11/signal_ai_agents.png",
+          "developing": false,
+          "hook": "Signal will block screenshots on iOS 27 and supported Android versions, calling OS-level AI agents an 'existential threat' to privacy.",
+          "points": [
+            "Agents such as Apple's Siri AI and Google's Gemini Intelligence can read the screen, pulling decrypted messages out of Signal's encrypted environment.",
+            "Reuters reported Meta's Muse agent accessed Signal chats on Android and macOS using broad permissions granted at setup. Meta says users explicitly grant those permissions.",
+            "Signal blocked Microsoft's Recall last year. It calls its protections incomplete: macOS screenshots can't be reliably blocked, and notifications and file access remain open.",
+            "It wants Apple, Google and Microsoft to let apps opt out of AI agents entirely and to disclose what agents access."
+          ],
+          "key_stat": "Screenshots blocked by default"
+        },
+        {
+          "id": "ai-ac4e692a5c",
+          "headline": "Nvidia nears $500M-plus deal for diffusion-model startup Inception",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/nvidia-bets-at-least-500-million-on-inceptions-diffusion-models-to-strengthen-its-open-source-nemotron-lineup/",
+          "image": "https://the-decoder.com/wp-content/uploads/2026/10/inception.png",
+          "developing": false,
+          "hook": "Nvidia is nearing a deal to buy two-year-old AI startup Inception for at least $500 million, The Information reports citing three people.",
+          "points": [
+            "Inception builds language models using diffusion, which refines a full response step by step rather than token by token.",
+            "The deal would bolster Nvidia's open-source Nemotron models and robot models. Palantir and US agencies use Nemotron as an alternative to Chinese models.",
+            "It includes performance bonuses for the 30-plus employees. Co-founders Stefano Ermon, Aditya Grover and Volodymyr Kuleshov are expected to join Nvidia.",
+            "Talks began before Jensen Huang's resignation and after Microsoft expressed interest."
+          ],
+          "key_stat": "$500M+ · Inception"
+        }
+      ],
+      "also": [
+        {
+          "line": "OpenAI tightened safeguards against extraction of reasoning from GPT-6.2 Astra and Sol; internal tests show attack success down from 54.0% on GPT-6 Astra to 0.2%.",
+          "source": "The Decoder",
+          "url": "https://the-decoder.com/openai-makes-it-much-harder-for-attackers-to-extract-how-its-latest-ai-models-think/"
+        }
+      ]
+    },
+    {
+      "name": "Health Tech",
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-50c7208aac",
+          "headline": "Big pharma says AI cuts preclinical drug discovery time by up to half",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "CASRAI",
+          "url": "https://casrai.org/news/big-pharma-anthropic-ai-preclinical-drug-discovery-timelines-2026",
+          "image": "https://objectstorage.us-ashburn-1.oraclecloud.com/n/ido7qwlr5kaw/b/casrai-news-images/o/big-pharma-anthropic-ai-preclinical-drug-discovery-timelines-2026-06f0.jpg",
+          "developing": false,
+          "hook": "Executives at Novartis, AstraZeneca, GSK, Sanofi and others say AI has cut preclinical drug discovery time by as much as 50%.",
+          "points": [
+            "Sanofi saved at least a year on asthma drug lunsekimig by skipping an intermediate dose-selection trial.",
+            "Novartis cut target-to-candidate time from three years to 18–24 months. Novo Nordisk cut design cycles from eight to three and lead optimisation from 64 weeks to 12.",
+            "Developing a medicine still averages 10–15 years with about 90% clinical failure. Of 129 AI-enabled drugs in trials, only 24 have completed Phase 2 and 5 reached Phase 3.",
+            "Anthropic runs a wet lab and bought two biotech startups; Novartis's CEO sits on its board."
+          ],
+          "key_stat": "Up to 50% · preclinical time cut"
+        }
+      ]
+    },
+    {
+      "name": "Agritech",
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-fa8e5cdc00",
+          "headline": "La Niña may help India's 2027 monsoon after El Niño, INCOIS says",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Hindu",
+          "url": "https://www.thehindu.com/news/national/telangana/after-strong-el-nino-la-nina-may-boost-indias-2027-monsoon-says-incois-forecast/article71724636.ece",
+          "image": "https://th-i.thgim.com/public/incoming/nfb2vh/article71725319.ece/alternates/LANDSCAPE_1200/El%20Nino%20effect%20plant%20garlic%20%2002.jpg",
+          "developing": false,
+          "hook": "INCOIS expects El Niño to stay dominant until March, then fade to neutral, with rising chances of La Niña during the 2027 monsoon.",
+          "points": [
+            "La Niña is El Niño's cooler counterpart, which __could support the 2027 Southwest Monsoon__.",
+            "The forecast is gradual: El Niño continues strengthening now, then transitions to neutral conditions after March."
+          ],
+          "key_stat": "El Niño until March",
+          "evidence_of": "El Niño drought hits India's farms and industry",
+          "force": "climate"
+        },
+        {
+          "id": "agritech-a523aa171e",
+          "headline": "India's weak monsoon and El Niño expose industry's water problem",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Nikkei Asia",
+          "url": "https://asia.nikkei.com/spotlight/environment/india-s-weak-monsoon-el-nino-highlight-industry-s-growing-water-issues",
+          "image": "https://images.ft.com/v3/image/raw/https%3A%2F%2Fcms-image-bucket-productionv3-ap-northeast-1-a7d2.s3.ap-northeast-1.amazonaws.com%2Fimages%2F6%2F9%2F7%2F1%2F13451796-2-eng-GB%2Fcd151ffda0d9-fixed5.jpg?fit=cover&amp;gravity=faces&amp;dpr=2&amp;quality=medium&amp;source=nar-cms&amp;format=jpg&amp;width=1260&amp;height=630",
+          "developing": false,
+          "hook": "Water shortages linked to El Niño are hitting pharma and data centres in southern India, pushing firms to conserve and recycle (summary from limited source text).",
+          "points": [
+            "Nikkei reports shortages could limit growth in industries such as textiles.",
+            "Higher costs are raising pressure to increase recycling."
+          ],
+          "key_stat": "Water shortage · pharma, data centres",
+          "evidence_of": "El Niño drought hits India's farms and industry",
+          "force": "climate"
+        }
+      ]
+    },
+    {
+      "name": "Startups & Venture",
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-85de94c275",
+          "headline": "Yes Bank's AI-attack safeguards delay fintech payouts",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/buzz/fintechs-bear-the-brunt-as-yes-bank-upgrades-ai-safeguards/",
+          "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/11/Banks-and-AI-Startups-ftr-1.jpg",
+          "developing": false,
+          "hook": "Yes Bank's cybersecurity upgrades are delaying settlements at payment providers, after RBI told banks to tighten defences following the SBI data leak in October, per Inc42's sources.",
+          "points": [
+            "Yes Bank is changing its banking APIs, delaying settlements for businesses that rely on them.",
+            "Coinbase India paused withdrawals and partly resumed; CoinDCX and Zebpay report slow payouts; Razorpay briefly delayed merchant settlements.",
+            "CERT-In warned that attackers use AI to alter business records or approval relationships and push fraudulent payments through legitimate processes at bank technology vendors.",
+            "Its listed techniques include parallel AI agents for reconnaissance and rapid exploit changes. It told banks to reconcile vendor data and restrict admin accounts."
+          ],
+          "key_stat": "CERT-In advisory · Nov 21"
+        },
+        {
+          "id": "indian-startups-d7daf7c9e7",
+          "headline": "Indian retail investors rush into Anthropic shares after Nasdaq debut",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Inc42 Media",
+          "url": "https://inc42.com/buzz/anthropics-nasdaq-debut-sparks-buying-rush-among-indian-retail-investors/",
+          "image": "https://inc42.com/cdn-cgi/image/quality=90/https://asset.inc42.com/2026/11/ftr-95.jpg",
+          "developing": false,
+          "hook": "Anthropic was about 40% of INDmoney's international activity on debut day, with average orders twice the platform norm.",
+          "points": [
+            "On Vested it was 11% of traded value and 9% of trades; 84% of its trades came in the first two hours. Average buy order was $1,100.",
+            "On Mudrex, 35% of daily active users traded it.",
+            "Shares opened at $111.50 against the $83 IPO price and closed at $97.17. Indian buyers pay the market price, not the IPO price, since they can't subscribe through these platforms.",
+            "The $81.3bn IPO valued Anthropic at about $1.5tn, nearly 37% of India's projected FY27 GDP of $4.06tn, though valuation and GDP measure different things."
+          ],
+          "key_stat": "40% of INDmoney activity",
+          "evidence_of": "AI stocks sell off even after Anthropic's IPO",
+          "force": "capital"
+        }
+      ],
+      "also": [
+        {
+          "line": "Indian startups raised $205.5 million across 18 rounds in the week to Nov 20, 8.5% above last year, led by Style Union ($52M), Humyn Labs ($26M) and Bharat Semi ($24M).",
+          "source": "Funding-Tech-Economic Times",
+          "url": "https://economictimes.indiatimes.com/tech/funding/ettech-deals-digest-style-union-humyn-labs-lead-as-weekly-funding-rises-to-206-million-up-9-on-year/articleshow/136029527.cms"
+        }
+      ]
+    },
+    {
+      "name": "India Deep Tech",
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-8898659a03",
+          "headline": "Andhra Pradesh offers up to 80% support for silicon fabs",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The News Minute",
+          "url": "https://www.thenewsminute.com/andhra-pradesh/ap-raises-semiconductor-incentives-offers-up-to-80-support-for-silicon-fabs",
+          "image": "https://cf-images.assettype.com/thenewsminute%2F2025-08-01%2Ff55hbes4%2F202507313468610.png?w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100",
+          "developing": false,
+          "hook": "Andhra Pradesh will combine with Union support to cover up to 80% of eligible capital costs for silicon fabs, 40% from each government.",
+          "points": [
+            "Compound semiconductor, photonics, sensor, discrete and display fabs and advanced packaging get up to 70% combined; legacy packaging up to 50%.",
+            "OSAT and ATMP (chip assembly, testing and packaging) units get a 4.5% of net sales state incentive on top of the Union's 9%, totalling 13.5%, capped at Rs 180 crore per company.",
+            "Machinery and materials get 18% from the state plus the Union's 30%, or 48%. R&D and talent get 25% from the state, combined cap 75%.",
+            "The state plans a 5,000-acre semiconductor park in Tirupati and a research centre starting at IIT Tirupati. The policy runs five years."
+          ],
+          "key_stat": "Up to 80% · fab support"
+        }
+      ]
+    },
+    {
+      "name": "Economy & Markets",
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-5a0f5e29c0",
+          "headline": "Anthropic is among the most-traded stocks for Indian retail investors",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Business News Today: Latest Business News, Finance News",
+          "url": "https://www.thehindubusinessline.com/markets/after-mega-listing-anthropic-emerges-among-the-most-traded-stocks-by-indian-retail-investors/article71724811.ece",
+          "image": "https://bl-i.thgim.com/public/incoming/z8eowm/article71725010.ece/alternates/LANDSCAPE_1200/2026-11-20T130956Z_492517834_RC22ROAZ41U7_RTRMADP_3_ANTHROPIC-STOCKS.JPG",
+          "developing": false,
+          "hook": "Anthropic accounted for about 11% of traded value on Vested after listing at $111.50, roughly ₹10,400.",
+          "points": [
+            "Vested says 20% of active traders bought it; average buy was about ₹1 lakh. INDmoney says 40% of order volume was Anthropic.",
+            "It closed at $97.17, up 17.07% from the issue price. AMD led Vested's traded value and Nvidia was third.",
+            "A Capwise founder says early moves reflect flows more than fundamentals, with the real test at first quarterly results and lock-in expiry.",
+            "Vested's CEO says Anthropic offers direct exposure to AI models, not just chips."
+          ],
+          "key_stat": "11% of Vested traded value",
+          "evidence_of": "AI stocks sell off even after Anthropic's IPO",
+          "force": "capital"
+        }
+      ],
+      "also": [
+        {
+          "line": "RBI's new FEMA export rules, in force since 1 October, require service exporters to file an Export Declaration Form declaring full value; RBI has issued FAQs on exemptions and thresholds.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/money/personal-finance/rbi-clarifies-new-fema-rules-who-needs-to-file-export-declaration-form-with-bank-check-faqs-on-exemptions-thresholds-11795220937310.html"
+        }
+      ]
+    },
+    {
+      "name": "India",
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-6b46effd97",
+          "headline": "Congress proposes four-point delimitation formula, says INDIA bloc agrees",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "India Latest News: Top National Headlines Today & Breaking News | The Hindu",
+          "url": "https://www.thehindu.com/news/national/congress-wants-consultation-on-delimitation-issue-accuses-government-of-not-reaching-out/article71724511.ece",
+          "image": "https://th-i.thgim.com/public/incoming/k51zxz/article71724718.ece/alternates/LANDSCAPE_1200/16TH-VIJAITA-ABG4LGQDCDT.3.jpg.jpg",
+          "developing": false,
+          "hook": "Congress wants the Lok Sabha kept at 543 seats, with state-wise distribution unchanged, one-third (182) reserved for women, and all frozen for 25 years.",
+          "points": [
+            "Jairam Ramesh says delimitation (redrawing seats by population) would follow the Census results early next year under Article 82, and could hurt southern states that controlled population.",
+            "He says INDIA bloc parties, including the DMK, back the formula, and accuses the government of not consulting the Opposition.",
+            "The Monsoon session has not been prorogued since 13 August, fuelling speculation about a short-notice sitting on women's reservation and delimitation.",
+            "Convening a fresh session needs at least 14 days' notice; an extended sitting needs two days."
+          ],
+          "key_stat": "543 seats · 25-year freeze"
+        },
+        {
+          "id": "india-becb19933b",
+          "headline": "India's labour codes, a year on: uneven rollout and open questions",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Frontline Magazine",
+          "url": "https://frontline.thehindu.com/packages/india-labour-codes-workers-rights-one-year/article71723557.ece",
+          "image": "https://fl-i.thgim.com/public/incoming/gvne5b/article71725439.ece/alternates/LANDSCAPE_1200/men%20in%20coal%20depot.jpg",
+          "developing": false,
+          "hook": "Four labour codes merging 29 central laws took effect on November 21, 2025, and a year later rollout across states remains uneven.",
+          "points": [
+            "Trade unions say the codes weaken collective bargaining and make retrenchment easier.",
+            "The government says they simplify regulation, extend social security and make labour more flexible.",
+            "Questions remain over the actual reach of social security and consequences for workers. Frontline has compiled its reporting."
+          ],
+          "key_stat": "4 codes · 29 laws"
+        },
+        {
+          "id": "india-15aceaeb2b",
+          "headline": "India says no change on Indus Waters Treaty as Pakistani minister attends Delhi forum",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "India Latest News: Top National Headlines Today & Breaking News | The Hindu",
+          "url": "https://www.thehindu.com/news/national/india-says-no-change-in-its-position-on-indus-water-treaty-as-pakistan-minister-attends-sco-forum-in-delhi/article71727116.ece",
+          "image": "https://th-i.thgim.com/public/incoming/s219dp/article71727121.ece/alternates/LANDSCAPE_1200/20261120227L.jpg",
+          "developing": false,
+          "hook": "India's foreign ministry says there is 'absolutely no change' on the Indus Waters Treaty while Pakistan's minister Musadik Malik attends an SCO forum in Delhi.",
+          "points": [
+            "The treaty was suspended in 2025 after the Pahalgam attack that killed 26 people.",
+            "It is likely the first Pakistani minister invited to India since the May 2025 hostilities. The SCO Civilisation Dialogue runs 20–22 November.",
+            "Modi inaugurated it at Purana Quila. India says all SCO members were invited as usual.",
+            "Some experts see a multilateral opening to improve ties; Malik says culture has a key role."
+          ],
+          "key_stat": "IWT: 'no change'"
+        }
+      ]
+    },
+    {
+      "name": "World & Geopolitics",
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-2c3757b089",
+          "headline": "California subpoenas Nvidia over whether chips reached China",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "World news | The Guardian",
+          "url": "https://www.theguardian.com/technology/2026/nov/20/california-investigates-nvidia-over-whether-chip-exports-ended-up-in-china",
+          "image": "https://i.guim.co.uk/img/media/d8e256cb4f13741672cadb73a1484717745e43a9/424_0_4240_3392/master/4240.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ba5ae30a51442a04ba6a938dbed986dd",
+          "developing": false,
+          "hook": "California's attorney general subpoenaed Nvidia on Thursday, a week after CEO Jensen Huang resigned; Nvidia shares are down by a fifth, wiping almost $1tn.",
+          "points": [
+            "Rob Bonta is investigating whether chips or confidential information reached China, and whether Nvidia misled investors about the risk.",
+            "Huang resigned after admitting affairs, including one with Alice Huang, a suspected Chinese spy linked to Singapore's Megaspeed. Megaspeed bought nearly $5bn of Nvidia hardware and says it is lawful.",
+            "Nvidia's chair says it will not reinstate Huang. He testifies to congressional committees on 1 December.",
+            "AMD fell almost 8% after Hunterbrook reports on China links and 'circular financing'; AMD says they misrepresent its business."
+          ],
+          "key_stat": "~$1tn wiped off Nvidia",
+          "evidence_of": "Nvidia faces probes over China chip diversion and accounting",
+          "force": "regulation"
+        },
+        {
+          "id": "world-9e85f2ec1e",
+          "headline": "EU ban on plastic waste exports to non-OECD countries takes effect",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/business/environment/eu-ban-plastic-waste-exports-non-oecd-takes-effect-2026-11-20/",
+          "image": null,
+          "developing": false,
+          "hook": "An EU ban on plastic waste exports to countries outside the OECD takes effect on Saturday, 21 November (summary from limited source text).",
+          "points": [
+            "It aims to curb pollution and stop the EU shifting waste-management risks abroad."
+          ],
+          "key_stat": "Effective 21 Nov"
+        }
+      ]
+    },
+    {
+      "name": "Science & Mind",
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-7b38ae8c4e",
+          "headline": "Nature webinar on how AI affects science careers",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Nature",
+          "url": "https://www.nature.com/articles/d41586-026-03680-1",
+          "image": "https://media.nature.com/lw1200/magazine-assets/d41586-026-03680-1/d41586-026-03680-1_53988262.jpg",
+          "developing": false,
+          "hook": "Nature's Careers team holds a 60-minute webinar on 2 December at 15:00 GMT on AI's effect on early-career science jobs.",
+          "points": [
+            "It asks whether AI doing coding and basic data analysis puts graduate student, postdoc, programmer and technician roles at risk.",
+            "These roles have traditionally been stepping stones to other scientific positions."
+          ],
+          "key_stat": "2 Dec · 15:00 GMT"
+        }
+      ],
+      "also": [
+        {
+          "line": "Amateur astronomer Pavel Rabtsevich had an AI model search telescope data and, in about two weeks, it found two possible planets around a star 116 light years away; results are mixed.",
+          "source": "Nature",
+          "url": "https://www.nature.com/articles/d41586-026-03790-w"
+        }
+      ]
+    },
+    {
+      "name": "Work & Careers",
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-af416eafc0",
+          "headline": "Qualcomm and Salesforce layoffs hit India's tech job market",
+          "summary": "",
+          "signal": [],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Federal",
+          "url": "https://thefederal.com/category/business/qualcomm-salesforce-layoffs-india-tech-job-market-ai-263575",
+          "image": "https://thefederal.com/h-upload/2026/11/20/638556-cms-ai-taking-our-jobs.jpg",
+          "developing": false,
+          "hook": "Qualcomm has reportedly begun layoffs in India that could affect more than 1,000 jobs, while Salesforce has started another round of cuts.",
+          "points": [
+            "The Federal video asks whether AI is the cause and whether big tech is moving to leaner workforces.",
+            "It also covers how required skills are changing and what this means for IT professionals and fresh graduates."
+          ],
+          "key_stat": "1,000+ Qualcomm jobs"
+        }
+      ],
+      "also": [
+        {
+          "line": "H-1B visa workers are fed up and abandoning American tech jobs (source unreachable — headline only).",
+          "source": "Bloomberg.com",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-20/h-1b-visa-delays-and-trump-rules-force-tech-workers-to-leave-us"
+        }
+      ]
+    },
+    {
+      "name": "Weekend Longform",
+      "slug": "longform",
+      "stories": [
+        {
+          "id": "longform-cf67f8030c",
+          "headline": "Is this the hidden cause of allergies?",
+          "summary": "",
+          "signal": [
+            "It challenges a 60-year-old assumption about allergies and shows how a cause-and-effect reversal can reframe a disease."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "Nautilus",
+          "url": "https://nautil.us/is-this-the-hidden-cause-of-allergies-1286943/",
+          "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/11/shutterstock_2094007717.jpg?w=564",
+          "developing": false,
+          "hook": "A study in Allergy suggests allergies may start with a mitochondrial 'power failure' in barrier cells, not an overactive immune system.",
+          "points": [
+            "Allergies affect up to one in three children and have risen for decades in the US.",
+            "Researchers analysed over 110 case-control cohorts with more than 3,700 allergy patients and found genes that clear damaged mitochondria less active in sufferers.",
+            "The pattern was strongest in eosinophilic esophagitis and eczema, only partial in hay fever and absent in asthma and nasal polyps.",
+            "The authors call it 'not a cure' but a logical starting point."
+          ],
+          "key_stat": "110+ cohorts · 3,700+ patients"
+        },
+        {
+          "id": "longform-d6106f95fc",
+          "headline": "What's so important about Nvidia's chips?",
+          "summary": "",
+          "signal": [
+            "It explains why Nvidia's chips are at the centre of this week's US–China fight, which links several of today's stories."
+          ],
+          "badge": "",
+          "takeaway": "",
+          "why": "",
+          "source": "The Atlantic",
+          "url": "https://www.theatlantic.com/podcasts/2026/11/whats-so-important-about-nvidias-chips/689521/?utm_source=feed",
+          "image": null,
+          "developing": false,
+          "hook": "The Atlantic examines the truth about chip smuggling and the AI race with China (summary from limited source text).",
+          "points": [
+            "The snippet gives only the subtitle and no further detail."
+          ],
+          "key_stat": "Chip smuggling · AI race"
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "name": "STEM Innovation Challenge 2026",
+      "when": "Tue 24 Nov",
+      "kind": "ai-event",
+      "summary": "Online hackathon on Devpost, open globally.",
+      "source": "Devpost",
+      "url": "https://stem-innovation-challenge-2026.devpost.com/"
+    }
+  ],
+  "markets": {
+    "generated_at": "2026-11-21T02:31:33.906820+00:00",
+    "as_of": "2026-11-21T02:31:28+00:00",
+    "quotes": [
+      {
+        "label": "Nifty 50",
+        "value": 25800.6,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-11-20T10:01:15+00:00",
+        "closed": true
+      },
+      {
+        "label": "Sensex",
+        "value": 83919.71,
+        "unit": "",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-11-20T10:02:29+00:00",
+        "closed": true
+      },
+      {
+        "label": "USD/INR",
+        "value": 92.66,
+        "unit": "₹",
+        "change_pct": null,
+        "usd": false,
+        "as_of": "2026-11-20T22:36:29+00:00",
+        "closed": true
+      },
+      {
+        "label": "Brent Crude",
+        "value": 89.87,
+        "unit": "$/bbl",
+        "change_pct": 0.48,
+        "usd": true,
+        "as_of": "2026-11-20T21:59:18+00:00",
+        "closed": false
+      },
+      {
+        "label": "Bitcoin",
+        "value": 58790.92,
+        "unit": "$",
+        "change_pct": -5.48,
+        "usd": true,
+        "as_of": "2026-11-21T02:31:28+00:00",
+        "closed": false
+      },
+      {
+        "label": "Gold",
+        "value": 105430,
+        "unit": "₹/10g",
+        "change_pct": -3.98,
+        "usd": false,
+        "as_of": "2026-11-20T21:59:57+00:00",
+        "closed": false
+      },
+      {
+        "label": "Silver",
+        "value": 122381,
+        "unit": "₹/kg",
+        "change_pct": -7.39,
+        "usd": false,
+        "as_of": "2026-11-20T21:59:58+00:00",
+        "closed": false
+      }
+    ]
+  },
+  "patterns": [
+    {
+      "name": "US pushes AI compute to stay inside its borders",
+      "line": "Trump threatened a 'tremendous tax' on US firms building data centres abroad, a day after Commerce's licence rule on advanced chips. Separately today, lawmakers released records of about 880,000 approved AI chip sales.",
+      "evidence": [
+        {
+          "id": "ai-9d24760f53",
+          "title": "Trump threatens ban on US firms building AI data centres overseas",
+          "url": "https://www.bbc.com/news/articles/cmde1lw9y54ko"
+        },
+        {
+          "id": "global-economics-7cc2a80e3e",
+          "title": "Trump threatens ‘tremendous tax’ on US companies building data centres abroad",
+          "url": "https://www.thehindubusinessline.com/info-tech/trump-threatens-tremendous-tax-on-us-companies-building-data-centres-abroad/article71725913.ece"
+        },
+        {
+          "id": "deep-tech-15da6cf3d0",
+          "title": "Nvidia faces further blow after shock US export permit data release: analysts",
+          "url": "https://www.scmp.com/tech/big-tech/article/3375287/nvidia-faces-further-blow-after-shock-us-export-permit-data-release-analysts"
+        }
+      ],
+      "force": "geopolitics",
+      "why": "If enforced, US tech firms lose cheaper or less-opposed overseas sites. Host countries such as Canada or Finland lose projects. Chinese firms lose rental routes. Enforcement is unclear.",
+      "watch": "Whether Trump's tax becomes a formal order or bill, and which firms it names.",
+      "update": true,
+      "thread": {
+        "id": "t20261120-us-tightens-the-loopholes-in-ai",
+        "status": "returning",
+        "days": 2,
+        "days14": 2,
+        "weeks": 1,
+        "first": "2026-11-20"
+      }
+    },
+    {
+      "name": "Nvidia faces probes over China chip diversion and accounting",
+      "line": "After CEO Jensen Huang resigned, California subpoenaed Nvidia over whether chips reached China, and the SEC is reportedly probing its accounting. Huang is due before congressional committees on 1 December.",
+      "evidence": [
+        {
+          "id": "world-2c3757b089",
+          "title": "California investigates Nvidia over whether chip exports ended up in China",
+          "url": "https://www.theguardian.com/technology/2026/nov/20/california-investigates-nvidia-over-whether-chip-exports-ended-up-in-china"
+        },
+        {
+          "id": "world-ad379fa36e",
+          "title": "EXCLUSIVE: Nvidia's accounting is a focus of US SEC investigation, sources say",
+          "url": "https://www.reuters.com/world/us-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-2026-11-20/"
+        }
+      ],
+      "force": "regulation",
+      "why": "Investors punish the firm for disclosure risk, not just demand. Export enforcement now runs through securities law, so misleading investors about China exposure becomes a liability for chipmakers.",
+      "watch": "Huang's 1 December congressional testimony.",
+      "thread": {
+        "id": "t20261121-nvidia-faces-probes-over-china-chip",
+        "status": "new",
+        "days": 1,
+        "days14": 1,
+        "weeks": 1,
+        "first": "2026-11-21"
+      }
+    },
+    {
+      "name": "AI stocks sell off even after Anthropic's IPO",
+      "line": "The Nasdaq erased all 2026 gains and closed 5% below 1 January, with about $4tn lost this week. Anthropic fell 9% to $88.30, near its $83 IPO price. Nvidia fell 14%.",
+      "evidence": [
+        {
+          "id": "ai-fd28116146",
+          "title": "Nasdaq erases all 2026 gains as AI sell-off dampens Anthropic’s second day of trading",
+          "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off"
+        },
+        {
+          "id": "global-economics-5a0f5e29c0",
+          "title": "After mega listing, Anthropic emerges among the most traded stocks by Indian retail investors",
+          "url": "https://www.thehindubusinessline.com/markets/after-mega-listing-anthropic-emerges-among-the-most-traded-stocks-by-indian-retail-investors/article71724811.ece"
+        },
+        {
+          "id": "indian-startups-d7daf7c9e7",
+          "title": "Anthropic’s Nasdaq Debut Sparks Buying Rush Among Indian Retail Investors",
+          "url": "https://inc42.com/buzz/anthropics-nasdaq-debut-sparks-buying-rush-among-indian-retail-investors/"
+        }
+      ],
+      "force": "capital",
+      "why": "Investors doubt returns on AI spending. Analysts also say the IPO drained cash from other tech names. Rate-hike fears lifted the dollar to a 19-month high.",
+      "watch": "Whether Anthropic holds above its $83 IPO price.",
+      "update": true,
+      "thread": {
+        "id": "t20261109-ai-trade-is-losing-political-and",
+        "status": "building",
+        "days": 6,
+        "days14": 6,
+        "weeks": 2,
+        "first": "2026-11-09"
+      }
+    },
+    {
+      "name": "El Niño drought hits India's farms and industry",
+      "line": "Monsoon rain fell 12.6% short, and 52.5% of India's land was dry or in drought by mid-September. Separately, El Niño water shortages are straining pharma and data centres, while rural job-guarantee work halved.",
+      "evidence": [
+        {
+          "id": "agritech-838b4e2604",
+          "title": "As drought grips half of India, rural jobs collapse by 50%",
+          "url": "https://www.counterview.net/2026/11/as-drought-grips-half-of-india-rural.html"
+        },
+        {
+          "id": "agritech-a523aa171e",
+          "title": "India's weak monsoon, El Nino highlight industry's growing water issues",
+          "url": "https://asia.nikkei.com/spotlight/environment/india-s-weak-monsoon-el-nino-highlight-industry-s-growing-water-issues"
+        },
+        {
+          "id": "agritech-fa8e5cdc00",
+          "title": "After strong El Niño, La Niña may boost India’s 2027 monsoon, says INCOIS forecast",
+          "url": "https://www.thehindu.com/news/national/telangana/after-strong-el-nino-la-nina-may-boost-indias-2027-monsoon-says-incois-forecast/article71724636.ece"
+        }
+      ],
+      "force": "climate",
+      "why": "Rural incomes and food costs take the first hit, and industrial water costs follow. INCOIS expects El Niño to last to March, with La Niña possibly lifting the 2027 monsoon.",
+      "watch": "Whether states restore job-guarantee work through the rabi season.",
+      "thread": {
+        "id": "t20261121-el-ni-o-drought-hits-india",
+        "status": "new",
+        "days": 1,
+        "days14": 1,
+        "weeks": 1,
+        "first": "2026-11-21"
+      }
+    }
+  ],
+  "money": [
+    {
+      "company": "Genesis AI",
+      "amount": "$500 Million",
+      "sector": "Robotics AI",
+      "line": "Robotics startup raised $500 million, per WSJ (source unreachable — headline only).",
+      "url": "https://www.wsj.com/cio-journal/genesis-ai-a-robotics-startup-raises-500-million-35198457",
+      "source": "WSJ"
+    }
+  ],
+  "takeaways": [
+    {
+      "line": "Russia's missile strike coinciding with European troop drills tests NATO's response. Article 5 needs political consensus, so the risk is miscalculation rather than a deliberate attack.",
+      "url": "https://www.scmp.com/news/world/russia-central-asia/article/3375302/russian-missiles-land-poland-europe-holds-military-drills-nearby",
+      "title": "Russian missiles land in Poland, as Europe holds military drills nearby"
+    },
+    {
+      "line": "The sentence strengthens US pressure on India over alleged plots against Sikh separatists. Gupta's co-accused Vikash Yadav remains uncharged in custody terms, so the case stays open.",
+      "url": "https://www.theguardian.com/us-news/2026/nov/20/indian-man-sentenced-prison-murder-plot-sikh-separatist",
+      "title": "Indian man sentenced to 19 years in prison for conspiring to kill Sikh separatist in New York"
+    }
+  ]
+}
