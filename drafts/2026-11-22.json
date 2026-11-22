@@ -1,0 +1,639 @@
+{
+  "date": "2026-11-22",
+  "patterns": [
+    {
+      "name": "Global AI selloff spreads to Asian chip markets",
+      "line": "Taiwan's index fell almost 18% in a week, its worst since 1991, and Korea's KOSPI is down about 47% from its peak. Semiconductor stocks led both falls, even after strong Nvidia earnings and Anthropic's IPO.",
+      "evidence": [
+        "ai-39bdc832a2",
+        "deep-tech-e24a2ccff4"
+      ],
+      "force": "capital",
+      "why": "Asian economies lean on chipmakers for index weight and exports. If doubts over AI returns persist, capital flows out of these markets and regulators keep resorting to emergency curbs.",
+      "watch": "HPE earnings on the 23rd, Dell on the 24th and US PCE inflation on the 25th.",
+      "update": true,
+      "thread": {
+        "id": "t20261109-ai-trade-is-losing-political-and",
+        "status": "building",
+        "days": 7,
+        "days14": 7,
+        "weeks": 2,
+        "first": "2026-11-09"
+      }
+    },
+    {
+      "name": "AI hacking fears are driving cybersecurity mergers",
+      "line": "CrowdStrike is reportedly in talks to buy Zscaler, a firm worth $32bn. Palo Alto has bought CyberArk and ServiceNow has agreed to buy Armis. Separately, the FBI's criminal database and a USDA payment system appear breached.",
+      "evidence": [
+        "ai-dd8cf27d89",
+        "world-45201d2fd3"
+      ],
+      "force": "capital",
+      "why": "Attacks are rising and AI agents blur normal and malicious traffic. Buyers want visibility across devices and networks, so security spending concentrates in fewer, larger vendors.",
+      "watch": "Whether CrowdStrike and Zscaler announce a deal, and its price.",
+      "thread": {
+        "id": "t20261122-ai-hacking-fears-are-driving-cybersecurity",
+        "status": "new",
+        "days": 1,
+        "days14": 1,
+        "weeks": 1,
+        "first": "2026-11-22"
+      }
+    },
+    {
+      "name": "China's chip diversion draws US legal scrutiny",
+      "line": "California's Nvidia probe now covers possible criminal violations over alleged chip sales to China. Separately, new US chip rules threaten Southeast Asian data centres that serve China-linked operators.",
+      "evidence": [
+        "ai-aa1009c052",
+        "global-economics-e41db561ff"
+      ],
+      "force": "geopolitics",
+      "why": "Enforcement is moving from export rules to criminal law and to third countries. Nvidia and regional data-centre hosts bear the legal and revenue risk.",
+      "watch": "Jensen Huang's congressional appearance on 1 December.",
+      "update": true,
+      "thread": {
+        "id": "t20261121-nvidia-faces-probes-over-china-chip",
+        "status": "returning",
+        "days": 2,
+        "days14": 2,
+        "weeks": 1,
+        "first": "2026-11-21"
+      }
+    }
+  ],
+  "threads_touched": [
+    {
+      "thread": "t20261109-ai-chips-are-now-a-national",
+      "evidence": [
+        "global-economics-e41db561ff"
+      ]
+    },
+    {
+      "thread": "t20261120-ai-boom-is-now-raising-inflation",
+      "evidence": [
+        "global-economics-a1194d49f6"
+      ]
+    },
+    {
+      "thread": "t20261109-india-is-building-energy-security-through",
+      "evidence": [
+        "climate-energy-769352f695"
+      ]
+    },
+    {
+      "thread": "t20261115-ai-hits-entry-level-jobs-first",
+      "evidence": [
+        "work-careers-7865e5c456"
+      ]
+    },
+    {
+      "thread": "t20261113-ai-is-now-solving-research-level",
+      "evidence": [
+        "ai-9c9ec1c5f1"
+      ]
+    },
+    {
+      "thread": "t20261115-general-purpose-ai-models-are-moving",
+      "evidence": [
+        "india-deep-tech-1bfe46d0ec"
+      ]
+    }
+  ],
+  "takeaways": [
+    {
+      "id": "ai-158994b8ae",
+      "line": "Consensus rules let one state block any binding treaty, while the US and others resist limits on their own AI weapons. Battlefield practice will set the norms, not law."
+    },
+    {
+      "id": "climate-energy-fcd00e2c28",
+      "line": "Cell capacity of 124 GW against 60 GW of demand means a price squeeze. Profit shifts to firms that make their own cells, and weaker module-only makers face consolidation."
+    }
+  ],
+  "money": [
+    {
+      "id": "india-deep-tech-1bfe46d0ec",
+      "company": "Genesis AI",
+      "amount": "$500M",
+      "sector": "General-purpose robotics",
+      "line": "French robot maker raised a Series A at a $3.5bn valuation, co-led by Khosla Ventures, Premji Invest and Eclipse; Nvidia also invested."
+    },
+    {
+      "id": "india-deep-tech-34ff52f19c",
+      "company": "SatSure",
+      "amount": "Rs 60 crore",
+      "sector": "Satellite imaging",
+      "line": "Bengaluru Earth-observation startup raised from the government-backed Antariksh Venture Capital Fund to advance satellite imaging."
+    }
+  ],
+  "lead": {
+    "id": "ai-158994b8ae",
+    "headline": "UN talks on a treaty to control autonomous weapons collapse",
+    "hook": "Week-long UN talks in Geneva failed to agree a mandate for a binding autonomous weapons treaty, producing only a weaker mandate for an instrument that may carry no legal obligations.",
+    "points": [
+      "More than 100 states wanted a binding treaty, but the forum, the Convention on Certain Conventional Weapons (CCW), needs all 128 parties to agree, and Russia blocked it with stalling tactics.",
+      "The US, UK, France, Germany, Japan, South Korea and Turkey also resisted being bound by a new law and preferred a nonbinding agreement.",
+      "Seven states, including Austria, Brazil and Mexico, led the push for a treaty within one year. The US proposed five years just to settle a mandate.",
+      "The CCW has passed no new weapons regulation in 30 years. States have debated autonomous weapons for 13 years, and large parts of a treaty text were already settled.",
+      "The US military is reportedly aiming for 1,000 AI-assisted targeting decisions per hour, and the Pentagon hit more than 1,000 Iranian targets on the war's first day."
+    ],
+    "key_stat": "128 parties · consensus needed",
+    "developing": false
+  },
+  "frontpage": [
+    {
+      "id": "world-c7f2c0279d",
+      "headline": "Iranian attack hits industrial facility in Bahrain",
+      "hook": "Bahrain says an Iranian attack started a fire at a civilian industrial facility, with no injuries, as air defences intercepted several aerial attacks late on Saturday.",
+      "points": [
+        "Iran's Revolutionary Guards (IRGC) say they hit US positions at the al-Riffa and Awali bases with missiles and drones, and claim they destroyed two Patriot radars.",
+        "The IRGC says it acted after US drones entered Iranian airspace and after a US strike on a radar site on Hengam Island.",
+        "Bahrain hosts the US Navy's Fifth Fleet and has been attacked repeatedly since the US-Israel war on Iran began in late February, including three drone attacks in recent days.",
+        "Bahrain asked the UN Security Council to compel Iran to comply with Resolution 2817, adopted on March 11. The Gulf Cooperation Council backed Bahrain."
+      ],
+      "key_stat": "Fire · no injuries"
+    },
+    {
+      "id": "ai-39bdc832a2",
+      "headline": "Taiwan widens short-selling curbs after worst weekly fall in 35 years",
+      "hook": "Taiwan's benchmark fell almost 18% this week, its worst since 1991, so regulators banned short selling below the previous close from 23 November.",
+      "points": [
+        "Short selling means betting on a fall by selling borrowed shares. The ban covers margin and borrowed-share short sales, with hedging by brokers exempt.",
+        "Margin required for short sales rises to 150% from 130%. It is the third curb this month, and two earlier rounds failed to steady the market.",
+        "Stocks fell 6.2% on Friday as doubts grew over whether returns justify AI spending. A NT$500bn ($15bn) stabilisation fund has been buying shares since 6 November.",
+        "The finance ministry says fundamentals are strong: the economy grew 14.4% in Q3 and October export orders rose 78% from a year earlier."
+      ],
+      "key_stat": "-18% · worst week since 1991",
+      "evidence_of": "Global AI selloff spreads to Asian chip markets",
+      "force": "capital"
+    },
+    {
+      "id": "world-86c4e81769",
+      "headline": "Drone strike hits Russia-bound ship in Gulf of Finland",
+      "hook": "Drones set the Russian cargo ship Sparta II on fire in the eastern Gulf of Finland on Saturday; Finland says Ukraine was likely behind it.",
+      "points": [
+        "The ship was bound for Russia's Kaliningrad exclave and drifted into Finnish waters. Kaliningrad's governor says two drones were used and supplies are not threatened.",
+        "Sparta II is run by a company within the Russian defence ministry's structure and is sanctioned by the US and Ukraine. Kyiv has not commented.",
+        "The crew was evacuated to another Russian vessel. Finland found no environmental damage or danger to shipping, and informed Nato.",
+        "Finland's PM Petteri Orpo said war is 'spilling over' and that Ukraine has the right to fight back. A Ukrainian drone hit a Russian warship in the same gulf earlier this month."
+      ],
+      "key_stat": "2 drones · 1 ship"
+    },
+    {
+      "id": "world-286cc01f5f",
+      "headline": "Russia strikes Kyiv with missiles and drones, killing at least 25",
+      "hook": "At least 25 people died and more than 80 were hurt in Russia's overnight barrage on Kyiv, Ukrainian emergency services say.",
+      "points": [
+        "Zelensky says Russia fired more than 70 missiles, nearly half ballistic, plus almost 500 attack drones, hitting more than 30 locations in Kyiv.",
+        "Russia's defence ministry says it was retaliating for Ukrainian drone strikes. The Kremlin says it will keep increasing pressure.",
+        "The EU has disbursed the first instalment of a €6bn defence package for drones, part of its €90bn Ukraine Support Loan. EU chief diplomat Kaja Kallas will propose more sanctions.",
+        "Zelensky says US delivery of ballistic-missile defences is 'too slow' and asked Trump to hurry."
+      ],
+      "key_stat": "25+ killed · 500 drones"
+    },
+    {
+      "id": "ai-aa1009c052",
+      "headline": "California's Nvidia probe also covers possible criminal violations",
+      "hook": "California Attorney General Rob Bonta says his probe into Nvidia's alleged illegal chip sales to China also covers potential criminal violations of state law.",
+      "points": [
+        "The probe also examines whether Nvidia misled investors about those sales.",
+        "Bonta says several state laws could have been broken if Nvidia or former CEO Jensen Huang gave the public false information.",
+        "The investigation was announced a day earlier. It is at a preliminary stage and has reached no conclusions."
+      ],
+      "key_stat": "Preliminary stage",
+      "evidence_of": "China's chip diversion draws US legal scrutiny",
+      "force": "geopolitics"
+    },
+    {
+      "id": "india-deep-tech-1edebae50d",
+      "headline": "Private yards to build three Indian Navy corvettes",
+      "hook": "State shipyards GRSE and Goa Shipyard will outsource three of eight Next Generation Corvettes from their Rs 53,866.50 crore order to the private sector, a source told ThePrint.",
+      "points": [
+        "The Defence Ministry signed the order on 2 November with the two public-sector shipyards.",
+        "At least one private yard would build a large, heavily armed frontline warship for the Navy for the first time.",
+        "The aim is to ensure production capacity does not limit naval shipbuilding. An announcement could come soon."
+      ],
+      "key_stat": "3 of 8 corvettes · Rs 53,866 cr"
+    },
+    {
+      "id": "climate-energy-fcd00e2c28",
+      "headline": "India's solar cell capacity may reach double demand by FY27",
+      "hook": "YES Securities estimates India's solar cell capacity could reach about 124 GW by FY27 against expected demand of nearly 60 GW, squeezing manufacturer margins.",
+      "points": [
+        "A big cell supply wave arrives from the second half of FY27, and forward prices for domestic-content (DCR) modules are already falling. FY28 DCR module prices are estimated near Rs 20 per watt-peak.",
+        "Margins differ by integration: cell-integrated firms made about 31% EBITDA margin in Q2 FY27, partly integrated 17.6%, and module-only 7.7%.",
+        "Module capacity is about 204.9 GW against 57.1 GW of cells, so cell lines run at 81-99% utilisation versus 44-68% for modules.",
+        "New renewable awards fell to 14.7 GW in FY26 from 40.6 GW in FY25. US duties of 249% have made exports to the US uneconomic."
+      ],
+      "key_stat": "124 GW capacity · 60 GW demand"
+    },
+    {
+      "id": "science-mind-efaa63624f",
+      "headline": "BepiColombo reaches Mercury after eight years",
+      "hook": "Europe and Japan's BepiColombo spacecraft entered Mercury's orbit on 21 November, only the second mission to do so after NASA's MESSENGER.",
+      "points": [
+        "It launched in October 2018. Reaching Mercury takes more energy than reaching the outer Solar System, because the craft must lower itself toward the Sun without speeding past.",
+        "The two probes, one ESA-built and one JAXA-built, stay joined until the Japanese probe MIO reaches its orbit on 9 December.",
+        "The ESA probe MPO will descend until March 2027 to an orbit of 400-1,500 km to study the surface continuously."
+      ],
+      "key_stat": "8 years · 2nd mission in orbit"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-9c9ec1c5f1",
+          "headline": "Anthropic claims a Claude proof of the Riemann hypothesis; Stanford posts a rival human draft",
+          "hook": "Anthropic mathematician Levent Alpöge says he and Claude proved the Generalized Riemann Hypothesis, a problem open since 1859, and published it in Lean for computer checking.",
+          "points": [
+            "Lean is software that checks each logical step. The proof would run over 250,000 pages printed, and Alpöge released it only as 14 Lean data packages. Experts must still check that the problem was coded correctly.",
+            "Hours later, Stanford's Ravi Vakil posted an all-human draft by Alessandro Masullo. Vakil later noted that problems had been reported in it, found with the help of AI models.",
+            "The Riemann hypothesis concerns the pattern of prime numbers and carries a $1 million Clay prize. Hundreds of papers assume it is true, so a proof would turn them into theorems.",
+            "Alpöge says Claude supplied the key insight and he has not fully mastered the surrounding maths. He denies a PR stunt, though the announcement came a day after Anthropic's IPO."
+          ],
+          "key_stat": "250,000 pages · 14 Lean packages"
+        },
+        {
+          "id": "ai-dd8cf27d89",
+          "headline": "CrowdStrike in talks to buy Zscaler",
+          "hook": "CrowdStrike, worth about $235bn, is reportedly in talks to buy Zscaler, valued at $32bn, in what could be one of cybersecurity's largest deals.",
+          "points": [
+            "Zscaler stock rose about 16% after hours. The talks are ongoing and may not produce a deal, people familiar said.",
+            "Zscaler's cloud products replace VPNs (remote-access tools), which hackers repeatedly target. It had record revenue of $3.35bn in fiscal 2026 but has never turned an annual profit, and its stock is down more than 13% this year.",
+            "CrowdStrike covers laptops and servers, so Zscaler would add network and application access control.",
+            "Other deals include Google's $32bn Wiz purchase, Palo Alto's $25bn CyberArk and ServiceNow's $7.75bn Armis. Gartner projects security spending up nearly 12% to $244bn this year."
+          ],
+          "key_stat": "$32B · Zscaler value",
+          "evidence_of": "AI hacking fears are driving cybersecurity mergers",
+          "force": "capital"
+        },
+        {
+          "id": "ai-033823f6f4",
+          "headline": "Nvidia researchers say huge AI context windows are often overkill",
+          "hook": "An Nvidia research team argues that ever-larger context windows are often overkill and expensive, since periodic summaries and targeted lookups worked about as well in many tests.",
+          "points": [
+            "A context window is a model's working memory, everything it holds in view when replying.",
+            "GPT-4 launched in March 2023 with 8,192 tokens. The article says today's GPT 5.6 Sol handles around one million, about 120 times as much."
+          ],
+          "key_stat": "8,192 → ~1M tokens"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-b7959ec576",
+          "line": "Google gives IIT Kharagpur $5M (about Rs 46 crore) for AI research in Indic languages, agriculture, materials science and education, plus training and campus tools; no project details yet."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-9bc90b4417",
+          "headline": "Crew evacuated as fire fights continue on drone-hit Russian ship",
+          "hook": "The Sparta II's crew was evacuated after two drones hit it in the Gulf of Finland, and Finland says it will be towed out of its waters.",
+          "points": [
+            "Finnish authorities say the ship has links to Russia's armed forces. Its cargo is unconfirmed, and military materiel cannot be ruled out.",
+            "Finnish, Estonian and Russian vessels are fighting the fire off Loviisa, as the Russian ship Murman joined at Finland's request.",
+            "A Russian helicopter entered Finnish airspace more than 4km. Finland's defence forces say Ukraine likely carried out the strike.",
+            "An analyst notes the Baltic's narrow lanes are crowded, with 7.5 million ferry crossings between Helsinki and Tallinn last year. Ukraine appears to be limiting collateral risk."
+          ],
+          "key_stat": "2 drones · crew evacuated"
+        },
+        {
+          "id": "deep-tech-e24a2ccff4",
+          "headline": "KOSPI falls 5.2% to 4,870 as chip stocks slide",
+          "hook": "South Korea's KOSPI closed at 4,869.96 on the 20th, down 5.21%, and about 47% below this year's peak, more than its 44% fall in the COVID crash.",
+          "points": [
+            "Samsung Electronics fell about 7% and SK Hynix about 6%. Those two account for about 68% of the index's loss from its peak.",
+            "After Korea closed, the Nasdaq fell 5.28%, erasing this year's gains. Nvidia fell 14.01% and the Philadelphia Semiconductor Index 10.73%.",
+            "Stocks are not rebounding on good news such as Nvidia earnings and Anthropic's IPO. The SEC is reportedly probing Nvidia's accounting.",
+            "Foreign investors sold 168 trillion won from May to November. Hana Securities leaves 4,300 open as a downside scenario, about 11.7% lower.",
+            "Next week's tests: HPE and Dell earnings, US PCE inflation on the 25th, and a Bank of Korea meeting on the 26th."
+          ],
+          "key_stat": "-47% from peak",
+          "evidence_of": "Global AI selloff spreads to Asian chip markets",
+          "force": "capital"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-e41db561ff",
+          "headline": "New US AI chip rules hit Southeast Asia",
+          "hook": "Trump administration's latest limits on advanced AI chips for China are also threatening Southeast Asian neighbours that built businesses serving Chinese demand.",
+          "points": [
+            "China-linked operators are estimated to account for a significant part of data-centre capacity across the region."
+          ],
+          "key_stat": "New US chip rules",
+          "evidence_of": "China's chip diversion draws US legal scrutiny",
+          "force": "geopolitics"
+        },
+        {
+          "id": "global-economics-a1194d49f6",
+          "headline": "Gold hits a 14-month low in India",
+          "hook": "India's MCX gold closed at ₹1,21,949 per 10 gm, about ₹59,000 below January's record of ₹1,80,779.",
+          "points": [
+            "Spot gold in dollars fell to $3,515 an ounce, the lowest since September 2025, against a record of about $5,626.",
+            "Analysts blame talk of a 50 bps US Fed rate hike, a dollar at a 19-month high and a stronger rupee, at 92.66 per dollar. The AI equity rout also forced investors to sell metals for cash.",
+            "Key support is $3,500; a break could take gold to $3,300, or about ₹1,17,500 in India.",
+            "Next tests: US PCE inflation on 25 November and the Fed meeting on 9 December."
+          ],
+          "key_stat": "₹1,21,949 · -₹59,000 from peak"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-6ec21196e9",
+          "line": "RBI clarified that non-individual service exporters need an Export Declaration Form only when a single overseas payment exceeds Rs 10 lakh; the threshold applies to each payment received."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-8a6c9eb745",
+          "headline": "Beniwal's RLP emerges as a third force in Rajasthan rural polls",
+          "hook": "The Rashtriya Loktantrik Party won 497 panchayat samiti seats and 51 zila parishad seats, with 6.78% of samiti votes, ahead of the 2028 Assembly election.",
+          "points": [
+            "In 2020 the party, then allied with the BJP, won 60 samiti and 10 zila parishad seats.",
+            "It won in Nagaur, Bikaner, Jodhpur, Churu, Barmer and Sanganer, the seat of Chief Minister Bhajan Lal Sharma, and beat the BJP in votes in Nagaur.",
+            "It has no Assembly member now, after being reduced to one seat in 2023. Hanuman Beniwal has since built support through youth and farmer protests."
+          ],
+          "key_stat": "497 samiti · 51 zila seats"
+        },
+        {
+          "id": "india-3f118971c5",
+          "headline": "India and Canada end sixth round of trade talks",
+          "hook": "India and Canada finished the sixth round of talks on their Comprehensive Economic Partnership Agreement (CEPA) in New Delhi on 20 November.",
+          "points": [
+            "Talks ran from 11 to 20 November and covered goods, services, rules of origin, trade remedies, intellectual property and investment.",
+            "Both sides want an ambitious, balanced pact with benefits for farmers, industry and MSMEs, and more resilient supply chains.",
+            "The ministry gave no outcomes or tariff details, only that it wants to conclude within timelines set by the leaders."
+          ],
+          "key_stat": "6th round · 11-20 Nov"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-b1aaa840d2",
+          "headline": "IISER Pune startup builds a lab atomic clock for navigation",
+          "hook": "QuPrayog built a lab-scale rubidium-87 atomic clock prototype in seven months that is about 50 times more stable than an ordinary crystal oscillator over 1,000 seconds.",
+          "points": [
+            "Stability was about 3 × 10⁻¹⁰ over one second, improving to around 2 × 10⁻¹¹ over 100 to 1,000 seconds.",
+            "Founded in 2024, it is incubated at IISER Pune and IIT Madras, and aims to launch a miniature version by August 2027 for satellite navigation, telecom and instruments.",
+            "It is supported by the National Quantum Mission, approved in 2023 with ₹6,003.65 crore over eight years."
+          ],
+          "key_stat": "50x more stable than crystal oscillator"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-45201d2fd3",
+          "headline": "FBI reportedly investigating hack of its criminal database",
+          "hook": "The FBI is reportedly investigating an apparent breach of the National Crime Information Center database, which law enforcement uses to share warrant and background-check data.",
+          "points": [
+            "US media cite two people briefed. Trump said he had 'just heard' of it and called it 'not good'.",
+            "In September the FBI investigated a breach by group ShinyHunters, which claimed to have stolen data on all of about 38,000 staff.",
+            "NBC separately reports an apparent cyberattack on the US Department of Agriculture's farm payment system.",
+            "The White House's National Cyber Director Sean Cairncross was fired this week after a string of US tech outages that officials say were not cyberattacks."
+          ],
+          "key_stat": "NCIC breach · unconfirmed",
+          "evidence_of": "AI hacking fears are driving cybersecurity mergers",
+          "force": "capital"
+        },
+        {
+          "id": "world-398adce4c4",
+          "headline": "China backs clean electrification at COP31 as talks stall",
+          "hook": "China says it will push low-carbon electrification and help other countries, while COP31 talks stalled and went past Friday's scheduled end.",
+          "points": [
+            "Countries are asked to sign a '35:35' goal: 35% of final energy from electricity by 2035. Australia and China signed a joint statement backing it, but the second draft text made it one voluntary option.",
+            "Electricity was nearly 30% of China's energy use last year, and China is on track for 35% by 2030.",
+            "A Chinese adviser says requiring electricity to be fully clean would be hard even for China, which keeps coal for backup. Campaigners warn leaving it to countries could allow more gas plants.",
+            "The phrase 'transition away from fossil fuels' was cut from the second draft."
+          ],
+          "key_stat": "35% electricity by 2035"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-9a7d621603",
+          "headline": "AI models that predict brain activity may not work like the brain",
+          "hook": "A York University study found that AI vision models predict neuron responses well, but those neurons predict the models' internal features much less well.",
+          "points": [
+            "The team tested 'reverse predictivity' on 1,320 images of 10 object types, plus 300 stylised images. The gap did not appear when comparing neurons from one brain to another.",
+            "The results suggest models may use internal strategies the brain does not, so refining them only on prediction accuracy could mislead neuroscience.",
+            "The model parts that match the brain better predict human behaviour. The team released a testing toolkit and published in Nature Machine Intelligence."
+          ],
+          "key_stat": "1,320 images · 10 objects"
+        },
+        {
+          "id": "science-mind-88875db0d1",
+          "headline": "James Webb captures the aftermath of a giant star swallowing another",
+          "hook": "Astronomers saw a star about 0.7 times the Sun's mass merge into a supergiant 18,000 times brighter than the Sun in the Andromeda galaxy, the first such merger identified.",
+          "points": [
+            "The giant was about seven times the Sun's mass with a radius 350 times larger. The two stars merged after about seven more orbits, versus thousands for smaller stars.",
+            "The eruption was detected in October 2025, and Webb observed it 47 days after the peak, the earliest follow-up of such an event.",
+            "Such mergers show how binary stars either merge or survive in tight orbits, which can lead to neutron stars, black holes or gravitational waves.",
+            "The Roman Space Telescope's surveys may find many more; the lead author expects a large influx of similar discoveries."
+          ],
+          "key_stat": "18,000x Sun's brightness"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-769352f695",
+          "headline": "Amazon plans another $7bn for renewable energy in India by 2030",
+          "hook": "Amazon plans to invest an extra $7bn (about Rs 65,393 crore) in Indian renewable energy by 2030, on top of $4bn already contracted.",
+          "points": [
+            "It unveiled four utility-scale projects totalling 934 MW across Karnataka, Madhya Pradesh and Rajasthan.",
+            "Its India portfolio has 57 projects: 14 utility-scale wind and solar and 43 on-site solar installations. The $7bn is a planned investment, not immediate spending.",
+            "Data centres and cloud need continuous power, and Amazon targets a 65% cut in the carbon intensity of its electricity by 2030.",
+            "The announcement does not confirm any orders for Indian developers or equipment makers."
+          ],
+          "key_stat": "$7B · by 2030"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-31c6312cec",
+          "line": "India ranks 10th on the Climate Risk Index 2027, with Dominica first; the source gave no further detail."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-c9fb70562a",
+          "headline": "Indian startup sues Apple for ₹1,500 crore over NameDrop",
+          "hook": "GG Technologies, maker of StayTouch, is suing Apple in the Bombay High Court for ₹1,500 crore and wants NameDrop switched off in India over a patent claim.",
+          "points": [
+            "The suit rests on Indian Patent No. 546169 for proximity-based contact transfer, granted on 27 July 2024. Filings began in May 2019; Apple announced NameDrop in June 2023.",
+            "GG says Apple's built-in feature hurt its partnerships. Its documented development and marketing spend for 2019-2025 is $2.75M, and the plaint gives no independent calculation of the ₹1,500 crore.",
+            "Its two expert reports found similarities but had no access to Apple's source code, so Apple can contest them.",
+            "A US suit is stayed pending a US International Trade Commission investigation, and a second US suit was filed on 3 November. No Bombay hearing date is set."
+          ],
+          "key_stat": "₹1,500 cr damages"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-7865e5c456",
+          "headline": "Recruiters return to campus placements over AI cheating fears",
+          "hook": "The share of recruiters choosing in-person hiring has risen to 60-70%, from 40-50% last year, for the 2026-27 placement cycle.",
+          "points": [
+            "Concerns include impersonation, outside help and unauthorised AI use in online tests and interviews, according to institutes India Today contacted.",
+            "Several IITs, including newer ones, report the preference. Institutes say online tests are not inherently unreliable.",
+            "Online drives now use safeguards such as identity checks, webcam and microphone monitoring, browser lockdown and screen tracking."
+          ],
+          "key_stat": "60-70% in-person vs 40-50%"
+        },
+        {
+          "id": "work-careers-d79be81614",
+          "headline": "Bosch declines to comment on reported TCS deal for India tech operations",
+          "hook": "Bosch Group in India called reports of TCS taking part of its India technology operations 'market speculation', and did not confirm any talks.",
+          "points": [
+            "Mint reported on 19 November that TCS is in early talks, covering up to 3,000 employees. Board-level discussions could follow next month.",
+            "Bosch reportedly wants to contain costs. Its global capability centre workforce is 28,900, about four-fifths in India.",
+            "Mint cited TCS's earlier purchases of Best Buy's India tech centre and Porsche-owned MHP for $373M.",
+            "The deal is separate from listed Bosch India's auto-parts business, and its terms remain unclear."
+          ],
+          "key_stat": "Up to 3,000 staff"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [],
+      "also": [
+        {
+          "id": "health-tech-b5bc2ab500",
+          "line": "Biotechs are racing to build AI models of human cells, hoping to speed drug development and slow aging, though it is unclear whether computers can match life's complexity."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-8a409bffe9",
+          "headline": "John Deere buys Orchard Robotics",
+          "hook": "John Deere acquired Orchard Robotics, an AI crop-intelligence firm, for an undisclosed sum, adding orchard and vineyard vision to its machines.",
+          "points": [
+            "Orchard's tractor-mounted cameras measure fruit counts, size, canopy health, water stress and disease. A Nvidia Jetson computer processes images on board because many farms lack connectivity.",
+            "It says it predicts yields with 95%+ accuracy and has hundreds of systems in the field. Its biggest returns come from cutting labour and inputs.",
+            "Deere plans to feed Orchard's maps into its sprayers, for example variable-rate bloom thinning in apple orchards.",
+            "An analyst suggests the deal is a nine-figure exit; Orchard raised a $22M Series A about a year ago. Deere previously bought Blue River for $305M in 2017."
+          ],
+          "key_stat": "Terms undisclosed"
+        }
+      ],
+      "also": [
+        {
+          "id": "agritech-5299cd9bb7",
+          "line": "India's NCB and the US DEA busted the Indian arm of a drug network, Operation Monsoon Thunder, finding about 3,000 parcels with nearly 500 thousand tablets shipped within the US; six arrested."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-c77e211351",
+      "name": "One Human, Ten AI Agents (Cluster workshop)",
+      "when": "Sun 29 Nov",
+      "summary": "Talk and hands-on workshop on multi-agent AI: build and run a small agent team live. Open to curious students; registration needs host approval. New Delhi."
+    },
+    {
+      "id": "opportunities-c656577366",
+      "name": "Agents that act. Systems that answer. (hackathon)",
+      "when": "Sat 28 Nov",
+      "summary": "Student hackathon to build accountable AI agents that act, explain and escalate on real workflows, not chatbot wrappers. Online, on Devpost."
+    },
+    {
+      "id": "opportunities-66e7e11e8e",
+      "name": "Asia House Fellowship 2027/2028",
+      "when": "Apply by Sun 31 Jan",
+      "summary": "Twelve-month paid research fellowship (£24,000 stipend) on Asia and Middle East issues for early-career professionals with a Master's or PhD by October 2027. Remote, open worldwide."
+    }
+  ],
+  "week_threads": {
+    "active": [
+      {
+        "name": "AI chips are now a national security fight",
+        "status": "building",
+        "days7": 5,
+        "line": "China's military is reportedly seeking Nvidia chips despite curbs, and Tencent says the latest US restrictions will push Chinese firms onto domestic chips. If curbs hold, China's chip supply chain splits further from the US."
+      },
+      {
+        "name": "Indian deep tech raises more seeds than growth capital",
+        "status": "building",
+        "days7": 4,
+        "line": "India had 23 Series A or B rounds per 100 seed rounds against 105 globally, and Bharat Semi's $24M seed fits that seed-heavy pattern. Funding thins as companies mature."
+      },
+      {
+        "name": "Capital and armies are shifting to cheap autonomous weapons",
+        "status": "building",
+        "days7": 3,
+        "line": "General-purpose AI models can be talked into targeting drones with a simple 'video game' framing, while India's defence secretary wants hundreds of drone firms. Weapons capability is spreading faster than safeguards."
+      },
+      {
+        "name": "Global AI selloff spreads to Asian chip markets",
+        "status": "building",
+        "days7": 3,
+        "line": "Taiwan's index fell almost 18% in a week, its worst since 1991, and Korea's KOSPI is down about 47% from its peak. Semiconductor stocks led both falls, even after strong Nvidia earnings and Anthropic's IPO."
+      },
+      {
+        "name": "India is building energy security through storage and local manufacturing",
+        "status": "building",
+        "days7": 3,
+        "line": "Hormuz tanker attacks and the Iran war keep oil supply at risk, while Amazon commits $7B to Indian wind and solar. Buyers are locking in domestic power."
+      },
+      {
+        "name": "AI boom is now raising inflation and interest rates",
+        "status": "returning",
+        "days7": 2,
+        "line": "The IMF head says AI hardware demand, with the Middle East energy shock, will push global inflation to 4.7% and call for tighter policy. Chicago Fed's Goolsbee says AI investment risks overheating the US economy."
+      },
+      {
+        "name": "AI hits entry-level jobs first",
+        "status": "building",
+        "days7": 2,
+        "line": "Australia's central bank, Stanford and Anthropic data all point to weaker hiring of young workers in AI-exposed jobs, while NYT reports students in India and France protesting broken career promises."
+      },
+      {
+        "name": "China's chip diversion draws US legal scrutiny",
+        "status": "returning",
+        "days7": 2,
+        "line": "California's Nvidia probe now covers possible criminal violations over alleged chip sales to China. Separately, new US chip rules threaten Southeast Asian data centres that serve China-linked operators."
+      }
+    ],
+    "faded": []
+  }
+}
