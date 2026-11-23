@@ -263,3 +263,15 @@ paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
   (before 9 Nov) keep the old menu. Menu jumps land the heading just below the sticky menu.
   The tagline is recorded in `BRAND_KIT.html` (Logo section).
 - Watch the first week: do chips look right; does the writer use `thread` ids instead of renaming.
+
+## 12. Masthead + "Undercurrents" (23 Nov 2026, renderer only)
+- **"The Big Picture" is now "Undercurrents"** (heading + menu), subline *"The bigger trends and
+  patterns behind the news."* (`UC_SUB` in app.js). Anchor id stays `sec-bigpicture`.
+- **Dateline removed** (day/date/edition/Jaipur). The edition dropdown now reads
+  "23 November 2026 · Monday · Edition 161" (no headline); "Edition:" label kept on phones.
+- **Markets bar never scrolls sideways**: quotes wrap onto extra lines on every screen.
+- **Masthead:** cactus moved to the RIGHT of the wordmark and ~40% bigger. Desktop: wordmark exactly
+  centred (invisible left spacer, `.masthead-lockup::before`). Phones: wordmark + cactus centred as
+  a group. Tagline right-aligned to end under the "s" of Cactus on phones (<700px) and tablets
+  (700-1199px); desktop keeps the 62% tagline. Sun: bigger on desktop, sized per breakpoint so it
+  never touches "The". Tested 320/360/390/430/768/1024/1440px.
