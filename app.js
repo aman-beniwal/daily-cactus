@@ -261,6 +261,18 @@ function iconBarHTML(s, id, date) {
   return `<div class="meta iconbar"><div class="ib-left">${src}${askAIHTML(s)}</div>${thumbsHTML(id, s.headline, date)}</div>`;
 }
 
+// Edition dropdown label (23 Nov 2026): "23 November 2026 · Monday · Edition 161".
+function editionLabel(e) {
+  const d = new Date(e.date + "T00:00:00");
+  if (isNaN(d)) return e.date;
+  const day = d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const wd = d.toLocaleDateString("en-GB", { weekday: "long" });
+  return `${day} · ${wd}` + (e.edition != null ? ` · Edition ${e.edition}` : "");
+}
+
+// 23 Nov 2026: "The Big Picture" renamed "Undercurrents"; its italic subline.
+const UC_SUB = "The bigger trends and patterns behind the news.";
+
 // ---------- markets bar (B5) ----------
 function fmtQuoteValue(q) {
   const v = typeof q.value === "number"
@@ -569,7 +581,7 @@ function patternsHTML(patterns, urlAnchors, takeaways, weekThreads) {
     ? `<div class="takeaways"><h4>Other takeaways</h4><ul>${takeaways.map((t) =>
         `<li>${esc(t.line)} ${t.url ? link(t, "&darr;&nbsp;story") : ""}</li>`).join("")}</ul></div>`
     : "";
-  return `<section class="card patterns-card">${hasP ? `<p class="bp-sub">What today&rsquo;s news adds up to</p><ol class="pat-list">${rows}</ol>` : ""}${tk}${wk}</section>`;
+  return `<section class="card patterns-card">${hasP ? `<p class="bp-sub">${UC_SUB}</p><ol class="pat-list">${rows}</ol>` : ""}${tk}${wk}</section>`;
 }
 
 function moneyHTML(money) {
@@ -757,18 +769,14 @@ function renderEdition(ed) {
     ed.sections = ed.sections.map((s, i) => [s, i]).sort((a, b) =>
       (rank(a[0]) - rank(b[0])) || (a[1] - b[1])).map((x) => x[0]);
   }
-  const d = new Date(date + "T00:00:00");
-  const nice = isNaN(d) ? date
-    : d.toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-  $("#dateline").innerHTML =
-    `<span>${esc(nice)}</span> &middot; <span>Edition N&ordm; ${esc(ed.edition ?? "—")}</span> &middot; <span>Jaipur, India</span>`;
+  // 23 Nov 2026: the dateline line was removed; the edition dropdown carries date/day/number.
 
   $("#markets").innerHTML = marketsHTML(ed.markets);
 
   // Nav
   const hasBigPic = (ed.patterns || []).length || (ed.takeaways || []).length || ed.week_threads;
   const navItems = hasBigPic
-    ? [`<a data-target="sec-bigpicture">The Big Picture</a>`, `<a data-target="sec-front">Front Page</a>`]
+    ? [`<a data-target="sec-bigpicture">Undercurrents</a>`, `<a data-target="sec-front">Front Page</a>`]
     : [`<a data-target="top">Front Page</a>`];
   (ed.sections || []).forEach((s) => {
     if (s.stories && s.stories.length) navItems.push(`<a data-target="sec-${esc(s.slug)}">${esc(s.name)}</a>`);
@@ -840,7 +848,7 @@ function renderEdition(ed) {
   if (bigPic) {
     // 20 Nov 2026: The Big Picture is its own section, first in the paper and the
     // menu; a "Front Page" head then marks where the news itself starts.
-    html += `<div class="sec-head bp-head" id="sec-bigpicture"><h2 class="sec-title">The Big Picture</h2><span class="sec-rule"></span></div>`;
+    html += `<div class="sec-head bp-head" id="sec-bigpicture"><h2 class="sec-title">Undercurrents</h2><span class="sec-rule"></span></div>`;
     html += bigPic;
     if (ed.lead || (ed.frontpage || []).length)
       html += `<div class="sec-head fp-head" id="sec-front"><h2 class="sec-title">Front Page</h2><span class="sec-rule"></span></div>`;
@@ -1020,7 +1028,7 @@ async function init() {
   if (eds.length) {
     const sel = $("#datepick");
     sel.innerHTML = eds.map((e) =>
-      `<option value="${esc(e.date)}">${esc(e.date)}${e.lead ? " — " + esc(e.lead.replace(/==|__/g, "").slice(0, 60)) : ""}</option>`
+      `<option value="${esc(e.date)}">${esc(editionLabel(e))}</option>`
     ).join("");
     sel.addEventListener("change", () => loadEdition(sel.value, true));
     $("#datebar").style.visibility = "visible";

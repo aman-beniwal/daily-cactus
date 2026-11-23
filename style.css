@@ -58,20 +58,18 @@ a{color:inherit}
 /* decorative corner sun: the file is already oriented disc-in-top-left with the
    rays fanning down-right into the page (EXIF orientation baked in), so it needs
    NO rotation. Absolute so it scrolls away with the masthead; never blocks clicks. */
-.corner-sun{position:absolute;top:0;left:0;width:clamp(74px,8vw,118px);height:auto;
+.corner-sun{position:absolute;top:0;left:0;width:clamp(92px,9.8vw,152px);height:auto;
   z-index:1;pointer-events:none;user-select:none}
-@media(max-width:699px){.corner-sun{width:clamp(53px,16vw,83px)}}
+@media(max-width:699px){.corner-sun{width:clamp(40px,12vw,50px)}.masthead{padding-top:18px}}
 
 /* ---------- masthead: large riso wordmark + cactus beside it ---------- */
 .masthead{text-align:center;margin-bottom:8px}
 .masthead-lockup{display:flex;align-items:center;justify-content:center;
   gap:clamp(10px,2vw,26px)}
 .wordmark{display:block;flex:0 1 748px;min-width:0;max-width:100%;height:auto}
-.masthead-cactus{width:clamp(44px,6.5vw,74px);height:auto;flex:none;
+/* 23 Nov 2026: cactus scaled down so the wordmark leads (it was the biggest thing on phones) */
+.masthead-cactus{width:clamp(26px,4.2vw,52px);height:auto;flex:none;
   filter:drop-shadow(var(--shadow-logo))}
-.dateline{font-family:var(--stamp);font-size:12px;letter-spacing:2.5px;
-  text-transform:uppercase;color:var(--faded);margin-top:10px;text-align:center}
-.dateline span{white-space:nowrap}
 
 /* ---------- date picker / controls (kept functional, restyled) ---------- */
 .datebar{display:flex;justify-content:center;align-items:center;gap:10px;
@@ -80,7 +78,10 @@ a{color:inherit}
 .datebar select{font-family:var(--stamp);font-size:12px;background:var(--card);
   color:var(--ink);border:1px solid var(--rule);border-radius:3px;padding:3px 8px;
   /* long option labels used to force the select wider than a phone screen. */
-  max-width:min(72vw,420px);text-overflow:ellipsis}
+  max-width:min(80vw,420px);text-overflow:ellipsis}
+/* phones: the select says what it is; drop the label so it stays on one line */
+/* phones: label and select stay on one line (label kept, 23 Nov 2026) */
+@media(max-width:699px){.datebar{flex-wrap:nowrap;gap:8px}.datebar select{max-width:calc(100vw - 110px)}}
 
 /* ---------- section nav: green menu bar, cream text ---------- */
 nav#nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;
@@ -120,11 +121,10 @@ nav#nav .sep{color:rgba(244,238,221,.5)}   /* separators visible on green */
 .markets .q b{font-weight:700}
 .markets .up::after{content:" \25B2";color:#4c7a4c}
 .markets .dn::after{content:" \25BC";color:var(--red)}
-@media(max-width:699px){
-  .markets{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;
-    white-space:nowrap;gap:16px;scrollbar-width:thin}
-  .markets .q,.markets-asof{flex:none}
-}
+/* 23 Nov 2026: no sideways scroll on any screen; quotes wrap onto as many lines
+   as needed. Each quote stays whole (never split mid-quote). */
+.markets .q{white-space:nowrap}
+@media(max-width:699px){.markets{gap:6px 16px;padding:8px 2px}}
 .markets-asof{color:var(--faded);font-size:11px}
 
 /* ---------- warm cards on kraft: shadow IS the edge ---------- */
@@ -413,7 +413,6 @@ html{scroll-behavior:smooth}
 /* ---------- mobile 375px ---------- */
 @media(max-width:480px){
   .wrap{padding:20px 14px 72px}
-  .markets{gap:14px}
   .card{padding:14px 16px}
   .story h5{font-size:19px}
   .story.lead-story h5{font-size:22px}
@@ -541,3 +540,30 @@ html{scroll-behavior:smooth}
 .sec-head.fp-head{margin-top:40px}
 .sec-head.fp-head .sec-title{background:none;padding-left:0;color:var(--ink)}
 .patterns-card .bp-sub{margin-top:0}
+
+/* 23 Nov 2026: masthead re-balanced. The wordmark is truly centred on the page;
+   the cactus sits to its RIGHT. An invisible spacer of the cactus's width on the
+   left keeps the centring exact. */
+.masthead-lockup::before{content:"";flex:none;width:var(--cactus-w)}
+.masthead-lockup{--cactus-w:clamp(39px,5.9vw,78px)}   /* ~40% up from 23 Nov first pass; a touch taller than the wordmark */
+.masthead-cactus{order:2;width:var(--cactus-w);align-self:center}
+.patterns-card .bp-sub{font-size:15px}
+/* phones: the tagline must not run into the cactus on the right */
+/* phones: tagline centred under the heading, smaller, clear of the cactus */
+/* phones: tagline right-aligned so it ends where "Cactus" ends (23 Nov 2026) */
+@media(max-width:699px){.masthead .tagline{padding-left:0;padding-right:var(--wm-pad-r,0);text-align:right;font-size:10.5px;margin-top:3px}
+  .masthead .tagline .tl2{display:inline}}
+/* breathing room between the heading block and the cactus */
+.masthead-lockup{gap:clamp(14px,2.6vw,38px)}
+/* phones: centre heading + cactus as one group (no empty left spacer), so the
+   cactus sits off the screen edge and the heading keeps its size */
+@media(max-width:699px){.masthead-lockup::before{display:none}
+  .masthead-lockup{gap:12px;padding:0 4px}}
+/* tablets (iPad portrait, 700-1023px): same right-aligned tagline as phones,
+   one line, ending where "Cactus" ends; sun sized to clear the heading */
+@media(min-width:700px) and (max-width:1199px){
+  .masthead .tagline{padding-left:0;text-align:right;font-size:14px;margin-top:2px}
+  .masthead .tagline .tl2{display:inline}
+  .corner-sun{width:clamp(72px,9vw,100px)}
+  .masthead{padding-top:14px}
+}
