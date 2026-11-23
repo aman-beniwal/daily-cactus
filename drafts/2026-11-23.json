@@ -1,0 +1,535 @@
+{
+  "date": "2026-11-23",
+  "patterns": [
+    {
+      "name": "India draws foreign money as AI trade sells off",
+      "line": "Since the US midterms, Nasdaq is down 7.98% and Taiwan's TAIEX 9.24%, while foreign investors put a record Rs 1.22 lakh crore into Indian stocks in November. Separately, Treasury's Bessent warned of Fed overtightening after the tech correction.",
+      "evidence": [
+        "india-1abd556b34",
+        "global-economics-387129c619"
+      ],
+      "force": "capital",
+      "why": "Foreign money moving out of AI-linked markets is landing in India, so India's inflows are largely the mirror image of the AI outflow. If AI stocks rebound, the money may leave.",
+      "watch": "Whether foreign buyers stay net buyers after November, and the Dec. 9 Fed decision.",
+      "update": true,
+      "thread": {
+        "id": "t20261109-ai-trade-is-losing-political-and",
+        "status": "established",
+        "days": 8,
+        "days14": 7,
+        "weeks": 3,
+        "first": "2026-11-09"
+      }
+    },
+    {
+      "name": "Cheap drones are spreading into every theatre of war",
+      "line": "Suspected Ukrainian sea drones sank a Russian corvette in Libya's Benghazi port, over 1,000 miles from Ukraine, and hit a cargo ship. Sudan's army and RSF both use drones that killed over 1,100 people in the first half of 2026.",
+      "evidence": [
+        "world-969b3e367a",
+        "deep-tech-c44f57d239"
+      ],
+      "force": "technology",
+      "why": "Cheap drones let small actors strike far away without risking crews. If this holds, ports and civilians in third countries become targets, and states face pressure to build their own drone supply.",
+      "watch": "Whether Libya's UN complaint produces an investigation of Ukraine's presence there.",
+      "update": true,
+      "thread": {
+        "id": "t20261113-capital-and-armies-are-shifting-to",
+        "status": "established",
+        "days": 7,
+        "days14": 7,
+        "weeks": 3,
+        "first": "2026-11-13"
+      }
+    },
+    {
+      "name": "Memory chips become strategic, locked in by long contracts",
+      "line": "Big Tech buyers are proposing 10 to 20 year memory contracts instead of the usual three to five. Separately, South Korea's early-November exports rose 95.2% on a working-day-adjusted basis, with annual exports passing $1 trillion for the first time.",
+      "evidence": [
+        "global-economics-d414aebd03",
+        "global-economics-836060f746"
+      ],
+      "force": "capital",
+      "why": "Scarce memory gives makers pricing power, so buyers offer long commitments and equity. Makers resist because fixed capacity costs fall on them if demand drops.",
+      "watch": "Whether any 20-year contract is signed, and on whose terms.",
+      "thread": {
+        "id": "t20261123-memory-chips-become-strategic-locked-in",
+        "status": "new",
+        "days": 1,
+        "days14": 1,
+        "weeks": 1,
+        "first": "2026-11-23"
+      }
+    }
+  ],
+  "takeaways": [
+    {
+      "id": "world-3ed909c38e",
+      "line": "With both chambers, Democrats can pass bills and investigate, but Trump's veto caps results. Expect fights over costs and AI rules, and a White House that treats oversight as hostile."
+    },
+    {
+      "id": "ai-716c53fa8f",
+      "line": "OpenAI's chief scientist backing a shared measure for AI limits shows leading labs now want a speed limit. A Democratic Congress makes enforcement more plausible, but he set no threshold."
+    },
+    {
+      "id": "ai-5f8d980aa0",
+      "line": "If models improve faster than tests can check them, safety claims rest on weaker evidence. Labs and regulators will need new measures, which is the gap Pachocki's proposal targets."
+    },
+    {
+      "id": "climate-energy-72a8c09a36",
+      "line": "A COP without a cover decision for the first time since 2009 shows that fossil-fuel language and climate finance now block consensus. Countries will act through coalitions and national policy."
+    }
+  ],
+  "money": [
+    {
+      "id": "ai-4235871e0a",
+      "company": "Simplexity Robotics",
+      "amount": "$100 million",
+      "sector": "Chinese humanoid robots",
+      "line": "Chinese physical-AI startup raised a pre-Series A at a $1.6 billion valuation, led by Ant Group with Alibaba, Tencent and HongShan."
+    }
+  ],
+  "lead": {
+    "id": "world-3ed909c38e",
+    "headline": "Democrats win biggest House majority since 1992",
+    "hook": "Democrats won at least 258 of 435 House seats after Chuck Hubbard beat Republican Virginia Foxx by 330 votes in North Carolina, matching Clinton's 1992 total.",
+    "points": [
+      "Republicans hold at least 173 seats. Four races are uncalled: one each in Tennessee and Minnesota, and two Louisiana runoffs in December.",
+      "Democrats gained 44 seats, four more than the 40 in 2018, and won the Senate with 56 of 100 seats, their biggest advantage in over a decade.",
+      "Voters cited the cost of living, the Iran war, corruption and immigration raids. Reuters/Ipsos put Trump's approval at 32%.",
+      "The 100-day agenda reverses Medicaid cuts and restores expired Affordable Care Act tax credits. Democrats also plan probes of Trump's finances, and Jeffries has not ruled out impeachment.",
+      "Trump can veto bills. Speaker Johnson had a narrow 218-214 majority; Jeffries can lose dozens of Democrats and still pass bills."
+    ],
+    "key_stat": "258 seats · most since 1992",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "india-1abd556b34",
+      "headline": "Foreign investors pour record money into India as AI stocks fall",
+      "hook": "Foreign investors bought a record Rs 1.22 lakh crore of Indian stocks by 20 November, and were net buyers every trading day this month except the Muhurat session.",
+      "points": [
+        "Since the US midterms, Nasdaq is down 7.98%, Taiwan's TAIEX 9.24% and Korea's Kospi 3.74%, while the Sensex is up 3.57% and 10.87% in November.",
+        "Analysts see India as an alternative for growth investors as enthusiasm for Asian AI stocks fades, and expect buying to continue near term.",
+        "Risks: CPI above RBI's 6% limit in September signals another rate hike; an AI rebound could pull money back; crude and the rupee; unmet hopes of long-term capital gains tax relief.",
+        "Domestic institutions have been selling into the rally, leaving less cushion if foreign buyers pause."
+      ],
+      "key_stat": "Rs 1.22 lakh crore · FPI buying",
+      "evidence_of": "India draws foreign money as AI trade sells off",
+      "force": "capital"
+    },
+    {
+      "id": "world-969b3e367a",
+      "headline": "Russian warship sunk in Libyan port by suspected Ukrainian drones",
+      "hook": "Two of at least six suspected Ukrainian sea drones hit the Russian corvette Merkury in Benghazi, sinking it; four were intercepted.",
+      "points": [
+        "Satellite imagery showed the ship sunk. It had stopped to refuel under a Russia-eastern Libya cooperation deal. Hours later a Russia-linked cargo ship, the Ascalon, was hit by a sea drone off Benghazi.",
+        "Libyan officials say the drones came from a Ukrainian-run base in western Libya. No one has claimed the attacks and Russia has not reacted.",
+        "Eastern Libya's government condemned a sovereignty violation and asked the UN for an investigation. The UN mission called for an independent probe.",
+        "Separately, a Russian cargo ship hit by drones in the Baltic on Saturday smouldered off Finland. Finland's military said Ukraine probably did it, and the vessel later left Finnish waters.",
+        "Russia uses Benghazi to supply forces in Africa and as a Mediterranean base after losing its Syrian bases."
+      ],
+      "key_stat": "1,000+ miles from Ukraine",
+      "evidence_of": "Cheap drones are spreading into every theatre of war",
+      "force": "technology"
+    },
+    {
+      "id": "climate-energy-72a8c09a36",
+      "headline": "COP31 ends without a consensus cover decision for the first time since 2009",
+      "hook": "The Antalya talks ran two days over and ended with no agreed cover decision, the first such failure since 2009.",
+      "points": [
+        "The EU, several Latin American countries and Pacific island states rejected the text. The EU objected that it did not mention fossil fuels.",
+        "Countries did adopt a programme to help workers transition from fossil fuels and a plan to assess progress on climate adaptation.",
+        "The dispute centred on fossil fuel language, carbon capture and how much climate finance developed countries owe developing ones.",
+        "Saudi Arabia, for the League of Arab States, backed the text and called resistance to carbon capture unscientific. Guterres said he was deeply disappointed."
+      ],
+      "key_stat": "First no-cover-decision COP since 2009"
+    },
+    {
+      "id": "ai-5f8d980aa0",
+      "headline": "AI is improving faster than safety tests can keep up, METR warns",
+      "hook": "The length of tasks AI models can handle doubles every 3.6 months, and METR says public data cannot rule out a sharp acceleration in AI research.",
+      "points": [
+        "On clearly defined coding tasks with direct feedback, models already beat experienced professionals most of the time, though not large groups of top experts.",
+        "A naive extrapolation puts models at 50% success on 200-hour tasks by July 2027.",
+        "They still struggle with open-ended questions needing judgment and with situations hard to recreate in training.",
+        "Easy tests may overstate real-world performance because developers train on similar environments. METR warns humans may be unable to assess catastrophic risks."
+      ],
+      "key_stat": "3.6-month doubling · task length"
+    },
+    {
+      "id": "india-deep-tech-76cbc73687",
+      "headline": "689 government tenders specify Chinese drones or parts, 84% from the Army",
+      "hook": "Drone Federation India found 689 tenders on the GeM procurement portal since 2021 naming Chinese drones or parts, 355 in 2026 alone against 190 in 2025.",
+      "points": [
+        "The Army issued 580 (84%) of them, and 328 of the 355 in 2026. Items include motors, flight controllers and video transmitters from brands like T-Motor and RunCam.",
+        "104 of the 328 Army tenders came after the Army's AASHVAST lab, which screens drones for Chinese components, opened on 14 August.",
+        "Risks: unscreened cyber vulnerabilities, supply disruption since China's export licensing began 18 November, and no demand for Indian makers.",
+        "DFI wants an advisory excluding Chinese parts, preference for Indian components and mandatory country-of-origin declarations. An industry source says the Army has recently begun assembling its own drones."
+      ],
+      "key_stat": "689 tenders · 355 in 2026"
+    },
+    {
+      "id": "science-mind-6bfc22039f",
+      "headline": "Past medication use leaves lasting marks on gut bacteria",
+      "hook": "A study of over 2,500 Estonians found many common drugs leave gut microbiome changes years after patients stop taking them.",
+      "points": [
+        "Antidepressants, beta-blockers, proton pump inhibitors and benzodiazepines were linked to microbiome differences, not just antibiotics.",
+        "Benzodiazepines showed changes comparable to broad-spectrum antibiotics, and diazepam and alprazolam differed in strength.",
+        "A smaller follow-up of people starting or stopping drugs confirmed lasting effects for proton pump inhibitors, SSRIs and some antibiotics.",
+        "The study does not show the changes are harmful. Researchers say microbiome studies should account for medication history."
+      ],
+      "key_stat": "2,500+ people · Estonian Biobank"
+    },
+    {
+      "id": "ai-f908da6e29",
+      "headline": "South Korea's education minister quits over AI exam cheating scandal",
+      "hook": "Choi Kyo-jin resigned after the top scorer in a tax accountancy exam admitted using a hidden camera and AI, days before the national university entrance exam.",
+      "points": [
+        "Han Won-seok, 34, answered all but one of 160 questions correctly by photographing questions, sending them to an AI and reading answers on a phone.",
+        "The government doubled supervisors, blocked public wifi, required pencils only and offered rewards of at least $75,000 for tips.",
+        "It sent emergency alerts to every phone during the exam. Officials found 111 misconduct cases, nearly half detected by the alerts.",
+        "Choi said he did not feel he could catch cheaters given his age. President Lee accepted the resignation."
+      ],
+      "key_stat": "111 cases · ~500,000 test-takers"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-7cda752582",
+          "headline": "AI coding agents complete under one in ten tasks in simulated company",
+          "hook": "Even Claude Opus 5.5 and GPT-6 Astra fully complete fewer than one in ten tasks when placed as digital employees in a simulated software company.",
+          "points": [
+            "The test adds colleagues, project boards and chat histories, unlike standard benchmarks.",
+            "Standard benchmarks like SWE-bench are nearly saturated, and Anthropic says Claude writes over 80% of its production code."
+          ],
+          "key_stat": "<10% tasks fully done"
+        },
+        {
+          "id": "ai-08123fae2e",
+          "headline": "US chip rules squeeze Southeast Asian data-centre operators",
+          "hook": "New US Commerce rules require Washington's permission for advanced chip shipments to four Southeast Asian countries, including Indonesia.",
+          "points": [
+            "An Indonesian data-centre chief spent hours refreshing the Commerce website for the rules, then flew to Singapore to meet Nvidia.",
+            "The US also announced a coming global clampdown on data centres giving Chinese firms remote access to chips they cannot buy.",
+            "Bloomberg says this threatens a multibillion-dollar cloud business powering the region's data-centre boom."
+          ],
+          "key_stat": "4 countries need US permission"
+        },
+        {
+          "id": "ai-716c53fa8f",
+          "headline": "OpenAI's chief scientist proposes shared limits on AI development",
+          "hook": "Jakub Pachocki proposed industry-wide limits, partly based on perplexity, that labs would not cross until safety monitoring improves; Sam Altman backed it.",
+          "points": [
+            "Perplexity measures how well a model predicts the next token; lower is better. He says it has stayed informative while capability benchmarks went out of date.",
+            "GPT-4 was at about 0.91; below 0.8 he says transformative capabilities appeared in cybersecurity and mathematics.",
+            "He gave no initial threshold or date, and warned AI could speed its own progress by 2027, outpacing oversight.",
+            "Altman called it OpenAI's most important publication in a while. It follows Amodei's plan to 'pace the frontier'. Trump has opposed broad AI restrictions."
+          ],
+          "key_stat": "Perplexity ~0.91 → below 0.8"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-a100566707",
+          "line": "Indian retail investors kept trading Anthropic after its Nasdaq debut; the number trading on Vested rose about 46% on Friday, and Anthropic was 40% of INDmoney's orders Thursday."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-387129c619",
+          "headline": "Bessent warns Fed risks overtightening as markets fall",
+          "hook": "Treasury Secretary Bessent said the Fed risks hurting the economy by overtightening after the latest inflation data.",
+          "points": [
+            "He pointed to hawkish comments from Fed governors in recent weeks and signs of fragility in the financial system.",
+            "Traders have pared expectations of a half-point hike on Dec. 9 after a tech correction.",
+            "Anthropic's record IPO and strong tech earnings failed to lift sentiment. An analyst warned of tightening into a slowdown when earnings and AI investment have peaked."
+          ],
+          "key_stat": "Dec. 9 · Fed decision",
+          "evidence_of": "India draws foreign money as AI trade sells off",
+          "force": "capital"
+        },
+        {
+          "id": "global-economics-d414aebd03",
+          "headline": "Big Tech proposes up to 20-year memory chip contracts",
+          "hook": "US cloud firms and other Big Tech buyers are proposing memory contracts of 10 to 20 years, against the usual three to five.",
+          "points": [
+            "Meritz Securities says memory shortages could be a lasting bottleneck for AI, making makers 'super suppliers'.",
+            "SoftBank's Son reportedly sounded out about $1 trillion in financing for buying SK Hynix, whose market cap is about $577.7 billion. Observers see little chance of a deal.",
+            "Hurdles: SoftBank's cash was only ¥5.39 trillion at end-September, South Korean approval is needed, and SK Square holds 20.67% and SK Group is unwilling to sell.",
+            "Memory makers resist because fixed capacity costs fall on them; they prefer debt investment to equity. Meritz expects earnings gains through the 2027-2028 cycle."
+          ],
+          "key_stat": "20-year contracts vs 3-5 usual",
+          "evidence_of": "Memory chips become strategic, locked in by long contracts",
+          "force": "capital"
+        },
+        {
+          "id": "global-economics-836060f746",
+          "headline": "South Korea's exports pass $1 trillion for the first time",
+          "hook": "South Korea's exports rose 95.2% in the first 20 days of November, working-day adjusted, as the AI boom stoked chip demand.",
+          "points": [
+            "That compares with a 65.9% increase over the same period in October.",
+            "Annual shipments topped $1 trillion for the first time."
+          ],
+          "key_stat": "95.2% · early Nov exports",
+          "evidence_of": "Memory chips become strategic, locked in by long contracts",
+          "force": "capital"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-45e9f54a0d",
+          "line": "Elon Musk warned of a severe AI cash crunch in 2027 as firms race to build data centres, asking where the money will come from."
+        }
+      ]
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-46a122c895",
+          "headline": "China's spy agency set its sights on AI chips before the Nvidia scandal",
+          "hook": "China's top espionage agency updated its priorities this year to include overcoming Western barriers to technologies Xi Jinping sees as crucial.",
+          "points": [
+            "At the centre are advanced chips for AI, including those the US bars Nvidia from exporting to China.",
+            "Xi told the Politburo in January to 'adopt extraordinary measures' and solve 'chokehold' problems as swiftly as possible."
+          ]
+        },
+        {
+          "id": "deep-tech-c44f57d239",
+          "headline": "Drones hit homes and a UN building in Khartoum",
+          "hook": "Drones struck Sudan's capital on Sunday, damaging homes and a UN building; reports differ, with Al Jazeera citing four killed.",
+          "points": [
+            "Explosions were heard for about two and a half hours from around 2 a.m. A Sudanese army source said the drones were launched from Ethiopia's Bahir Dar airport; Ethiopia has denied such claims.",
+            "Reports blame the RSF. The UN office OCHA called the danger to staff in a civilian area unacceptable.",
+            "Drones killed over 1,100 people in the first half of 2026, per the UN, and about two-thirds of child casualties from January to September.",
+            "The war began in April 2023, has killed over 200,000 per aid workers and displaced 13 million."
+          ],
+          "key_stat": "1,100+ drone deaths · H1 2026",
+          "evidence_of": "Cheap drones are spreading into every theatre of war",
+          "force": "technology"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-479cecb35b",
+          "line": "A Russian cargo ship bound for Kaliningrad, hit by drones in the Gulf of Finland, has left Finnish waters after posing a serious danger there."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-e269a2ed49",
+          "headline": "India-EU trade deal likely to be signed on December 16",
+          "hook": "India and the EU are likely to sign their free trade agreement on December 16, nearly a year after talks concluded on January 27.",
+          "points": [
+            "The EU ambassador says signing will come during Modi's Brussels visit in December, with entry into force expected next year.",
+            "The deal gives duty-free EU access to 93% of India's exports and cheapens luxury cars and wines.",
+            "Together they account for 25% of global GDP and about a third of world trade."
+          ],
+          "key_stat": "93% of exports duty-free"
+        },
+        {
+          "id": "india-9bfe449361",
+          "headline": "Karnataka voters challenge deletions from the voter list revision",
+          "hook": "More than 350 appeals have been filed in Karnataka against names deleted in the final Special Intensive Revision (SIR) electoral rolls.",
+          "points": [
+            "Several appellants say they completed hearings and submitted documents. Some say officials advised them to withdraw and file Form 6, others say officials filed it for them.",
+            "Form 6 is a new-voter route, so they may miss Greater Bengaluru Authority elections, which must use the SIR rolls by December.",
+            "The Deputy Commissioner is the first appellate authority and the Chief Electoral Officer the final one; all appeals are pending or disposed at stage one.",
+            "Families report uneven outcomes, with some members deleted and others kept."
+          ],
+          "key_stat": "350+ appeals"
+        },
+        {
+          "id": "beyond-your-beat-769a771f7c",
+          "headline": "Modi and Nepal PM Shah to hold talks on energy and connectivity",
+          "hook": "Modi and Nepal PM Balendra Shah will hold talks on November 23, focused on energy, hydropower, railways and infrastructure.",
+          "points": [
+            "India envisages importing up to 10,000 MW from Nepal over 10 years, against about 1,200 MW now. Indian firms are building the 900 MW Arun-3 project.",
+            "They will virtually flag off the Ayodhya-Janakpur Saryu-Kamala Express, a weekly 604-km service from November 28.",
+            "India takes about 80% of Nepal's goods exports and supplies nearly a third of its foreign investment.",
+            "Ties were strained in May when Shah sought China's and the UK's involvement on the border dispute; India rejected any third party."
+          ],
+          "key_stat": "10,000 MW planned imports"
+        }
+      ],
+      "also": [
+        {
+          "id": "beyond-your-beat-7e19007616",
+          "line": "Pakistan's minister Musadik Malik says he will take up the Indus Waters Treaty if India invites talks; India says the treaty stays in abeyance."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-1edebae50d",
+          "headline": "Private yards set to build three of eight Navy corvettes",
+          "hook": "State shipyards GRSE and Goa Shipyard will outsource three of eight Next Generation Corvettes in a Rs 53,866.50 crore order to private yards.",
+          "points": [
+            "The Defence Ministry signed the contracts on 2 November. The aim is that production capacity does not constrain naval shipbuilding.",
+            "A private yard will build a large frontline warship for the Navy for the first time. The yard is not yet named.",
+            "It follows the dual production approach, with two or more production lines for the same equipment, as with the AMCA stealth fighter.",
+            "Each corvette is 4,950 tonnes with a top speed of 26 knots and a crew of 150."
+          ],
+          "key_stat": "Rs 53,866.50 crore · 8 corvettes",
+          "followup": true
+        },
+        {
+          "id": "india-deep-tech-ff6836424c",
+          "headline": "Modi blames 'red flags' for lost chip plant; facts are disputed",
+          "hook": "Modi said a semiconductor company was sent back by 'red flags' 50 years ago, a claim the CPM called untrue.",
+          "points": [
+            "Vaishnaw's earlier post places it in 1964, when Fairchild's Robert Noyce visited, and blames Congress licence policy.",
+            "Historian Dinesh Sharma says Fairchild was told to keep equity below 50% and limit output below the 10 million devices proposed, so it went to Hong Kong.",
+            "He adds that Left-linked bank unions did oppose computers in the late 1960s.",
+            "Modi said multiple chip facilities were set up in four years and India has begun exporting chips."
+          ]
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-e4bfe9c6a5",
+          "line": "Modi has directed DRDO to deepen R&D collaboration and share its research with the domestic private sector, in a high-level meeting with secretaries."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-98f96651ee",
+          "headline": "Five million Indian homes now have rooftop solar",
+          "hook": "Five million households had rooftop solar by July 2026, with 14.9 GW, about half of India's rooftop capacity, says Ember.",
+          "points": [
+            "Installs rose from about 5,000 a day in October 2025 to over 16,000 in July 2026; only about 794,000 systems went in over the prior decade.",
+            "The government pays Rs 30,000 per kW for the first two kW and Rs 18,000 for the third, up to Rs 78,000. A 3 kW system pays back in 3.3 years.",
+            "Midday power cost about Rs 1.56 per kWh in July, and evening prices ran to about six times that, up to the Rs 10 cap.",
+            "Ember proposes battery subsidies for five million homes, about Rs 280 billion, giving 15 to 25 GWh of storage."
+          ],
+          "key_stat": "5 million homes · 14.9 GW"
+        },
+        {
+          "id": "climate-energy-6fc904a5c1",
+          "headline": "Amazon plans $7 billion for Indian clean energy",
+          "hook": "Amazon plans to invest $7 billion in Indian clean energy over four years, on top of $4 billion already committed.",
+          "points": [
+            "It unveiled four wind and solar projects totalling 934 MW but gave no breakdown for the $7 billion.",
+            "India targets 500 GW of clean capacity by 2030, which could need about $220 billion.",
+            "Non-fossil sources are over 54% of installed capacity, though coal and oil still dominate the mix."
+          ],
+          "key_stat": "$7B · four years"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "agritech",
+      "stories": [],
+      "also": [
+        {
+          "id": "agritech-673bce495e",
+          "line": "The Indian Express reports basmati farmers have reasons to be happy despite drought across much of India (article text unavailable)."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-0d9c2e0c15",
+          "headline": "Fintech stocks fall as UPI merchant fee looks set for further delay",
+          "hook": "Paytm fell as much as 10.8% in a week, Pine Labs 9.4% and MobiKwik 6.6% as the UPI merchant discount rate (MDR) looked likely to be delayed again.",
+          "points": [
+            "The proposal is 0.4% on person-to-merchant UPI payments above Rs 2,000, capped at Rs 300, with a flat Rs 5 for some categories. It was due October 15, then pushed past Diwali.",
+            "Financial Express reports it may slip past 2027 state elections over merchant pushback; no date is confirmed.",
+            "Goldman saw up to Rs 1,400 crore extra EBITDA for Paytm in FY28; MobiKwik says at least Rs 100 crore of revenue.",
+            "All three were profitable last quarter without MDR. PhonePe targets a listing in early 2027 at about $10B and Razorpay at about $5B."
+          ],
+          "key_stat": "0.4% MDR · deferred again"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-15172727f7",
+          "line": "Indian startups raised $290 million across 23 deals in the week to Nov 21, up from about $31.3 million across 12 startups the week before."
+        }
+      ]
+    },
+    {
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-84d7f2abb2",
+          "headline": "Neandertal DNA variant tied to smaller visual brain area and lower schizophrenia risk",
+          "hook": "A 4-letter DNA deletion inherited from Neandertals goes with about 10% lower schizophrenia risk and 0.85 cubic centimetres less occipital lobe per copy.",
+          "points": [
+            "Reported by Zeberg and Pääbo in PNAS on November 16, 2026. The deletion occurs only outside Africa and sits 24,300 letters from the DAAM1 gene.",
+            "The odds ratio is 0.95 per copy and about 0.91 for two. No link appeared for bipolar disorder, depression, ADHD, autism or intelligence.",
+            "Neandertal DNA overall showed no significant effect: 54.9% of its alleles went with lower risk against 54.4% elsewhere.",
+            "The authors warn against equating a brain region's size with cognitive ability."
+          ],
+          "key_stat": "Odds ratio 0.91 · two copies"
+        },
+        {
+          "id": "science-mind-9a698ba55d",
+          "headline": "Alzheimer's risk gene CASS4 helps brain immune cells contain plaques",
+          "hook": "UVA researchers found that the Alzheimer's risk gene CASS4 helps microglia, the brain's immune cells, contain amyloid plaques; losing it sped plaque buildup in mice.",
+          "points": [
+            "Without CASS4, microglia struggled to compact plaques, neurons were damaged and mice's cognition worsened.",
+            "Its main role appears to be in immune cells, not neurons as many had assumed.",
+            "Researchers suggest it could be an early biomarker and boosting it could be a treatment route.",
+            "All results come from mice, and whether targeting CASS4 helps humans is untested."
+          ],
+          "key_stat": "Mouse study · J. Exp. Med."
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "health-tech",
+      "stories": [],
+      "also": [
+        {
+          "id": "health-tech-b5bc2ab500",
+          "line": "Biotechs are racing to build AI models of human cells, hoping to speed drug development and slow aging; the NYT asks whether computers can match life's complexity."
+        }
+      ]
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-01c1700a96",
+          "headline": "Indian Google engineer leaves US after six years on H-1B, calling it a 'golden prison'",
+          "hook": "Yash Sharma, 36, is leaving the US for the UK after six years on an H-1B visa, with no UK job lined up.",
+          "points": [
+            "He cites the Green Card backlog for Indians, a rejected extraordinary-ability visa application, and 18 months without leaving the US for fear of not being let back in.",
+            "He got the UK Global Talent visa, which allows relocating without a job.",
+            "Trump announced a $100,000 payment for certain new H-1B workers in September 2025 and moved to wage-weighted selection.",
+            "IBM is ending visa and green card sponsorship for most IBM Consulting jobs; Flywire is considering moving hiring to lower-cost countries."
+          ],
+          "key_stat": "$100,000 · new H-1B payment"
+        }
+      ],
+      "also": []
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-e0a0ff37e9",
+      "name": "Grafana Delhi December Meetup",
+      "when": "Sat 5 Dec",
+      "summary": "Morning meetup on DevOps, AI and observability at Tata 1mg office, Sector 14, Delhi NCR; speakers to be announced."
+    }
+  ]
+}
