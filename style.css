@@ -522,7 +522,9 @@ html{scroll-behavior:smooth}
 }
 /* v11 threads (20 Nov 2026): status chip, connects line, Sunday week review */
 .pat-upd.th-new{color:var(--leaf,#4c7a4c)}
-.pat-upd.th-building,.pat-upd.th-established{color:var(--ink);border-color:var(--brown)}
+.pat-upd.th-building,.pat-upd.th-established,.pat-upd.th-growing,.pat-upd.th-ongoing{color:var(--ink);border-color:var(--brown)}
+.pat-upd.th-back{color:#F4EEDD;background:var(--brown);border-color:var(--brown)}
+.patterns-card .pat-back{font-weight:700;color:var(--ink)}
 .patterns-card p.pat-connects{margin:0 0 5px;font-size:14.5px;color:var(--graphite)}
 .patterns-card .week-threads{margin-top:14px;padding-top:12px;border-top:2px solid var(--ink)}
 .week-threads ul{margin:6px 0 0;padding-left:18px;font-size:15px}
