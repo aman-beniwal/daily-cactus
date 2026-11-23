@@ -275,3 +275,7 @@ paper never leads with them); GitHub's scheduler can start jobs up to ~2 h late.
   a group. Tagline right-aligned to end under the "s" of Cactus on phones (<700px) and tablets
   (700-1199px); desktop keeps the 62% tagline. Sun: bigger on desktop, sized per breakpoint so it
   never touches "The". Tested 320/360/390/430/768/1024/1440px.
+- **Undercurrents rules live in one place: `docs/UNDERCURRENTS.md`** (23 Nov 2026). Statuses are now
+  New / Back again (quiet 5+ days, then seen again; the line opens "4th time in 3 weeks (last seen …)")
+  / Growing / Ongoing, set by `thread_status` in `newsroom.py`. Writer rules rewritten as six numbered
+  rules in `prompts/writer.md`. Old papers' building/established/returning map to Growing/Ongoing/"Seen before".

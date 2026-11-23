@@ -599,36 +599,48 @@ def thread_ledger(drafts_dir, date: str, days: int = THREAD_DAYS) -> list:
     return out
 
 
+BACK_GAP_DAYS = 5   # quiet this many days or more, then seen again = "back"
+
+
 def thread_status(days: list, date: str) -> dict:
-    """Status as of `date`, counting `date` itself as a day seen."""
+    """Status as of `date`, counting `date` itself as a day seen. Four plain
+    statuses (docs/UNDERCURRENTS.md), checked in this order:
+      new     - first time ever
+      back    - seen before, but quiet for BACK_GAP_DAYS+ days until now
+      ongoing - seen in 3 or more of the last 4 weeks
+      growing - anything else (seen recently, not yet 3 weeks)"""
     today = datetime.date.fromisoformat(date)
     seen = sorted({datetime.date.fromisoformat(d) for d in days} | {today})
     d14 = sum(1 for d in seen if (today - d).days < 14)
     weeks = len({d.isocalendar()[:2] for d in seen if (today - d).days < 28})
-    if len(seen) == 1:
+    prev = seen[-2] if len(seen) > 1 else None
+    if prev is None:
         status = "new"
+    elif (today - prev).days >= BACK_GAP_DAYS:
+        status = "back"
     elif weeks >= 3:
-        status = "established"
-    elif d14 >= 3:
-        status = "building"
+        status = "ongoing"
     else:
-        status = "returning"
-    return {"status": status, "days": len(seen), "days14": d14, "weeks": weeks,
-            "first": seen[0].isoformat()}
+        status = "growing"
+    out = {"status": status, "days": len(seen), "days14": d14, "weeks": weeks,
+           "first": seen[0].isoformat(), "span_days": (today - seen[0]).days}
+    if prev:
+        out["prev"] = prev.isoformat()
+    return out
 
 
 def threads_input(ledger: list, date: str) -> str:
     if not ledger:
         return ""
+    today = datetime.date.fromisoformat(date)
     rows = []
     for th in sorted(ledger, key=lambda t: t["days"][-1], reverse=True)[:MAX_THREAD_ROWS]:
-        st = thread_status(th["days"], th["days"][-1])
-        n = len(th["days"])
-        rows.append(f"- {th['id']} | {th['name']} | {st['status']}, seen on {n} day{'s' if n > 1 else ''} "
-                    f"since {th['days'][0]} | last {th['days'][-1]}: {_clean_line(th.get('line', ''))}")
-    return ("THREADS (ongoing storylines the reader already knows; ids are stable. Continue one by "
-            "putting its id in `thread`; only a real new development earns a Big Picture item):\n"
-            + "\n".join(rows))
+        n, last = len(th["days"]), th["days"][-1]
+        quiet = (today - datetime.date.fromisoformat(last)).days >= BACK_GAP_DAYS
+        rows.append(f"- {th['id']} | {th['name']} | seen on {n} day{'s' if n > 1 else ''} since "
+                    f"{th['days'][0]}{' | QUIET since ' + last if quiet else ''} | "
+                    f"last said ({last}): {_clean_line(th.get('line', ''))}")
+    return ("THREADS (trends the reader already knows; ids are stable):\n" + "\n".join(rows))
 
 
 def annotate_threads(draft: dict, ledger: list, date: str) -> None:

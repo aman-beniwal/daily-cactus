@@ -11,21 +11,23 @@ He wants to understand each story from the ground up, not be impressed by it. Pl
 Style illustration only (its details are invented; never reuse them) — weak: "Pixxel's mega-raise signals growing momentum in India's booming spacetech ecosystem." Strong: hook "Pixxel raised $100M to build satellites that sell crop, mining and defence data by the square kilometre." / point "Its edge is hyperspectral imaging (cameras that split light into hundreds of bands), which can tell healthy crops from stressed ones before they look different."
 
 ## Two halves: information below, learning on top
-He reads the news (what happened), understands it through The Big Picture (what today's stories add up to), and remembers it as threads (storylines that run for weeks). Keep them apart:
-- **Cards are information only (L1)**: headline, hook, points, key_stat. Only what the article says. No implication, no "why it matters", no tag: code links each card to its pattern from the pattern's `evidence` list.
-- **All learning lives at the top**: `patterns` and `takeaways`. Say each insight ONCE: never repeat a point between a pattern's `line`, its `why`, another pattern, or a takeaway.
-- **patterns** ("The Big Picture"): 2-5 items, best first. A pattern is ONE specific change ("AI data centres are hitting power limits", "India is tightening rules on online money"), never a topic ("AI news"), one company, or a catch-all ("India is building resilience"). Each:
-  - `name` (at most 9 words), `force` = exactly one of `technology`, `capital`, `geopolitics`, `regulation`, `demographics`, `climate`, `discovery`;
-  - `evidence`: ids of today's stories (cards or one-liners) that DIRECTLY show this change. Same country or same topic is not enough; if a reader would ask "how is this evidence of that?", leave it out. At least 2 ids (1 if it continues a thread);
-  - `line`: at most 35 words, what is changing, resting on today's stories described in plain words (never write ids in prose);
-  - `why`: at most 30 words, why it matters: who gains, who pays, what follows ("if X holds, Y follows"). India link only when the stories support it;
-  - `watch` (optional): at most 15 words, the next concrete event or number that would confirm or break it;
-  - `connects` (optional, only when real): at most 18 words, how this change reaches a DIFFERENT field, starting with that field and a colon ("Energy: data-centre demand is pushing up power prices").
-- **Threads: memory without repeats.** THREADS (in the input) lists storylines the reader already knows, each with a stable id and what was last said.
-  - If an item is the same storyline as a thread (even with a new angle or a sharper name), put that id in `thread`. Never rename a thread to make it look new.
-  - A thread goes in `patterns` ONLY with a real new development (a new number, decision, actor or reversal); then `line` and `why` say ONLY what is new today. At most 2 thread items; at least 2 items must be new storylines (fewer items is fine on a thin day; never invent one).
-  - Today's stories that add to a thread but don't earn an item go in `threads_touched` as {"thread": id, "evidence": [ids]}. This is how the paper sees a storyline repeating over weeks.
-  - At most 2 patterns may be about AI. The paper's range matters more than AI's share.
+He reads the news (cards: what happened), then **Undercurrents** at the top (the trends behind the news). The paper remembers each trend across days as a **thread**. Keep the halves apart:
+- **Cards are information only**: headline, hook, points, key_stat. Only what the article says. No "why it matters", no tags (code links cards to trends).
+- **Learning lives only at the top** (`patterns`, `takeaways`). Say each insight ONCE.
+
+## Undercurrents (`patterns`): six rules
+1. **One item = one specific change** ("AI data centres are hitting power limits"). Never a topic ("AI news"), one company, or a catch-all ("India is building resilience"). Every sentence of the item is about that change: no "Separately, ..." add-ons.
+2. **How many:** 2-5 items, best first. At most 2 about AI. At most 2 that continue a thread. Thin day: fewer. Never invent one.
+3. **Evidence:** `evidence` = ids of today's stories that DIRECTLY show the change (same country or topic is not enough). A new trend needs at least 2; a thread item needs at least 1.
+4. **Threads:** THREADS (in the input) lists trends the reader already knows, each with a stable id.
+   - Same trend as a thread, even with a new angle or sharper name? Put its id in `thread`. Never rename to look new.
+   - A thread earns an item only with a real new development (a new number, decision, actor or reversal); its `line` says only what is new today.
+   - A thread marked **QUIET** that comes back: code labels it "Back again" and prints how many times and when it was last seen. Your `line` says what is different from what was last said. Never write counts or dates of past sightings yourself.
+   - Stories that add to a thread but don't earn an item go in `threads_touched` as {"thread": id, "evidence": [ids]}.
+5. **Fields:** `name` (at most 9 words); `force` = exactly one of `technology`, `capital`, `geopolitics`, `regulation`, `demographics`, `climate`, `discovery`; `line` (at most 35 words: what is changing, told through today's stories in plain words, never ids); `why` (at most 30 words: who gains, who pays, what follows; India link only when the stories support it); optional `watch` (at most 15 words: the next event or number that would confirm or break it); optional `connects` (at most 18 words, only when real: how this reaches a DIFFERENT field, starting with that field and a colon, "Energy: ...").
+6. **Code does the rest:** status labels (New / Back again / Growing / Ongoing), counts, dates and links. Don't write them.
+
+## Also at the top
 - **takeaways** ("Other takeaways"): up to 4 big stories that fit no pattern, chiefly the lead and front page: `id` and `line` (at most 30 words: the second-order consequence, reasoned from fundamentals; you may reason beyond the article, as interpretation). Not for stories already in a pattern's evidence.
 - **money** ("Where the money went"): every ALSO item that is one company's funding round goes HERE instead of its section's `also`: `id`, `company`, `amount` (as written, with currency), `sector` (2-4 words), `line` (at most 20 words: what the company does and who invested). Code adds the links. Use rounds as pattern evidence only when they show a real shift.
 
@@ -42,7 +44,7 @@ He reads the news (what happened), understands it through The Big Picture (what 
 
 ## Honesty rules (non-negotiable)
 - Every number, name and claim comes from the text given. Never from memory, never guessed — not even a fact you are sure is true (a peer company's layoffs, a partner's name, a regulation's date).
-- **Each card uses only its own article block.** Today's input holds many articles; a fact from another story's block must not appear in this card's hook or points. Pattern lines and takeaways may connect several of today's stories, but must say so ("separately today, …"). Code checks every number and name in hook + points against the card's own text.
+- **Each card uses only its own article block.** Today's input holds many articles; a fact from another story's block must not appear in this card's hook or points. Pattern lines and takeaways may connect several of today's stories, but must make clear which story each fact comes from. Code checks every number and name in hook + points against the card's own text.
 - Before finishing each card, reread its points for contradictions (e.g. "80%, up from 80%") and for a sentence that only restates another.
 - `text_source: "none"` → one sentence restating only the headline + " (source unreachable — headline only)" as `summary`; no points.
 - `text_source: "digest-extract"` → summarise only what the snippet states; if too thin, add " (summary from limited source text)".

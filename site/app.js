@@ -528,9 +528,30 @@ function crossRefStripItem(s, anchorId, frontAnchorId) {
 const cleanHeadline = (t) => String(t || "").replace(/\s+[-|–]\s+[^-|–]{2,40}$/, "").trim();
 const FORCE_COLOR = { technology: "clay", capital: "steel", geopolitics: "slate", regulation: "saffron",
   demographics: "rose", climate: "leaf", discovery: "teal" };
+// Undercurrents status words (plain, for a lay reader). Old status names map in.
+function statusLabel(th) {
+  const st = { returning: "seen", building: "growing", established: "ongoing" }[th.status] || th.status;
+  if (st === "new") return "New";
+  if (st === "back") return "Back again";
+  if (st === "growing") return `Growing &middot; ${th.days14} days in 2 weeks`;
+  if (st === "ongoing") return `Ongoing &middot; ${th.weeks} weeks`;
+  if (st === "seen") return "Seen before";
+  return "";
+}
+// "4th time in 3 weeks (last seen 18 Nov). " lead-in for a trend that is back.
+function backLead(th) {
+  const n = th.days || 0;
+  if (n < 2 || !th.prev) return "";
+  const ord = (k) => k + ({ 1: "st", 2: "nd", 3: "rd" }[(k % 100 >= 11 && k % 100 <= 13) ? 0 : k % 10] || "th");
+  const wks = Math.max(1, Math.ceil(((th.span_days || 0) + 1) / 7));
+  const d = new Date(th.prev + "T00:00:00");
+  const last = isNaN(d) ? th.prev : d.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+  return `<b class="pat-back">${ord(n)} time in ${wks} week${wks > 1 ? "s" : ""}</b> (last seen ${esc(last)}). `;
+}
 function weekThreadsHTML(wt) {
   if (!wt || (!(wt.active || []).length && !(wt.faded || []).length)) return "";
-  const ST = { new: "New", returning: "Returning", building: "Building", established: "Established" };
+  const ST = { new: "New", back: "Back again", growing: "Growing", ongoing: "Ongoing",
+    returning: "Seen before", building: "Growing", established: "Ongoing" };
   const act = (wt.active || []).map((r) =>
     `<li><b>${esc(r.name)}</b> <span class="wt-meta">${esc(ST[r.status] || "")} &middot; ${r.days7} of 7 days</span>` +
     (r.line ? `<br><span class="wt-line">${esc(r.line)}</span>` : "") + `</li>`).join("");
@@ -554,14 +575,14 @@ function patternsHTML(patterns, urlAnchors, takeaways, weekThreads) {
     const fc = FORCE_COLOR[p.force];
     const f = FORCE_LABEL[p.force]
       ? `<span class="force"><i style="background:var(--${fc})"></i>${esc(FORCE_LABEL[p.force])}</span>` : "";
-    // v11 threads: a status chip from code (New / Returning / Building / Established);
-    // editions before 21 Nov 2026 only have `update`.
+    // Undercurrents status chip, set by code (docs/UNDERCURRENTS.md, 23 Nov 2026):
+    // New / Back again / Growing / Ongoing. Older papers carry returning /
+    // building / established and map onto the same plain words.
     const th = p.thread && p.thread.status ? p.thread : null;
-    const TH = { new: "New", returning: "Returning", building: "Building", established: "Established" };
     const thTip = th ? (th.status === "new" ? "First time in the paper"
       : `Seen on ${th.days14} of the last 14 days` + (th.weeks > 1 ? `, in ${th.weeks} of the last 4 weeks` : "")) : "";
-    const thTxt = th ? (th.status === "building" ? `Building &middot; ${th.days14} days in 2 weeks`
-      : th.status === "established" ? `Established &middot; ${th.weeks} weeks` : TH[th.status] || "") : "";
+    const thTxt = th ? statusLabel(th) : "";
+    const backLine = th && th.status === "back" ? backLead(th) : "";
     const upd = th && thTxt ? `<span class="pat-upd th-${esc(th.status)}" title="${esc(thTip)}">${thTxt}</span>`
       : p.update ? `<span class="pat-upd">Update</span>` : "";
     const ev = p.evidence || [];
@@ -571,7 +592,7 @@ function patternsHTML(patterns, urlAnchors, takeaways, weekThreads) {
       : "";
     return `<li id="pat-${n}"><span class="pat-num">${n}</span><div class="pat-body">` +
       `<h3>${esc(p.name)}</h3>${f || upd ? `<div class="pat-meta">${f}${upd}</div>` : ""}` +
-      `<p class="pat-line">${esc(p.line)}</p>` +
+      `<p class="pat-line">${backLine}${esc(p.line)}</p>` +
       (p.why ? `<p class="pat-why">Why it matters: ${esc(p.why)}</p>` : "") +
       (p.connects ? `<p class="pat-connects">Connects to &rarr; ${esc(p.connects)}</p>` : "") +
       (p.watch ? `<p class="pat-watch">Watch: ${esc(p.watch)}</p>` : "") +

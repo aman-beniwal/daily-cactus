@@ -133,11 +133,15 @@ def test_thread_ids_survive_renames_and_status_builds(tmp_path):
     _draft(tmp_path, "2026-11-10", [], touched=[{"thread": tid, "evidence": ["x"]}])
     led = nr.thread_ledger(tmp_path, "2026-11-17")
     assert len(led) == 1 and led[0]["days"] == ["2026-11-02", "2026-11-03", "2026-11-04", "2026-11-10"]
-    assert nr.thread_status(led[0]["days"], "2026-11-17")["status"] == "established"   # 3 weeks
-    assert nr.thread_status(["2026-11-15", "2026-11-16"], "2026-11-17")["status"] == "building"
-    assert nr.thread_status(["2026-11-01"], "2026-11-17")["status"] == "returning"
+    st = nr.thread_status(led[0]["days"], "2026-11-17")      # quiet since 10 Nov (7 days)
+    assert st["status"] == "back" and st["prev"] == "2026-11-10" and st["days"] == 5 and st["span_days"] == 15
+    assert nr.thread_status(["2026-11-03", "2026-11-10", "2026-11-14"], "2026-11-17")["status"] == "ongoing"
+    assert nr.thread_status(["2026-11-15", "2026-11-16"], "2026-11-17")["status"] == "growing"
+    assert nr.thread_status(["2026-11-13"], "2026-11-17")["status"] == "growing"   # 4-day gap: not back
+    assert nr.thread_status(["2026-11-01"], "2026-11-17")["status"] == "back"
     assert nr.thread_status([], "2026-11-17")["status"] == "new"
-    assert tid in nr.threads_input(led, "2026-11-17")
+    ti = nr.threads_input(led, "2026-11-17")
+    assert tid in ti and "QUIET since 2026-11-10" in ti
 
 
 def test_validate_draft_threads_rules():
