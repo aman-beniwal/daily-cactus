@@ -1,0 +1,611 @@
+{
+  "date": "2026-11-26",
+  "patterns": [
+    {
+      "name": "US export curbs are choking Chinese AI compute access",
+      "line": "Lenders are pausing loans for Southeast Asian data centres that serve ByteDance, Alibaba and Tencent. Separately, Moonshot AI cancelled a $150 million Nvidia chip deal in Indonesia, and Chinese labs report project delays.",
+      "evidence": [
+        "ai-c569bc4112",
+        "ai-bf32abdcd1"
+      ],
+      "force": "geopolitics",
+      "why": "Rules that block remote access to US chips raise legal risk for banks and force Chinese firms toward domestic chips. Southeast Asian data-centre builders lose a customer base.",
+      "watch": "Whether the 90-day licence window for data centres leasing to Chinese firms is extended.",
+      "update": true,
+      "thread": {
+        "id": "t20261121-nvidia-faces-probes-over-china-chip",
+        "status": "growing",
+        "days": 4,
+        "days14": 4,
+        "weeks": 2,
+        "first": "2026-11-21",
+        "span_days": 5,
+        "prev": "2026-11-24"
+      }
+    },
+    {
+      "name": "Orbital data centres get their first US approval",
+      "line": "The FCC authorised SpaceX to launch up to 1 million satellites for AI computing in orbit. Blue Origin's request is still pending. Opponents cite night-sky and collision risks.",
+      "evidence": [
+        "global-economics-d76243a87c",
+        "ai-a3c473ac1e"
+      ],
+      "force": "regulation",
+      "why": "Space compute is pitched as an escape from land power and water limits. SpaceX itself says the technology is unproven and may never pay off.",
+      "watch": "Blue Origin's pending FCC decision and SpaceX's first launches.",
+      "update": true,
+      "thread": {
+        "id": "t20261119-ai-data-centres-are-hitting-power",
+        "status": "back",
+        "days": 2,
+        "days14": 2,
+        "weeks": 2,
+        "first": "2026-11-19",
+        "span_days": 7,
+        "prev": "2026-11-19"
+      }
+    },
+    {
+      "name": "US replaces struck-down tariffs with Section 301 duties",
+      "line": "After the Supreme Court struck down the emergency-powers tariffs, the USTR proposed new Section 301 duties on 14 jurisdictions. India faces up to 25%, or 17% with a trade deal. Rates are not yet in force.",
+      "evidence": [
+        "india-750c33630a",
+        "world-7940036035",
+        "health-tech-8d75fadc1a"
+      ],
+      "force": "geopolitics",
+      "why": "A sturdier legal basis gives Washington leverage in trade talks. India must trade a deal against exposure in pharma, steel and electronics.",
+      "watch": "Comments close January 5, 2027; hearings start January 25.",
+      "thread": {
+        "id": "t20261126-us-replaces-struck-down-tariffs-with",
+        "status": "new",
+        "days": 1,
+        "days14": 1,
+        "weeks": 1,
+        "first": "2026-11-26",
+        "span_days": 0
+      }
+    }
+  ],
+  "threads_touched": [
+    {
+      "thread": "t20261109-ai-chips-are-now-a-national",
+      "evidence": [
+        "ai-c569bc4112",
+        "ai-bf32abdcd1"
+      ]
+    },
+    {
+      "thread": "t20261109-ai-lets-firms-grow-revenue-with",
+      "evidence": [
+        "world-89265659bc"
+      ]
+    }
+  ],
+  "takeaways": [
+    {
+      "id": "india-cd7f0af305",
+      "line": "Modi's attack on business shows tax cuts have not produced investment. Manufacturing has stayed at 15-17% of GDP for two decades, so firms may be waiting on demand, not incentives."
+    },
+    {
+      "id": "indian-startups-bfe4ed16af",
+      "line": "A delayed IPO and 14 senior exits make Flipkart's succession a test of Walmart's control. A new CEO will signal whether listing or quick-commerce spending comes first."
+    },
+    {
+      "id": "deep-tech-4877fb93e3",
+      "line": "Europe leads in public quantum funding but trails the US badly in private funding. A €50B equity fund and buy-European procurement rules target that gap, but need member-state approval first."
+    }
+  ],
+  "money": [
+    {
+      "id": "india-deep-tech-9ce163a128",
+      "company": "SatSure",
+      "amount": "INR 600 crore",
+      "sector": "Satellite data analytics",
+      "line": "Satellite-imagery and AI firm raised from the government-backed Antariksh fund, part of an INR 2,000 crore Series B at INR 8,700 crore post-money."
+    },
+    {
+      "id": "indian-startups-08b9d95734",
+      "company": "Matters AI",
+      "amount": "Rs 115 crore ($12 million)",
+      "sector": "Data security",
+      "line": "Data security startup raised a round led by Tanglin Venture Partners, with IIFL Fintech Fund, Bharat Tech Fund, Kalaari and Endiya joining."
+    },
+    {
+      "id": "india-deep-tech-f87c198cd1",
+      "company": "Cosine Robots",
+      "amount": "₹22.36 crore",
+      "sector": "Robotic actuators",
+      "line": "Bengaluru startup making robotic joints raised an Avaana Capital-led round to scale R&D and its production facility."
+    }
+  ],
+  "lead": {
+    "id": "india-750c33630a",
+    "headline": "US proposes up to 25% tariff on India, 17% if a trade deal is signed",
+    "hook": "The US proposed a tariff of up to 25% on Indian goods, the second-highest in a 14-economy probe, but offered 17% if India and Washington conclude a trade deal.",
+    "points": [
+      "The proposal comes from a Section 301 probe into excess industrial capacity. Only Vietnam, at 35%, faces a higher proposed rate; Indonesia, Malaysia, Cambodia and Thailand face 18%, Vietnam and China 20%.",
+      "The USTR cites India's industrial plans, weak labour protections, financial repression, market barriers and imports and investment from non-market economies. It names pharma, steel, solar and ICT.",
+      "India now pays a 10% tariff plus normal duties. The new rate is calculated net of existing Section 301 duties, and steel, aluminium, autos, patented drugs and semiconductors already carry Section 232 duties.",
+      "In February both countries agreed to cut the rate to 18%, but the Supreme Court then struck down the emergency-powers tariffs. India's commerce secretary says signing depends on Washington finalising its new tariff framework.",
+      "Think tank GTRI calls this a revived reciprocal-tariff regime and urges India to reject the deal and answer sector by sector, citing a separate threat of up to 100% under the Sanctioning Russia and Iran Act."
+    ],
+    "key_stat": "25% proposed · 17% with deal",
+    "developing": true,
+    "evidence_of": "US replaces struck-down tariffs with Section 301 duties",
+    "force": "geopolitics"
+  },
+  "frontpage": [
+    {
+      "id": "global-economics-d76243a87c",
+      "headline": "FCC approves SpaceX plan for 1 million AI satellites",
+      "hook": "The FCC authorised SpaceX to put 1 million AI computing satellites in orbit under its Starmind constellation, announced by Chairman Brendan Carr.",
+      "points": [
+        "Carr says solar-powered orbital compute will extend America's AI lead. Amazon, Viasat and the American Astronomical Society had petitioned to deny.",
+        "Amazon called Starmind a 'lofty ambition rather than a real plan' and said it would take SpaceX 'centuries'. Carr replied that Amazon should focus on its own satellite delays.",
+        "Google launched its first chips into space in October, and Blue Origin has asked to launch up to 51,600 satellites.",
+        "Critics warn of night-sky pollution and collision chains. Earthjustice says approval came with no environmental review; the FCC said it has no authority over environmental concerns."
+      ],
+      "key_stat": "1 million satellites",
+      "evidence_of": "Orbital data centres get their first US approval",
+      "force": "regulation"
+    },
+    {
+      "id": "world-7940036035",
+      "headline": "US proposes new tariffs on 14 jurisdictions including China and EU",
+      "hook": "The USTR proposed new tariffs on China, the EU and 12 other jurisdictions, with China highest at up to 40% and Vietnam at up to 35%.",
+      "points": [
+        "Others face 20% or 25%. Brazil faces a separate proposed 10%, and Mexico and Norway have no proposed tariff for now.",
+        "The duties are not expected before next year and need public consultation and possibly hearings. Some rates are effectively cut by caps agreed earlier; the EU says its tariffs are limited to 15%.",
+        "The Section 301 basis is legally firmer than the struck-down emergency tariffs. Capital Economics says the burden is small as the duties largely replace earlier tariffs and cover few goods.",
+        "China calls the move political manipulation. The US-China trade truce expires on 10 January."
+      ],
+      "key_stat": "China up to 40%",
+      "evidence_of": "US replaces struck-down tariffs with Section 301 duties",
+      "force": "geopolitics"
+    },
+    {
+      "id": "global-economics-0abc9ab3f7",
+      "headline": "RBI paper: inflation is spreading across more categories",
+      "hook": "India's consumer inflation rose to 6.1% in October from 5.5% in September, and RBI staff say price pressure is broadening.",
+      "points": [
+        "Eleven of 12 categories rose month on month, led by food and beverages. Vegetables, cereals, pulses and oils saw spikes.",
+        "Eleven states had inflation above 6%, and 20 states and Union Territories were at 4-6%.",
+        "Most market watchers expect another 25 basis-point rate hike at the December 4 policy review.",
+        "Forex reserves cover 10 months of goods imports, and the paper calls growth drivers a 'useful buffer'."
+      ],
+      "key_stat": "6.1% CPI · from 5.5%"
+    },
+    {
+      "id": "ai-c569bc4112",
+      "headline": "US chip curbs stall Asian data-centre loans",
+      "hook": "Lenders have paused billions of dollars of loans tied to ByteDance, Alibaba and Tencent after new US rules on chip access.",
+      "points": [
+        "Some lenders delayed diligence on an upsized $6.6 billion loan to Bain Capital's Bridge Data Centres, whose Malaysian sites serve ByteDance.",
+        "One bank passed on a $372 million loan for Digital Halo, and banks are reassessing a $480 million loan for neocloud Aolani.",
+        "Singapore, Malaysia, Indonesia, Thailand and Brazil now need US licences to buy advanced chips. Data centres leasing much compute to Chinese firms need a separate licence within 90 days.",
+        "Lenders trying to sell down exposure are struggling to find buyers."
+      ],
+      "key_stat": "$6.6B loan delayed",
+      "evidence_of": "US export curbs are choking Chinese AI compute access",
+      "force": "geopolitics"
+    },
+    {
+      "id": "india-583726b2c9",
+      "headline": "India and China army commanders hold border talks in Arunachal",
+      "hook": "Senior Indian and Chinese army commanders held talks in the second week of November on managing the Arunachal border and outstanding LAC issues, India's foreign ministry said.",
+      "points": [
+        "The talks came amid reports of aggressive Chinese posturing in the Upper Subansiri region. Lt Gen Girish Kalia led the Indian side.",
+        "Similar flag talks were held in September.",
+        "About 50,000 Indian troops are deployed in eastern Ladakh, with China deploying a similar number, and talks have not produced de-escalation.",
+        "The ministry says it is following reports that Pakistan may have used Chinese satellite data during Operation Sindoor."
+      ],
+      "key_stat": "~50,000 troops each in Ladakh"
+    },
+    {
+      "id": "india-deep-tech-0183607653",
+      "headline": "Turkey commissions an autonomous fighter drone; India's equivalent lags",
+      "hook": "Turkey commissioned its first three Bayraktar Kizilelma unmanned fighters, which maker Baykar calls the first autonomous fighter jet in any country's service.",
+      "points": [
+        "In November 2025 it fired a beyond-visual-range air-to-air missile at a drone target using onboard radar. Its ability to fight independently in real combat is unclear.",
+        "The US, China and Australia have comparable 'loyal wingman' programmes.",
+        "India's Ghatak is a stealth drone for ground strikes, not air combat. In May, Ashutosh Dixit urged initial clearance for a loyal-wingman capability by 2030.",
+        "In March the Defence Acquisition Council approved buying 60 such aircraft for close to Rs 40,000 crore."
+      ],
+      "key_stat": "60 aircraft · ~Rs 40,000 crore"
+    },
+    {
+      "id": "agritech-c8e1f3dc0a",
+      "headline": "Poor monsoon cuts sugar output below domestic demand",
+      "hook": "India's gross sugar output is forecast to fall 15% in 2026-27 to a decade low, with net output near 265 lakh tonne against demand of 280-285 lakh tonne.",
+      "points": [
+        "Maharashtra and Karnataka lost output to deficient rain; industry body ISMA also cites El Niño variability and dry spells.",
+        "Net output falls only 5.4% from about 280 lakh tonne because the government stopped diverting sugar to ethanol.",
+        "Retail sugar is Rs 61/kg, 31% above a year ago.",
+        "The government extended duty-free import of 10 lakh tonne of raw sugar to March 31, 2027."
+      ],
+      "key_stat": "-15% gross output"
+    },
+    {
+      "id": "science-mind-8a3840a927",
+      "headline": "AI finds three brain types behind ADHD and anxiety",
+      "hook": "A Stanford-led study of brain scans from 3,508 diagnosed children found three biotypes that cut across ADHD and anxiety diagnoses.",
+      "points": [
+        "An AI model analysed scans of children in a US study of over 11,000, plus 693 who later developed a condition and 1,947 controls. A separate group of 224 children validated it.",
+        "The biotypes are externalizing-disinhibited, internalizing-distressed and mixed. ADHD is more common in the first and third, anxiety in the second, but every combination occurs.",
+        "Patterns showed in scans of children before diagnosis, which may allow earlier detection.",
+        "Researchers hope later trials can match treatments to biotype, cutting trial-and-error with medicines."
+      ],
+      "key_stat": "3 biotypes · 3,508 children"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-a3c473ac1e",
+          "headline": "SpaceX wins first-ever approval for space data centres",
+          "hook": "The FCC approved SpaceX's request to launch up to 1 million satellites as orbital AI data centres, its first such authorisation.",
+          "points": [
+            "SpaceX says orbital centres can be cheaper and greener, using space radiative cooling instead of water and the sun instead of batteries. The satellites would fly at 500-2,000 km with laser links.",
+            "SpaceX itself cautions the technology is unproven and may never be commercially viable.",
+            "The filing drew over 1,500 public comments; scientists worry about crowding, collisions and dimmer skies.",
+            "Blue Origin has also applied and awaits approval."
+          ],
+          "key_stat": "1M satellites approved",
+          "evidence_of": "Orbital data centres get their first US approval",
+          "force": "regulation"
+        },
+        {
+          "id": "ai-bf32abdcd1",
+          "headline": "US curbs are reportedly slowing Chinese AI labs",
+          "hook": "Chinese labs including DeepSeek, Moonshot and Alibaba face delays since September, The Information reports, from limits on remote Nvidia chip access and anti-distillation measures.",
+          "points": [
+            "Distillation means training on a stronger model's outputs. OpenAI and Anthropic have countered it.",
+            "DeepSeek researchers estimated their gap to top US models could grow from three to six months to nine if distillation ends entirely.",
+            "Moonshot AI cancelled a $150 million Nvidia Blackwell chip deal in Indonesia.",
+            "Firms are renting compute through non-Chinese third parties, using domestic chips (MiniMax, Mihoyo, Alibaba) and investing more in reinforcement-learning training data."
+          ],
+          "key_stat": "$150M chip deal cancelled",
+          "evidence_of": "US export curbs are choking Chinese AI compute access",
+          "force": "geopolitics"
+        },
+        {
+          "id": "ai-16e4a7d7fb",
+          "headline": "New York bans AI chatbot toys for five years",
+          "hook": "Governor Kathy Hochul signed a five-year ban on making and selling toys powered by internet-connected AI chatbots.",
+          "points": [
+            "Studies cited by officials found toys discussing sexual and violent topics, with few parental controls and safety limits that weakened over long conversations.",
+            "Some toys could record a child's voice or scan faces.",
+            "California passed a four-year moratorium on AI-companion toys. New York also has a one-year pause on AI data-centre construction.",
+            "More than 155 advocates asked Amazon and eBay to bar AI toys."
+          ],
+          "key_stat": "5-year ban"
+        },
+        {
+          "id": "ai-0bc9c904f5",
+          "headline": "IITs to add 6,000 robotics, physical AI and space seats",
+          "hook": "A philanthropic foundation and IITs plan 6,000 new seats over eight to ten years, 5,000 in Robotics and Physical AI and 1,000 in space engineering.",
+          "points": [
+            "Robotics seats: 2,500 B.Tech, 1,200 Masters, 1,300 PhD. Space: 500 B.Tech, 300 Masters, 200 PhD. More than 120 faculty will be hired.",
+            "The Bhupat and Jyoti Mehta Family Foundation is developing the programme.",
+            "The International Federation of Robotics counts 542,000 industrial robots installed in 2024. China installed 295,000 (54%); India 9,100, sixth globally.",
+            "The foundation cites an India space economy target of $44 billion by 2033."
+          ],
+          "key_stat": "6,000 seats"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-7a71d513de",
+          "line": "Anthropic opened its Claude Duet proactive agent app to India, with waitlist access for paid users and beta for Team and Enterprise; actions like payments need user approval."
+        },
+        {
+          "id": "ai-61cb6e1f95",
+          "line": "Amazon and Meta are reportedly negotiating to let Meta's Muse agent shop on Amazon again; Amazon fears losing its $68.6 billion ad business to agents."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-4877fb93e3",
+          "headline": "EU proposes €50 billion fund and Quantum Act",
+          "hook": "The European Commission proposed a €50 billion Sovereign Tech Equity Fund and a draft Quantum Act to compete with the US and China.",
+          "points": [
+            "Public bodies would be pushed to favour European firms in contracts, reducing reliance on US firms that might use 'kill switches'.",
+            "In 2025 EU public quantum funding was €8.6B versus €5.3B in the US and €13.6B in China. Private funding is €1.1B versus €7B in the US.",
+            "The EU hosts about one-third of the world's quantum companies and leads in research but converts it poorly into business.",
+            "The draft must be negotiated with member states and Parliament."
+          ],
+          "key_stat": "€50B target"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-31bbc463c6",
+          "line": "XPENG unveiled its general-purpose IRON humanoid robot at AI Day 2026, presenting it as ready for mass production."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-c6f6a29982",
+          "headline": "COP31 ended without the Antalya pact; media split on blame",
+          "hook": "At least 32 countries rejected COP31's proposed Antalya pact for omitting fossil fuels, ending talks two days late without the cover decision.",
+          "points": [
+            "The EU, UK and some climate-vulnerable countries rejected it. Carbon Brief says it is wrong to say there was no agreement: other decisions passed, including a phased just-transition approach.",
+            "Many outlets blamed oil producers such as Saudi Arabia and Russia; others blamed rich countries for refusing more climate finance.",
+            "Australian negotiations president Chris Bowen faced criticism for managing the talks.",
+            "India stressed historical responsibility and finance and offered bridging language on adaptation. Ethiopia hosts COP32."
+          ],
+          "key_stat": "32+ countries rejected pact"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-5da8826142",
+          "line": "Uttar Pradesh's regulator approved a ₹6.46/kWh tariff for 15 years for a 125 MW/500 MWh battery storage project."
+        }
+      ]
+    },
+    {
+      "slug": "health-tech",
+      "stories": [
+        {
+          "id": "health-tech-8d75fadc1a",
+          "headline": "Smartphones, patented drugs and some metals proposed as exempt from US tariff on India",
+          "hook": "The USTR proposed exempting smartphones, patented drugs, semiconductors, certain auto parts and specified steel, aluminium and copper from the proposed up-to-25% tariff on India.",
+          "points": [
+            "Products already under Section 232 duties are excluded, but those duties stay; Indian steel and aluminium face 50% now.",
+            "Comments are open until January 5, 2027, and hearings start January 25. No implementation date is set.",
+            "The USTR also asked whether set quantities of textiles and apparel should get lower rates.",
+            "India's commerce ministry is examining the notice and says it has no structural excess capacity."
+          ],
+          "key_stat": "Comments close Jan 5, 2027",
+          "evidence_of": "US replaces struck-down tariffs with Section 301 duties",
+          "force": "geopolitics"
+        },
+        {
+          "id": "health-tech-6b5a413442",
+          "headline": "India launches Swasth Bharat Portal to unify health programme apps",
+          "hook": "Health Minister J P Nadda launched a portal that links national health programme apps through APIs, with the ministry projecting 20-40% less data entry and duplication.",
+          "points": [
+            "Health workers such as ASHAs and ANMs get one login instead of many, and local dashboards.",
+            "It integrates with the Ayushman Bharat Digital Mission and the Health Account, and is expected to link to professional and facility registries.",
+            "The ministry projects a 20-30% cut in infrastructure load."
+          ],
+          "key_stat": "20-40% less data entry"
+        }
+      ],
+      "also": [
+        {
+          "id": "health-tech-e1a0d9339d",
+          "line": "India's pharma exports rose 10.5% to $2.751 billion in October from $2.489 billion a year earlier; April-October growth was 5.7%."
+        }
+      ]
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-7bb69853f8",
+          "headline": "Punjab farmers sell paddy stubble to biomass plants instead of burning",
+          "hook": "Punjab recorded 5,114 farm fires in 2025, down 53% from 2024 and 86% from 2023, as farmers sell straw to biomass plants.",
+          "points": [
+            "A supply chain of farmers and operators feeds straw to power plants such as SAEL's 18 MW plant. SAEL buys 2 million tonnes this year; India generates about 750 million tonnes of residue annually.",
+            "One processor's setup cost about 45 million rupees ($484,340) and turns over 70-80 million rupees a year, supporting up to 70 families.",
+            "Delhi's air still hit hazardous levels in mid-November, because biomass runs at a fraction of needed scale.",
+            "iFOREST urges a minimum support price for straw and standard contracts to reach the government's 10 million tonne target."
+          ],
+          "key_stat": "5,114 fires · -53%"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [
+        {
+          "id": "indian-startups-bfe4ed16af",
+          "headline": "Flipkart CEO Kalyan Krishnamurthy steps down after 11 years",
+          "hook": "Flipkart CEO Kalyan Krishnamurthy is leaving, with his last day December 4, after the business grew more than fivefold under him.",
+          "points": [
+            "CTO Balaji Thiagarajan and the board will lead in the interim; a successor will be named in coming weeks.",
+            "No reason was given. Bloomberg reported possible differences over IPO plans after Walmart reportedly deferred the listing.",
+            "Nearly 14 VPs and senior VPs have quit in recent years, including the group CFO.",
+            "Walmart reiterated its long-term commitment to Flipkart, which has over 500 million registered users."
+          ],
+          "key_stat": "Exit on December 4"
+        },
+        {
+          "id": "indian-startups-182e4e68ea",
+          "headline": "IT secretary defends Sarvam hosting Chinese models",
+          "hook": "MeitY secretary S Krishnan said Sarvam's Token Factory, which hosts Chinese open-weight models, does not breach IndiaAI Mission principles.",
+          "points": [
+            "Token Factory gives enterprises one API to Indian and global models, running on GPUs in India, including DeepSeek, GLM, Kimi and Google models.",
+            "Critics said hosting Chinese models undercuts Sarvam's sovereign-AI pitch. Sarvam says it uses privately bought GPUs, not subsidies.",
+            "Krishnan said firms need revenue models and that the government plans a scheme to support AI inference.",
+            "He said the government will also back Sarvam's work towards a trillion-parameter model."
+          ],
+          "key_stat": "Inference scheme planned"
+        }
+      ],
+      "also": [
+        {
+          "id": "indian-startups-c263f73c0c",
+          "line": "US firm VU Venture Partners, an early backer of OpenAI and SpaceX, entered India to back seed and Series A startups with $100K to $1M cheques across nine sectors."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-64634a85e8",
+          "headline": "Bank of Korea hikes to 3.25% as chip boom lifts growth and inflation",
+          "hook": "The Bank of Korea raised its rate by 25 basis points to 3.25% in a 5-2 vote, as a semiconductor boom pushes growth above expectations.",
+          "points": [
+            "21 of 23 surveyed economists predicted the hike.",
+            "It follows a pause in October and increases in July and August, bringing this year's tightening to 75 basis points.",
+            "The bank expects stronger growth ahead, while inflation stays elevated."
+          ],
+          "key_stat": "3.25% · +25bp"
+        }
+      ],
+      "also": [
+        {
+          "id": "global-economics-c75f53143c",
+          "line": "Russian inflation hit its fastest pace in a year in October as drone strikes deep inside Russia reduced production capacity."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-cd7f0af305",
+          "headline": "Modi's criticism of business puts weak investment in focus",
+          "hook": "Modi told executives that companies are not investing or raising wages despite tax cuts and incentives, asking 'Is this your success or your failure?'",
+          "points": [
+            "Manufacturing's share of GDP has stayed at 15-17% for about two decades.",
+            "Bloomberg says the remarks expose weakness beneath India's strong growth story."
+          ],
+          "key_stat": "Manufacturing 15-17% of GDP"
+        },
+        {
+          "id": "india-9bb052b5bf",
+          "headline": "Supreme Court sets aside High Court CBI and ED inquiry orders against Rahul Gandhi",
+          "hook": "The Supreme Court set aside Allahabad High Court orders directing CBI and ED inquiries into a disproportionate-assets complaint against Rahul Gandhi, and sent the case back to be heard afresh.",
+          "points": [
+            "Gandhi argued the orders were passed ex-parte, without making him a party or hearing him.",
+            "A three-judge bench led by CJI Surya Kant ordered him impleaded and a fresh bench to hear the case in open court, with no view on merits.",
+            "Justice Bagchi noted the new BNSS law expands the accused's right to be heard.",
+            "The complainant says an accused has no inherent right to be heard before an FIR."
+          ],
+          "key_stat": "Case remanded to HC"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "world-89265659bc",
+          "headline": "BP moves 3,000 finance staff to Wipro",
+          "hook": "Wipro signed a deal to take over 3,000 of BP's finance operations employees.",
+          "points": [
+            "Reuters reports Wipro announced the deal on Wednesday, with BP transferring the staff.",
+            "The source text is limited to the opening lines (summary from limited source text)."
+          ],
+          "key_stat": "3,000 staff"
+        },
+        {
+          "id": "world-775d27b357",
+          "headline": "Trump's accounts traded Nvidia 44 times this year",
+          "hook": "Trump's portfolios bought or sold Nvidia shares at least 44 times this year, disclosures through September show.",
+          "points": [
+            "Purchases were $5.2m-$17m and sales $4.4m-$12m. The White House says third parties manage the portfolio independently.",
+            "Nvidia CEO Jensen Huang resigned on November 12 after reports of affairs. The board reinstated him on Monday after 'input from senior levels' of the US government; Trump says he made the deal.",
+            "Nvidia shares rose 31% on Monday, adding about $1tn, but remain below pre-reports levels. Nvidia is over 6% of the S&P 500.",
+            "Lawmakers in both parties remain concerned about export-control compliance and Trump's role."
+          ],
+          "key_stat": "44 trades"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-928a00ffaf",
+          "headline": "Rising blood sugar in young adults is linked to worse midlife cognition",
+          "hook": "In a 30-year study of 2,808 adults, those whose fasting glucose crept from about 85 to 110-115 mg/dL scored worse on memory, speed and executive function by their mid-50s, without diabetes.",
+          "points": [
+            "Of 2,463 without diabetes, 56% stayed lower-stable, 38% moderate-stable and 5.6% had rising glucose.",
+            "The 345 who developed Type 2 diabetes also scored worse cognitively.",
+            "MRI on 605 participants showed less gray matter and more abnormal white matter in those who developed diabetes.",
+            "The study is observational; researchers say future work should test whether managing glucose earlier prevents decline."
+          ],
+          "key_stat": "30 years · 2,808 adults"
+        },
+        {
+          "id": "science-mind-9226f07978",
+          "headline": "A theory that memory is chemical argues consciousness may not be computable",
+          "hook": "Researchers propose the brain may store and retrieve memories through chemistry, involving neurons, astrocytes and surrounding molecules, not only electrical signals.",
+          "points": [
+            "Their 'Tripartite Mechanism of Memory' involves brain cells, surrounding molecules, and chemicals such as metal ions and neurotransmitters.",
+            "They say this ties memory to emotion and thought, and doubt more computing power alone yields consciousness.",
+            "It is a theoretical review; they say it does not solve consciousness and concede AI may keep gaining intellectual abilities."
+          ],
+          "key_stat": "Theory paper"
+        },
+        {
+          "id": "science-mind-4b80320098",
+          "headline": "Nature: AI and human proofs of the Riemann hypothesis stun mathematicians",
+          "hook": "Nature's podcast reports dual proofs of the Riemann hypothesis, one AI-written and one human-written, and says mathematicians are astounded.",
+          "points": [
+            "Source text is only an episode listing, with no detail on the proofs.",
+            "A related Nature piece looks at how AI shocks are rattling the next generation of mathematicians (summary from limited source text)."
+          ],
+          "key_stat": "Riemann hypothesis"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "beyond-your-beat",
+      "stories": [
+        {
+          "id": "beyond-your-beat-f9f4d2afc8",
+          "headline": "India pitches for the 2036 Olympics on Thursday",
+          "hook": "India presents its 2036 Olympic and Paralympic bid virtually to the IOC's Future Host Commission on Thursday, one of seven countries presenting over two days.",
+          "points": [
+            "Rivals are Germany, Hungary, Qatar, South Korea, South Africa and Turkiye. India is stressing Ahmedabad's infrastructure and that it hosted 36 international events in over 15 cities between January 2025 and June 2026.",
+            "Ahmedabad is due to host the 2030 Commonwealth Games, so most venues should be ready.",
+            "An anonymous IOC public-sentiment survey is likely in the third week of December and feeds a March assessment.",
+            "Preferred hosts are due to be named in mid-2029."
+          ],
+          "key_stat": "7 bidders"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "other-interests",
+      "stories": [],
+      "also": [
+        {
+          "id": "other-interests-021f42eb5f",
+          "line": "Duran Duran guitarist Andy Taylor died aged 65 on November 23, after stage four prostate cancer diagnosed in 2018; the band has sold over 100 million records."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-c2cbbabfc1",
+      "name": "AIM Safety Fellowship 2027",
+      "when": "Apply by December 18, 2026; starts February 1, 2027",
+      "summary": "Three-month AI safety research fellowship with weekly mentoring in security, physical AI and frontier safety. Seoul; remote participation possible. Stipend not specified."
+    },
+    {
+      "id": "opportunities-55264a18d7",
+      "name": "eChai Startup Demo Day",
+      "when": "Saturday, November 28",
+      "summary": "Monthly founder demo meetup with live product demos and feedback. DevX, Sector 125, Noida (Delhi-NCR)."
+    },
+    {
+      "id": "opportunities-2e418dcebe",
+      "name": "Zyrelyx Global AI Hackathon",
+      "when": "December 1-7, 2026",
+      "summary": "Seven-day online sprint to build AI agents and multi-agent systems, judged on architecture and a live demo. Winners announced December 13. Online/global."
+    }
+  ]
+}
