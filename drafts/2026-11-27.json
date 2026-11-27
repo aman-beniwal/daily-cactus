@@ -1,0 +1,611 @@
+{
+  "date": "2026-11-27",
+  "patterns": [
+    {
+      "name": "US closes cloud loopholes Chinese AI firms used for chips",
+      "line": "Nvidia told Dell and Supermicro to pause server shipments to Malaysia, Singapore, Thailand and Indonesia. Cloud providers there have 90 days to get licences, and banks halted about $500 million in loans to Aolani.",
+      "evidence": [
+        "ai-94305b427e"
+      ],
+      "force": "geopolitics",
+      "why": "Chinese firms lose cheap remote access to Nvidia chips; Southeast Asian data-centre builders pay in stalled financing, and dealers are left holding thousands of B300 chips.",
+      "watch": "Whether Southeast Asian providers win licences within the 90-day window.",
+      "update": true,
+      "thread": {
+        "id": "t20261121-nvidia-faces-probes-over-china-chip",
+        "status": "growing",
+        "days": 5,
+        "days14": 5,
+        "weeks": 2,
+        "first": "2026-11-21",
+        "span_days": 6,
+        "prev": "2026-11-26"
+      }
+    },
+    {
+      "name": "AI-linked restructuring is spreading from tech into banks and software",
+      "line": "SAP is weighing at least 10,000 job cuts (about 9% of staff) and HSBC is consolidating several hundred India finance roles, both citing AI-led restructuring. IBM is moving US consulting visa holders to overseas roles, mostly in India.",
+      "evidence": [
+        "ai-8bf5fe14af",
+        "ai-df49e34264",
+        "work-careers-4fc36af988"
+      ],
+      "force": "capital",
+      "why": "Firms cut non-client-facing and support roles first to lower costs. India's capability centres gain some roles but also face consolidation across cities.",
+      "watch": "SAP's final cut number; its past restructurings were announced in late January.",
+      "update": true,
+      "thread": {
+        "id": "t20261109-ai-lets-firms-grow-revenue-with",
+        "status": "ongoing",
+        "days": 5,
+        "days14": 3,
+        "weeks": 3,
+        "first": "2026-11-09",
+        "span_days": 18,
+        "prev": "2026-11-26"
+      }
+    }
+  ],
+  "threads_touched": [
+    {
+      "thread": "t20261119-ai-data-centres-are-hitting-power",
+      "evidence": [
+        "global-economics-543cf37bbb"
+      ]
+    },
+    {
+      "thread": "t20261109-ai-trade-is-losing-political-and",
+      "evidence": [
+        "global-economics-a7a682edae",
+        "ai-e298585cdf"
+      ]
+    },
+    {
+      "thread": "t20261116-energy-price-shock-is-forcing-india",
+      "evidence": [
+        "agritech-b5469092b5"
+      ]
+    },
+    {
+      "thread": "t20261121-el-ni-o-drought-hits-india",
+      "evidence": [
+        "agritech-5a5d12cbf7",
+        "agritech-b5469092b5"
+      ]
+    },
+    {
+      "thread": "t20261113-capital-and-armies-are-shifting-to",
+      "evidence": [
+        "deep-tech-8fa173ffb0"
+      ]
+    },
+    {
+      "thread": "t20261120-ai-boom-is-now-raising-inflation",
+      "evidence": [
+        "global-economics-a7a682edae"
+      ]
+    },
+    {
+      "thread": "t20261109-climate-policy-shifts-from-preventing-to",
+      "evidence": [
+        "india-2936d0fbfc"
+      ]
+    }
+  ],
+  "takeaways": [
+    {
+      "id": "ai-a6eb08723d",
+      "line": "Orbital compute moves the AI power bottleneck from grids to launch capacity and sky regulation. Astronomers' objections and Blue Origin's pending request show the next fight will be over orbital space."
+    },
+    {
+      "id": "world-b661f1d123",
+      "line": "A Russian space nuclear blast would hurt its own satellites too, so analysts read the report as a bluff. Still, it shows how exposed the roughly 17,000 low-orbit satellites are."
+    },
+    {
+      "id": "world-276364b19c",
+      "line": "A president attacking his own statistical agency erodes the data markets use to price rates. With a Fed hike already priced in, doubts about GDP and inflation figures raise uncertainty premiums."
+    },
+    {
+      "id": "ai-ab8e8d3251",
+      "line": "An 11-billion-parameter model is small next to frontier systems, so its value lies in cheap Indian-language speech and local deployment, not rivalling frontier labs."
+    }
+  ],
+  "money": [],
+  "lead": {
+    "id": "ai-a6eb08723d",
+    "headline": "FCC lets SpaceX launch up to 1 million satellites for AI computing in orbit",
+    "hook": "The US Federal Communications Commission authorised SpaceX to deploy up to 1 million Starmind satellites that would process AI data in orbit, per Reuters.",
+    "points": [
+      "The Starmind constellation is made of orbital compute modules meant to meet part of the fast-growing demand for AI computing power on Earth.",
+      "The FCC also approved radio links that let SpaceX monitor and control the satellites if their optical (laser) connections fail.",
+      "The headline sets the deployment target at 2040."
+    ],
+    "key_stat": "1M satellites · FCC approval",
+    "developing": true
+  },
+  "frontpage": [
+    {
+      "id": "science-mind-7a47b5d7af",
+      "headline": "Rumours that AI labs have found ways to break internet encryption stun scientists",
+      "hook": "Computer scientists say AI labs such as OpenAI and Anthropic may have found algorithms that break public-key cryptography in polynomial time; Nature could not confirm the rumours.",
+      "points": [
+        "Scott Aaronson wrote he is \"virtually certain\" the labs hold \"bombshells\" but is far less sure of their nature. Reports say they target RSA, which relies on factoring products of large primes.",
+        "Polynomial time means solving effort grows slowly with problem size, unlike exponential time. That would undermine much of the security behind banking apps and browsers.",
+        "Even then, an algorithm needing n^10000 steps would be unusable in practice. But past proofs of this kind were usually followed by improvements.",
+        "Full collapse needs P = NP, which most researchers think unlikely. Anthropic and OpenAI results this week suggest many similar problems are hard."
+      ],
+      "key_stat": "RSA · unconfirmed rumour"
+    },
+    {
+      "id": "world-b661f1d123",
+      "headline": "What a Russian nuclear blast in space would do",
+      "hook": "German media, citing western intelligence, report a nuclear-enabled Russian satellite called Sputnik-S could launch within 60 days; a European official calls the threat a bluff.",
+      "points": [
+        "A space detonation produces radiation, not a mushroom cloud. It could damage satellites within thousands of miles and create an artificial Van Allen belt (radiation belt).",
+        "The 1962 US Starfish Prime test, 250 miles up, shortened the life of two satellites and affected at least half the working satellites then. Its belt lasted about five years.",
+        "About 17,000 satellites sit in low Earth orbit, including Starlink, weather and military craft. Higher-orbit TV and GPS satellites are less affected.",
+        "Recovery could take years to a decade, and the industry could not rebuild fast enough. A European official says it would hurt Russia's own satellites."
+      ],
+      "key_stat": "~17,000 low-orbit satellites"
+    },
+    {
+      "id": "world-276364b19c",
+      "headline": "Trump calls GDP revision \"fake\" and demands probe of his own Commerce Department",
+      "hook": "Trump accused the Commerce Department of a \"purposeful\" error after it revised third-quarter US GDP growth up to 4.3% annualised from 3.4%.",
+      "points": [
+        "He linked the revision to Republicans' poor showing in the November 3 midterms, which gave Democrats both houses, and asked for an immediate investigation.",
+        "Revisions are routine and follow a pre-set calendar. He gave no evidence of political motive.",
+        "In August 2025 he fired the head of the Bureau of Labour Statistics after a weak jobs report.",
+        "The same agency reported its key inflation measure, the PCE price index, rose at 3.8% annualised in October. In the midterms, 76% of voters called the economy not so good or poor."
+      ],
+      "key_stat": "GDP 4.3% · revised from 3.4%"
+    },
+    {
+      "id": "india-593d00a188",
+      "headline": "US says India's export edge comes from cheap Chinese inputs",
+      "hook": "The USTR's Section 301 report says Chinese inputs and India's industrial policies give its exporters an artificial cost advantage; India's imports of Chinese intermediate goods rose 97% from 2017 to 2025.",
+      "points": [
+        "Chinese value added was 3.8% of India's exports to the US in 2022 (OECD), versus 1.6% for China's share in US exports. ADB data put it at 4.4% in 2024, up from 2.3% in 2017.",
+        "India's share of its intermediate imports from China rose to 16% in 2025 from 14% in 2017; the US share fell to 7%.",
+        "India's goods surplus with the US rose to $57.3 billion in 2025 from $42.5 billion in 2023. The US proposes tariffs up to 25%, or 17% with a trade deal.",
+        "India's commerce department rejects the excess-capacity claim and wants it handled in trade talks. Critic Brahma Chellaney calls it a coercive lever."
+      ],
+      "key_stat": "Up to 25% tariff · 17% with deal"
+    },
+    {
+      "id": "ai-ab8e8d3251",
+      "headline": "India launches Chariot-1 sovereign AI models",
+      "hook": "MeitY launched Chariot-1, an 11-billion-parameter language model plus a speech model, built from scratch by Chariot AI, one of the first four teams chosen under the IndiaAI Mission.",
+      "points": [
+        "The language model uses a mixture-of-experts design with 4 billion parameters active per token, and comes in 10.7 billion, 1.7 billion and 745 million versions.",
+        "The text-to-speech model covers English and 10 Indian languages, including Hindi, Tamil and Bengali.",
+        "It scored over 97% verbalisation accuracy on a 1,029-sentence benchmark, and character error rates of 7.60% in Hindi and 6.47% average across nine other languages, the lowest among systems tested, per the ministry."
+      ],
+      "key_stat": "11B parameters · IndiaAI Mission"
+    },
+    {
+      "id": "beyond-your-beat-6c7c9a9ab2",
+      "headline": "Sheikh Hasina sets 16 December return, putting Bangladesh and India on edge",
+      "hook": "Ousted Bangladesh leader Sheikh Hasina, sentenced to death in absentia, says she will return on 16 December; Dhaka says she would be arrested at once.",
+      "points": [
+        "She wants Dhaka to arrange a flight from Delhi, or would travel commercially or cross the 4,096 km border. Aides claim the Awami League could muster five million supporters.",
+        "Acled counts 40 demonstrations and over 140 riots by Awami League supporters through 23 November, and at least 11 political-violence deaths this month. The party is banned.",
+        "Bangladesh demands extradition. India says the request is under process and a voluntary return is separate.",
+        "Analysts see the date as a test of Dhaka and a stress on India's ties; PM Tarique Rahman has not visited India in nearly 10 months. Many doubt she will return."
+      ],
+      "key_stat": "16 Dec · return date"
+    },
+    {
+      "id": "health-tech-5bce561f6b",
+      "headline": "Supreme Court orders separate warning labels for salt, sugar and fat",
+      "hook": "India's Supreme Court told the food regulator FSSAI to require a separate hexagon warning for each of high fat, high sugar and high salt, not one combined label.",
+      "points": [
+        "The order tightens the government's front-of-pack proposal, which had a single combined hexagon.",
+        "It is a setback for India's $100 billion food and drinks industry, which has long opposed such labels.",
+        "Health activists welcomed it. The challenger's counsel called it a landmark for the country's nutrition history."
+      ],
+      "key_stat": "3 separate hexagons"
+    },
+    {
+      "id": "india-2936d0fbfc",
+      "headline": "Why COP31 is seen as a failure",
+      "hook": "COP31 in Antalya ended without consensus on the Antalya Pact cover text after a fossil-fuel phase-out standoff ran a record 48 hours past the scheduled 20 November end.",
+      "points": [
+        "The cover text, from COP31 president Murat Kurum, frames the whole conference's outcome and needs all 190-plus delegations to agree.",
+        "No country or bloc holds a veto, but every clause must be accepted by all."
+      ],
+      "key_stat": "48 hours past deadline"
+    }
+  ],
+  "sections": [
+    {
+      "slug": "ai",
+      "stories": [
+        {
+          "id": "ai-94305b427e",
+          "headline": "Nvidia pauses server shipments to four Southeast Asian countries",
+          "hook": "Nvidia told partners including Dell and Supermicro to halt server shipments to Malaysia, Singapore, Thailand and Indonesia, after US rules aimed at stopping Chinese firms renting chips there.",
+          "points": [
+            "The Commerce Department's new rules block indirect access, such as remote use of data centres in third countries. The Institute for Progress estimates such centres supply about 24% of China's AI computing power.",
+            "Cloud providers have 90 days to apply for a licence and show no restricted companies use them. One executive called it chaos, citing no guidance.",
+            "Dealers listed an unusually large number of Nvidia GPUs, including thousands of B300s meant for data centres with Chinese customers.",
+            "Banks halted about $500 million in loans to Singapore provider Aolani over a planned deal with ByteDance, which could now pull out. It is unclear whether the pause is temporary."
+          ],
+          "key_stat": "$500M loans halted",
+          "evidence_of": "US closes cloud loopholes Chinese AI firms used for chips",
+          "force": "geopolitics"
+        },
+        {
+          "id": "ai-2cb2c6a452",
+          "headline": "Australia passes law making platforms prevent harm before it happens",
+          "hook": "Australia's Parliament passed the Digital Duty of Care Act on November 25, with fines up to 5% of global turnover or A$109.2 million, whichever is higher.",
+          "points": [
+            "It covers social media, messaging, games, search, app stores, AI chatbots and internet equipment makers. Platforms must assess and reduce risks and cannot cite cost as a reason not to act.",
+            "Under-16s cannot be shown account-based recommendations, endless feeds, like counts or disappearing stories. Chatbots that foster dependence in children are covered.",
+            "Users can sue, and a losing platform pays the user's legal costs. The main duty starts 12 months after royal assent; fake nude app powers and 24-hour takedowns start the next day.",
+            "The US Embassy and opposition leader Angus Taylor call it censorship. The Human Rights Commission wanted the catch-all harm clause narrowed; Parliament kept it."
+          ],
+          "key_stat": "5% of global turnover"
+        },
+        {
+          "id": "ai-8bf5fe14af",
+          "headline": "SAP weighs at least 10,000 job cuts in AI overhaul",
+          "hook": "SAP is considering cutting at least 10,000 jobs, about 9% of its workforce of over 110,000, Bloomberg reports.",
+          "points": [
+            "The final number is undecided and could change after talks with labour representatives. All departments were asked to find cuts, especially product, engineering and sales.",
+            "CEO Christian Klein is pushing an AI-first strategy after two board reshuffles. Two of six board members leave in March.",
+            "Its 2024 programme cut about 10,000 jobs at roughly €3 billion, mostly through voluntary exits and retraining, with headcount stable.",
+            "In Germany, the works council secured an employment guarantee through 2028. SAP declined to comment on cuts. Past restructurings were announced in late January."
+          ],
+          "key_stat": "10,000+ jobs · 9%",
+          "evidence_of": "AI-linked restructuring is spreading from tech into banks and software",
+          "force": "capital"
+        },
+        {
+          "id": "ai-df49e34264",
+          "headline": "HSBC consolidates India finance roles as AI-led cuts continue",
+          "hook": "HSBC is centralising finance functions in Chennai, Gurugram and Bengaluru and ending them elsewhere, including Hyderabad and Pune, affecting several hundred roles.",
+          "points": [
+            "Staff get relocation support but no extra cash. Changes are limited to finance roles in its India global capability centres.",
+            "HSBC has weighed up to 20,000 job cuts over coming years, about 10% of staff. It raised its restructuring savings target to $2 billion from $1.5 billion in August.",
+            "It had about 47,000 India employees, around 42,500 in capability centres, and earned $1.9 billion pretax in the region in 2025.",
+            "Standard Chartered plans to cut close to 8,000 support roles over four years."
+          ],
+          "key_stat": "Up to 20,000 roles weighed",
+          "evidence_of": "AI-linked restructuring is spreading from tech into banks and software",
+          "force": "capital"
+        }
+      ],
+      "also": [
+        {
+          "id": "ai-70f29b9c66",
+          "line": "A startup founded by one of China's most successful hedge fund managers is preparing its first product: the core of an operating system built for AI agents."
+        },
+        {
+          "id": "ai-e298585cdf",
+          "line": "Tech shares fell on Tuesday as Nvidia dropped about 6% after its 30%-plus jump on Jensen Huang's reinstatement; probes into chip diversion to China continue."
+        }
+      ]
+    },
+    {
+      "slug": "deep-tech",
+      "stories": [
+        {
+          "id": "deep-tech-265d291964",
+          "headline": "AI-assisted physics paper on quantum gravity splits scientists",
+          "hook": "Stanford physicist Venkatesa Chandrasekaran, also employed at OpenAI, published a non-peer-reviewed paper claiming to combine general relativity and quantum mechanics in limited conditions, using about 400 million tokens of GPT-6 Astra.",
+          "points": [
+            "Sam Altman praised the work; the paper thanks OpenAI for compute.",
+            "UCL's Jonathan Oppenheim says it does not come close to a quantum theory of gravity, and says Claude agents found more than a dozen issues.",
+            "Columbia's Peter Woit calls it a publicity stunt. Hontas Farmer says it checks out but proposes nothing testable.",
+            "Nirmalya Kajuri says it makes some progress toward the theory but does not solve it."
+          ],
+          "key_stat": "~400M tokens · not peer-reviewed"
+        }
+      ],
+      "also": [
+        {
+          "id": "deep-tech-81722883f2",
+          "line": "Huawei and a local software partner claim breakthroughs in domestic chip design tools built around its Tau Scaling Law, as it eyes a global push to rival Nvidia."
+        }
+      ]
+    },
+    {
+      "slug": "india-deep-tech",
+      "stories": [
+        {
+          "id": "india-deep-tech-64c7155da0",
+          "headline": "Philippines fields India's BrahMos missiles in military exercise",
+          "hook": "The Philippines deployed its BrahMos shore-based anti-ship missile battery in a joint maritime strike drill, its first confirmed field use in this exercise series.",
+          "points": [
+            "The 10-day exercise, 17 to 27 November, focused on defending northern approaches including the Luzon Strait, which links the South China Sea and Western Pacific.",
+            "India signed a $375 million contract in January 2022 for three batteries, making Manila the first foreign buyer; first delivery came in April 2024.",
+            "Reuters reported India is in final talks on a follow-on deal worth $700 million to $800 million, about five systems and nearly 60 missiles.",
+            "Chinese commentators question whether the Philippines has the tracking and communications to use the missiles against stronger opponents."
+          ],
+          "key_stat": "$700-800M follow-on talks"
+        },
+        {
+          "id": "india-deep-tech-45a0b5dff9",
+          "headline": "Bank of England makes quantum-safe cryptography an immediate priority",
+          "hook": "The Bank of England's Financial Policy Committee called an orderly move to quantum-resistant cryptography the immediate financial stability priority, with a 2035 target for full transition.",
+          "points": [
+            "No cryptographically relevant quantum computer exists, but attackers can already collect encrypted data to decrypt later.",
+            "Firms should finish assessments and plans by end-2028, move high-priority systems by end-2031 and the rest by 2035.",
+            "Glassnode estimates 7.12 million BTC, 35.4% of issued supply, sits behind publicly exposed keys, up from 6.04 million in May.",
+            "Ethereum's foundation doubled its security team; researcher Justin Drake proposed December 2028 for its transition, against an internal 2029 deadline. Bitcoin's BIP 360 and 361 are not activated."
+          ],
+          "key_stat": "7.12M BTC exposed"
+        },
+        {
+          "id": "india-deep-tech-0979c965f1",
+          "headline": "EU proposes €50 billion fund for quantum and AI",
+          "hook": "The European Commission proposed a €50 billion Sovereign Tech Equity Fund as part of a draft Quantum Act, to help Europe compete with the US and China.",
+          "points": [
+            "The rules would push public bodies to favour European firms in contracts and funding, reducing reliance on foreign suppliers amid fears of US \"kill switches\".",
+            "Europe has about one-third of the world's quantum companies. Public quantum funding was €8.6 billion last year, versus €5.3 billion in the US and €13.6 billion in China.",
+            "European quantum start-ups raised €1.1 billion in private money versus €7 billion in the US.",
+            "The draft must be negotiated with member states and Parliament over coming months."
+          ],
+          "key_stat": "€50B fund target"
+        }
+      ],
+      "also": [
+        {
+          "id": "india-deep-tech-9ce163a128",
+          "line": "Indian space startup SatSure raised INR 600 crore from a government-backed space fund (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "climate-energy",
+      "stories": [
+        {
+          "id": "climate-energy-7f22218adc",
+          "headline": "India added 11.2 GW of rooftop solar in nine months, up 127%",
+          "hook": "India installed 11.2 GW of rooftop solar in January to September 2026, up 127% from 4.9 GW a year earlier.",
+          "points": [
+            "Q3 added 4.7 GW, up 22% from 3.8 GW in Q2 and 122% from 2.1 GW in Q3 2025. Rooftop was over 42% of solar installed that quarter.",
+            "Homes drove growth: 9.9 GW of the nine-month total, against 0.8 GW industrial and 0.5 GW commercial.",
+            "Nearly 5.95 million households have installed under PM Surya Ghar, with 3.7 million applications pending, about 10.96 GW at 3 kW each. Cumulative capacity is 32 GW.",
+            "Domestic content and approved-manufacturer rules mean scarcer modules, higher prices and longer delivery."
+          ],
+          "key_stat": "11.2 GW · +127% YoY"
+        },
+        {
+          "id": "climate-energy-747a7cc79f",
+          "headline": "Odisha and the Centre move to require batteries with rooftop solar",
+          "hook": "Odisha's regulator set mandatory battery storage for solar installations above 100 kW, up from the 10 kW first proposed.",
+          "points": [
+            "India's Power Ministry separately proposes storage for rooftop systems above 10 kW from April 1, 2028, at least 20% of daily generation, unless states set otherwise.",
+            "The ministry says falling battery costs make storage viable and it can shift surplus power to evening hours and ease pressure on distribution companies.",
+            "The draft also lets commercial and industrial users install beyond sanctioned load, and delays time-of-day tariffs to April 2028 for loads of 10 kW and above.",
+            "The CEA earlier proposed storage for new ground-mounted solar and onshore wind commissioned after July 1, 2027."
+          ],
+          "key_stat": "20% storage · from Apr 2028"
+        },
+        {
+          "id": "climate-energy-9b222212a9",
+          "headline": "Mercom: rooftop solar growth strong but policy uncertainty looms",
+          "hook": "Mercom India reports rooftop solar installations rose 127.5% in nine months to 11.2 GW, but a compliance deadline of December 31, 2026 clouds the outlook.",
+          "points": [
+            "Residential made up 95.2% of Q3 additions. Commercial and industrial installations fell in the quarter on higher costs, financing limits and state rule changes.",
+            "PM Surya Ghar ends in March 2027; Mercom wants early clarity on a 2.0 version. Industry expects an extension of ALMM List-II compliance, but nothing is confirmed.",
+            "System costs ranged from ₹29.7 million per MW for Chinese mono PERC to ₹44.4 million per MW for Indian TOPCon DCR systems.",
+            "It forecasts 2026 residential installations up 172.7% year on year."
+          ],
+          "key_stat": "Deadline Dec 31, 2026"
+        }
+      ],
+      "also": [
+        {
+          "id": "climate-energy-40a2368b05",
+          "line": "India's solar cell capacity may be following modules into oversupply; Gopin Semicon plans to expand cells and enter ingots and wafers by 2028 (summary from limited source text)."
+        }
+      ]
+    },
+    {
+      "slug": "global-economics",
+      "stories": [
+        {
+          "id": "global-economics-a7a682edae",
+          "headline": "Dollar heads for longest monthly winning run in two years",
+          "hook": "The Bloomberg Dollar Spot Index is up 1.8% in November, its third straight monthly gain, as the AI trade slumps and rate hikes loom.",
+          "points": [
+            "The Nasdaq 100 briefly entered a bear market on Wednesday, and a measure of underlying inflation hit its highest since 2023, pushing the dollar near its strongest since April 2025.",
+            "Traders fully price a 25 basis point Fed hike next month and two more by mid-2027; some officials want a larger move.",
+            "Goldman Sachs calls the dollar the haven of choice. Some strategists expect gains into 2027, though longer-dated options show weaker conviction."
+          ],
+          "key_stat": "+1.8% in November"
+        },
+        {
+          "id": "global-economics-543cf37bbb",
+          "headline": "Musk pledges two SpaceX shares for every US child, worth about $18 billion",
+          "hook": "Elon Musk pledged two SpaceX shares for every US child, one from the company and one from him, valued at about $17.8 billion at Wednesday's $127.44 close.",
+          "points": [
+            "SpaceX will give one new Class A share to each active Trump Account (child investment account) in December; Musk's matching share transfers in June 2027 when his lockup ends. He says he will give another each year.",
+            "The value assumes 70 million accounts; parents must activate accounts to receive shares, and it is unclear how many are active.",
+            "It came hours after the FCC approved up to one million SpaceX orbital data centre satellites, which the American Astronomical Society opposes.",
+            "Analysts say it builds a broad retail shareholder base as tech faces scrutiny. Anthropic committed 5% of its shares, around $54 billion, to a public-good fund."
+          ],
+          "key_stat": "~$18B · 2 shares per child"
+        }
+      ],
+      "also": [
+        {
+          "id": "world-b158ddd83f",
+          "line": "Spain's Pablo Hernández de Cos, 55, was chosen as the next ECB president over Klaas Knot, succeeding Christine Lagarde, who steps down in February 2027."
+        }
+      ]
+    },
+    {
+      "slug": "india",
+      "stories": [
+        {
+          "id": "india-8bb137a6ee",
+          "headline": "How the proposed US tariffs on India compare with rivals",
+          "hook": "The proposed 17% US tariff on India, contingent on a trade deal, is slightly below rates planned for key competitors: 18% for Bangladesh, Cambodia and Indonesia and 20% for Vietnam and China.",
+          "points": [
+            "The 17% is a notch below the 18% agreed in a February framework, before the Supreme Court struck down Trump's emergency-powers tariffs, leaving a 10% baseline. China's 20% would rise to 40% if the truce expiring January 10 unravels.",
+            "The US cites inadequate labour protections, financial repression, market access barriers and excess capacity. India says it has no structural excess capacity.",
+            "India's goods exports to the US rose 14.5% to $59.5 billion in April to October. Generic pharmaceuticals and smartphones are outside the current 10% levy.",
+            "Talks began in February 2025 without a deal. A new US law allows up to 100% tariffs over Russian oil purchases, which have declined recently."
+          ],
+          "key_stat": "17% with deal · 25% without"
+        },
+        {
+          "id": "agritech-b5469092b5",
+          "headline": "India's July-September GDP growth seen easing to 7.6%",
+          "hook": "A Mint poll of 14 economists gives a median 7.6% growth for July to September, down from 7.8% in April to June and 8.1% a year earlier; data is due on 30 November.",
+          "points": [
+            "Forecasts range from 7.2% to 8%. Growth would stay above 7% for a fifth straight quarter.",
+            "Monsoon rain was about 13% below the long-period average. Icra expects agricultural value added growth of just 0.2%.",
+            "Manufacturing output rose 8.1% year on year, and strong credit growth and auto sales cushioned the slowdown.",
+            "Economists expect growth to moderate in the second half on farm stress, weaker rural demand and rising input costs."
+          ],
+          "key_stat": "7.6% · median forecast"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "world",
+      "stories": [
+        {
+          "id": "deep-tech-8fa173ffb0",
+          "headline": "Two Italians killed in drone attack in Kuwait",
+          "hook": "Two Italian Rheinmetall technicians working on an air defence system were killed in a drone attack in Kuwait, the first fatal strike in the Gulf state for months.",
+          "points": [
+            "Italy and Kuwait blame Iran; Foreign Minister Araghchi denies any role and offers a joint probe, and Iran's military blames false-flag operations by Israel and the US without evidence.",
+            "Iran has stepped up attacks on Kuwait and Bahrain in the past week while it contests the Strait of Hormuz with the US.",
+            "In Yemen, the Houthis struck a refinery in Saudi Arabia's Jazan, killing one; Saudi-Houthi exchanges are near-daily.",
+            "The EU's von der Leyen called for more pressure on Tehran."
+          ],
+          "key_stat": "2 killed · first in months"
+        },
+        {
+          "id": "agritech-5393fbe2e8",
+          "headline": "Ukraine says Russia hit two grain ships near Odesa",
+          "hook": "Russia attacked two foreign cargo ships carrying over 100,000 tonnes of grain near Odesa overnight, Ukraine's prime minister said; Russia says it does not attack civilian targets.",
+          "points": [
+            "Grain shipments from Odesa ports have all but stopped since late July after intensified attacks and soaring insurance costs; the three ports handled about 90% of agricultural and metallurgical exports.",
+            "Ukraine has exported 7.6 million tons of grain this season, down from 11.5 million tons a year earlier.",
+            "Exports are being redirected to Danube ports and by rail to eastern European borders."
+          ],
+          "key_stat": "7.6 Mt vs 11.5 Mt"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "agritech",
+      "stories": [
+        {
+          "id": "agritech-5a5d12cbf7",
+          "headline": "Kharif output dips on weak monsoon but stays above five-year average",
+          "hook": "India's first advance estimate puts 2026-27 kharif foodgrain output at 167 million tonnes, 5% below last year's final but about 9.8 MT above the five-year average.",
+          "points": [
+            "Paddy, maize, pulses and oilseeds are expected to fall. El Niño-driven low soil moisture hurt sowing in Maharashtra, Karnataka, Telangana and Andhra Pradesh.",
+            "The agriculture minister called these very preliminary estimates, subject to change.",
+            "For 2025-26, final estimates show a record 378 MT of foodgrains, up about 5.8%."
+          ],
+          "key_stat": "167 MT · -5% YoY"
+        },
+        {
+          "id": "agritech-f0aa9ed1db",
+          "headline": "India's ₹54,000 crore bet on domestic urea after the Gulf war",
+          "hook": "India approved six gas-based urea projects worth ₹54,000 crore on November 25, adding 76.2 lakh tonnes of annual capacity against annual consumption of about 400 lakh tonnes.",
+          "points": [
+            "Domestic production was 293.30 lakh tonnes in 2025-26, up from 225 lakh in 2014-15. The Gulf war disrupted West Asian fertiliser and gas supplies and raised subsidy costs.",
+            "The projects are at Chennai, Nangal, Shahjahanpur, Panagarh, Gadepan and Jagdishpur, each at 12.7 lakh tonnes, with a 12-16% return-on-equity band.",
+            "Some projects replace old plants, so net added capacity will be smaller.",
+            "Urea plants use imported LNG, so import dependence partly shifts to energy, and subsidised pricing encourages overuse."
+          ],
+          "key_stat": "₹54,000 cr · 76.2 lakh t"
+        }
+      ],
+      "also": []
+    },
+    {
+      "slug": "work-careers",
+      "stories": [
+        {
+          "id": "work-careers-4fc36af988",
+          "headline": "IBM ends US visa sponsorship in consulting, pushing staff to India",
+          "hook": "IBM is ending US visa and green card sponsorship for most IBM Consulting roles, giving affected staff about three weeks to relocate abroad or leave by December 31.",
+          "points": [
+            "Consulting employs over 150,000 people. Those who decline get three months' severance. One employee on Blind said relocating to India could mean an 80% pay cut.",
+            "IBM's careers portal listed 1,278 consulting vacancies outside the US on November 19, of which 1,125 were in India, against 89 in the US.",
+            "IBM had just over 1,600 approved H-1B petitions in FY2026, from more than 2,000 in FY2025 and nearly 3,000 in FY2024.",
+            "Last month the administration suspended Microsoft, Adobe, Cognizant, Infosys and TCS from the green card PERM process; Indians hold roughly three-quarters of H-1B visas."
+          ],
+          "key_stat": "1,125 of 1,278 roles in India",
+          "evidence_of": "AI-linked restructuring is spreading from tech into banks and software",
+          "force": "capital"
+        }
+      ],
+      "also": [
+        {
+          "id": "work-careers-c53d4d3123",
+          "line": "IT companies absorbed nearly 9,000 employees through global capability centre buyouts (source unreachable — headline only)."
+        }
+      ]
+    },
+    {
+      "slug": "indian-startups",
+      "stories": [],
+      "also": [
+        {
+          "id": "indian-startups-4e467a9dbb",
+          "line": "Namma Yatri's operating revenue grew 89.4% year on year in FY26 to Rs 37.5 crore while losses narrowed nearly 15%, in a market led by Uber, Rapido and Ola."
+        },
+        {
+          "id": "indian-startups-48b6d15db6",
+          "line": "Credit-on-UPI startup Kiwi spent Rs 105 crore on ads but earned only Rs 16 crore in operating revenue in FY26, showing monetisation remains hard."
+        }
+      ]
+    },
+    {
+      "slug": "science-mind",
+      "stories": [
+        {
+          "id": "science-mind-5e99dc763a",
+          "headline": "Nearby galaxies have less central dark matter than simulations predict",
+          "hook": "A Nature study of 136 nearby galaxies finds central regions with lower dark matter density than Λ cold dark matter simulations expect.",
+          "points": [
+            "The low-density zone grows from about 10 kpc to over 50 kpc as stellar mass rises from 10^10 to 10^11 solar masses.",
+            "Simulations that use baryonic feedback to fix dwarf galaxy cores also over-concentrate dark matter in massive galaxies' centres.",
+            "The origin of the effect is unclear. The authors offer the measurements as a benchmark for future simulations testing alternative dark matter models and feedback."
+          ],
+          "key_stat": "136 galaxies"
+        }
+      ],
+      "also": [
+        {
+          "id": "science-mind-6d2462b270",
+          "line": "Two giant deer bones from Ballynamintra Cave, Ireland, carry possible butchery marks; one is about 13,500 years old. Humans in Ireland that early is unproven, but the cave merits more digging."
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opportunities-c2cbbabfc1",
+      "name": "AIM Safety Fellowship 2027 (Seoul)",
+      "when": "Apply by Dec 18, 2026; starts Feb 1, 2027",
+      "summary": "Three-month AI safety research fellowship with weekly mentorship across four tracks, aiming at a paper. Remote participation possible; stipend not stated."
+    },
+    {
+      "id": "opportunities-81d68ebeec",
+      "name": "Zoom In On Booth (Chicago Booth MBA session)",
+      "when": "Wed 2 Dec, 12:00-1:00 PM CST",
+      "summary": "Online info session on Chicago Booth's Full-Time MBA with program overview and breakout Q&A. Online/global."
+    },
+    {
+      "id": "opportunities-2edad21721",
+      "name": "From Prompt To 3D hands-on meetup",
+      "when": "Sat 5 Dec",
+      "summary": "Hands-on meetup on turning text prompts into 3D assets with Tripo AI; no 3D experience needed. New Delhi."
+    }
+  ]
+}
